@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="vDkpHy24H6BLEEyWHWST" name="Page-1">
-        <mxGraphModel dx="1631" dy="1402" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="944" dy="812" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -20,7 +20,7 @@
                     <mxGeometry x="640" y="560" width="160" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="u42_QQyzw5wVbMvCu_jc-10" value="&lt;font style=&quot;font-size: 18px&quot;&gt;Motorcontroller&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;" parent="1" vertex="1">
-                    <mxGeometry x="1240" y="805" width="160" height="80" as="geometry"/>
+                    <mxGeometry x="1240" y="800" width="160" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="u42_QQyzw5wVbMvCu_jc-11" value="&lt;font style=&quot;font-size: 18px&quot;&gt;FPGA&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;" parent="1" vertex="1">
                     <mxGeometry x="1240" y="682.5" width="160" height="80" as="geometry"/>
@@ -56,7 +56,7 @@
                     <mxGeometry x="640" y="920" width="160" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="u42_QQyzw5wVbMvCu_jc-31" value="&lt;font style=&quot;font-size: 18px&quot;&gt;Motor&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;" parent="1" vertex="1">
-                    <mxGeometry x="1480" y="805" width="160" height="80" as="geometry"/>
+                    <mxGeometry x="1480" y="800" width="160" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="u42_QQyzw5wVbMvCu_jc-40">
                     <mxGeometry relative="1" as="geometry">
@@ -69,7 +69,7 @@
                         <mxPoint x="680" y="377.5" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="u42_QQyzw5wVbMvCu_jc-44" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.997;exitY=0.723;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Comic Sans MS;" parent="1" source="u42_QQyzw5wVbMvCu_jc-5" target="u42_QQyzw5wVbMvCu_jc-10" edge="1">
+                <mxCell id="u42_QQyzw5wVbMvCu_jc-44" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1.008;exitY=0.715;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Comic Sans MS;" parent="1" source="u42_QQyzw5wVbMvCu_jc-5" target="u42_QQyzw5wVbMvCu_jc-10" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="1170" y="845.5" as="sourcePoint"/>
                         <mxPoint x="1250" y="732.5" as="targetPoint"/>
@@ -171,8 +171,26 @@
                         <mxPoint x="160" y="580.24" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="26" value="optional" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#B3B3B3;fillColor=none;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+                <mxCell id="26" value="optional" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Comic Sans MS;" vertex="1" parent="1">
                     <mxGeometry x="295" y="570" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Comic Sans MS;" edge="1" target="28" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1400" y="720" as="sourcePoint"/>
+                        <mxPoint x="680" y="252.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="&lt;font style=&quot;font-size: 18px&quot;&gt;Motor&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+                    <mxGeometry x="1480" y="680" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="&lt;font style=&quot;font-size: 18px&quot;&gt;Motor&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+                    <mxGeometry x="1480" y="920" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Comic Sans MS;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1400" y="959.47" as="sourcePoint"/>
+                        <mxPoint x="1480" y="959.47" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
