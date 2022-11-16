@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="vDkpHy24H6BLEEyWHWST" name="Page-1">
-        <mxGraphModel dx="1008" dy="636" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="695" dy="439" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -229,7 +229,7 @@
                 <mxCell id="138" value="Init&lt;br&gt;Connect_to_webserver" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="160" y="1440" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="232" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="139" target="151">
+                <mxCell id="232" value="" style="edgeStyle=none;html=1;" parent="1" source="139" target="151" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="139" value="check_data_webserver" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -243,7 +243,7 @@
                         <mxPoint x="680" y="1480" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="234" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="144" target="155">
+                <mxCell id="234" value="" style="edgeStyle=none;html=1;" parent="1" source="144" target="155" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="144" value="check_buton_pressed" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -329,7 +329,7 @@
                         <mxPoint x="920" y="1880" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="235" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="177" target="182">
+                <mxCell id="235" value="" style="edgeStyle=none;html=1;" parent="1" source="177" target="182" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="177" value="Check_new_data_esp32" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -380,8 +380,12 @@
                 <mxCell id="214" value="Init&lt;br&gt;Connect_to_webserver" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="160" y="1840" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="215" value="Si" style="edgeStyle=none;html=1;" parent="1" source="217" target="219" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="215" value="" style="edgeStyle=none;html=1;" parent="1" source="217" target="219" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="340" y="1940"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="217" value="check_data_webserver" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="160" y="1920" width="160" height="40" as="geometry"/>
@@ -440,7 +444,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="229" value="Beagle Bone" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="229" value="Beagle Bone" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="240" y="200" width="120" height="80" as="geometry"/>
                 </mxCell>
             </root>
