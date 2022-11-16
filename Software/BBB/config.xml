@@ -1,5 +1,5 @@
 <header>
-    <name>BeagleBone Black</name>
+    <name> beaglebone-black</name>
     <version>1.0</version
     <author>BeagleBoard.org</author>
     <description>BeagleBone Black</description>
