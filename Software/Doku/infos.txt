@@ -1,0 +1,12 @@
+ip:
+192.168.7.2
+user:
+debian
+pw:
+temppwd
+login_ssh:
+ssh debian@192.168.7.2
+
+infos:
+http://192.168.7.2/bone101/Support/bone101/
+
