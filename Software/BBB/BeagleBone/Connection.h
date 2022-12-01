@@ -28,10 +28,9 @@ public:
 signals:
     void NewData(QString data);
     void AddToLogAlarm(const QString& NewDataLogIn, int LogState);
-    void SendDataMotorPC(QString value, bool motor);
-    void SendDataCamPC(QString value, bool pantilt);
-    void SendDataCamTimer(QString value);
-    void SendDataM5(QString txt);
+    void SendDataFpga(QString dataName, QString value);
+    void SendDataEspPlatform(QString dataName,QString value);
+    void SendDataEspAbajo(QString dataName,QString value);
 
 
 public slots:

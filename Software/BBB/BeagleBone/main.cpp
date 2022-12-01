@@ -2,6 +2,7 @@
 
 #include "Log.h"
 #include "Utility.h"
+#include "Connection.h"
 
 int main(int argc, char *argv[])
 {
@@ -9,9 +10,34 @@ int main(int argc, char *argv[])
 
     Log logger;
     Utility util;
+    Connection connector;
+
+    //Esp EspAbajo;
+    //Esp EspPlatform
+    //Fpga myFpga;
+    //Motor myMotor;
+    //Gui myGui;
 
 
+    // Fpga
+    // QObject::connect(&connector, SIGNAL(SendDatatoFpga(QString, float)),&myFpga,SLOT(OnDataReceived(QString, float)));
+    // QObject::connect(&myFpga, SIGNAL(AddToLog(QString)),&logger,SLOT(OnAddToLog(QString)));
 
+    //EspAbajo
+    //QObject::connect(&connector, SIGNAL(SendDataEspAbajo(QString, float)),&EspAbajo,SLOT(OnDataReceived(QString, float)));
+    // QObject::connect(&EspAbajo, SIGNAL(AddToLog(QString)),&logger,SLOT(OnAddToLog(QString)));
+
+
+    //EspPlatform
+    //QObject::connect(&connector, SIGNAL(SendDataEspPlatform(QString, float)),&EspPlatform,SLOT(OnDataReceived(QString, float)));
+    // QObject::connect(&EspPlatform, SIGNAL(AddToLog(QString)),&logger,SLOT(OnAddToLog(QString)));
+
+    //Motor
+    //QObject::connect(&connector,SIGNAL(SendDataMotor(QString, float)),&myMotor,SLOT(OnDataReceived(QString, float)));
+    // QObject::connect(&myMotor, SIGNAL(AddToLog(QString)),&logger,SLOT(OnAddToLog(QString)));
+
+    //Gui
+    //issue #9
 
 
     return a.exec();
