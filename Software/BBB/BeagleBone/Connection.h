@@ -28,10 +28,10 @@ public:
 signals:
     void NewData(QString data);
     void AddToLogAlarm(const QString& NewDataLogIn, int LogState);
+    void SendDataMotor(QString dataName,QString value);
     void SendDataFpga(QString dataName, QString value);
     void SendDataEspPlatform(QString dataName,QString value);
     void SendDataEspAbajo(QString dataName,QString value);
-
 
 public slots:
     void OnConnectionRequest();

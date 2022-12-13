@@ -11,8 +11,11 @@ int main(int argc, char *argv[])
     Log logger;
     Utility util;
     Connection connector;
-    // git test 
-    // weiter arbeiten
+
+
+    QString xml_data;
+
+    xml_data = util.ReadXmlFile();
 
     //Esp EspAbajo;
     //Esp EspPlatform

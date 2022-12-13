@@ -14,11 +14,12 @@ class Utility
 {    
 private:
     QString xml_file_path;
+    //QString xml_data;
 
 public:
     Utility();
 
-    void set_xml_path(QString path);
+    void SetXmlPath(QString path);
 
     // Get_XML
     int GetXmlInt(const QString& textXml,const QString& tag);
@@ -35,16 +36,18 @@ public:
 
 
     // XML_File
-    QString ReadXml();
-    QString ReadXml(QString xml_path);
-    int WriteXml(QString xml_msg);
-    int WriteXml(QString xml_msg, QString xml_path); // return 1 wenn all good
-    int AppenedToXml(QString xml_msg);
-    int AppenedToXml(QString xml_msg,QString xml_path);
+    QString ReadXmlFile();
+    QString ReadXmlFile(QString xml_path);
+    int WriteXmlFile(QString xml_msg);
+    int WriteXmlFile(QString xml_msg, QString xml_path); // return 1 wenn all good
+    int AppenedToXmlFile(QString xml_msg);
+    int AppenedToXmlFile(QString xml_msg,QString xml_path);
+
+    QString RemoveXmlData(QString xml_data, QString xml_tag);
 
     // Log_File // reserve
-    void Log_text_string(QString text1, QString path);
-    void Log_text_stream(QTextStream text1, QString path);
+    void LogTextString(QString text1, QString path);
+    void LogTextStream(QTextStream text1, QString path);
 
 };
 

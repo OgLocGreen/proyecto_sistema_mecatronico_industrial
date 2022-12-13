@@ -32,17 +32,32 @@ void Connection::OnDataReceived()
     QString msg= recvmsg; // issue #1
 
     while (msg!="0"){    //Read all Tags
+        if(util.GetXmlTag(msg) == "fpga") //issue #2 write this for all xml_msg;
+        {
+               QString data = util.GetXmlStr(msg,"fpga");
+               if(util.GetXmlTag(data) == "motor_speed_platform")
+                   int a = 0;
+                    //emit send_data_fpga("motor_speed_platform", util.GetXmlInt(data,"motor_speed_platform"));
+               else if(util.GetXmlTag(data) == "motor_speed_cam")
 
-    if(util.GetXmlTag(msg) == "fpga") //issue #2 write this for all xml_msg;
-    {
-           QString data = util.GetXmlStr(msg,"fpga");
-           if(util.GetXmlTag(data) == "motor_speed_platform")
-               int a = 0;
-                //emit send_data_fpga("motor_speed_platform", util.GetXmlInt(data,"motor_speed_platform"));
-    }
+        }
+        else if(util.GetXmlTag(msg) == "esp32_top") //issue #2 write this for all xml_msg;
+        {
+               QString data = util.GetXmlStr(msg,"fpga");
+               if(util.GetXmlTag(data) == "motor_speed_platform")
+                   int a = 0;
+                    //emit send_data_fpga("motor_speed_platform", util.GetXmlInt(data,"motor_speed_platform"));
+        }
+        else if(util.GetXmlTag(msg) == "esp32_top") //issue #2 write this for all xml_msg;
+        {
+               QString data = util.GetXmlStr(msg,"fpga");
+               if(util.GetXmlTag(data) == "motor_speed_platform")
+                   int a = 0;
+                    //emit send_data_fpga("motor_speed_platform", util.GetXmlInt(data,"motor_speed_platform"));
+        }
 
     // issue #1 remove the last read Tag
-}
+    }
 }
 
 void Connection::OnDisconnected()
