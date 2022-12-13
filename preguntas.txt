@@ -1,4 +1,0 @@
-Valocidad de la Comunicacion ?
-como connectar a dos o tres Servers?
-usabas este QWebview? https://wiki.qt.io/Open_Web_Page_in_QWebView
-Es possible para mostrar la Video de ESP32-CAm en el QWebview? porque este es un Asyncrono Websocket Video...

@@ -1,0 +1,34 @@
+<motor_drive>
+    <motor_speed_left>0</motor_speed_left>
+    <motor_speed_right>0</motor_speed_right>
+</motor_drive>
+<esp32_platform>
+    <ip>x.x.x.x.x</ip>
+    <port>90</port>
+    <video>true</video>
+    <video_quality>760</video_quality>
+    <pulsar>true</pulsar>
+</esp32_platform>
+<esp32_rover>
+    <ip>x.x.x.x.x</ip>
+    <port>90</port>
+    <video>true</video>
+    <video_quality>760</video_quality>
+</esp32_rover>
+<fpga>
+    <motor_speed_cam>50</motor_speed_cam>
+    <motor_speed_platform>80</motor_speed_platform>
+</fpga>
+<beaglebone>
+    <temperatur>50</temperatur>
+    <battery>0</battery>
+    <led_light>10</led_light>
+    <ventilator>0</ventilator>
+    <speaker>0</speaker>
+    <0_pos_low>true</0_pos_low>
+    <x_pos_momento>0</x_pos_momento>
+    <y_pos_momento>0</y_pos_momento>
+    <ultrasound_right>10</ultrasound_right>
+    <ultrasound_left>10</ultrasound_left>
+    <room_light>true</room_light>
+</beaglebone>

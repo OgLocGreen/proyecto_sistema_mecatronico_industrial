@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="2">
     <diagram id="nwH1zk-VSpNsyaRbcgjk" name="Página-1">
-        <mxGraphModel dx="1008" dy="1036" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="829" dy="1307" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -224,7 +224,7 @@
                 <mxCell id="19" value="USB-Hub" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="790" y="150" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="Temperatura" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="21" value="Termpertur" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="140" y="150" width="90" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="26" value="int temperatura&lt;br&gt;analog" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="21" edge="1">
@@ -270,12 +270,12 @@
                         <mxPoint x="294.5" y="200" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1khyDEvlve2WPey4KKvf-33" value="&amp;nbsp;int light&lt;br&gt;analog" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1khyDEvlve2WPey4KKvf-32" vertex="1" connectable="0">
+                <mxCell id="1khyDEvlve2WPey4KKvf-33" value="&amp;nbsp;int battry&lt;br&gt;analog" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1khyDEvlve2WPey4KKvf-32" vertex="1" connectable="0">
                     <mxGeometry x="-0.4036" y="-1" relative="1" as="geometry">
                         <mxPoint x="-1" y="-15" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1khyDEvlve2WPey4KKvf-34" value="Batteria" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="1khyDEvlve2WPey4KKvf-34" value="Battery" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="250" y="150" width="90" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="1khyDEvlve2WPey4KKvf-35" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=5;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" edge="1">
@@ -293,7 +293,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1khyDEvlve2WPey4KKvf-39" value="Sensor Pos 0" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="760" y="300" width="90" height="50" as="geometry"/>
+                    <mxGeometry x="760" y="287.5" width="90" height="50" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
