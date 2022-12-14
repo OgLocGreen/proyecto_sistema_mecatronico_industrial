@@ -29,7 +29,70 @@ void Connection::OnDataReceived()
     QString recvmsg=recv;
     qDebug() << "Data " << recvmsg;
 
-    QString msg= recvmsg; // issue #1
+
+    QXmlStreamReader xmlReader(recvmsg);
+    while (!xmlReader.atEnd() && !xmlReader.hasError())
+    {
+        xmlReader.readNext();
+
+        if (xmlReader.name() == "motor_drive")
+        {
+            QString child_msg = xmlReader.readElementText();
+            qDebug() << "motor_drive: " <<child_msg;
+            QXmlStreamReader xmlReaderChild(child_msg);
+            while (!xmlReaderChild.atEnd() && !xmlReaderChild.hasError())
+            {
+                // Read Data
+                 xmlReaderChild.readNext();
+                 if (xmlReaderChild.name() == "motor_speed_left")
+                 {
+                     emit SendDataMotor("motor_speed_left",xmlReader.readElementText());
+                 }
+                 if (xmlReaderChild.name() == "motor_speed_right")
+                 {
+                    emit SendDataMotor("motor_speed_right",xmlReader.readElementText());
+                 }
+            }
+            continue;
+        }
+
+        if (xmlReader.name() == "esp32_top")
+        {
+            QString child_msg = xmlReader.readElementText();
+            qDebug() << "motor_drive: " <<child_msg;
+            QXmlStreamReader xmlReader(child_msg);
+            continue;
+        }
+
+        if (xmlReader.name() == "esp32_front")
+        {
+            QString child_msg = xmlReader.readElementText();
+            qDebug() << "motor_drive: " <<child_msg;
+            QXmlStreamReader xmlReader(child_msg);
+            continue;
+        }
+
+        if (xmlReader.name() == "fpga")
+        {
+            QString child_msg = xmlReader.readElementText();
+            qDebug() << "motor_drive: " <<child_msg;
+            QXmlStreamReader xmlReader(child_msg);
+            continue;
+        }
+
+        if (xmlReader.name() == "beaglebone")
+        {
+            QString child_msg = xmlReader.readElementText();
+            qDebug() << "motor_drive: " <<child_msg;
+            QXmlStreamReader xmlReader(child_msg);
+            continue;
+        }
+    }
+}
+
+/*
+
+    QString msg= recvmsg;
 
     while (msg!="0"){    //Read all Tags
         if(util.GetXmlTag(msg) == "fpga") //issue #2 write this for all xml_msg;
@@ -38,27 +101,10 @@ void Connection::OnDataReceived()
                if(util.GetXmlTag(data) == "motor_speed_platform")
                    int a = 0;
                     //emit send_data_fpga("motor_speed_platform", util.GetXmlInt(data,"motor_speed_platform"));
-               else if(util.GetXmlTag(data) == "motor_speed_cam")
 
-        }
-        else if(util.GetXmlTag(msg) == "esp32_top") //issue #2 write this for all xml_msg;
-        {
-               QString data = util.GetXmlStr(msg,"fpga");
-               if(util.GetXmlTag(data) == "motor_speed_platform")
-                   int a = 0;
-                    //emit send_data_fpga("motor_speed_platform", util.GetXmlInt(data,"motor_speed_platform"));
-        }
-        else if(util.GetXmlTag(msg) == "esp32_top") //issue #2 write this for all xml_msg;
-        {
-               QString data = util.GetXmlStr(msg,"fpga");
-               if(util.GetXmlTag(data) == "motor_speed_platform")
-                   int a = 0;
-                    //emit send_data_fpga("motor_speed_platform", util.GetXmlInt(data,"motor_speed_platform"));
-        }
-
-    // issue #1 remove the last read Tag
     }
 }
+*/
 
 void Connection::OnDisconnected()
 {

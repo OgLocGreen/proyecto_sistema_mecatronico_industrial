@@ -11,7 +11,6 @@ void Utility::SetXmlPath(QString path)
     xml_file_path = path;
 }
 
-
 QString Utility::XmlCreateTag(const QString &text, bool is_start_tag)
 {
     QString ret;
@@ -42,9 +41,6 @@ QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml)
 
     return ret;
 }
-
-
-
 
 float Utility::GetXmlFloat(const QString& textXml,const QString& tag)
 {

@@ -43,6 +43,7 @@ public:
     int AppenedToXmlFile(QString xml_msg);
     int AppenedToXmlFile(QString xml_msg,QString xml_path);
 
+
     QString RemoveXmlData(QString xml_data, QString xml_tag);
 
     // Log_File // reserve

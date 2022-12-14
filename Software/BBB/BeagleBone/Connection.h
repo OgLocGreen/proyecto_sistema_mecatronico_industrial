@@ -6,8 +6,10 @@
 #include <QTcpServer>
 #include <QTimer>
 #include <QThread>
+#include <QXmlStreamReader>
 
 #include <Utility.h>
+
 
 class Connection : public QObject
 {
