@@ -1,7 +1,19 @@
 Questions:
+1. Para la Tarea de GUI hay alguna descripción mas detallada? Qué debo hacer la applicación para obtener la maxima puntuacion? 
+2. Lo mismo para la Ultima Tarea con Fernando.
+3.  Sobre los exámenes, no sé como funciona aquí en UniOvi. 
+y no tengo una idea qué preguntas o tipo de preguntas puede haber. 
+Hay agunas examen de años antes? O podrías cargar algunas tareas como ejemplo?
+
+
+Proyecto
 1. Show new Programm Flow with events
 2. How is the Best way to read XML with diffrent levels of depnes of the XML
 2.1 maybe its better to use QDomDocument or QStreamReader?
 3. Ask how to use the Classes like Utility in every other class
 4. Where is the best place for the QString XML_Data (just in the main as a Var or in Utility as a private Variable)
 5. Ask Again with Webhost and Webserver
+
+
+
+

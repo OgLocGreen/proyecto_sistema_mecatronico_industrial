@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="vDkpHy24H6BLEEyWHWST" name="Page-1">
-        <mxGraphModel dx="1126" dy="964" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1289" dy="771" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -862,25 +862,25 @@
                 <mxCell id="430" value="Hier Webhost ist besser&lt;br&gt;dauerhafte Verbindung ist besser&lt;br&gt;Kein handshake Nötig&lt;br&gt;einfaches Senden von neuen Daten&lt;br&gt;vlt auch schneller&amp;nbsp;&lt;br&gt;und einer für MSG erstellen und Senden" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="980" y="230" width="230" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="432" value="Send Data Motor" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="432" value="Send Data Motor" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="875" y="1040" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="433" value="Send Data FPGA" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="433" value="Send Data FPGA" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="875" y="1090" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="434" value="Send Data Esp Abajo" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="434" value="Send Data Esp Abajo" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="875" y="1190" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="435" value="Send Data Esp Platform" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="435" value="Send Data Esp Platform" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="875" y="1140" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="437" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="307" target="432">
+                <mxCell id="437" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="307" target="432" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="825" y="1180" as="sourcePoint"/>
                         <mxPoint x="875" y="1130" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="438" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="433">
+                <mxCell id="438" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="433" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="855" y="1060" as="sourcePoint"/>
                         <mxPoint x="885" y="1070" as="targetPoint"/>
@@ -889,7 +889,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="439" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="439" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="855" y="1070" as="sourcePoint"/>
                         <mxPoint x="875" y="1160" as="targetPoint"/>
@@ -898,7 +898,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="440" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="440" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="855" y="1120" as="sourcePoint"/>
                         <mxPoint x="875" y="1210" as="targetPoint"/>
@@ -907,7 +907,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="441" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="254" target="300">
+                <mxCell id="441" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="254" target="300" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="439.9999999999998" y="960" as="sourcePoint"/>
                         <mxPoint x="480.0000000000002" y="960" as="targetPoint"/>
@@ -916,6 +916,9 @@
                             <mxPoint x="555" y="1010"/>
                         </Array>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="442" value="not more then 20 sec for sec&lt;br&gt;&lt;br&gt;but not to less that you can see it&lt;br&gt;-&amp;gt; xml file that we can change" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="85" y="1060" width="190" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

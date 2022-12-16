@@ -30,10 +30,11 @@ public:
 signals:
     void NewData(QString data);
     void AddToLogAlarm(const QString& NewDataLogIn, int LogState);
-    void SendDataMotor(QString dataName,QString value);
-    void SendDataFpga(QString dataName, QString value);
-    void SendDataEspPlatform(QString dataName,QString value);
-    void SendDataEspAbajo(QString dataName,QString value);
+    void SendDataMotor(QString dataName,QString value);     // issue #18
+    void SendDataFpga(QString dataName, QString value);     // issue #19
+    void SendDataEspTop(QString dataName,QString value);        // issue #20
+    void SendDataEspFront(QString dataName,QString value);      // issue #21
+    void Boardcast(QString dataName,QString XmlData);   // issue #17
 
 public slots:
     void OnConnectionRequest();

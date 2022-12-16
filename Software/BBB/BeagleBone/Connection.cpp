@@ -30,88 +30,81 @@ void Connection::OnDataReceived()
     qDebug() << "Data " << recvmsg;
 
 
-    QXmlStreamReader xmlReader(recvmsg);
-    while (!xmlReader.atEnd() && !xmlReader.hasError())
+    if(recvmsg.contains("motor_driver", Qt::CaseInsensitive))
     {
-        xmlReader.readNext();
-
-        if (xmlReader.name() == "motor_drive")
+        QString moterDriver = util.GetXmlStr(recvmsg, "motor_driver");
+        if(moterDriver.contains("motor_speed_left"))
         {
-            QString child_msg = xmlReader.readElementText();
-            qDebug() << "motor_drive: " <<child_msg;
-            QXmlStreamReader xmlReaderChild(child_msg);
-            while (!xmlReaderChild.atEnd() && !xmlReaderChild.hasError())
-            {
-                // Read Data
-                 xmlReaderChild.readNext();
-                 if (xmlReaderChild.name() == "motor_speed_left")
-                 {
-                     emit SendDataMotor("motor_speed_left",xmlReader.readElementText());
-                 }
-                 if (xmlReaderChild.name() == "motor_speed_right")
-                 {
-                    emit SendDataMotor("motor_speed_right",xmlReader.readElementText());
-                 }
-            }
-            continue;
+            QString motor_speed_left = util.GetXmlStr(moterDriver, "motor_speed_left");
+            qDebug() << "motor_speed_left: " << motor_speed_left;
+            emit SendDataMotor("motor_speed_left", motor_speed_left);
+            // emit SaveData(); //issue #22
         }
-
-        if (xmlReader.name() == "esp32_top")
+        if(moterDriver.contains("motor_speed_right"))
         {
-            QString child_msg = xmlReader.readElementText();
-            qDebug() << "motor_drive: " <<child_msg;
-            QXmlStreamReader xmlReader(child_msg);
-            continue;
-        }
-
-        if (xmlReader.name() == "esp32_front")
-        {
-            QString child_msg = xmlReader.readElementText();
-            qDebug() << "motor_drive: " <<child_msg;
-            QXmlStreamReader xmlReader(child_msg);
-            continue;
-        }
-
-        if (xmlReader.name() == "fpga")
-        {
-            QString child_msg = xmlReader.readElementText();
-            qDebug() << "motor_drive: " <<child_msg;
-            QXmlStreamReader xmlReader(child_msg);
-            continue;
-        }
-
-        if (xmlReader.name() == "beaglebone")
-        {
-            QString child_msg = xmlReader.readElementText();
-            qDebug() << "motor_drive: " <<child_msg;
-            QXmlStreamReader xmlReader(child_msg);
-            continue;
+            QString motor_speed_right = util.GetXmlStr(moterDriver, "motor_speed_right");
+            qDebug() << "motor_speed_right: " << motor_speed_right;
+            emit SendDataMotor("motor_speed_right", motor_speed_right);
+            // emit SaveData(); //issue #22
         }
     }
-}
-
-/*
-
-    QString msg= recvmsg;
-
-    while (msg!="0"){    //Read all Tags
-        if(util.GetXmlTag(msg) == "fpga") //issue #2 write this for all xml_msg;
+    if(recvmsg.contains("esp_top", Qt::CaseInsensitive))
+    {
+        QString esp_top = util.GetXmlStr(recvmsg, "esp_top");
+        if(esp_top.contains("pulsar"))
         {
-               QString data = util.GetXmlStr(msg,"fpga");
-               if(util.GetXmlTag(data) == "motor_speed_platform")
-                   int a = 0;
-                    //emit send_data_fpga("motor_speed_platform", util.GetXmlInt(data,"motor_speed_platform"));
-
+            QString pulsar = util.GetXmlStr(esp_top, "pulsar");
+            qDebug() << "pulsar: " << pulsar;
+            emit SendDataEspTop("pulsar", pulsar);
+        }
+        // For each diffrent part here like that here
     }
+
+    if(recvmsg.contains("esp_front", Qt::CaseInsensitive))
+    {
+        QString esp_top = util.GetXmlStr(recvmsg, "esp_front");
+        if(esp_top.contains("XXX"))
+        {
+            QString XXX = util.GetXmlStr(esp_top, "XXX");
+            qDebug() << "XXX: " << XXX;
+            emit SendDataEspFront("XXX", XXX);
+        }
+        // More Funckitons like that here
+    }
+
+    if(recvmsg.contains("fpga", Qt::CaseInsensitive))
+    {
+        QString fpga = util.GetXmlStr(recvmsg, "fpga");
+        if(fpga.contains("motor_speed_platform"))
+        {
+            QString motor_speed_platform = util.GetXmlStr(fpga, "motor_speed_platform");
+            qDebug() << "motor_speed_platform: " << motor_speed_platform;
+             emit SendDataFpga("motor_speed_platform", motor_speed_platform);
+        }
+        // More Funckitons like that here
+    }
+
+    if(recvmsg.contains("beaglebone", Qt::CaseInsensitive))
+    {
+        QString beaglebone = util.GetXmlStr(recvmsg, "beaglebone");
+        if(beaglebone.contains("temperatur"))
+        {
+            QString temperatur = util.GetXmlStr(beaglebone,"temperatur");
+            qDebug() << "temperatur: " << temperatur;
+            // Hier noch ein Event für DataMsg für BBB;
+
+        }
+        // More Funckitons like that here
+    }
+
+
 }
-*/
 
 void Connection::OnDisconnected()
 {
     if (socket==NULL)
         return;
     qDebug() << "Client disconnected. Timer stopped";
-    emit AddToLogAlarm("Info: Cliente desconectado de la red, timer detenido <Clase SocketServidorTCP>",1);
 
     socket->close();
     socket->deleteLater();

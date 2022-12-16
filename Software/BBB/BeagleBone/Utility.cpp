@@ -42,6 +42,29 @@ QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml)
     return ret;
 }
 
+QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2)
+{
+    QString ret;
+    int istart, iend;
+    int indexStart, lengStr;
+
+
+    istart = textXml.indexOf("<"+tagXml1+">");
+    iend = textXml.indexOf("</"+tagXml1+">");
+    indexStart = istart+tagXml1.length()+2;
+    lengStr = iend - indexStart;
+    ret = textXml.mid(indexStart, lengStr);
+
+    istart = ret.indexOf("<"+tagXml2+">");
+    iend = ret.indexOf("</"+tagXml2+">");
+    indexStart = istart+tagXml2.length()+2;
+    lengStr = iend - indexStart;
+    ret = ret.mid(indexStart, lengStr);
+
+    return ret;
+}
+
+
 float Utility::GetXmlFloat(const QString& textXml,const QString& tag)
 {
     return textXml.mid(GetStart(textXml, tag), GetLen(textXml, tag)).toFloat();
