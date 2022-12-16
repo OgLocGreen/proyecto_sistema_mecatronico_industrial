@@ -6,11 +6,10 @@ Utility::Utility()
 
 }
 
-void Utility::set_xml_path(QString path)
+void Utility::SetXmlPath(QString path)
 {
     xml_file_path = path;
 }
-
 
 QString Utility::XmlCreateTag(const QString &text, bool is_start_tag)
 {
@@ -43,7 +42,27 @@ QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml)
     return ret;
 }
 
+QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2)
+{
+    QString ret;
+    int istart, iend;
+    int indexStart, lengStr;
 
+
+    istart = textXml.indexOf("<"+tagXml1+">");
+    iend = textXml.indexOf("</"+tagXml1+">");
+    indexStart = istart+tagXml1.length()+2;
+    lengStr = iend - indexStart;
+    ret = textXml.mid(indexStart, lengStr);
+
+    istart = ret.indexOf("<"+tagXml2+">");
+    iend = ret.indexOf("</"+tagXml2+">");
+    indexStart = istart+tagXml2.length()+2;
+    lengStr = iend - indexStart;
+    ret = ret.mid(indexStart, lengStr);
+
+    return ret;
+}
 
 
 float Utility::GetXmlFloat(const QString& textXml,const QString& tag)
@@ -59,7 +78,7 @@ int Utility::GetXmlInt(const QString& textXml,const QString& tag)
 QVector<float> Utility::GetXmlVector(const QString& xml,const QString& tag)
 {
     QVector<float> ret;
-    QString constens = XmlGetStr(xml, tag).trimmed();
+    QString constens = GetXmlStr(xml, tag).trimmed();
 
     if (constens.startsWith("[") && constens.endsWith("]"))
     {
@@ -104,35 +123,37 @@ int Utility::GetLen(const QString &textXml, const QString &tagXml)
 }
 
 
-QString Utility::ReadXml()
+QString Utility::ReadXmlFile()
 {
-    QString xml_data;
+    QString xml_data_temp;
     QFile xml_file(xml_file_path);
 
     if (xml_file.open(QIODevice::ReadOnly)){
         QTextStream leer(&xml_file);
-        xml_data.append(leer.readAll());
+        xml_data_temp.append(leer.readAll());
         xml_file.close();
     }
-    return xml_data;
+    //xml_data = xml_data_temp;
+    return xml_data_temp;
 }
 
 
-QString Utility::ReadXml(QString xml_path)
+QString Utility::ReadXmlFile(QString xml_path)
 {
-    QString xml_data;
+    QString xml_data_temp;
     QFile xml_file(xml_path);
 
     if (xml_file.open(QIODevice::ReadOnly)){
         QTextStream leer(&xml_file);
-        xml_data.append(leer.readAll());
+        xml_data_temp.append(leer.readAll());
         xml_file.close();
     }
-    return xml_data;
+    //xml_data = xml_data_temp;
+    return xml_data_temp;
 }
 
 
-int Utility::WriteXml(QString xml_msg)
+int Utility::WriteXmlFile(QString xml_msg)
 {
     QFile xml_file(xml_file_path);
     try
@@ -155,7 +176,7 @@ int Utility::WriteXml(QString xml_msg)
     }
 }
 
-int Utility::WriteXml(QString xml_msg, QString xml_path)
+int Utility::WriteXmlFile(QString xml_msg, QString xml_path)
 {
     QFile xml_file(xml_path);
     try
@@ -180,7 +201,7 @@ int Utility::WriteXml(QString xml_msg, QString xml_path)
 
 
 
-int Utility::AppenedToXml(QString xml_msg)
+int Utility::AppenedToXmlFile(QString xml_msg)
 {
     QString lastlog;
 
@@ -219,7 +240,7 @@ int Utility::AppenedToXml(QString xml_msg)
 }
 
 
-int Utility::AppenedToXml(QString xml_msg,QString xml_path)
+int Utility::AppenedToXmlFile(QString xml_msg,QString xml_path)
 {
     QString lastxml;
 
@@ -255,13 +276,15 @@ int Utility::AppenedToXml(QString xml_msg,QString xml_path)
 
 }
 
+QString Utility::RemoveXmlData(QString xml_data, QString xml_tag)
+{
+    return xml_data.remove(GetStart(xml_data,xml_tag),GetLen(xml_data,xml_tag));
+
+}
 
 
 
-
-
-
-void Utility::Log_text_string(QString text1, QString path)
+void Utility::LogTextString(QString text1, QString path)
 {
     QFile file_log(path);    //linux
 
@@ -272,7 +295,7 @@ void Utility::Log_text_string(QString text1, QString path)
 }
 
 
-void Utility::Log_text_stream(QTextStream text1, QString path)
+void Utility::LogTextStream(QTextStream text1, QString path)
 {
     QFile file_log(path);    //linux
     // writing a Stream of Text
@@ -282,4 +305,5 @@ void Utility::Log_text_stream(QTextStream text1, QString path)
     out << "text balablalbla"; //this works
     //out << to_string(text1);            // this doesn´t
 }
+
 

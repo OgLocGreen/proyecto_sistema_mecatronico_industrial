@@ -10,6 +10,7 @@ CONFIG -= app_bundle
 
 SOURCES += \
         Connection.cpp \
+        ControlAndMeasure.cpp \
         Log.cpp \
         Utility.cpp \
         main.cpp
@@ -25,5 +26,6 @@ DISTFILES += \
 
 HEADERS += \
     Connection.h \
+    ControlAndMeasure.h \
     Log.h \
     Utility.h
