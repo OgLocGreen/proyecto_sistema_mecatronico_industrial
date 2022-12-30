@@ -1,5 +1,26 @@
 #include "Data.h"
 
+QString Data::GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2)
+{
+    QString ret;
+    int istart, iend;
+    int indexStart, lengStr;
+
+    istart = textXml.indexOf("<"+tagXml1+">");
+    iend = textXml.indexOf("</"+tagXml1+">");
+    indexStart = istart+tagXml1.length()+2;
+    lengStr = iend - indexStart;
+    ret = textXml.mid(indexStart, lengStr);
+
+    istart = ret.indexOf("<"+tagXml2+">");
+    iend = ret.indexOf("</"+tagXml2+">");
+    indexStart = istart+tagXml2.length()+2;
+    lengStr = iend - indexStart;
+    ret = ret.mid(indexStart, lengStr);
+
+    return ret;
+}
+
 QString GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2)
 {
     QString ret;
@@ -41,6 +62,7 @@ motor_driver_struct readInitDataMotorDriver(QString xml_data)
     return motor;
 }
 
+/*
 struct esp32_top_struct {
     QString ip;
     QString port;
@@ -60,6 +82,7 @@ esp32_top_struct readInitEsp32_top(QString xml_data)
     return temp_esp32_top;
 }
 
+*/
 struct esp32_front_struct {
     QString ip;
     QString port;

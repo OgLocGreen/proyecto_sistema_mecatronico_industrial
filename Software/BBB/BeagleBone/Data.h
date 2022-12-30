@@ -57,7 +57,18 @@ public:
     };
 
     motor_driver_struct readInitDataMotorDriver(QString xml_data);
-    esp32_top_struct readInitEsp32_top(QString xml_data);
+
+    esp32_top_struct readInitEsp32_top(QString xml_data)
+    {
+        esp32_top_struct temp_esp32_top;
+        temp_esp32_top.ip = GetXmlStr(xml_data,"esp32_top","ip");
+        temp_esp32_top.port = GetXmlStr(xml_data,"esp32_top","pulsar");
+        temp_esp32_top.video = GetXmlStr(xml_data,"esp32_top","video");
+        temp_esp32_top.video_quality = GetXmlStr(xml_data,"esp32_top","video_quality");
+        temp_esp32_top.pulsar = GetXmlStr(xml_data,"esp32_top","pulsar");
+        return temp_esp32_top;
+    }
+
     esp32_front_struct readInitEsp32_front(QString xml_data);
     fpga_struct readInitFpga(QString xml_data);
     beaglebone_struct readInitBeaglebone(QString xml_data);

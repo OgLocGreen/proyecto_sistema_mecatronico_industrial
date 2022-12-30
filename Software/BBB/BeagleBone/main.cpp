@@ -6,7 +6,7 @@
 #include "ControlAndMeasure.h"
 #include "Data.h"
 
-QString readXmlStr(QString data, QString tag1, QString tag2);
+QString GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2);
 
 int main(int argc, char *argv[])
 {
