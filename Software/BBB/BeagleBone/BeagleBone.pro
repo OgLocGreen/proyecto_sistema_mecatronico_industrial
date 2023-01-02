@@ -9,9 +9,15 @@ CONFIG -= app_bundle
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        BeagleBone.cpp \
         Connection.cpp \
         ControlAndMeasure.cpp \
+        Data.cpp \
+        Esp32.cpp \
+        Fpga.cpp \
+        Gui.cpp \
         Log.cpp \
+        MotorDriver.cpp \
         Utility.cpp \
         main.cpp
 
@@ -25,7 +31,13 @@ DISTFILES += \
     xml_file.txt
 
 HEADERS += \
+    BeagleBone.h \
     Connection.h \
     ControlAndMeasure.h \
+    Data.h \
+    Esp32.h \
+    Fpga.h \
+    Gui.h \
     Log.h \
+    MotorDriver.h \
     Utility.h

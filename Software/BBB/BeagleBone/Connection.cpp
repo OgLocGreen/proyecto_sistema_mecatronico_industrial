@@ -38,38 +38,40 @@ void Connection::OnDataReceived()
             QString motor_speed_left = util.GetXmlStr(moterDriver, "motor_speed_left");
             qDebug() << "motor_speed_left: " << motor_speed_left;
             emit SendDataMotor("motor_speed_left", motor_speed_left);
-            // emit SaveData(); //issue #22
+            myData.motor_driver_data.motor_speed_left = motor_speed_left;
         }
         if(moterDriver.contains("motor_speed_right"))
         {
             QString motor_speed_right = util.GetXmlStr(moterDriver, "motor_speed_right");
             qDebug() << "motor_speed_right: " << motor_speed_right;
             emit SendDataMotor("motor_speed_right", motor_speed_right);
-            // emit SaveData(); //issue #22
+            myData.motor_driver_data.motor_speed_right = motor_speed_right;
         }
     }
-    if(recvmsg.contains("esp_top", Qt::CaseInsensitive))
+    if(recvmsg.contains("esp32_top_data", Qt::CaseInsensitive))
     {
-        QString esp_top = util.GetXmlStr(recvmsg, "esp_top");
+        QString esp_top = util.GetXmlStr(recvmsg, "esp32_top_data");
         if(esp_top.contains("pulsar"))
         {
             QString pulsar = util.GetXmlStr(esp_top, "pulsar");
             qDebug() << "pulsar: " << pulsar;
             emit SendDataEspTop("pulsar", pulsar);
+            myData.esp32_top_data.pulsar = pulsar;
         }
         // For each diffrent part here like that here
     }
 
-    if(recvmsg.contains("esp_front", Qt::CaseInsensitive))
+    if(recvmsg.contains("esp32_front", Qt::CaseInsensitive))
     {
-        QString esp_top = util.GetXmlStr(recvmsg, "esp_front");
-        if(esp_top.contains("XXX"))
+        QString esp_front = util.GetXmlStr(recvmsg, "esp32_front");
+        if(esp_front.contains("pulsar"))
         {
-            QString XXX = util.GetXmlStr(esp_top, "XXX");
-            qDebug() << "XXX: " << XXX;
-            emit SendDataEspFront("XXX", XXX);
+            QString pulsar = util.GetXmlStr(esp_front, "pulsar");
+            qDebug() << "pulsar: " << pulsar;
+            emit SendDataEspTop("pulsar", pulsar);
+            myData.esp32_top_data.pulsar = pulsar;
         }
-        // More Funckitons like that here
+        // For each diffrent part here like that here
     }
 
     if(recvmsg.contains("fpga", Qt::CaseInsensitive))
@@ -79,7 +81,8 @@ void Connection::OnDataReceived()
         {
             QString motor_speed_platform = util.GetXmlStr(fpga, "motor_speed_platform");
             qDebug() << "motor_speed_platform: " << motor_speed_platform;
-             emit SendDataFpga("motor_speed_platform", motor_speed_platform);
+            emit SendDataFpga("motor_speed_platform", motor_speed_platform);
+            myData.fpga_data.motor_speed_platform = motor_speed_platform;
         }
         // More Funckitons like that here
     }
@@ -91,11 +94,15 @@ void Connection::OnDataReceived()
         {
             QString temperatur = util.GetXmlStr(beaglebone,"temperatur");
             qDebug() << "temperatur: " << temperatur;
-            // Hier noch ein Event für DataMsg für BBB;
+            // emit SendDataBBB(); // we dont need that here because its allready in the BBB
+            myData.beaglebone_data.temperatur = temperatur;
 
         }
-        // More Funckitons like that here
+        // More Functions like that here
     }
+
+
+    // Do the Saving of the XML file here;
 
 
 }

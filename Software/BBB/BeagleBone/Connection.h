@@ -7,15 +7,18 @@
 #include <QTimer>
 #include <QThread>
 #include <QXmlStreamReader>
-
+#include <Log.h>
 #include <Utility.h>
+#include <Data.h>
 
 
 class Connection : public QObject
 {
     Q_OBJECT
+    Log logger;
+    Data myData;
 private:
-    QTcpServer server;
+    QTcpServer  server;
     QTcpSocket* socket;
    // QTimer timer;
     int counter;
@@ -24,7 +27,6 @@ private:
     Utility util;
 
 public:
-
     explicit Connection(QObject *parent = nullptr);  // Constructor
 
 signals:
