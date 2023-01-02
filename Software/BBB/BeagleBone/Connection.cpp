@@ -82,6 +82,7 @@ void Connection::OnDataReceived()
             QString motor_speed_platform = util.GetXmlStr(fpga, "motor_speed_platform");
             qDebug() << "motor_speed_platform: " << motor_speed_platform;
             emit SendDataFpga("motor_speed_platform", motor_speed_platform);
+            myData.fpga_data.motor_speed_platform = motor_speed_platform;
         }
         // More Funckitons like that here
     }
@@ -93,10 +94,15 @@ void Connection::OnDataReceived()
         {
             QString temperatur = util.GetXmlStr(beaglebone,"temperatur");
             qDebug() << "temperatur: " << temperatur;
+            // emit SendDataBBB(); // we dont need that here because its allready in the BBB
+            myData.beaglebone_data.temperatur = temperatur;
 
         }
-        // More Funckitons like that here
+        // More Functions like that here
     }
+
+
+    // Do the Saving of the XML file here;
 
 
 }

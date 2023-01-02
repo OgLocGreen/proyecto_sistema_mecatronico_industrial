@@ -55,26 +55,7 @@ public:
     {
         QString ip;
     };
-
-    motor_driver_struct readInitDataMotorDriver(QString xml_data);
-
-    esp32_top_struct readInitEsp32_top(QString xml_data)
-    {
-        esp32_top_struct temp_esp32_top;
-        temp_esp32_top.ip = GetXmlStr(xml_data,"esp32_top","ip");
-        temp_esp32_top.port = GetXmlStr(xml_data,"esp32_top","pulsar");
-        temp_esp32_top.video = GetXmlStr(xml_data,"esp32_top","video");
-        temp_esp32_top.video_quality = GetXmlStr(xml_data,"esp32_top","video_quality");
-        temp_esp32_top.pulsar = GetXmlStr(xml_data,"esp32_top","pulsar");
-        return temp_esp32_top;
-    }
-
-    esp32_front_struct readInitEsp32_front(QString xml_data);
-    fpga_struct readInitFpga(QString xml_data);
-    beaglebone_struct readInitBeaglebone(QString xml_data);
-    gui_struct readInitGui(QString xml_data);
-    mando_struct readInitMando(QString xml_data);
-
+    int test;
     motor_driver_struct motor_driver_data;
     esp32_top_struct esp32_top_data;
     esp32_front_struct esp32_front_data;
@@ -83,9 +64,16 @@ public:
     gui_struct gui_data;
     mando_struct mando_data;
 
-private:
-    QString GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2);
+    bool readInitAll(const QString& xml_data);
 
+private:
+    bool readInitDataMotorDriver(const QString& xml_data);
+    bool readInitEsp32_top(const QString& xml_data);
+    bool readInitEsp32_front(const QString& xml_data);
+    bool readInitFpga(const QString& xml_data);
+    bool readInitBeaglebone(const QString& xml_data);
+    bool readInitGui(const QString& xml_data);
+    bool readInitMando(const QString& xml_data);
 };
 
 #endif // DATA_H

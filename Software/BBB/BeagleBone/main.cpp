@@ -5,8 +5,12 @@
 #include "Connection.h"
 #include "ControlAndMeasure.h"
 #include "Data.h"
+#include "Fpga.h"
+#include "MotorDriver.h"
+#include "Esp32.h"
+#include "Gui.h"
+#include "BeagleBone.h"
 
-QString GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2);
 
 int main(int argc, char *argv[])
 {
@@ -24,34 +28,37 @@ int main(int argc, char *argv[])
 
     Data myData;
 
-    myData.motor_driver_data.motor_speed_left = "test";
-    //Then Write the xml_configdata to the write things.
-    //maybe Read first dann then Initiaz/Constructros with arguments
 
+    if (! myData.readInitAll(xml_data))
+
+      {
+
+             qDebug() <<"Error Reading the Data";
+
+      }
 
     //Esp EspTop;
-    myData.esp32_top_data = myData.readInitEsp32_top(xml_data);
+    Esp32 myEspTop;
     // EspTop myEspTop(esp32_top_data.ip,esp32_top_data.port,esp32_top_data.video,esp32_top_data.video_qulity)
 
     //Esp EspFront
-    myData.esp32_front_data = myData.readInitEsp32_front(xml_data);
+    Esp32 myEspFront;
     // EspTop myEspTop(esp32_top_data.ip,esp32_top_data.port,esp32_top_data.video,esp32_top_data.video_qulity)
 
     //Fpga
-    myData.fpga_data = myData.readInitFpga(xml_data);
-    // Fpga myFpga();
+    Fpga myFpga;
 
     //MotorDriver
-    myData.motor_driver_data = myData.readInitDataMotorDriver(xml_data);
+    MotorDriver myMotordriver;
 
     //Gui
-    myData.gui_data = myData.readInitGui(xml_data);
+    Gui myGui;
 
     //BBB
-    myData.beaglebone_data = myData.readInitBeaglebone(xml_data);
+    BeagleBone BBB;
 
-    //BBB
-    myData.mando_data = myData.readInitMando(xml_data);
+    //Mando
+    Esp32 Mando;
 
     // Start all Timer with the right intervall  // issue #16
     timerBroadcast.start(1000);
@@ -86,26 +93,4 @@ int main(int argc, char *argv[])
 
 
     return a.exec();
-}
-
-
-QString GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2)
-{
-    QString ret;
-    int istart, iend;
-    int indexStart, lengStr;
-
-    istart = textXml.indexOf("<"+tagXml1+">");
-    iend = textXml.indexOf("</"+tagXml1+">");
-    indexStart = istart+tagXml1.length()+2;
-    lengStr = iend - indexStart;
-    ret = textXml.mid(indexStart, lengStr);
-
-    istart = ret.indexOf("<"+tagXml2+">");
-    iend = ret.indexOf("</"+tagXml2+">");
-    indexStart = istart+tagXml2.length()+2;
-    lengStr = iend - indexStart;
-    ret = ret.mid(indexStart, lengStr);
-
-    return ret;
 }
