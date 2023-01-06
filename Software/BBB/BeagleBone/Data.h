@@ -55,6 +55,7 @@ public:
     {
         QString ip;
     };
+
     int test;
     motor_driver_struct motor_driver_data;
     esp32_top_struct esp32_top_data;
@@ -65,6 +66,9 @@ public:
     mando_struct mando_data;
 
     bool readInitAll(const QString& xml_data);
+    QString makeXml();
+
+
 
 private:
     bool readInitDataMotorDriver(const QString& xml_data);
@@ -74,6 +78,10 @@ private:
     bool readInitBeaglebone(const QString& xml_data);
     bool readInitGui(const QString& xml_data);
     bool readInitMando(const QString& xml_data);
+
+    QString XmlPutFloat(const QString& tag,float value);
+    QString XmlPutString(const QString& tag,const QString& value);
+    QString XmlPutStringSpace(const QString& tag,const QString& value);
 };
 
 #endif // DATA_H

@@ -4,9 +4,11 @@ Log::Log()
 {
 }
 
-Log::Log(QString path)
+Log::Log(QString path_log, QString path_xml, QString config_path)
 {
-    log_file_path = path;
+    log_file_path = path_log;
+    xml_file_path = path_xml;
+    config_file_path = config_path;
 }
 
 void Log::setDatosLog(QString log_msg)
@@ -76,7 +78,43 @@ void Log::OnAddToLog(const QString& NewDataLogIn,QString log_path)
 
 }
 
-void Log::set_log_path(QString path)
+void Log::setLogPath(QString path)
 {
     log_file_path = path;
+}
+
+void Log::setXmlPath(QString path)
+{
+    xml_file_path = path;
+}
+
+void Log::setConfigPath(QString path)
+{
+    config_file_path = path;
+}
+
+void Log::saveXmlFile(QString xml)
+{
+    QFile xml_file(xml_file_path);
+
+
+    if (xml_file.open(QIODevice::WriteOnly)){
+        QTextStream escribir(&xml_file);
+        escribir<<xml;
+        xml_file.close();
+    }
+
+}
+
+QString Log::readConfigFile()
+{
+    QString config_temp;
+    QFile xml_file(config_file_path);
+
+    if (xml_file.open(QIODevice::ReadOnly)){
+        QTextStream leer(&xml_file);
+        config_temp.append(leer.readAll());
+        xml_file.close();
+    }
+    return config_temp;
 }

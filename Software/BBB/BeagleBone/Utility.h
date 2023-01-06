@@ -13,7 +13,7 @@
 class Utility
 {    
 private:
-    QString xml_file_path;
+
 public:
     Utility();
 

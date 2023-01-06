@@ -25,7 +25,7 @@ Für die Kommunikation von Daten, welche zwischen den Baugruppen ausgetauscht we
 Diese Verbindung wird mit einem Websocket gemanagt.
 Somit müssen keine speziellen Nachrichten gesendet werden, da alle dauerhaft verbunden sind und alle die gleichen Nachrichten erhaltne (Broadcast).
 Der Server läuft auf dem BeagleBoneBlack und ist für die Kommunikation mit den anderen Baugruppen zuständig. Dies ist in Bild 2 - Kommunikation zu sehen. 
-Der Computer, Esp32_top, Esp32_bottom und Mando sind alle Clients, welche sich mit dem Server verbinden.
+Der Computer, Esp32_top, Esp32_front und Mando sind alle Clients, welche sich mit dem Server verbinden.
 Sobald daten an einer Stelle geändert werden, werden diese an den Server gesendet und dieser wird dann diese Daten an die anderen Clients weiterleitet.
 
 Die Kommunikation der Videodaten wird nur einseitig ablaufen. 
@@ -39,3 +39,35 @@ dieses Unterkapitel dient noch einmal zur Übersicht des Rovers mit der einzelne
 Die schematische Abbildung des Rovers ist in Bild 4 - schematischer Aufbau des Rovers zu sehen.
 Hier ist einfach zu erkennen, wo welche Variablen sich befinden und welche Schnittstellen und Kommunikation Protokolle verwendet werden.
 Dieser schematische Aufbau der Komponenten und Variablen hat das Arbeiten im Team deutlich vereinfachen.
+
+4. Struktureller Aufbau der Software der einzelnen Baugruppen
+4.1 Struktureller Aufbau der Software BBB
+Da wir den BeagleBone als Server ausgewählt haben wir hier die meiste Arbeit verrichttet.
+Heißt der BeagleBone übernimmt die Komunication und die Verarbeitung der Daten.
+Desweitern haben wir uns für ein Eventbasierten Ablauf geschieden da die verschiednen Baugruppen un Komunication vereinfacht.
+Heißt für jede Action wird ein Event ausgelöst in welchem dann die Action bearbeitet wird. 
+Dies ist in Abbildung 5 - Event Ablauf BBB zu sehen.
+Somit haben wir Beispielsweise ein Zeit gesteuertes Event für die Verarbeitung der Sensor Signalen und Actoren, 
+ein zweit getacktetes event für das Brodcasten der Nachriten. 
+Auf alle einzelnen Events wird nun genauer eingangen:
+1. Event Sensoren
+2.Event Actoren
+3 Event Comunication
+3.1 Event On_Request()
+3.2 Event On_Response()
+3.3 Event On_Broadcast()
+3.4 Event On_Connect()
+4 Event Loggen
+4.5 Event XML
+(XXXVlt hier schon zu ausführlich da wir das ja nachher in den einzlen Klassen besprechenXXX)
+
+4.2 Struktureller Aufbau der Software Esp32_top
+4.3 Struktureller Aufbau der Software Esp32_front
+4.4 Struktureller Aufbau der Software Mando
+4.5 Struktureller Aufbau der Software GUI
+
+
+5. Erklärung der einzelnen Klassen
+5.1 Klasse BBB
+5.2 Klasse Esp32
+5.3 Klasse XXX

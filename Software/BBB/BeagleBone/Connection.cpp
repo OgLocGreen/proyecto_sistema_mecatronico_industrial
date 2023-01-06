@@ -100,8 +100,6 @@ void Connection::OnDataReceived()
         }
         // More Functions like that here
     }
-
-
     // Do the Saving of the XML file here;
 
 
