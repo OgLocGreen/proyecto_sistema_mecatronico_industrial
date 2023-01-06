@@ -27,8 +27,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    config.xml \
-    xml_file.txt
+    config.txt \
+    xml_file_bak.txt
 
 HEADERS += \
     BeagleBone.h \

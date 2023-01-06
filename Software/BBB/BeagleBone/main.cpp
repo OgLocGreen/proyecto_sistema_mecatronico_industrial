@@ -23,19 +23,28 @@ int main(int argc, char *argv[])
     ControlAndMeasure controller;
     QTimer timerController, timerSensor;
 
+    // This also could be written to in the init of the Class as Agument for Constructor;
+    logger.setLogPath("./log_file.txt");
+    logger.setXmlPath("./xml_file.txt");
+    logger.setConfigPath("./config.txt");
+
     QString xml_data;
-    xml_data = util.ReadXmlFile();
+
+    xml_data = logger.readConfigFile();
 
     Data myData;
 
 
     if (! myData.readInitAll(xml_data))
+    {
 
-      {
+        qDebug() <<"Error Reading the Data";
 
-             qDebug() <<"Error Reading the Data";
+    }
 
-      }
+    QString broadcast = myData.makeXml();
+    logger.saveXmlFile(broadcast);
+    // Here then also the Borad cast to all Devices or we make this after the classes
 
     //Esp EspTop;
     Esp32 myEspTop;

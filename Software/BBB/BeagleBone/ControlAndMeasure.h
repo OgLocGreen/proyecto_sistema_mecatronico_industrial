@@ -4,9 +4,12 @@
 #include <QObject>
 #include <QDebug>
 
+#include "Data.h"
+
 class ControlAndMeasure: public QObject
 {
     Q_OBJECT
+    Data myData;
 public:
     ControlAndMeasure();
 
