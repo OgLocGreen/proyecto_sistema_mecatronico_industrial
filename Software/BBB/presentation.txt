@@ -20,7 +20,9 @@ Add in Data Classes
     add to the struct
     add to read the config
 Add in save Xml
-Add in connection Class 
+Add in connection Class
+Add to the Class Diagramm (Draw.io)
+Add to if needed to the other Diagramms (Draw.io)
 Add to your Class of course
 Always needs to be Named the same! (Watch out easy to make mistakes)
 
@@ -39,8 +41,12 @@ What i still have to do
         (20.01)
     6. Presentation
         (22.01)
-        
+
 Where i see Problems
     1. Screen Mando
     2. Screen Speaker
     3. Sensors Acotrs diect on the BBB
+
+Also Everyone Please make now a Account github and we will check onetime how a merge Request and a Merge Works!
+Also work with Issues so we can work together and see what we need to do, and you learn it (not needed to be done)
+Merge Request everyone needs to do!
