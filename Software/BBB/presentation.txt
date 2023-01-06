@@ -50,3 +50,8 @@ Where i see Problems
 Also Everyone Please make now a Account github and we will check onetime how a merge Request and a Merge Works!
 Also work with Issues so we can work together and see what we need to do, and you learn it (not needed to be done)
 Merge Request everyone needs to do!
+Show how to make a branch.
+How to pull and push.
+How to Update. How to see if its upDated or not. 
+Explain with Git kraken how to do it.
+Then how to do a GitMerge request.
