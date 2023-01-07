@@ -43,8 +43,10 @@ What i still have to do
         (22.01)
 
 Where i see Problems
-    1. Screen Mando
-    2. Screen Speaker
+    1. Screen Mando 
+    2. Screen Speaker (works)
+    sending file to speaker.
+    do pwm from audio file to speaker.
     3. Sensors Acotrs diect on the BBB
 
 Also Everyone Please make now a Account github and we will check onetime how a merge Request and a Merge Works!
