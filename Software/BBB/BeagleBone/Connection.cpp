@@ -5,7 +5,7 @@ Connection::Connection(QObject *parent) : QObject(parent)
     socket=NULL;
     QObject::connect(&server,SIGNAL(newConnection()),this,SLOT(OnConnectionRequest()));
 
-    bool ok=server.listen(QHostAddress::Any,52011);
+    bool ok=server.listen(QHostAddress::Any,5000);
     if (ok)
        qDebug() << "Listen PC ok";
     else
@@ -15,20 +15,49 @@ Connection::Connection(QObject *parent) : QObject(parent)
 
 void Connection::OnConnectionRequest()
 {
-    socket=server.nextPendingConnection();
-    QObject::connect(socket,SIGNAL(readyRead()),this,SLOT(OnDataReceived()));
-    //QObject::connect(conn,SIGNAL(disconnected()),this,SLOT(OnDisconnected()));
+    ClientInfo cli;
+
+    cli.socket = server.nextPendingConnection();
+    cli.ip=cli.socket->peerAddress();
+    int iClient=cliVector.size();
+
+    for (iClient=0;iClient<cliVector.size();iClient++)
+    {
+
+          if (cliVector[iClient].ip==cli.ip)
+                break;
+    }
+    if (iClient >= cliVector.size() ) // Not found in the previous loop: append
+    {
+        cliVector.append(cli);
+        connect(cliVector[iClient].socket,SIGNAL(readyRead()),this,SLOT(OnDataReceived()));
+        connect(cliVector[iClient].socket,SIGNAL(disconnected()),this,SLOT(OnDisconnected()));
+
+        qDebug() << "New Connection \n";
+    }
 }
 
 
 void Connection::OnDataReceived()
 {
-    if (socket==NULL)
-        return;
-    QByteArray recv=socket->readAll();
-    QString recvmsg=recv;
-    qDebug() << "Data " << recvmsg;
 
+    QTcpSocket* from=(QTcpSocket*) sender();
+
+    int iClient;
+
+    for (iClient=0;iClient<cliVector.size();iClient++)
+    {
+
+      if (cliVector[iClient].socket==from)
+            break;
+    }
+    if (iClient>=cliVector.size())
+        return; // Not in the list
+    // Now read from cliVector[iClient], store in cliVector[iClient].name if name is present, ... , etc.
+    QByteArray recv=cliVector[iClient].socket->readAll();
+    QString recvmsg=recv;
+    qDebug() << "Data: " << recvmsg;
+    OnSendData("hello from BBB!");
 
     if(recvmsg.contains("motor_driver", Qt::CaseInsensitive))
     {
@@ -100,29 +129,51 @@ void Connection::OnDataReceived()
         }
         // More Functions like that here
     }
-    // Do the Saving of the XML file here;
-
-
 }
 
 void Connection::OnDisconnected()
 {
-    if (socket==NULL)
-        return;
-    qDebug() << "Client disconnected. Timer stopped";
+    QTcpSocket* from=(QTcpSocket*) sender();
 
-    socket->close();
-    socket->deleteLater();
-    socket=NULL;
+      int iClient;
+
+      for (iClient=0;iClient<cliVector.size();iClient++)
+       {
+
+          if (cliVector[iClient].socket==from)
+                break;
+       }
+
+       if (iClient>=cliVector.size())
+            return; // Not in the list
+
+       cliVector.remove(iClient);  // remove from the list
+       from->deleteLater();  // remove the pointer assigned by nextPendingConnection()
 }
 
 
 void Connection::OnSendData(QString txt)
 {
-    if (socket==NULL)
-        return;
-    socket->write(txt.toLatin1());
+    for (int j=0;j<cliVector.size();j++)
+    {
+       cliVector[j].socket->write(txt.toLatin1());
+       qDebug() << "write msg" <<Qt::endl;
+    }
     //qDebug() << "Sent:" << txt;
+    int iClient;
+    for (iClient=0;iClient<cliVector.size();iClient++)
+        {
+    /*
+              if (cliVector[iClient].socket!=nullptr && cliVector[iClient].socket->state()==QAbstractSocket::ConnectedState && (destination="all" || destination==cliVector[iClient].name)  )
+              {
+                      cliVector[iClient].socket->write(txt.toLatin1());
+              }
+              */
+        if (cliVector[iClient].socket!=nullptr)
+        {
+                cliVector[iClient].socket->write(txt.toLatin1());
+    }
+    }
 }
 
 
