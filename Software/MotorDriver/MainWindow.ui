@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>497</width>
-    <height>289</height>
+    <width>576</width>
+    <height>341</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,10 +46,10 @@
          <number>-1</number>
         </property>
         <property name="maxVisibleItems">
-         <number>3</number>
+         <number>20</number>
         </property>
         <property name="maxCount">
-         <number>3</number>
+         <number>20</number>
         </property>
        </widget>
       </item>
@@ -63,6 +63,23 @@
      </layout>
     </item>
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLineEdit" name="qManualCmd_lineEdit"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="qSendManualCmd_pushButton">
+        <property name="text">
+         <string>Send Man Cmd</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="qAnswManualCmd_lineEdit"/>
+      </item>
+     </layout>
+    </item>
+    <item>
      <widget class="QTextEdit" name="qSerialMonitor_textEdit"/>
     </item>
    </layout>
@@ -72,7 +89,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>497</width>
+     <width>576</width>
      <height>22</height>
     </rect>
    </property>

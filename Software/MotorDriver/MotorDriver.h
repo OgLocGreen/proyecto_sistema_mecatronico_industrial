@@ -15,14 +15,17 @@ private:
     QSerialPort serial; /* serial port */
 
     /* Command processing methods */
-    void SendCmd2Driver(); /* sends command to driver via SerialPort*/
+    void SendCmd2Driver(); /* sends command to driver via SerialPort */
     void OnDriverReadyRead(); /* reads driver response and checks if we get adecuate response */
 
+    /* Movement methods */
+    void MoveStraightAtConstantSpeed(QString _motorselect, int _speed_hz);
+    void StopMotor(QString _motorselect); /* stop selected motor */
 public:
 
     explicit MotorDriver(QObject *parent = nullptr);
-
-    void MoveAtConstantSpeed(QString _motorselect, int value); /* wheel spinning at requested constant speed */
+    void SendCmd2Driver(QString _snd_manual); /* sends command to driver via SerialPort (MANUAL MODE) */
+    QString ReadAnswFromDriver(); /* reads answer from driver */
 
 signals:
 public slots:

@@ -1,7 +1,8 @@
-#ifndef SIMDRIVERRESPONSE_H
-#define SIMDRIVERRESPONSE_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSerialPort>
 
 #include "MotorDriver.h"
 
@@ -25,8 +26,14 @@ private slots:
 
     void on_qSendCmd_pushButton_clicked();
 
+    void on_qSendManualCmd_pushButton_clicked();
+
+    void OnManualDriverReception();
+
 private:
     Ui::MainWindow *ui;
+
+    QSerialPort serial_manual;
 
     QString request;
     QString value;
@@ -34,4 +41,4 @@ private:
 
     MotorDriver myMotor;
 };
-#endif // SIMDRIVERRESPONSE_H
+#endif // MAINWINDOW_H
