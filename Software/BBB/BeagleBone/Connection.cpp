@@ -20,12 +20,17 @@ void Connection::OnConnectionRequest()
     cli.socket = server.nextPendingConnection();
     cli.ip=cli.socket->peerAddress();
     int iClient=cliVector.size();
-
     for (iClient=0;iClient<cliVector.size();iClient++)
     {
-
           if (cliVector[iClient].ip==cli.ip)
-                break;
+          {
+              cliVector[iClient].socket = cli.socket;
+              connect(cliVector[iClient].socket,SIGNAL(readyRead()),this,SLOT(OnDataReceived()));
+              connect(cliVector[iClient].socket,SIGNAL(disconnected()),this,SLOT(OnDisconnected()));
+              break;
+          }
+
+
     }
     if (iClient >= cliVector.size() ) // Not found in the previous loop: append
     {
@@ -59,6 +64,7 @@ void Connection::OnDataReceived()
     qDebug() << "Data: " << recvmsg;
     OnSendData("hello from BBB!");
 
+
     if(recvmsg.contains("motor_driver", Qt::CaseInsensitive))
     {
         QString moterDriver = util.GetXmlStr(recvmsg, "motor_driver");
@@ -77,9 +83,9 @@ void Connection::OnDataReceived()
             myData.motor_driver_data.motor_speed_right = motor_speed_right;
         }
     }
-    if(recvmsg.contains("esp32_top_data", Qt::CaseInsensitive))
+    if(recvmsg.contains("esp32_top", Qt::CaseInsensitive))
     {
-        QString esp_top = util.GetXmlStr(recvmsg, "esp32_top_data");
+        QString esp_top = util.GetXmlStr(recvmsg, "esp32_top");
         if(esp_top.contains("pulsar"))
         {
             QString pulsar = util.GetXmlStr(esp_top, "pulsar");
@@ -129,11 +135,13 @@ void Connection::OnDataReceived()
         }
         // More Functions like that here
     }
+
 }
 
 void Connection::OnDisconnected()
 {
-    QTcpSocket* from=(QTcpSocket*) sender();
+    qDebug() << "onDisconnected()"<< Qt::endl;
+    QTcpSocket* from =(QTcpSocket*) sender();
 
       int iClient;
 
@@ -154,16 +162,10 @@ void Connection::OnDisconnected()
 
 void Connection::OnSendData(QString txt)
 {
-    for (int j=0;j<cliVector.size();j++)
-    {
-       cliVector[j].socket->write(txt.toLatin1());
-       qDebug() << "write msg" <<Qt::endl;
-    }
-    //qDebug() << "Sent:" << txt;
     int iClient;
     for (iClient=0;iClient<cliVector.size();iClient++)
         {
-    /*
+            /*
               if (cliVector[iClient].socket!=nullptr && cliVector[iClient].socket->state()==QAbstractSocket::ConnectedState && (destination="all" || destination==cliVector[iClient].name)  )
               {
                       cliVector[iClient].socket->write(txt.toLatin1());
@@ -172,6 +174,7 @@ void Connection::OnSendData(QString txt)
         if (cliVector[iClient].socket!=nullptr)
         {
                 cliVector[iClient].socket->write(txt.toLatin1());
+                    qDebug() << "Sent:" << txt << "to :"<< cliVector[iClient].ip<<Qt::endl;
     }
     }
 }
