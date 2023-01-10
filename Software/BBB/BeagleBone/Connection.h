@@ -18,8 +18,17 @@ class Connection : public QObject
     Log logger;
     Data myData;
 private:
+    struct ClientInfo
+    {
+         QTcpSocket* socket=nullptr;
+         QString name="unknown";
+         QHostAddress ip=QHostAddress::Null;
+    } ;
     QTcpServer  server;
     QTcpSocket* socket;
+    //QVector<QTcpSocket*> cliVector;
+    QVector<ClientInfo> cliVector;
+    QVector<QString> cliName;
    // QTimer timer;
     int counter;
     QThread thread;
@@ -43,6 +52,7 @@ public slots:
     void OnDataReceived();
     void OnDisconnected();
     void OnSendData(QString txt);
+
 
 };
 

@@ -28,7 +28,6 @@ public:
 
     void setLogPath(QString path);
 
-
     void setXmlPath(QString path);
     void saveXmlFile(QString xml);
 

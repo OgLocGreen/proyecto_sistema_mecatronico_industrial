@@ -51,8 +51,8 @@ Somit haben wir Beispielsweise ein Zeit gesteuertes Event für die Verarbeitung 
 ein zweit getacktetes event für das Brodcasten der Nachriten. 
 Auf alle einzelnen Events wird nun genauer eingangen:
 1. Event Sensoren
-2.Event Actoren
-3 Event Comunication
+2. Event Actoren
+3. Event Comunication
 3.1 Event On_Request()
 3.2 Event On_Response()
 3.3 Event On_Broadcast()
@@ -65,7 +65,6 @@ Auf alle einzelnen Events wird nun genauer eingangen:
 4.3 Struktureller Aufbau der Software Esp32_front
 4.4 Struktureller Aufbau der Software Mando
 4.5 Struktureller Aufbau der Software GUI
-
 
 5. Erklärung der einzelnen Klassen
 5.1 Klasse BBB
