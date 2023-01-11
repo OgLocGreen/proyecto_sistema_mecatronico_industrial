@@ -3,17 +3,16 @@
 
 #include <QObject>
 
-class Fpga : public QObject
+class Fpga
 {
-    Q_OBJECT;
 private:
     int fpga_data;
     int tmp_var;
 public:
     Fpga();
-
 public slots:
     void OnDataReceived(QString arg1, QString arg2);
+
 };
 
 #endif // FPGA_H
