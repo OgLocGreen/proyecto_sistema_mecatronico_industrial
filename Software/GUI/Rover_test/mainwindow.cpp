@@ -21,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->qESP2_label->setStyleSheet("QLabel {color : red; }");
     ui->qBBB_label->setStyleSheet("QLabel {color : green; }");
 
+    ui->qCam1Up_pushButton->setIcon(QIcon(":/arrow_up.png"));
+
     // connect timerPulse
     QObject::connect(&timerPulse,SIGNAL(timeout()),
                      this, SLOT(onTimerPulse())

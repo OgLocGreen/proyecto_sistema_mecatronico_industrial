@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 8.0.2, 2022-12-23T15:59:38. -->
+<!-- Written by QtCreator 8.0.2, 2023-01-11T15:14:28. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -235,14 +235,14 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Studium/EU4M/03_Semester/Proyecto_Rover/GUI/GUI_test/Rover_test/Rover_test.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Studium/EU4M/03_Semester/Proyecto_Rover/GUI/GUI_test/Rover_test/Rover_test.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Rover_test2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Studium/EU4M/03_Semester/Proyecto_Rover/proyecto_sistema_mecatronico_industrial/Software/GUI/Rover_test/Rover_test.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Studium/EU4M/03_Semester/Proyecto_Rover/proyecto_sistema_mecatronico_industrial/Software/GUI/Rover_test/Rover_test.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory">C:/Studium/EU4M/03_Semester/Proyecto_Rover/GUI/GUI_test/Rover_test</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Studium/EU4M/03_Semester/Proyecto_Rover/GUI/GUI_test/build-Rover_test-Desktop_Qt_6_3_2_MinGW_64_bit-Debug</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
