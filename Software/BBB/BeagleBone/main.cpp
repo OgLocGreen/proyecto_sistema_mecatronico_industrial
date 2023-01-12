@@ -19,10 +19,10 @@ int main(int argc, char *argv[])
     Log logger;
     Utility util;
     Connection connector;
-    QTimer timerBroadcast;
+
     ControlAndMeasure controller;
     QTimer timerController, timerSensor;
-
+    QTimer timerBroadcastXml, timerBroadcastLog;
     // This also could be written to in the init of the Class as Agument for Constructor;
     logger.setLogPath("./log_file.txt");
     logger.setXmlPath("./xml_file.txt");
@@ -70,13 +70,22 @@ int main(int argc, char *argv[])
     Esp32 Mando;
 
     // Start all Timer with the right intervall  // issue #16
-    timerBroadcast.start(1000);
-    timerController.start(1000);
-    timerSensor.start(1000);
+    timerBroadcastXml.start(10000);
+    timerBroadcastLog.start(1000);
+    timerController.start(10000);
+    timerSensor.start(10000);
 
     // Connect Timer and Controll and Sensor Events
     QObject::connect(&timerController, SIGNAL(timeout()),&controller, SLOT(onTimerControll()));
     QObject::connect(&timerSensor, SIGNAL(timeout()),&controller, SLOT(onTimerSensor()));
+    QObject::connect(&controller, SIGNAL(AddToLog(QString)),&logger, SLOT(OnAddToLog(QString)));
+
+    //Logger
+    QObject::connect(&timerController, SIGNAL(timeout()),&logger, SLOT(onTimer()));
+    QObject::connect(&logger, SIGNAL(sendToPC(QString)),&connector, SLOT(OnSendData(QString)));
+
+    //Connector
+    QObject::connect(&connector, SIGNAL(AddToLog(QString)),&logger,SLOT(OnAddToLog(QString)));
 
 
     //issue #9

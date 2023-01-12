@@ -11,7 +11,6 @@
 #include <Utility.h>
 #include <Data.h>
 
-
 class Connection : public QObject
 {
     Q_OBJECT
@@ -26,10 +25,8 @@ private:
     } ;
     QTcpServer  server;
     QTcpSocket* socket;
-    //QVector<QTcpSocket*> cliVector;
     QVector<ClientInfo> cliVector;
     QVector<QString> cliName;
-   // QTimer timer;
     int counter;
     QThread thread;
 
@@ -46,12 +43,14 @@ signals:
     void SendDataEspTop(QString dataName,QString value);        // issue #20
     void SendDataEspFront(QString dataName,QString value);      // issue #21
     void Boardcast(QString dataName,QString XmlData);   // issue #17
+    void AddToLog(QString txt);
 
 public slots:
     void OnConnectionRequest();
     void OnDataReceived();
     void OnDisconnected();
     void OnSendData(QString txt);
+
 
 
 };
