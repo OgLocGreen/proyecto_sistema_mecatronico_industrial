@@ -18,6 +18,7 @@ SOURCES += \
         Gui.cpp \
         Log.cpp \
         MotorDriver.cpp \
+        Trajectory.cpp \
         Utility.cpp \
         main.cpp
 
@@ -40,4 +41,5 @@ HEADERS += \
     Gui.h \
     Log.h \
     MotorDriver.h \
+    Trajectory.h \
     Utility.h

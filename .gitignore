@@ -4,4 +4,7 @@
 /Software/BBB/build-BeagleBone-Desktop_Qt_5_15_2_GCC_64bit-Debug/*
 /Software/GUI/build-Rover_test-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/
 /Software/GUI/build-Rover_test-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/*
+
+/Software/BBB/build-BeagleBone-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/
+/Software/BBB/build-BeagleBone-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/*
 .vscode/
