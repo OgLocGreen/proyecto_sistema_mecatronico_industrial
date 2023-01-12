@@ -26,10 +26,8 @@ private:
     } ;
     QTcpServer  server;
     QTcpSocket* socket;
-    //QVector<QTcpSocket*> cliVector;
     QVector<ClientInfo> cliVector;
     QVector<QString> cliName;
-   // QTimer timer;
     int counter;
     QThread thread;
 
