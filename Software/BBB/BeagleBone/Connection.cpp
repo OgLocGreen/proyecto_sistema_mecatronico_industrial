@@ -62,7 +62,9 @@ void Connection::OnDataReceived()
     QByteArray recv=cliVector[iClient].socket->readAll();
     QString recvmsg=recv;
     qDebug() << "Data: " << recvmsg;
-    OnSendData("hello from BBB!");
+
+    static int counter=0;
+    OnSendData(QString("hello from BBB count=%1!\n").arg(counter++));
 
 
     if(recvmsg.contains("motor_driver", Qt::CaseInsensitive))
@@ -166,7 +168,7 @@ void Connection::OnSendData(QString txt)
     for (iClient=0;iClient<cliVector.size();iClient++)
         {
             /*
-              if (cliVector[iClient].socket!=nullptr && cliVector[iClient].socket->state()==QAbstractSocket::ConnectedState && (destination="all" || destination==cliVector[iClient].name)  )
+              if (cliVector[iClient].socket!=nullptr && cliVecto´r[iClient].socket->state()==QAbstractSocket::ConnectedState && (destination="all" || destination==cliVector[iClient].name)  )
               {
                       cliVector[iClient].socket->write(txt.toLatin1());
               }
@@ -174,7 +176,10 @@ void Connection::OnSendData(QString txt)
         if (cliVector[iClient].socket!=nullptr)
         {
                 cliVector[iClient].socket->write(txt.toLatin1());
-                    qDebug() << "Sent:" << txt << "to :"<< cliVector[iClient].ip<<Qt::endl;
+                cliVector[iClient].socket->flush();
+                QTextStream qtOut(stdout);
+                qtOut << "Sent:" << txt << "to :"<< cliVector[iClient].ip.toString()<<Qt::endl;
+                qtOut.flush();
     }
     }
 }
