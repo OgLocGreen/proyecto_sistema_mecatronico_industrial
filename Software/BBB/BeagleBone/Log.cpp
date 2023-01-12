@@ -2,6 +2,7 @@
 
 Log::Log()
 {
+
 }
 
 Log::Log(QString path_log, QString path_xml, QString config_path)
@@ -63,21 +64,6 @@ void Log::OnAddToLog(const QString& NewDataLogIn)
 
 }
 
-
-void Log::OnAddToLog(const QString& NewDataLogIn,QString log_path)
-
-{
-    QString NewDataLog;
-    NewDataLog.append(QDateTime::currentDateTime().toString("hh.mm.ss"));
-    NewDataLog.append(" ");
-    NewDataLog.append(QDate::currentDate().toString());
-    NewDataLog.append(" ");
-    NewDataLog.append(NewDataLogIn);
-    NewDataLog.append("\r\n");
-    setDatosLog(NewDataLog, log_path);
-
-}
-
 void Log::setLogPath(QString path)
 {
     log_file_path = path;
@@ -117,4 +103,26 @@ QString Log::readConfigFile()
         xml_file.close();
     }
     return config_temp;
+}
+
+QString Log::readLogFile()
+{
+    QString config_temp;
+    QFile xml_file(log_file_path);
+
+    if (xml_file.open(QIODevice::ReadOnly)){
+        QTextStream leer(&xml_file);
+        config_temp.append(leer.readAll());
+        xml_file.close();
+    }
+    return config_temp;
+}
+
+void Log::onTimer()
+{
+    QString log = "<log>";
+    log.append(readLogFile());
+    log.append("</log>");
+    emit sendToPC(log);
+
 }

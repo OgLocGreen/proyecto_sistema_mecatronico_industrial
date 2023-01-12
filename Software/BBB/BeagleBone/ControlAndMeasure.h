@@ -16,6 +16,10 @@ public:
 private slots:
     void onTimerControll();
     void onTimerSensor();
+
+signals:
+    void AddToLog(QString text);
+
 };
 
 #endif // CONTROLANDMEASURE_H

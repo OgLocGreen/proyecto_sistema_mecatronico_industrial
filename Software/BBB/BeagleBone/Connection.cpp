@@ -40,6 +40,13 @@ void Connection::OnConnectionRequest()
 
         qDebug() << "New Connection \n";
     }
+    QString msg = "New Connection from Client: "+ cli.ip.toString();
+    emit AddToLog(msg);
+
+    // anwser when conected
+    static int counter=0;
+    OnSendData(QString("hello from BBB count=%1!\n").arg(counter++));
+
 }
 
 
@@ -63,8 +70,7 @@ void Connection::OnDataReceived()
     QString recvmsg=recv;
     qDebug() << "Data: " << recvmsg;
 
-    static int counter=0;
-    OnSendData(QString("hello from BBB count=%1!\n").arg(counter++));
+
 
 
     if(recvmsg.contains("motor_driver", Qt::CaseInsensitive))

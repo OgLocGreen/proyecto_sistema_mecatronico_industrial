@@ -6,6 +6,8 @@ class Esp32
 {
 public:
     Esp32();
+
+
 };
 
 #endif // ESP32_H
