@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
     Gui myGui;
 
     //BBB
-    BeagleBone BBB;
+    BeagleBone BBB(myData);
 
     //Mando
     Esp32 Mando;
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
 
     //Connector
     QObject::connect(&connector, SIGNAL(AddToLog(QString)),&logger,SLOT(OnAddToLog(QString)));
-    QObject::connect(&connector, SIGNAL(SendDataTrajectory(QString, QString)),&myTrajectory,SLOT(OnDataReceived(QString , QString)));
+    QObject::connect(&connector, SIGNAL(SendDataTrajectory(QString,QString)),&myTrajectory,SLOT(OnDataReceived(QString,QString)));
 
     // Trajectory
     //QObject::connect(&myTrajectory, SIGNAL(SendDataMotor(QString, QString)),&myMotordriver,SLOT(OnDataReceived(QString, QString)));
