@@ -10,6 +10,7 @@
 #include "Esp32.h"
 #include "Gui.h"
 #include "BeagleBone.h"
+#include "Trajectory.h"
 
 
 int main(int argc, char *argv[])
@@ -18,7 +19,7 @@ int main(int argc, char *argv[])
 
     Log logger;
     Utility util;
-    Connection connector;
+
 
     ControlAndMeasure controller;
     QTimer timerController, timerSensor;
@@ -34,6 +35,7 @@ int main(int argc, char *argv[])
 
     Data myData;
 
+    Connection connector(myData);
 
     if (! myData.readInitAll(xml_data))
     {
@@ -45,6 +47,10 @@ int main(int argc, char *argv[])
     QString broadcast = myData.makeXml();
     logger.saveXmlFile(broadcast);
     // Here then also the Borad cast to all Devices or we make this after the classes
+
+
+    // Trajectory
+    Trajectory myTrajectory(myData);
 
     //Esp EspTop;
     Esp32 myEspTop;
@@ -71,7 +77,7 @@ int main(int argc, char *argv[])
 
     // Start all Timer with the right intervall  // issue #16
     timerBroadcastXml.start(10000);
-    timerBroadcastLog.start(1000);
+    timerBroadcastLog.start(10000);
     timerController.start(10000);
     timerSensor.start(10000);
 
@@ -80,13 +86,20 @@ int main(int argc, char *argv[])
     QObject::connect(&timerSensor, SIGNAL(timeout()),&controller, SLOT(onTimerSensor()));
     QObject::connect(&controller, SIGNAL(AddToLog(QString)),&logger, SLOT(OnAddToLog(QString)));
 
+    // Data
+    QObject::connect(&timerBroadcastXml, SIGNAL(timeout()),&myData, SLOT(OnTimer()));
+    QObject::connect(&myData, SIGNAL(sendToPC(QString)),&connector, SLOT(OnSendData(QString)));
     //Logger
-    QObject::connect(&timerController, SIGNAL(timeout()),&logger, SLOT(onTimer()));
+    QObject::connect(&timerBroadcastLog, SIGNAL(timeout()),&logger, SLOT(onTimer()));
     QObject::connect(&logger, SIGNAL(sendToPC(QString)),&connector, SLOT(OnSendData(QString)));
+
 
     //Connector
     QObject::connect(&connector, SIGNAL(AddToLog(QString)),&logger,SLOT(OnAddToLog(QString)));
+    QObject::connect(&connector, SIGNAL(SendDataTrajectory(QString, QString)),&myTrajectory,SLOT(OnDataReceived(QString , QString)));
 
+    // Trajectory
+    //QObject::connect(&myTrajectory, SIGNAL(SendDataMotor(QString, QString)),&myMotordriver,SLOT(OnDataReceived(QString, QString)));
 
     //issue #9
     // Fpga
