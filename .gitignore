@@ -8,3 +8,7 @@
 /Software/BBB/build-BeagleBone-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/
 /Software/BBB/build-BeagleBone-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/*
 .vscode/
+.vscode/*
+
+/.vscode/
+/.vscode/*
