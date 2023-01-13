@@ -2,6 +2,11 @@
     <motor_speed_left>0</motor_speed_left>
     <motor_speed_right>0</motor_speed_right>
 </motor_drive>
+<trajectory>
+    <joy_x>20</joy_x>
+    <joy_y>10</joy_y>
+    <vel_max>1</vel_max>
+</trajectory>
 <esp32_top>
     <ip>x.x.x.x.x</ip>
     <port>90</port>

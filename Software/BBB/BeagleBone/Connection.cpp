@@ -1,6 +1,13 @@
 #include "Connection.h"
 
+/*
 Connection::Connection(QObject *parent) : QObject(parent)
+{
+
+}
+*/
+
+Connection::Connection(Data &myDataadrs) : myData(myDataadrs)
 {
     socket=NULL;
     QObject::connect(&server,SIGNAL(newConnection()),this,SLOT(OnConnectionRequest()));
@@ -11,7 +18,6 @@ Connection::Connection(QObject *parent) : QObject(parent)
     else
        qDebug() << "Listen fail";
 }
-
 
 void Connection::OnConnectionRequest()
 {
@@ -91,6 +97,30 @@ void Connection::OnDataReceived()
             myData.motor_driver_data.motor_speed_right = motor_speed_right;
         }
     }
+
+    if(recvmsg.contains("trajectory", Qt::CaseInsensitive))
+    {
+        QString trajectory = util.GetXmlStr(recvmsg, "trajectory");
+        QString joy_x, joy_y;
+        if(trajectory.contains("joy_x"))
+        {
+            joy_x = util.GetXmlStr(trajectory, "joy_x");
+            qDebug() << "joy_x: " << joy_x;
+
+            myData.trajectory_data.joy_x = joy_x;
+        }
+        if(trajectory.contains("joy_y"))
+        {
+            joy_y = util.GetXmlStr(trajectory, "joy_y");
+            qDebug() << "joy_y: " << joy_y;
+            myData.trajectory_data.joy_x = joy_x;
+        }
+        emit SendDataTrajectory(joy_x, joy_y);
+    }
+
+
+
+
     if(recvmsg.contains("esp32_top", Qt::CaseInsensitive))
     {
         QString esp_top = util.GetXmlStr(recvmsg, "esp32_top");
@@ -189,5 +219,4 @@ void Connection::OnSendData(QString txt)
     }
     }
 }
-
 
