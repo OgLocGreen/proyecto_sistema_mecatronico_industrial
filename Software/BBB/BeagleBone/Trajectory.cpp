@@ -4,7 +4,6 @@
 
 Trajectory::Trajectory(Data& myDataadrs) : myData(myDataadrs)
 {
-
     vel_max = myData.trajectory_data.vel_max.toFloat();
 }
 
