@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     QFile styleSheetFile;
     //styleSheetFile.setFileName("Incrypt.qss");    //not good
     //styleSheetFile.setFileName("Adaptic.qss");    //nice slider
-    styleSheetFile.setFileName("Combinear.qss");    //nice
+    styleSheetFile.setFileName(":/StyleSheet/Combinear.qss");    //nice
     //styleSheetFile.setFileName("Genetive.qss");   //not really good
     //styleSheetFile.setFileName("Chatbee.qss");    // good
 
