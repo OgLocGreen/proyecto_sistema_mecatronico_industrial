@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -76,34 +76,11 @@
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="geometry">
-       <rect>
-        <x>980</x>
-        <y>220</y>
-        <width>191</width>
-        <height>191</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>Joystick.jpg</normaloff>Joystick.jpg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>200</width>
-        <height>200</height>
-       </size>
-      </property>
-     </widget>
      <widget class="QProgressBar" name="qPuls_progressBar">
       <property name="geometry">
        <rect>
         <x>1000</x>
-        <y>173</y>
+        <y>160</y>
         <width>151</width>
         <height>31</height>
        </rect>
@@ -122,7 +99,7 @@
       <property name="geometry">
        <rect>
         <x>1000</x>
-        <y>70</y>
+        <y>57</y>
         <width>221</width>
         <height>101</height>
        </rect>
@@ -145,7 +122,7 @@
       <property name="geometry">
        <rect>
         <x>1090</x>
-        <y>30</y>
+        <y>17</y>
         <width>51</width>
         <height>31</height>
        </rect>
@@ -267,8 +244,8 @@
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>1220</x>
-        <y>317</y>
+        <x>1240</x>
+        <y>320</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -280,22 +257,6 @@
       </property>
       <property name="text">
        <string>%</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit">
-      <property name="geometry">
-       <rect>
-        <x>1180</x>
-        <y>320</y>
-        <width>41</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>75</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
      <widget class="QRadioButton" name="qCam1_RadioButton">
@@ -451,6 +412,44 @@
       </property>
       <property name="text">
        <string>Options...</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox">
+      <property name="geometry">
+       <rect>
+        <x>1180</x>
+        <y>320</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::UpDownArrows</enum>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="singleStep">
+       <number>5</number>
+      </property>
+      <property name="value">
+       <number>75</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="qJoystick_label">
+      <property name="geometry">
+       <rect>
+        <x>960</x>
+        <y>200</y>
+        <width>200</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
       </property>
      </widget>
     </widget>
@@ -735,7 +734,7 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLabel" name="label_14">
+     <widget class="QLabel" name="qBattery_label">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -844,7 +843,7 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLabel" name="label_15">
+     <widget class="QLabel" name="qLight_label">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -868,7 +867,7 @@
      <attribute name="title">
       <string>LogFile</string>
      </attribute>
-     <widget class="QTextEdit" name="textEdit">
+     <widget class="QTextEdit" name="qLog_textEdit">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -944,8 +943,26 @@ hr { height: 1px; border-width: 0; }
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuRoverData">
+    <property name="title">
+     <string>Info</string>
+    </property>
+    <addaction name="qStatus_action"/>
+    <addaction name="qTraj_action"/>
+   </widget>
+   <addaction name="menuRoverData"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="qStatus_action">
+   <property name="text">
+    <string>Rover Status</string>
+   </property>
+  </action>
+  <action name="qTraj_action">
+   <property name="text">
+    <string>Trajectory</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
