@@ -122,4 +122,3 @@ void MotorDriver::OnNewDataRecieved(const QString &right_motor_speed_prcnt, cons
 
 //}
 
-
