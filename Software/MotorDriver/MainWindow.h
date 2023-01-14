@@ -20,14 +20,12 @@ public:
 
 signals:
 
-    void SendDataToMotorDriver(QString request, QString value, QString motorselector);
+    void SendDataToMotorDriver(QString right_motor_speed_prcnt, QString left_motor_speed_prcnt);
 
 private slots:
 
     void on_qSendCmd_pushButton_clicked();
-
     void on_qSendManualCmd_pushButton_clicked();
-
     void OnManualDriverReception();
 
 private:
@@ -35,9 +33,7 @@ private:
 
     QSerialPort serial_manual;
 
-    QString request;
-    QString value;
-    QString motorselector;
+    QString right_speed, left_speed;
 
     MotorDriver myMotor;
 };

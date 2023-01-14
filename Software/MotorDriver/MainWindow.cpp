@@ -8,15 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->qMotorSelector_comboBox->addItem("*");
-    ui->qMotorSelector_comboBox->addItem("1");
-    ui->qMotorSelector_comboBox->addItem("2");
-    ui->qMotorSelector_comboBox->addItem("3");
-    ui->qMotorSelector_comboBox->addItem("4");
-    ui->qMotorSelector_comboBox->addItem("5");
 
     connect(&serial_manual,SIGNAL(readyRead()),this,SLOT(OnManualDriverReception()));
-    connect(this,SIGNAL(SendDataToMotorDriver(QString,QString,QString)),&myMotor,SLOT(OnNewDataRecieved(QString,QString,QString)));
+    connect(this,SIGNAL(SendDataToMotorDriver(QString,QString)),&myMotor,SLOT(OnNewDataRecieved(QString,QString)));
 }
 
 MainWindow::~MainWindow()
@@ -30,14 +24,13 @@ void MainWindow::on_qSendCmd_pushButton_clicked()
 {
     /* Cuando se hace click en el botón, se envía el comando al MotorDriver (como si fuera desde la BBB) */
 
-    request = ui->qCmdLine_lineEdit->text();
-    value = ui->qValue_lineEdit->text();
-    motorselector = ui->qMotorSelector_comboBox->currentText();
+    left_speed = ui->qLeftSpeed_lineEdit->text();
+    right_speed = ui->qRightSpeed_lineEdit->text();
 
-    ui->qSerialMonitor_textEdit->setText("Request: "+request+"  Value: "+value);
+    ui->qSerialMonitor_textEdit->setText("Right speed: "+right_speed+"  Value: "+left_speed);
 
     /* Emite señal SendDataToMotorDriver con el userrequest y el valor */
-    emit SendDataToMotorDriver(request,value,motorselector);
+    emit SendDataToMotorDriver(right_speed,left_speed);
 }
 
 void MainWindow::on_qSendManualCmd_pushButton_clicked()

@@ -14,13 +14,18 @@ private:
 
     QSerialPort serial; /* serial port */
 
+    QString right_motor_speed_Hz, left_motor_speed_Hz; /* buffer for motor speed in Hz */
+
     /* Command processing methods */
     void SendCmd2Driver(); /* sends command to driver via SerialPort */
     void OnDriverReadyRead(); /* reads driver response and checks if we get adecuate response */
 
+    /* Unit Conversion */
+    QString PercentToHzSpeed(QString _speed_prcnt);
+
     /* Movement methods */
-    void MoveStraightAtConstantSpeed(QString _motorselect, int _speed_hz);
     void StopMotor(QString _motorselect); /* stop selected motor */
+
 public:
 
     explicit MotorDriver(QObject *parent = nullptr);
@@ -30,8 +35,7 @@ public:
 signals:
 public slots:
 
-    void OnNewDataRecieved(const QString &request, const QString &value, const QString &motorselect); /* Called when recieves SendDataToMotorDriver */
-
+    void OnNewDataRecieved(const QString &right_motor_speed_prcnt, const QString &left_motor_speed_prcnt); /* recieves data from BBB */
 };
 
 #endif // MOTORDRIVER_H
