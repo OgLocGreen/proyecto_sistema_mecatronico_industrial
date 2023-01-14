@@ -14,6 +14,7 @@ bool Data::readInitAll(const QString &xml_data)
     readInitBeaglebone(xml_data);
     readInitGui(xml_data);
     readInitMando(xml_data);
+    readInitTrajectory(xml_data);
 }
 
 
@@ -84,6 +85,14 @@ bool Data::readInitMando(const QString& xml_data)
     return 1;
 }
 
+bool Data::readInitTrajectory(const QString &xml_data)
+{
+    trajectory_data.joy_x = util.GetXmlStr(xml_data,"trajectory","joy_x");
+    trajectory_data.joy_y = util.GetXmlStr(xml_data,"trajectory","joy_y");
+    trajectory_data.vel_max = util.GetXmlStr(xml_data,"trajectory","vel_max");
+    return 1;
+}
+
 QString Data::XmlPutString(const QString& tag,const QString& value)
 {
 
@@ -104,6 +113,12 @@ QString Data::XmlPutStringSpace(const QString& tag,const QString& value)
 
       return ret;
 
+}
+
+void Data::OnTimer()
+{
+    QString msg = makeXml();
+    emit sendToPC(msg);
 }
 
 QString Data::XmlPutFloat(const QString& tag,float value)

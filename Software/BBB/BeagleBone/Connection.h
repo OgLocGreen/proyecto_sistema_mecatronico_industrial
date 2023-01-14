@@ -11,12 +11,11 @@
 #include <Utility.h>
 #include <Data.h>
 
-
 class Connection : public QObject
 {
     Q_OBJECT
     Log logger;
-    Data myData;
+    Data& myData;
 private:
     struct ClientInfo
     {
@@ -26,32 +25,32 @@ private:
     } ;
     QTcpServer  server;
     QTcpSocket* socket;
-    //QVector<QTcpSocket*> cliVector;
     QVector<ClientInfo> cliVector;
     QVector<QString> cliName;
-   // QTimer timer;
     int counter;
     QThread thread;
 
     Utility util;
 
 public:
-    explicit Connection(QObject *parent = nullptr);  // Constructor
-
+    //explicit Connection(QObject *parent = nullptr);  // Constructor
+    Connection(Data& myDataadrs);
 signals:
     void NewData(QString data);
     void AddToLogAlarm(const QString& NewDataLogIn, int LogState);
+    void SendDataTrajectory(QString x, QString y);
     void SendDataMotor(QString dataName,QString value);     // issue #18
     void SendDataFpga(QString dataName, QString value);     // issue #19
     void SendDataEspTop(QString dataName,QString value);        // issue #20
     void SendDataEspFront(QString dataName,QString value);      // issue #21
-    void Boardcast(QString dataName,QString XmlData);   // issue #17
+    void AddToLog(QString txt);
 
 public slots:
     void OnConnectionRequest();
     void OnDataReceived();
     void OnDisconnected();
     void OnSendData(QString txt);
+
 
 
 };

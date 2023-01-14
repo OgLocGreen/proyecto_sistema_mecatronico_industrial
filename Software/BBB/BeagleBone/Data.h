@@ -55,6 +55,11 @@ public:
     {
         QString ip;
     };
+    struct trajectory_struct{
+        QString joy_x;
+        QString joy_y;
+        QString vel_max;
+    };
 
     int test;
     motor_driver_struct motor_driver_data;
@@ -64,6 +69,7 @@ public:
     beaglebone_struct beaglebone_data;
     gui_struct gui_data;
     mando_struct mando_data;
+    trajectory_struct trajectory_data;
 
     bool readInitAll(const QString& xml_data);
     QString makeXml();
@@ -78,10 +84,19 @@ private:
     bool readInitBeaglebone(const QString& xml_data);
     bool readInitGui(const QString& xml_data);
     bool readInitMando(const QString& xml_data);
+    bool readInitTrajectory(const QString& xml_data);
 
     QString XmlPutFloat(const QString& tag,float value);
     QString XmlPutString(const QString& tag,const QString& value);
     QString XmlPutStringSpace(const QString& tag,const QString& value);
+
+public slots:
+    void OnTimer();
+
+signals:
+    void sendToPC(QString msg);
+
+
 };
 
 #endif // DATA_H

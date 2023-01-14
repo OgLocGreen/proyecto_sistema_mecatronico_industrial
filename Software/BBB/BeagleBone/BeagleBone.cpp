@@ -1,6 +1,7 @@
 #include "BeagleBone.h"
 
-BeagleBone::BeagleBone()
+
+BeagleBone::BeagleBone(Data &myDataadrs)  : myData(myDataadrs)
 {
 
 }

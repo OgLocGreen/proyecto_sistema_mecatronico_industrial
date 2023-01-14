@@ -1,6 +1,13 @@
 #include "Connection.h"
 
+/*
 Connection::Connection(QObject *parent) : QObject(parent)
+{
+
+}
+*/
+
+Connection::Connection(Data &myDataadrs) : myData(myDataadrs)
 {
     socket=NULL;
     QObject::connect(&server,SIGNAL(newConnection()),this,SLOT(OnConnectionRequest()));
@@ -11,7 +18,6 @@ Connection::Connection(QObject *parent) : QObject(parent)
     else
        qDebug() << "Listen fail";
 }
-
 
 void Connection::OnConnectionRequest()
 {
@@ -40,6 +46,13 @@ void Connection::OnConnectionRequest()
 
         qDebug() << "New Connection \n";
     }
+    QString msg = "New Connection from Client: "+ cli.ip.toString();
+    emit AddToLog(msg);
+
+    // anwser when conected
+    static int counter=0;
+    OnSendData(QString("hello from BBB count=%1!\n").arg(counter++));
+
 }
 
 
@@ -62,7 +75,8 @@ void Connection::OnDataReceived()
     QByteArray recv=cliVector[iClient].socket->readAll();
     QString recvmsg=recv;
     qDebug() << "Data: " << recvmsg;
-    OnSendData("hello from BBB!");
+
+
 
 
     if(recvmsg.contains("motor_driver", Qt::CaseInsensitive))
@@ -83,6 +97,30 @@ void Connection::OnDataReceived()
             myData.motor_driver_data.motor_speed_right = motor_speed_right;
         }
     }
+
+    if(recvmsg.contains("trajectory", Qt::CaseInsensitive))
+    {
+        QString trajectory = util.GetXmlStr(recvmsg, "trajectory");
+        QString joy_x, joy_y;
+        if(trajectory.contains("joy_x"))
+        {
+            joy_x = util.GetXmlStr(trajectory, "joy_x");
+            qDebug() << "joy_x: " << joy_x;
+
+            myData.trajectory_data.joy_x = joy_x;
+        }
+        if(trajectory.contains("joy_y"))
+        {
+            joy_y = util.GetXmlStr(trajectory, "joy_y");
+            qDebug() << "joy_y: " << joy_y;
+            myData.trajectory_data.joy_x = joy_x;
+        }
+        emit SendDataTrajectory(joy_x, joy_y);
+    }
+
+
+
+
     if(recvmsg.contains("esp32_top", Qt::CaseInsensitive))
     {
         QString esp_top = util.GetXmlStr(recvmsg, "esp32_top");
@@ -166,7 +204,7 @@ void Connection::OnSendData(QString txt)
     for (iClient=0;iClient<cliVector.size();iClient++)
         {
             /*
-              if (cliVector[iClient].socket!=nullptr && cliVector[iClient].socket->state()==QAbstractSocket::ConnectedState && (destination="all" || destination==cliVector[iClient].name)  )
+              if (cliVector[iClient].socket!=nullptr && cliVecto´r[iClient].socket->state()==QAbstractSocket::ConnectedState && (destination="all" || destination==cliVector[iClient].name)  )
               {
                       cliVector[iClient].socket->write(txt.toLatin1());
               }
@@ -174,9 +212,11 @@ void Connection::OnSendData(QString txt)
         if (cliVector[iClient].socket!=nullptr)
         {
                 cliVector[iClient].socket->write(txt.toLatin1());
-                    qDebug() << "Sent:" << txt << "to :"<< cliVector[iClient].ip<<Qt::endl;
+                cliVector[iClient].socket->flush();
+                QTextStream qtOut(stdout);
+                qtOut << "Sent:" << txt << "to :"<< cliVector[iClient].ip.toString()<<Qt::endl;
+                qtOut.flush();
     }
     }
 }
-
 

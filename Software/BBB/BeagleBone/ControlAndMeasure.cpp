@@ -14,6 +14,8 @@ void ControlAndMeasure::onTimerControll()
 
     qDebug() << "hello this is the Timer here Controll" << Qt::endl;
 
+    emit AddToLog("una ronda de controll");
+
 }
 
 void ControlAndMeasure::onTimerSensor()
