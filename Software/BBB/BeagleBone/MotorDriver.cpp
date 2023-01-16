@@ -8,6 +8,7 @@
 /* sending cmd manually constructed */
 void MotorDriver::SendCmd2Driver(QString _snd_manual)
 {
+    qDebug() << _snd_manual;
     snd.clear();
     snd = _snd_manual;
 
@@ -150,7 +151,6 @@ void MotorDriver::OnDataRecieved(QString right_motor_speed_prcnt,QString left_mo
         cmd = "#2A";
         SendCmd2Driver(cmd);
     }
-    qDebug() << "Motordriver comand: " << cmd;
 }
 
 

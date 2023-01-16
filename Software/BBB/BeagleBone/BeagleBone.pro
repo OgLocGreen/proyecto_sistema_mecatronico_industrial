@@ -23,7 +23,10 @@ SOURCES += \
         Utility.cpp \
         main.cpp
 
-linux-beagle* { ROOTFS = $$(HOME)/Common-Installs/BBB/RootFS INCLUDEPATH += $${ROOTFS}/usr/include/arm-linux-gnueabihf LIBS += -lrobotcontrol }
+linux-beagle* {
+    ROOTFS = $$(HOME)/Common-Installs/BBB/RootFS
+    INCLUDEPATH += $${ROOTFS}/usr/include/arm-linux-gnueabihf
+    LIBS += -lrobotcontrol }
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

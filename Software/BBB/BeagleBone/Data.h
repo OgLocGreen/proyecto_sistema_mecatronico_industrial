@@ -89,7 +89,6 @@ private:
     bool readInitMando(const QString& xml_data);
     bool readInitTrajectory(const QString& xml_data);
 
-    QString XmlPutFloat(const QString& tag,float value);
     QString XmlPutString(const QString& tag,const QString& value);
     QString XmlPutStringSpace(const QString& tag,const QString& value);
 

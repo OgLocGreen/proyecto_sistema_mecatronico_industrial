@@ -113,10 +113,7 @@ void Data::OnTimer()
 
 QString Data::XmlPutFloat(const QString& tag,float value)
 {
-    QString ret;
-    ret="<"+tag+">"+value+"</"+tag+">";
 
-    return ret;
 }
 
 QString Data::makeXml()
