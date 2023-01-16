@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     // This also could be written to in the init of the Class as Agument for Constructor;
     logger.setLogPath("./log_file.txt");
     logger.setXmlPath("./xml_file.txt");
-    logger.setConfigPath("./config.txt");
+    logger.setConfigPath(":/rsc/config.txt");
 
     QString xml_data;
 
