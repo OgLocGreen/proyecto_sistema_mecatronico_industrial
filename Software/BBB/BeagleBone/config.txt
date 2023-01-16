@@ -19,8 +19,10 @@
 <fpga>
     <direction_elev>1</direction_elev>
     <frecuency_switch>1</frecuency_switch>
-    <enable>1</enable>
+    <enable_elev>1</enable_elev>
+    <enable_cam>1</enable_cam>
     <direction_cam>1</direction_cam>
+
 </fpga>
 <beaglebone>
     <temperatur>50</temperatur>
