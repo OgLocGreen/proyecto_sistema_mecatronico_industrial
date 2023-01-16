@@ -29,8 +29,11 @@ public:
         QString video_quality;
     };
     struct fpga_struct {
-        QString motor_speed_cam;
-        QString motor_speed_platform;
+        QString direction_elev;
+        QString frecuency_switch;
+        QString enable_elev;
+        QString enable_cam;
+        QString direction_cam;
     };
     struct beaglebone_struct {
         QString boradcast_time;

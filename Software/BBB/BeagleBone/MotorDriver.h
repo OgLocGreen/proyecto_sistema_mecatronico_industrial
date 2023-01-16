@@ -35,7 +35,7 @@ public:
 signals:
 public slots:
 
-    void OnNewDataRecieved(const QString &right_motor_speed_prcnt, const QString &left_motor_speed_prcnt); /* recieves data from BBB */
+    void OnDataRecieved(QString right_motor_speed_prcnt,QString left_motor_speed_prcnt); /* recieves data from BBB */
 };
 
 #endif // MOTORDRIVER_H
