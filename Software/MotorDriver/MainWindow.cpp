@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    connect(&serial_manual,SIGNAL(readyRead()),this,SLOT(OnManualDriverReception()));
+    //connect(&serial_manual,SIGNAL(readyRead()),this,SLOT(OnManualDriverReception()));
     connect(this,SIGNAL(SendDataToMotorDriver(QString,QString)),&myMotor,SLOT(OnNewDataRecieved(QString,QString)));
 }
 
@@ -38,11 +38,5 @@ void MainWindow::on_qSendManualCmd_pushButton_clicked()
     QString request = ui->qManualCmd_lineEdit->text();
     myMotor.SendCmd2Driver(request);
     ui->qAnswManualCmd_lineEdit->setText(myMotor.ReadAnswFromDriver());
-}
-
-void MainWindow::OnManualDriverReception()
-{
-    QString answ = QString(serial_manual.readAll());
-    ui->qAnswManualCmd_lineEdit->setText(answ);
 }
 

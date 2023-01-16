@@ -19,9 +19,10 @@ void MotorDriver::SendCmd2Driver(QString _snd_manual)
     else{
         snd.append("\r");
 
-        for(int i=0 ; i>=3 ; i++){ /* try to send command for three times */
+        for(int i=0 ; i<=3 ; i++){ /* try to send command for three times */
             serial.write(snd.toLatin1());
             serial.waitForReadyRead(100);
+            qDebug() << snd+"---"+answ;
             if(snd==('#'+answ)) break; /* if echo sounds good, go ahead */
             if(i == 3) qDebug() << "Error: look at the answer - " + answ;
         }
@@ -43,10 +44,16 @@ void MotorDriver::OnDriverReadyRead()
 
 QString MotorDriver::PercentToHzSpeed(QString _speed_prcnt)
 {
-    int _speed_prcnt_int = _speed_prcnt.toInt(); /* conversion to integer */
-    int _speed_Hz_int = _speed_prcnt_int*MAX_SPEED; /* conversion from percentage to absolute */
-    QString _speed_Hz_str = QString::number(_speed_Hz_int); /* conversion from integer to string to command building */
-    return _speed_Hz_str;
+    if(_speed_prcnt!="0"){
+        float _speed_prcnt_float = _speed_prcnt.toFloat()/100.0; /* conversion to float */
+        float _speed_Hz_float = _speed_prcnt_float*MAX_SPEED; /* conversion from percentage to absolute */
+        QString _speed_Hz_str = QString::number(qRound(_speed_Hz_float)); /* conversion from integer to string to command building */
+        return _speed_Hz_str;
+    }
+    else{
+        QString _speed_Hz_str = "0";
+        return _speed_Hz_str;
+    }
 }
 
 MotorDriver::MotorDriver(QObject *parent) /*CONSTRUCTOR*/
@@ -97,26 +104,53 @@ void MotorDriver::OnNewDataRecieved(const QString &right_motor_speed_prcnt, cons
         SendCmd2Driver(cmd);
     }
 
+    else{
+        cmd = "#1d1";
+        SendCmd2Driver(cmd);
+    }
+
     cmd.clear();
     if(left_motor_speed_Hz.startsWith("-")){
         cmd = "#2d0";
+        SendCmd2Driver(cmd);
+    }
+    else{
+        cmd = "#2d1";
         SendCmd2Driver(cmd);
     }
 
     cmd.clear();
 
     /* Setting speed */
-    cmd = "#1o"+right_motor_speed_Hz.remove("-");
-    SendCmd2Driver(cmd);
-    cmd.clear();
+    if(right_motor_speed_Hz=="0"){
+        cmd = "#1S1";
+        SendCmd2Driver(cmd);
+        cmd.clear();
+    }
 
-    cmd = "#2o"+left_motor_speed_Hz.remove("-");
-    SendCmd2Driver(cmd);
-    cmd.clear();
+    else{
+        cmd = "#1o"+right_motor_speed_Hz.remove("-");
+        SendCmd2Driver(cmd);
+        cmd.clear();
+        /* Start motor 1 with settled speed */
+        cmd = "#1A";
+        SendCmd2Driver(cmd);
+    }
 
-    /* Start All motors with settled speed */
-    cmd = "#*A";
-    SendCmd2Driver(cmd);
+    if(left_motor_speed_Hz=="0"){
+        cmd = "#2S1";
+        SendCmd2Driver(cmd);
+        cmd.clear();
+    }
+    else{
+        cmd = "#2o"+left_motor_speed_Hz.remove("-");
+        SendCmd2Driver(cmd);
+        cmd.clear();
+        /* Start motor 2 with settled speed */
+        cmd = "#2A";
+        SendCmd2Driver(cmd);
+    }
+
 }
 
 
