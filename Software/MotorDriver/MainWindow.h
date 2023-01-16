@@ -26,12 +26,9 @@ private slots:
 
     void on_qSendCmd_pushButton_clicked();
     void on_qSendManualCmd_pushButton_clicked();
-    void OnManualDriverReception();
 
 private:
     Ui::MainWindow *ui;
-
-    QSerialPort serial_manual;
 
     QString right_speed, left_speed;
 
