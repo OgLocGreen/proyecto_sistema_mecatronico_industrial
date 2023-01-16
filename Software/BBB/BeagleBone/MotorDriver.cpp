@@ -87,7 +87,7 @@ void MotorDriver::StopMotor(QString _motorselect)
 
 /* PUBLIC SLOTS */
 
-void MotorDriver::OnNewDataRecieved(const QString &right_motor_speed_prcnt, const QString &left_motor_speed_prcnt) /* recieves data from BBB */
+void MotorDriver::OnDataRecieved(QString right_motor_speed_prcnt,QString left_motor_speed_prcnt) /* recieves data from BBB */
 {
     QString cmd;
 
@@ -150,7 +150,7 @@ void MotorDriver::OnNewDataRecieved(const QString &right_motor_speed_prcnt, cons
         cmd = "#2A";
         SendCmd2Driver(cmd);
     }
-
+    qDebug() << "Motordriver comand: " << cmd;
 }
 
 

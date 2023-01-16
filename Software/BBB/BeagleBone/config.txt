@@ -19,16 +19,20 @@
 <fpga>
     <direction_elev>1</direction_elev>
     <frecuency_switch>1</frecuency_switch>
-    <enable>1</enable>
+    <enable_elev>1</enable_elev>
+    <enable_cam>1</enable_cam>
     <direction_cam>1</direction_cam>
 </fpga>
 <beaglebone>
+    <boradcast_time>50</boradcast_time>
+    <controller_time>50</controller_time>
+    <sensor_time>50</sensor_time>
     <temperatur>50</temperatur>
     <battery>0</battery>
     <led_light>10</led_light>
     <ventilator>0</ventilator>
     <speaker>0</speaker>
-    <0_pos_low>true</0_pos_low>
+    <zero_pos_low>true</zero_pos_low>
     <x_pos_momento>0</x_pos_momento>
     <y_pos_momento>0</y_pos_momento>
     <ultrasound_right>10</ultrasound_right>

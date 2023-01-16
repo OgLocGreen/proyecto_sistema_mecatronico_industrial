@@ -27,7 +27,7 @@ public slots:
     void OnDataReceived(QString x, QString y);
 
 signals:
-     void SendDataMotor(QString dataName,QString value);     // issue #18
+     void SendDataMotor(QString right_motor_speed_prcnt,QString left_motor_speed_prcnt);     // issue #18
 };
 
 #endif // TRAJECTORY_H
