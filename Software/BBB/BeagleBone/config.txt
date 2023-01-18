@@ -9,33 +9,34 @@
 </trajectory>
 <esp32_top>
     <ip>x.x.x.x.x</ip>
-    <video>true</video>
-    <pulsar>true</pulsar>
+    <video>1</video>
+    <pulsar>1</pulsar>
 </esp32_top>
 <esp32_front>
     <ip>x.x.x.x.x</ip>
-    <video>true</video>
+    <video>1</video>
 </esp32_front>
 <fpga>
     <direction_elev>1</direction_elev>
-    <frecuency_switch>1</frecuency_switch>
     <enable_elev>1</enable_elev>
     <enable_cam>1</enable_cam>
     <direction_cam>1</direction_cam>
+    <enable_fast>1</enable_fast>
 </fpga>
 <beaglebone>
-    <boradcast_time>50</boradcast_time>
-    <controller_time>50</controller_time>
-    <sensor_time>50</sensor_time>
+    <boradcast_time>1000</boradcast_time>
+    <controller_time>1000</controller_time>
+    <sensor_time>1000</sensor_time>
+    <log_time>1000</log_time>
     <temperatur>50</temperatur>
     <battery>0</battery>
     <led_light>10</led_light>
     <ventilator>0</ventilator>
     <speaker>0</speaker>
-    <zero_pos_low>true</zero_pos_low>
+    <zero_pos_low>1</zero_pos_low>
     <x_pos_momento>0</x_pos_momento>
     <y_pos_momento>0</y_pos_momento>
     <ultrasound_right>10</ultrasound_right>
     <ultrasound_left>10</ultrasound_left>
-    <room_light>true</room_light>
+    <room_light>1</room_light>
 </beaglebone>
