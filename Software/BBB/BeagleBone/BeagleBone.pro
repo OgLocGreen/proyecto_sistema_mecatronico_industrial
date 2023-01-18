@@ -14,9 +14,7 @@ SOURCES += \
         Connection.cpp \
         ControlAndMeasure.cpp \
         Data.cpp \
-        Esp32.cpp \
         Fpga.cpp \
-        Gui.cpp \
         Log.cpp \
         MotorDriver.cpp \
         Trajectory.cpp \
@@ -42,9 +40,7 @@ HEADERS += \
     Connection.h \
     ControlAndMeasure.h \
     Data.h \
-    Esp32.h \
     Fpga.h \
-    Gui.h \
     Log.h \
     MotorDriver.h \
     Trajectory.h \

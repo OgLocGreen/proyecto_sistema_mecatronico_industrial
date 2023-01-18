@@ -111,11 +111,6 @@ void Data::OnTimer()
     emit sendToPC(msg);
 }
 
-QString Data::XmlPutFloat(const QString& tag,float value)
-{
-
-}
-
 QString Data::makeXml()
 {
     QString out;

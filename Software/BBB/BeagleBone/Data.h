@@ -39,6 +39,7 @@ public:
         QString boradcast_time;
         QString controller_time;
         QString sensor_time;
+        QString log_time;
         QString temperatur;
         QString battery;
         QString led_light;
