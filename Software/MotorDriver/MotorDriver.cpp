@@ -8,7 +8,6 @@
 /* sending cmd manually constructed */
 void MotorDriver::SendCmd2Driver(QString _snd_manual)
 {
-    qDebug() << _snd_manual;
     snd.clear();
     snd = _snd_manual;
 
@@ -88,7 +87,7 @@ void MotorDriver::StopMotor(QString _motorselect)
 
 /* PUBLIC SLOTS */
 
-void MotorDriver::OnDataRecieved(QString right_motor_speed_prcnt,QString left_motor_speed_prcnt) /* recieves data from BBB */
+void MotorDriver::OnNewDataRecieved(const QString &right_motor_speed_prcnt, const QString &left_motor_speed_prcnt) /* recieves data from BBB */
 {
     QString cmd;
 
@@ -151,6 +150,7 @@ void MotorDriver::OnDataRecieved(QString right_motor_speed_prcnt,QString left_mo
         cmd = "#2A";
         SendCmd2Driver(cmd);
     }
+
 }
 
 
