@@ -39,4 +39,5 @@
     <ultrasound_right>10</ultrasound_right>
     <ultrasound_left>10</ultrasound_left>
     <room_light>1</room_light>
+    <room_name>blabla</room_name>
 </beaglebone>

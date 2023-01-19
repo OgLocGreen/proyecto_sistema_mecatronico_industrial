@@ -112,11 +112,11 @@ void MotorDriver::OnDataRecieved(QString right_motor_speed_prcnt,QString left_mo
 
     cmd.clear();
     if(left_motor_speed_Hz.startsWith("-")){
-        cmd = "#2d0";
+        cmd = "#2d1";
         SendCmd2Driver(cmd);
     }
     else{
-        cmd = "#2d1";
+        cmd = "#2d0";
         SendCmd2Driver(cmd);
     }
 

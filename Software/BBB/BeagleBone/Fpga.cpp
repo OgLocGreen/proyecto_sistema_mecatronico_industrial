@@ -64,13 +64,11 @@ void Fpga::OnDataRecieved(QString direction_elev,QString enable_elev, QString en
 {
     QString cmd;
 
-    if(enable_fast.toInt())
-    {
-        cmd.append(direction_elev.toInt());
-    }
-
-    cmd = "1110";
-
+    cmd.append(direction_elev.toInt());
+    cmd.append(enable_elev.toInt());
+    cmd.append(enable_cam.toInt());
+    cmd.append(direction_cam.toInt());
+    cmd.append(enable_fast.toInt());
     SendCmd2FPGA(cmd);
 }
 

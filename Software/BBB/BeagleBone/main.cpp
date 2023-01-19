@@ -30,18 +30,14 @@ int main(int argc, char *argv[])
     logger.setConfigPath(":/rsc/config.txt");
 
     QString xml_data;
-
     xml_data = logger.readConfigFile();
 
     Data myData;
-
     Connection connector(myData);
 
     if (! myData.readInitAll(xml_data))
     {
-
         qDebug() <<"Error Reading the Data";
-
     }
 
     QString broadcast = myData.makeXml();
@@ -51,14 +47,11 @@ int main(int argc, char *argv[])
     //FPGA
     Fpga myFpga;
 
-
     // Trajectory
     Trajectory myTrajectory(myData);
 
-
     //MotorDriver
     MotorDriver myMotordriver;
-
 
     //BBB
     BeagleBone BBB(myData);
@@ -94,7 +87,7 @@ int main(int argc, char *argv[])
     QObject::connect(&connector, SIGNAL(SendDataFpga(QString,QString,QString,QString,QString)),&myFpga,SLOT(OnDataRecieved(QString,QString,QString,QString,QString)));
     // QObject::connect(&myFpga, SIGNAL(AddToLog(QString)),&logger,SLOT(OnAddToLog(QString)));
 
-      //Motor Driver
+    //Motor Driver
     QObject::connect(&connector,SIGNAL(SendDataMotor(QString, QString)),&myMotordriver,SLOT(OnDataRecieved(QString, QString)));
     QObject::connect(&myTrajectory, SIGNAL(SendDataMotor(QString, QString )),&myMotordriver,SLOT(OnDataRecieved(QString, QString)));
 
