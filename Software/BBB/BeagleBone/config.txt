@@ -24,10 +24,10 @@
     <enable_fast>1</enable_fast>
 </fpga>
 <beaglebone>
-    <boradcast_time>1000</boradcast_time>
-    <controller_time>1000</controller_time>
-    <sensor_time>1000</sensor_time>
-    <log_time>1000</log_time>
+    <broadcast_time>10000</broadcast_time>
+    <controller_time>10000</controller_time>
+    <sensor_time>10000</sensor_time>
+    <log_time>100000</log_time>
     <temperatur>50</temperatur>
     <battery>0</battery>
     <led_light>10</led_light>

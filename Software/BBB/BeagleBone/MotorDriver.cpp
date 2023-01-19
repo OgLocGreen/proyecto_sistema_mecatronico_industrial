@@ -13,7 +13,7 @@ void MotorDriver::SendCmd2Driver(QString _snd_manual)
     snd = _snd_manual;
 
     if(!serial.open(QSerialPort::ReadWrite)){
-        qDebug() << QString("No conectado al puerto serie");
+        qDebug() << QString("No conectado al puerto serie de motorDriver");
         return;
     }
 
@@ -62,8 +62,8 @@ MotorDriver::MotorDriver(QObject *parent) /*CONSTRUCTOR*/
 {
     /* Setting baudrate speed and active COM */
     serial.setBaudRate(BAUDRATE);
-    serial.setPortName("COM14");
-
+    //serial.setPortName("COM14");
+    serial.setPortName("/dev/tyyUSB0");
     /* Connecting data reading slot, on serial data recieving, do sthg */
     QObject::connect(&serial,&QIODevice::readyRead,this,&MotorDriver::OnDriverReadyRead);
 

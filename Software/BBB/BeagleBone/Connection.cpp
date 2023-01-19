@@ -205,11 +205,11 @@ void Connection::OnDataReceived()
     if(recvmsg.contains("beaglebone", Qt::CaseInsensitive))
     {
         QString beaglebone = util.GetXmlStr(recvmsg, "beaglebone");
-        if(beaglebone.contains("boradcast_time"))
+        if(beaglebone.contains("broadcast_time"))
         {
-            QString boradcast_time = util.GetXmlStr(beaglebone,"boradcast_time");
-            qDebug() << "boradcast_time: " << boradcast_time;
-            myData.beaglebone_data.boradcast_time = boradcast_time;
+            QString broadcast_time = util.GetXmlStr(beaglebone,"broadcast_time");
+            qDebug() << "boradcast_time: " << broadcast_time;
+            myData.beaglebone_data.broadcast_time = broadcast_time;
 
         }
         if(beaglebone.contains("controller_time"))
@@ -319,13 +319,18 @@ void Connection::OnDataReceived()
         {
             QString room_light = util.GetXmlStr(beaglebone,"room_light");
             qDebug() << "room_light: " << room_light;
-            if(room_light.toInt() == 1)
-                emit AddToLog("Room_light Activated");
-            else
-                emit AddToLog("Room_light Deactivated");
             myData.beaglebone_data.room_light = room_light;
-
         }
+        if(beaglebone.contains("room_name"))
+        {
+            QString room_name = util.GetXmlStr(beaglebone,"room_name");
+            qDebug() << "room_name: " << room_name;
+            myData.beaglebone_data.room_name = room_name;
+        }
+        if(myData.beaglebone_data.room_light.toInt() == 1)
+            emit AddToLog("Room_light turned on in room"+myData.beaglebone_data.room_name);
+        else
+            emit AddToLog("Room_light turned off in room"+myData.beaglebone_data.room_name);
    }
 }
 

@@ -13,7 +13,7 @@ void Fpga::SendCmd2FPGA(QString _snd_manual)
     snd = _snd_manual;
 
     if(!serial.open(QSerialPort::ReadWrite)){
-        qDebug() << QString("No conectado al puerto serie");
+        qDebug() << QString("No conectado al puerto serie de FPGA");
         return;
     }
 
