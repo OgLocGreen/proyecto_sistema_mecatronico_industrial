@@ -56,7 +56,7 @@ void Log::OnAddToLog(const QString& NewDataLogIn)
     QString NewDataLog;
     NewDataLog.append(QDateTime::currentDateTime().toString("hh.mm.ss"));
     NewDataLog.append(" ");
-    NewDataLog.append(QDate::currentDate().toString("dd.MM.yyyy"));
+    NewDataLog.append(QDate::currentDate().toString());
     NewDataLog.append(" ");
     NewDataLog.append(NewDataLogIn);
     NewDataLog.append("\r\n");

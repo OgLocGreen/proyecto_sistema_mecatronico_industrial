@@ -1,8 +1,9 @@
 QT       += core gui
 QT +=  network
-QT += multimedia
+QT += multimedia multimediawidgets
 #QT +=  webenginecore
 #QT +=  webenginewidgets
+#QT += webkit
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,25 +15,30 @@ CONFIG += c++17
 
 SOURCES += \
     Utility.cpp \
+    cam.cpp \
     camwindow.cpp \
     main.cpp \
     mainwindow.cpp \
     options.cpp \
     socket.cpp \
+    timerdialog.cpp \
     trajwidget.cpp
 
 HEADERS += \
     Utility.h \
+    cam.h \
     camwindow.h \
     mainwindow.h \
     options.h \
     socket.h \
+    timerdialog.h \
     trajwidget.h
 
 FORMS += \
     camwindow.ui \
     mainwindow.ui \
     options.ui \
+    timerdialog.ui \
     trajwidget.ui
 
 # Default rules for deployment.
