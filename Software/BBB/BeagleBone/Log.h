@@ -22,6 +22,9 @@ public:
     Log(QString path_log, QString path_xml, QString path_config);
     void setDatosLog(QString log_msg);
     void setDatosLog(QString log_msg,QString log_path);
+    //void OnAddToLog(const QString& NewDataLogIn);
+    //void OnAddToLog(const QString& NewDataLogIn,QString log_path);
+
     void setLogPath(QString path);
     QString readLogFile();
 
@@ -30,7 +33,7 @@ public:
 
     void setConfigPath(QString path);
     QString readConfigFile();
-
+    //void saveConfigFile(QString xml);
 public slots:
     void onTimer();
     void OnAddToLog(const QString& NewDataLogIn);

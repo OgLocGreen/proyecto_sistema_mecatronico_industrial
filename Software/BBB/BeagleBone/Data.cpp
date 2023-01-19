@@ -15,8 +15,9 @@ bool Data::readInitAll(const QString &xml_data)
     readInitGui(xml_data);
     readInitMando(xml_data);
     readInitTrajectory(xml_data);
-    return 1;
 }
+
+
 
 bool Data::readInitDataMotorDriver(const QString& xml_data)
 {
@@ -25,10 +26,13 @@ bool Data::readInitDataMotorDriver(const QString& xml_data)
     return 1;
 }
 
+
 bool Data::readInitEsp32_top(const QString& xml_data)
 {
     esp32_top_data.ip = util.GetXmlStr(xml_data,"esp32_top","ip");
+    esp32_top_data.port = util.GetXmlStr(xml_data,"esp32_top","port");
     esp32_top_data.video = util.GetXmlStr(xml_data,"esp32_top","video");
+    esp32_top_data.video_quality = util.GetXmlStr(xml_data,"esp32_top","video_quality");
     esp32_top_data.pulsar = util.GetXmlStr(xml_data,"esp32_top","pulsar");
     return 1;
 }
@@ -36,17 +40,17 @@ bool Data::readInitEsp32_top(const QString& xml_data)
 bool Data::readInitEsp32_front(const QString& xml_data)
 {
     esp32_front_data.ip = util.GetXmlStr(xml_data,"esp32_front","ip");
+    esp32_front_data.port = util.GetXmlStr(xml_data,"esp32_front","pulsar");
     esp32_front_data.video = util.GetXmlStr(xml_data,"esp32_front","video");
+    esp32_front_data.video_quality = util.GetXmlStr(xml_data,"esp32_front","video_quality");
     return 1;
 }
 
+
 bool Data::readInitFpga(const QString& xml_data)
 {
-    fpga_data.direction_elev = util.GetXmlStr(xml_data,"fpga","direction_elev");
-    fpga_data.frecuency_switch = util.GetXmlStr(xml_data,"fpga","frecuency_switch");
-    fpga_data.enable_elev = util.GetXmlStr(xml_data,"fpga","enable_elev");
-    fpga_data.enable_cam = util.GetXmlStr(xml_data,"fpga","enable_cam");
-    fpga_data.direction_cam = util.GetXmlStr(xml_data,"fpga","direction_cam");
+    fpga_data.motor_speed_cam = util.GetXmlStr(xml_data,"fpga","motor_speed_cam");
+    fpga_data.motor_speed_platform = util.GetXmlStr(xml_data,"fpga","motor_speed_platform");
     return 1;
 }
 
@@ -91,18 +95,24 @@ bool Data::readInitTrajectory(const QString &xml_data)
 
 QString Data::XmlPutString(const QString& tag,const QString& value)
 {
+
       QString ret;
       ret="<"+tag+">"+value+"</"+tag+">";
 
       return ret;
+
 }
 
+
 QString Data::XmlPutStringSpace(const QString& tag,const QString& value)
+
 {
+
       QString ret;
       ret="<"+tag+">"+"\n"+value+"</"+tag+">"+"\n";
 
       return ret;
+
 }
 
 void Data::OnTimer()
@@ -111,9 +121,20 @@ void Data::OnTimer()
     emit sendToPC(msg);
 }
 
+QString Data::XmlPutFloat(const QString& tag,float value)
+
+{
+    QString ret;
+    ret="<"+tag+">"+value+"</"+tag+">";
+
+    return ret;
+
+}
+
 QString Data::makeXml()
 {
     QString out;
+
     //motor_driver_struct
     QString motor_driver_struct_data = XmlPutString("motor_speed_left", motor_driver_data.motor_speed_left)+"\n" +
             XmlPutString("motor_speed_left", motor_driver_data.motor_speed_right)+"\n";
@@ -122,24 +143,24 @@ QString Data::makeXml()
 
     //esp32_top
     QString esp32_top_struct_data = XmlPutString("ip", esp32_top_data.ip)+"\n" +
+            XmlPutString("port", esp32_top_data.ip)+"\n" +
             XmlPutString("video", esp32_top_data.video)+"\n" +
+            XmlPutString("video_quality", esp32_top_data.video_quality)+"\n" +
             XmlPutString("pulsar", esp32_top_data.pulsar)+"\n";
 
     out.append(XmlPutStringSpace("esp32_top",esp32_top_struct_data));
 
     //esp32_front
     QString esp32_front_struct_data = XmlPutString("ip", esp32_front_data.ip)+"\n" +
-            XmlPutString("video", esp32_front_data.video)+"\n";
+            XmlPutString("port", esp32_front_data.ip)+"\n" +
+            XmlPutString("video", esp32_front_data.video)+"\n" +
+            XmlPutString("video_quality", esp32_front_data.video_quality)+"\n";
 
     out.append(XmlPutStringSpace("esp32_front",esp32_front_struct_data));
 
-    //fpga
-    QString fpga_struct_data = XmlPutString("ip", fpga_data.direction_elev)+"\n" +
-            XmlPutString("port", fpga_data.frecuency_switch)+"\n" +
-            XmlPutString("port", fpga_data.enable_elev)+"\n" +
-            XmlPutString("port", fpga_data.enable_cam)+"\n" +
-            XmlPutString("port", fpga_data.direction_cam)+"\n";
-
+    //esp32_front
+    QString fpga_struct_data = XmlPutString("ip", fpga_data.motor_speed_cam)+"\n" +
+            XmlPutString("port", fpga_data.motor_speed_platform)+"\n";
 
     out.append(XmlPutStringSpace("fpga",fpga_struct_data));
 
@@ -159,14 +180,7 @@ QString Data::makeXml()
             XmlPutString("ultrasound_left", beaglebone_data.ultrasound_left)+"\n" +
             XmlPutString("room_light", beaglebone_data.room_light)+"\n";
 
-   out.append(XmlPutStringSpace("beaglebone",beaglebone_struct_data));
-
-   //trajectory
-   QString trajectory_struct_data = XmlPutString("ip", trajectory_data.joy_x)+"\n" +
-           XmlPutString("port", trajectory_data.joy_y)+"\n" +
-           XmlPutString("port", trajectory_data.vel_max)+"\n";
-
-   out.append(XmlPutStringSpace("fpga",trajectory_struct_data));
+    out.append(XmlPutStringSpace("beaglebone",beaglebone_struct_data));
 
     return out;
 }

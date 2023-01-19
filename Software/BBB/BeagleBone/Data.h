@@ -29,17 +29,13 @@ public:
         QString video_quality;
     };
     struct fpga_struct {
-        QString direction_elev;
-        QString frecuency_switch;
-        QString enable_elev;
-        QString enable_cam;
-        QString direction_cam;
+        QString motor_speed_cam;
+        QString motor_speed_platform;
     };
     struct beaglebone_struct {
         QString boradcast_time;
         QString controller_time;
         QString sensor_time;
-        QString log_time;
         QString temperatur;
         QString battery;
         QString led_light;
@@ -90,6 +86,7 @@ private:
     bool readInitMando(const QString& xml_data);
     bool readInitTrajectory(const QString& xml_data);
 
+    QString XmlPutFloat(const QString& tag,float value);
     QString XmlPutString(const QString& tag,const QString& value);
     QString XmlPutStringSpace(const QString& tag,const QString& value);
 
