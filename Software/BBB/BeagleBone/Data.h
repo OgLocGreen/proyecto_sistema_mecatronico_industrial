@@ -33,7 +33,7 @@ public:
         QString motor_speed_platform;
     };
     struct beaglebone_struct {
-        QString boradcast_time;
+        QString broadcast_time;
         QString controller_time;
         QString sensor_time;
         QString temperatur;
@@ -47,6 +47,7 @@ public:
         QString ultrasound_right;
         QString ultrasound_left;
         QString room_light;
+        QString room_name;
     };
     struct gui_struct{
         QString ip;

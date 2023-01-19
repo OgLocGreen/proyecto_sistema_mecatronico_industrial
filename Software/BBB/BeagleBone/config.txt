@@ -23,6 +23,10 @@
     <direction_cam>1</direction_cam>
 </fpga>
 <beaglebone>
+    <broadcast_time>10000</broadcast_time>
+    <controller_time>10000</controller_time>
+    <sensor_time>10000</sensor_time>
+    <log_time>100000</log_time>
     <temperatur>50</temperatur>
     <battery>0</battery>
     <led_light>10</led_light>
@@ -33,5 +37,6 @@
     <y_pos_momento>0</y_pos_momento>
     <ultrasound_right>10</ultrasound_right>
     <ultrasound_left>10</ultrasound_left>
-    <room_light>true</room_light>
+    <room_light>1</room_light>
+    <room_name>blabla</room_name>
 </beaglebone>

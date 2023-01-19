@@ -30,18 +30,14 @@ int main(int argc, char *argv[])
     logger.setConfigPath("./config.txt");
 
     QString xml_data;
-
     xml_data = logger.readConfigFile();
 
     Data myData;
-
     Connection connector(myData);
 
     if (! myData.readInitAll(xml_data))
     {
-
         qDebug() <<"Error Reading the Data";
-
     }
 
     QString broadcast = myData.makeXml();
@@ -52,22 +48,8 @@ int main(int argc, char *argv[])
     // Trajectory
     Trajectory myTrajectory(myData);
 
-    //Esp EspTop;
-    Esp32 myEspTop;
-    // EspTop myEspTop(esp32_top_data.ip,esp32_top_data.port,esp32_top_data.video,esp32_top_data.video_qulity)
-
-    //Esp EspFront
-    Esp32 myEspFront;
-    // EspTop myEspTop(esp32_top_data.ip,esp32_top_data.port,esp32_top_data.video,esp32_top_data.video_qulity)
-
-    //Fpga
-    Fpga myFpga;
-
     //MotorDriver
     MotorDriver myMotordriver;
-
-    //Gui
-    Gui myGui;
 
     //BBB
     BeagleBone BBB(myData);
@@ -76,10 +58,10 @@ int main(int argc, char *argv[])
     Esp32 Mando;
 
     // Start all Timer with the right intervall  // issue #16
-    timerBroadcastXml.start(10000);
-    timerBroadcastLog.start(10000);
-    timerController.start(10000);
-    timerSensor.start(10000);
+    timerBroadcastXml.start(myData.beaglebone_data.broadcast_time.toInt());
+    timerBroadcastLog.start(myData.beaglebone_data.log_time.toInt());
+    timerController.start(myData.beaglebone_data.controller_time.toInt());
+    timerSensor.start(myData.beaglebone_data.sensor_time.toInt());
 
     // Connect Timer and Controll and Sensor Events
     QObject::connect(&timerController, SIGNAL(timeout()),&controller, SLOT(onTimerControll()));
@@ -106,9 +88,9 @@ int main(int argc, char *argv[])
     //QObject::connect(&connector, SIGNAL(SendDatatoFpga(QString, QString)),&myFpga,SLOT(OnDataReceived(QString, QString)));
     // QObject::connect(&myFpga, SIGNAL(AddToLog(QString)),&logger,SLOT(OnAddToLog(QString)));
 
-    //EspTop
-    //QObject::connect(&connector, SIGNAL(SendDataEspTop(QString, float)),&EspTop,SLOT(OnDataReceived(QString, QString)));
-    //QObject::connect(&EspTop, SIGNAL(AddToLog(QString)),&logger,SLOT(OnAddToLog(QString)));
+    //Motor Driver
+    QObject::connect(&connector,SIGNAL(SendDataMotor(QString, QString)),&myMotordriver,SLOT(OnDataRecieved(QString, QString)));
+    QObject::connect(&myTrajectory, SIGNAL(SendDataMotor(QString, QString )),&myMotordriver,SLOT(OnDataRecieved(QString, QString)));
 
 
     //EspFront

@@ -163,6 +163,34 @@ void Connection::OnDataReceived()
     if(recvmsg.contains("beaglebone", Qt::CaseInsensitive))
     {
         QString beaglebone = util.GetXmlStr(recvmsg, "beaglebone");
+        if(beaglebone.contains("broadcast_time"))
+        {
+            QString broadcast_time = util.GetXmlStr(beaglebone,"broadcast_time");
+            qDebug() << "boradcast_time: " << broadcast_time;
+            myData.beaglebone_data.broadcast_time = broadcast_time;
+
+        }
+        if(beaglebone.contains("controller_time"))
+        {
+            QString controller_time = util.GetXmlStr(beaglebone,"controller_time");
+            qDebug() << "temperatur: " << controller_time;
+            myData.beaglebone_data.controller_time = controller_time;
+
+        }
+        if(beaglebone.contains("sensor_time"))
+        {
+            QString sensor_time = util.GetXmlStr(beaglebone,"sensor_time");
+            qDebug() << "temperatur: " << sensor_time;
+            myData.beaglebone_data.sensor_time = sensor_time;
+
+        }
+        if(beaglebone.contains("log_time"))
+        {
+            QString log_time = util.GetXmlStr(beaglebone,"log_time");
+            qDebug() << "log_time: " << log_time;
+            myData.beaglebone_data.log_time = log_time;
+
+        }
         if(beaglebone.contains("temperatur"))
         {
             QString temperatur = util.GetXmlStr(beaglebone,"temperatur");
@@ -193,8 +221,38 @@ void Connection::OnDisconnected()
        if (iClient>=cliVector.size())
             return; // Not in the list
 
-       cliVector.remove(iClient);  // remove from the list
-       from->deleteLater();  // remove the pointer assigned by nextPendingConnection()
+        }
+        if(beaglebone.contains("ultrasound_right"))
+        {
+            QString ultrasound_right = util.GetXmlStr(beaglebone,"ultrasound_right");
+            qDebug() << "ultrasound_right: " << ultrasound_right;
+            myData.beaglebone_data.ultrasound_right = ultrasound_right;
+
+        }
+        if(beaglebone.contains("ultrasound_left"))
+        {
+            QString ultrasound_left = util.GetXmlStr(beaglebone,"ultrasound_left");
+            qDebug() << "ultrasound_left: " << ultrasound_left;
+            myData.beaglebone_data.ultrasound_left = ultrasound_left;
+
+        }
+        if(beaglebone.contains("room_light"))
+        {
+            QString room_light = util.GetXmlStr(beaglebone,"room_light");
+            qDebug() << "room_light: " << room_light;
+            myData.beaglebone_data.room_light = room_light;
+        }
+        if(beaglebone.contains("room_name"))
+        {
+            QString room_name = util.GetXmlStr(beaglebone,"room_name");
+            qDebug() << "room_name: " << room_name;
+            myData.beaglebone_data.room_name = room_name;
+        }
+        if(myData.beaglebone_data.room_light.toInt() == 1)
+            emit AddToLog("Room_light turned on in room"+myData.beaglebone_data.room_name);
+        else
+            emit AddToLog("Room_light turned off in room"+myData.beaglebone_data.room_name);
+   }
 }
 
 

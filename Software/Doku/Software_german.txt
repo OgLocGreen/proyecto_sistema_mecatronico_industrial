@@ -51,15 +51,39 @@ Somit haben wir Beispielsweise ein Zeit gesteuertes Event für die Verarbeitung 
 ein zweit getacktetes event für das Brodcasten der Nachriten. 
 Auf alle einzelnen Events wird nun genauer eingangen:
 1. Event Sensoren
+Dieses Event ist Zeit gesteuert. Wenn das TimerEvent ausgelöst wird werden alle Sensoren nacheinander abgefragt.
+Zu diesen Sensoren gehören der Light Sensor, der Temperatur Sensor, der Ultraschall Sensor.
+Anschließend werden die Daten in die Datenclasse übergeben.
 2. Event Actoren
+Dieses Event ist auch Zeit gesteuert. Wenn das TimerEvent ausgelöst wird werden alle Actoren nacheinander angesteuert. 
+Zu den Actoren gehören Led, Ventilator, Lautsprecher.
+Anschließend werden die Daten in die Datenclasse übergeben.
 3. Event Comunication
-3.1 Event On_Request()
-3.2 Event On_Response()
-3.3 Event On_Broadcast()
-3.4 Event On_Connect()
+Diese Events werden immer ausgelösst wenn ein Client versucht mit unserem Server zu interagieren.
+3.1 Event OnConnectionRequest()
+Wenn ein Client versucht sich mit dem Server zu verbinden, wird dieses Event ausgelöst.
+Dann wird der Client in unsere liste von Socket verbindungen aufgenommen.
+3.2 Event OnDataReceived()
+Wenn ein Client Daten an den Server sendet, wird dieses Event ausgelöst.
+Dann werden die Daten in die Datenclasse übergeben und die Daten dann auch an die weitern Module wie FPGA oder Trajectory weiter gegeben.
+3.3 Event OnSendData()
+Dises Event ist zum Senden an alle Clients gedacht.
+Man kann verschiedene Nachrichten an alle Clients senden.
+In unserem Fall wird über dieses Event die Log_datei und die Config_datei an alle Clients gesendet.
+3.4 Event OnDisconnected()
+Wenn ein Client sich vom Server trennt, wird dieses Event ausgelöst.
+Dann wird der Client aus unserer Liste von Socket verbindungen entfernt.
+
 4 Event Loggen
-4.5 Event XML
-(XXXVlt hier schon zu ausführlich da wir das ja nachher in den einzlen Klassen besprechenXXX)
+Die grund Funktion ist recht einfach.
+Es wird immer zu erst die Uhrzeit und dann das Datum geschrieben.
+Anschließend wird die Nachricht geschrieben.
+Die Nachricht soll kurz beschreiben was passiert.
+Folgende Nachrichten werden geloggt:
+- Client hat sich mit dem Server verbunden
+- Client hat sich vom Server getrennt
+- Room_light turned on with the room_name
+- Room_light turned off with the room_name
 
 4.2 Struktureller Aufbau der Software Esp32_top
 4.3 Struktureller Aufbau der Software Esp32_front
@@ -68,5 +92,4 @@ Auf alle einzelnen Events wird nun genauer eingangen:
 
 5. Erklärung der einzelnen Klassen
 5.1 Klasse BBB
-5.2 Klasse Esp32
 5.3 Klasse XXX
