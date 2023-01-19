@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 
 
     // Start all Timer with the right intervall  // issue #16
-    timerBroadcastXml.start(myData.beaglebone_data.boradcast_time.toInt());
+    timerBroadcastXml.start(myData.beaglebone_data.broadcast_time.toInt());
     timerBroadcastLog.start(myData.beaglebone_data.log_time.toInt());
     timerController.start(myData.beaglebone_data.controller_time.toInt());
     timerSensor.start(myData.beaglebone_data.sensor_time.toInt());

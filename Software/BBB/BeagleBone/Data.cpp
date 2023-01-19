@@ -52,7 +52,7 @@ bool Data::readInitFpga(const QString& xml_data)
 
 bool Data::readInitBeaglebone(const QString& xml_data)
 {
-    beaglebone_data.boradcast_time = util.GetXmlStr(xml_data,"beaglebonorade","boradcast_time");
+    beaglebone_data.broadcast_time = util.GetXmlStr(xml_data,"beaglebonorade","broadcast_time");
     beaglebone_data.controller_time = util.GetXmlStr(xml_data,"beaglebone","controller_time");
     beaglebone_data.sensor_time = util.GetXmlStr(xml_data,"beaglebone","sensor_time");
     beaglebone_data.temperatur = util.GetXmlStr(xml_data,"beaglebone","temperatur");
@@ -144,7 +144,7 @@ QString Data::makeXml()
     out.append(XmlPutStringSpace("fpga",fpga_struct_data));
 
     //esp32_top
-    QString beaglebone_struct_data = XmlPutString("boradcast_time", beaglebone_data.boradcast_time)+"\n" +
+    QString beaglebone_struct_data = XmlPutString("boradcast_time", beaglebone_data.broadcast_time)+"\n" +
             XmlPutString("controller_time", beaglebone_data.controller_time)+"\n" +
             XmlPutString("sensor_time", beaglebone_data.sensor_time)+"\n" +
             XmlPutString("temperatur", beaglebone_data.temperatur)+"\n" +

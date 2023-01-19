@@ -36,7 +36,7 @@ public:
         QString direction_cam;
     };
     struct beaglebone_struct {
-        QString boradcast_time;
+        QString broadcast_time;
         QString controller_time;
         QString sensor_time;
         QString log_time;
@@ -51,6 +51,7 @@ public:
         QString ultrasound_right;
         QString ultrasound_left;
         QString room_light;
+        QString room_name;
     };
     struct gui_struct{
         QString ip;
