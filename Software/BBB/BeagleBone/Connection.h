@@ -40,7 +40,7 @@ signals:
     void AddToLogAlarm(const QString& NewDataLogIn, int LogState);
     void SendDataTrajectory(QString x, QString y);
     void SendDataMotor(QString dataName,QString value);     // issue #18
-    void SendDataFpga(QString dataName, QString value);     // issue #19
+    void SendDataFpga(QString direction_elev,QString enable_elev, QString enable_cam,QString direction_cam,QString enable_fast);     // issue #19
     void SendDataEspTop(QString dataName,QString value);        // issue #20
     void SendDataEspFront(QString dataName,QString value);      // issue #21
     void AddToLog(QString txt);

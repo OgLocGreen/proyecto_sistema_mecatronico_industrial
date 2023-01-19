@@ -8,12 +8,11 @@
 /* sending cmd manually constructed */
 void MotorDriver::SendCmd2Driver(QString _snd_manual)
 {
-    qDebug() << _snd_manual;
     snd.clear();
     snd = _snd_manual;
 
     if(!serial.open(QSerialPort::ReadWrite)){
-        qDebug() << QString("No conectado al puerto serie de motorDriver");
+        qDebug() << QString("No conectado al puerto serie");
         return;
     }
 
@@ -62,8 +61,8 @@ MotorDriver::MotorDriver(QObject *parent) /*CONSTRUCTOR*/
 {
     /* Setting baudrate speed and active COM */
     serial.setBaudRate(BAUDRATE);
-    //serial.setPortName("COM14");
-    serial.setPortName("/dev/tyyUSB0");
+    serial.setPortName("COM14");
+
     /* Connecting data reading slot, on serial data recieving, do sthg */
     QObject::connect(&serial,&QIODevice::readyRead,this,&MotorDriver::OnDriverReadyRead);
 
@@ -88,7 +87,7 @@ void MotorDriver::StopMotor(QString _motorselect)
 
 /* PUBLIC SLOTS */
 
-void MotorDriver::OnDataRecieved(QString right_motor_speed_prcnt,QString left_motor_speed_prcnt) /* recieves data from BBB */
+void MotorDriver::OnNewDataRecieved(const QString &right_motor_speed_prcnt, const QString &left_motor_speed_prcnt) /* recieves data from BBB */
 {
     QString cmd;
 
@@ -112,11 +111,11 @@ void MotorDriver::OnDataRecieved(QString right_motor_speed_prcnt,QString left_mo
 
     cmd.clear();
     if(left_motor_speed_Hz.startsWith("-")){
-        cmd = "#2d1";
+        cmd = "#2d0";
         SendCmd2Driver(cmd);
     }
     else{
-        cmd = "#2d0";
+        cmd = "#2d1";
         SendCmd2Driver(cmd);
     }
 
@@ -151,6 +150,7 @@ void MotorDriver::OnDataRecieved(QString right_motor_speed_prcnt,QString left_mo
         cmd = "#2A";
         SendCmd2Driver(cmd);
     }
+
 }
 
 
