@@ -17,6 +17,7 @@ SOURCES += \
         Fpga.cpp \
         Log.cpp \
         MotorDriver.cpp \
+        PWM.cpp \
         Trajectory.cpp \
         Utility.cpp \
         main.cpp
@@ -43,6 +44,7 @@ HEADERS += \
     Fpga.h \
     Log.h \
     MotorDriver.h \
+    PWM.h \
     Trajectory.h \
     Utility.h
 
