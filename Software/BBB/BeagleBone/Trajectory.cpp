@@ -4,7 +4,7 @@
 
 Trajectory::Trajectory(Data& myDataadrs) : myData(myDataadrs)
 {
-    vel_max = myData.trajectory_data.vel_max.toFloat();
+    vel_max = myData.trajectory_data.vel_max.toFloat()/100;
 }
 
 void Trajectory::OnDataReceived(QString x, QString y)
@@ -15,8 +15,8 @@ void Trajectory::OnDataReceived(QString x, QString y)
     //angle=atan((valorX/valorY));
     angle = qAtan2(valorX,valorY);
 
-    if((angle>=(PI*80/180)&&angle<=(PI*90/180))||
-        (angle>=(PI*80/180)&&angle<=(PI*90/180)))   //Joystic sobre Y=0
+    if((angle>=(PI*70/180)&&angle<=(PI*90/180))||
+        (angle>=(PI*-90/180)&&angle<=(PI*-70/180)))   //Joystic sobre Y=0 (Zona Muerta)
         sector=0;
     else if(valorY>=0)
     {
