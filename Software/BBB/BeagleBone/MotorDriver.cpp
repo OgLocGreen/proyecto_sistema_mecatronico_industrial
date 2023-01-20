@@ -1,16 +1,7 @@
 #include "MotorDriver.h"
-#include <QDebug>
 
-#define MAX_SPEED 600
-
-#define BAUDRATE 115200
-
-/* sending cmd manually constructed */
-void MotorDriver::SendCmd2Driver(QString _snd_manual)
+MotorDriver::MotorDriver()
 {
-    qDebug() << _snd_manual;
-    snd.clear();
-    snd = _snd_manual;
 
     if(!serial.open(QSerialPort::ReadWrite)){
         qDebug() << QString("No conectado al puerto serie de motorDriver");

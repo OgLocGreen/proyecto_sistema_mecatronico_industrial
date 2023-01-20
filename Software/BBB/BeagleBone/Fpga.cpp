@@ -1,16 +1,8 @@
 #include "Fpga.h"
-#include <QDebug>
+#include <QObject>
 
-#define MAX_SPEED 600
-
-#define BAUDRATE 115200
-
-/* sending cmd manually constructed */
-void Fpga::SendCmd2FPGA(QString _snd_manual)
+Fpga::Fpga()
 {
-    qDebug() << _snd_manual;
-    snd.clear();
-    snd = _snd_manual;
 
     if(!serial.open(QSerialPort::ReadWrite)){
         qDebug() << QString("No conectado al puerto serie de FPGA");
@@ -33,9 +25,9 @@ void Fpga::SendCmd2FPGA(QString _snd_manual)
     serial.close();
 }
 
-QString Fpga::ReadAnswFromFPGA()
+void Fpga::OnDataReceived(QString arg1, QString arg2)
 {
-    return answ;
+    fpga_data = arg1.toInt()+ arg2.toInt();
 }
 
 void Fpga::OnFPGAReadyRead()
