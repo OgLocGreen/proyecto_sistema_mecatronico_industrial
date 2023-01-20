@@ -1,7 +1,7 @@
 #include "MotorDriver.h"
 #include <QDebug>
 
-#define MAX_SPEED 600
+#define MAX_SPEED 800
 
 #define BAUDRATE 115200
 
@@ -111,11 +111,11 @@ void MotorDriver::OnNewDataRecieved(const QString &right_motor_speed_prcnt, cons
 
     cmd.clear();
     if(left_motor_speed_Hz.startsWith("-")){
-        cmd = "#2d0";
+        cmd = "#2d1";
         SendCmd2Driver(cmd);
     }
     else{
-        cmd = "#2d1";
+        cmd = "#2d0";
         SendCmd2Driver(cmd);
     }
 

@@ -6,16 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>576</width>
-    <height>341</height>
+    <width>727</width>
+    <height>396</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLineEdit" name="qLeftSpeed_lineEdit">
@@ -46,7 +46,7 @@
       </item>
      </layout>
     </item>
-    <item>
+    <item row="1" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QLineEdit" name="qManualCmd_lineEdit"/>
@@ -63,8 +63,37 @@
       </item>
      </layout>
     </item>
-    <item>
+    <item row="2" column="0">
      <widget class="QTextEdit" name="qSerialMonitor_textEdit"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSlider" name="horizontalSlider">
+      <property name="minimum">
+       <number>-100</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSlider" name="verticalSlider">
+      <property name="minimum">
+       <number>-100</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -73,7 +102,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>576</width>
+     <width>727</width>
      <height>22</height>
     </rect>
    </property>
