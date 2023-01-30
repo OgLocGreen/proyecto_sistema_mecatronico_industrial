@@ -14,8 +14,41 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLineEdit" name="qManualCmd_lineEdit"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="qSendManualCmd_pushButton">
+        <property name="text">
+         <string>Send Man Cmd</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="qAnswManualCmd_lineEdit"/>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0">
+     <widget class="QTextEdit" name="qSerialMonitor_textEdit"/>
+    </item>
+    <item row="1" column="1" rowspan="2">
+     <widget class="QSlider" name="verticalSlider">
+      <property name="minimum">
+       <number>-100</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLineEdit" name="qLeftSpeed_lineEdit">
@@ -46,25 +79,25 @@
       </item>
      </layout>
     </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLineEdit" name="qManualCmd_lineEdit"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="qSendManualCmd_pushButton">
-        <property name="text">
-         <string>Send Man Cmd</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="qAnswManualCmd_lineEdit"/>
-      </item>
-     </layout>
+    <item row="1" column="2" rowspan="2">
+     <widget class="QSlider" name="verticalSlider_2">
+      <property name="minimum">
+       <number>-100</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
     </item>
-    <item>
-     <widget class="QTextEdit" name="qSerialMonitor_textEdit"/>
+    <item row="0" column="1" colspan="2">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

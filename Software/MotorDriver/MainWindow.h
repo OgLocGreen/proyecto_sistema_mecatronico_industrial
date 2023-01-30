@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QSerialPort>
+#include <QTimer>
 
 #include "MotorDriver.h"
 
@@ -26,11 +27,15 @@ private slots:
 
     void on_qSendCmd_pushButton_clicked();
     void on_qSendManualCmd_pushButton_clicked();
+    void OnTimer();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
 
     QString right_speed, left_speed;
+    QTimer timer;
 
     MotorDriver myMotor;
 };
