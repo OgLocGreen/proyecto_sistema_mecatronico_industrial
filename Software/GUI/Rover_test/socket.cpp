@@ -9,7 +9,7 @@ Socket::Socket(QObject *parent) :
 }
 
 
-void Socket::Test(QHostAddress address, quint16 port)
+bool Socket::Test(QHostAddress address, quint16 port)
 {
     socket = new QTcpSocket(this);
     connect(socket, SIGNAL(connected()), this, SLOT(OnConnected()));
@@ -24,13 +24,17 @@ void Socket::Test(QHostAddress address, quint16 port)
     //socket->connectToHost("192.168.100.102",5000);    // ROVER2122
     socket->connectToHost("192.168.100.23",5000);       // ROVER_AP
     //socket->connectToHost("192.168.100.103",5000);       // ROVER_AP Chris Laptop
+    //socket->connectToHost("192.168.100.23",5000);       // rover
 
-  if(!socket->waitForConnected(5000))
-    {
+  if(!socket->waitForConnected(2000))
+   {
         qDebug() << "Error:" << socket->errorString();
+        return 0;
    }
-
-
+   else
+   {
+        return 1;
+   }
 }
 
 void Socket::sendmsg(QString txt)

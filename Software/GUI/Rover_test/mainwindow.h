@@ -43,6 +43,8 @@ private:
     int elevVal;
 
     QTimer timerJoystick;
+    QTimer timerConnErr;
+    int connErrVal;
 
     QString logText;
 
@@ -50,13 +52,12 @@ private:
     QPixmap video;
     CamWindow cam1;
     CamWindow cam2;
-    int cam1Angle;
 
-    QHostAddress BBBaddress;
+    QString BBBaddress;
     quint16 BBBport;
-    QHostAddress ESPfrontAddress;
+    QString ESPfrontAddress;
     quint16 ESPfrontPort;
-    QHostAddress ESPtopAddress;
+    QString ESPtopAddress;
     quint16 ESPtopPort;
     Socket mTest;
     Socket socketBBB;
@@ -74,6 +75,8 @@ private:
     QMediaPlayer *player;
     QVideoWidget *videoWidget;
 
+    Options opt;
+
     void TryConnectionWithESPServer(char* SERVER_ADDRESS);
     void SetESPCameraResolution(int res, char* SERVER_ADDRESS);  // Ver resoluciones disponibles en #defines de MainWindow.cpp
 
@@ -86,6 +89,7 @@ signals:
 
 protected:
     virtual void mousePressEvent(QMouseEvent *event);
+    virtual void mouseDoubleCLickEvent(QMouseEvent *event);
     virtual void mouseMoveEvent(QMouseEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *event);
 
@@ -95,6 +99,7 @@ private slots:
     void onTimerElev();
     void onTimerElevBack();
     void onTimerJoystick();
+    void onTimerConnErr();
     void onNewLogFile(QString logText);
     void onUpdateJoystick(QPointF pos);
     void onSendTrajectoryPos();
@@ -107,18 +112,9 @@ private slots:
     void onBBBconnected();
 
 
-    void on_q_toolButton_Options_clicked();
-
     void on_qCam1_RadioButton_toggled(bool checked);
 
     void on_qCam2_radioButton_toggled(bool checked);
-
-    void on_qVideoWindow_pushButton_clicked();
-
-    void on_qCam1Up_pushButton_clicked();
-
-    void on_qCam1Down_pushButton_clicked();
-
 
     void on_qElev_verticalSlider_valueChanged(int value);
 
@@ -131,8 +127,6 @@ private slots:
     void on_qPuls_pushButton_released();
 
 
-    void on_qConnect_pushButton_clicked();
-
     void on_qESP1_pushButton_clicked();
 
     void on_qESP2_pushButton_clicked();
@@ -142,8 +136,6 @@ private slots:
     void on_qLog_pushButton_clicked();
 
     void on_qStatus_action_triggered();
-
-    void on_qTraj_action_triggered();
 
     void on_qVel_spinBox_valueChanged(int arg1);
 

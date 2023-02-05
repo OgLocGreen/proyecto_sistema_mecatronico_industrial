@@ -13,7 +13,7 @@ class Socket : public QObject
     Q_OBJECT
  public:
      explicit Socket(QObject *parent = 0);
-     void Test(QHostAddress address, quint16 port);
+     bool Test(QHostAddress address, quint16 port);
 
      void  sendmsg(QString text);
 

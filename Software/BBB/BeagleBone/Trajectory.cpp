@@ -12,7 +12,7 @@ void Trajectory::OnDataReceived(QString x, QString y)
     valorX = x.toInt();
     valorY = y.toInt();
     module=sqrt(pow(valorX,2)+pow(valorY,2));
-    angle=atan((valorX/valorY));
+    //angle=atan((valorX/valorY));
     angle = qAtan2(valorX,valorY);
 
     if((angle>=(PI*80/180)&&angle<=(PI*90/180))||

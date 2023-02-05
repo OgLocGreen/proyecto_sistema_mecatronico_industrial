@@ -12,15 +12,15 @@
 //#include <QMouseEvent>
 
 #define LOG_COMM_EVENTS     1
-#define SERVER_ADDRESS_ESP_FRONT        "192.168.100.101"
-#define SERVER_ADDRESS_ESP_TOP          "192.168.4.1"
-#define SERVER_PORT_HTML    80
+//#define SERVER_ADDRESS_ESP_FRONT        "192.168.100.201"
+//#define SERVER_ADDRESS_ESP_TOP          "192.168.100.202"
+//#define SERVER_PORT_HTML    80
 #define SERVER_PORT_STREAM  81
 
-#define CAM_RESOLUTION_QVGA_320x240     5
-#define CAM_RESOLUTION_VGA_640x480     8
-#define CAM_RESOLUTION_SVGA_800x600     9
-#define CAM_RESOLUTION_XGA_1024x768     10
+//#define CAM_RESOLUTION_QVGA_320x240     5
+//#define CAM_RESOLUTION_VGA_640x480     8
+//#define CAM_RESOLUTION_SVGA_800x600     9
+//#define CAM_RESOLUTION_XGA_1024x768     10
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -29,19 +29,28 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    BBBaddress = "192.168.100.23";
+    BBBport = 5000;
+    ESPfrontAddress = "192.168.100.201";
+    ESPfrontPort = 81;
+    ESPtopAddress= "192.168.100.202";
+    ESPtopPort = 81;
 
+    controllerTime = 10;
+    sensorTime = 10;
+    broadcastTime = 10;
+    logfileTime = 10000;
 
+    opt.setIPs(BBBaddress, ESPfrontAddress, ESPtopAddress);
+    opt.setPorts(BBBport,ESPfrontPort,ESPtopPort);
 
-    cam1Angle=0;
     pulseVal=0;
     elevVal = 0;
+    connErrVal = 0;
 
     ui->qESP1_label->setStyleSheet("QLabel {color : red; }");
     ui->qESP2_label->setStyleSheet("QLabel {color : red; }");
     ui->qBBB_label->setStyleSheet("QLabel {color : green; }");
-
-    ui->qConnect_pushButton_2->setVisible(false);
-
 
     ui->qCam1Up_pushButton->setIcon(QIcon(":/images/arrow_up.png"));
     ui->qCam1Down_pushButton->setIcon(QIcon(":/images/arrow_down.png"));
@@ -50,7 +59,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->qBBB_pushButton->setIcon(QIcon(":/images/BBB2.png"));
     ui->qESP1_pushButton->setIcon(QIcon(":/images/ESP32_CAM2.png"));
     ui->qESP2_pushButton->setIcon(QIcon(":/images/ESP32_CAM2.png"));
-    ui->qVideoWindow_pushButton->setIcon(QIcon(":/images/newWindow.PNG"));
     ui->qPuls_pushButton->setIcon(QIcon(":/images/pulsador.png"));
     ui->qAlarm_pushButton->setIcon(QIcon(":/images/speaker.svg"));
     ui->qLED_pushButton->setIcon(QIcon(":/images/headlight2.png"));
@@ -59,9 +67,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->qLight_label->setPixmap(QPixmap(":/images/light_on.svg"));
 
 
-
+    ui->qDisconnect_pushButton->setVisible(0);
+    ui->qConnErr_label->setVisible(0);
+    ui->qConnErr_label->setStyleSheet("QLabel {color : red; }");
     onUpdateJoystick(QPointF(ui->qJoystick_label->width()/2,ui->qJoystick_label->height()/2));
-    onBBBdisconnected();
+    //onBBBdisconnected();
 
     // connect pulse timer
     QObject::connect(&timerPulse,SIGNAL(timeout()),this, SLOT(onTimerPulse()));
@@ -70,6 +80,9 @@ MainWindow::MainWindow(QWidget *parent)
     // connect elevation timer
     QObject::connect(&timerElev,SIGNAL(timeout()),this, SLOT(onTimerElev()));
     QObject::connect(&timerElevBack,SIGNAL(timeout()),this, SLOT(onTimerElevBack()));
+
+    // connect connection error timer
+    QObject::connect(&timerConnErr,SIGNAL(timeout()),this, SLOT(onTimerConnErr()));
 
     // connect LogFile
     QObject::connect(&socketBBB,SIGNAL(newLogFile(QString)),this, SLOT(onNewLogFile(QString)));
@@ -81,7 +94,6 @@ MainWindow::MainWindow(QWidget *parent)
     // connect JoystickPos
     QObject::connect(this,SIGNAL(sendTrajectoryPos()),this, SLOT(onSendTrajectoryPos()));
     QObject::connect(&timerJoystick,SIGNAL(timeout()),this, SLOT(onTimerJoystick()));
-
 }
 
 MainWindow::~MainWindow()
@@ -93,17 +105,14 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
     //qDebug() << event->pos();
     QPointF clickedPos = event->position()- ui->qJoystick_label->pos() - ui->centralwidget->pos();
-
     clickedPos.setY(clickedPos.y()-26);
 
     if(pow(clickedPos.x()-ui->qJoystick_label->width()/2,2) + pow(clickedPos.y()-ui->qJoystick_label->height()/2,2) <= pow(90,2))
-
     {
         if(!timerJoystick.isActive())
         {
             timerJoystick.start(100);
         }
-
         joystickPos=clickedPos;
         onUpdateJoystick(joystickPos);
     }
@@ -124,7 +133,6 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
     QPointF clickedPos = event->position()- ui->qJoystick_label->pos() - ui->centralwidget->pos();
-
     clickedPos.setY(clickedPos.y()-26);
 
     if(pow(clickedPos.x()-ui->qJoystick_label->width()/2,2) + pow(clickedPos.y()-ui->qJoystick_label->height()/2,2) <= pow(90,2))
@@ -134,6 +142,23 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
             onUpdateJoystick(joystickPos);
             emit sendTrajectoryPos();
     }
+}
+
+void MainWindow::mouseDoubleCLickEvent(QMouseEvent *event) //doesn't work, better with extra button for fast movement!
+{
+//    QPointF clickedPos = event->position()- ui->qElevUp_pushButton_2->pos() - ui->centralwidget->pos();
+//    QPointF clickedPos2 = event->position()- ui->qElevDown_pushButton_2->pos() - ui->centralwidget->pos();
+//    //clickedPos.setY(clickedPos.y()-26);
+
+//    if(clickedPos.x()>=0 && clickedPos.x()<=ui->qElevUp_pushButton_2->width() && clickedPos.y()>=0 && clickedPos.y()<=ui->qElevUp_pushButton_2->height())
+//    {
+//        socketBBB.sendmsg("<fpga><enable_fast>1</enable_fast></fpga>");
+//    }
+
+//    if(clickedPos2.x()>=0 && clickedPos2.x()<=ui->qElevDown_pushButton_2->width() && clickedPos2.y()>=0 && clickedPos2.y()<=ui->qElevDown_pushButton_2->height())
+//    {
+//        socketBBB.sendmsg("<fpga><enable_fast>0</enable_fast></fpga>");
+//    }
 }
 
 void MainWindow::onTimerPulse()
@@ -172,11 +197,28 @@ void MainWindow::onTimerElevBack()
     }
     else
         timerElevBack.stop();
+
 }
 
 void MainWindow::onTimerJoystick()
 {
     emit sendTrajectoryPos();
+}
+
+void MainWindow::onTimerConnErr()
+{
+    if(connErrVal<50)
+    {
+        ui->qConnErr_label->setVisible(1);
+        connErrVal +=1;
+
+    }
+    else
+    {
+        ui->qConnErr_label->setVisible(0);
+        connErrVal=0;
+        timerConnErr.stop();
+    }
 }
 
 void MainWindow::onNewLogFile(QString logText)
@@ -206,7 +248,6 @@ void MainWindow::onUpdateJoystick(QPointF pos)
     painter.drawEllipse(pos,40,40);
 
     ui->qJoystick_label->setPixmap(pixmap);
-
 }
 
 void MainWindow::onSendTrajectoryPos()
@@ -225,54 +266,18 @@ void MainWindow::onSendTrajectoryPos()
 }
 
 
-void MainWindow::on_q_toolButton_Options_clicked()
-{
-    Options opt;
-    opt.setModal(true);
-
-    if(opt.exec() == QDialog::Accepted)
-    {
-        BBBaddress = QHostAddress(opt.getBBBip());
-        ESPfrontAddress = QHostAddress(opt.getESPfrontIp());
-        ESPtopAddress = QHostAddress(opt.getESPtopIp());
-
-        BBBport = quint16(opt.getBBBport());
-        ESPfrontPort = quint16(opt.getESPfrontPort());
-        ESPtopPort = quint16(opt.getESPtopPort());
-    }
-}
-
-
 void MainWindow::on_qCam1_RadioButton_toggled(bool checked)
 {
     if (checked==true)
     {
-        TryConnectionWithESPServer(SERVER_ADDRESS_ESP_FRONT);
-        if (ESPfrontConnectedBool==true)
-        {
 
-        }
-        else
+        if (ESPtopConnectedBool==true)
         {
-            ui->qCam1_RadioButton->setAutoExclusive(false);
-            ui->qCam1_RadioButton->setChecked(false);
-            ui->qCam1_RadioButton->setAutoExclusive(true);
-            ui->qVideo_label->setText("No connection with CAM_FRONT possible!");
-            ui->qVideo_label->setStyleSheet(("QLabel {color : red; }"));
+            cli_stream.disconnectFromHost();
         }
 
-        //QMediaPlayer *player;
-        //QVideoWidget *videoWidget;
-
-//        player = new QMediaPlayer;
-//        //player->setSource(QUrl("‪http://192.168.100.101/"));
-//        player->setSource(QUrl("‪http://192.168.100.101/stream"));
-
-//        videoWidget = new QVideoWidget;
-//        player->setVideoOutput(videoWidget);
-
-//        videoWidget->show();
-//        player->play();
+        //TryConnectionWithESPServer(SERVER_ADDRESS_ESP_FRONT);
+        TryConnectionWithESPServer(ESPfrontAddress.toLocal8Bit().data());
     }
 }
 
@@ -281,51 +286,13 @@ void MainWindow::on_qCam2_radioButton_toggled(bool checked)
 {
     if (checked==true)
     {
-        if (ESPfrontConnectedBool)
-            TryConnectionWithESPServer(SERVER_ADDRESS_ESP_FRONT);
-        else
+
+        if (ESPfrontConnectedBool==true)
         {
-            ui->qCam2_radioButton->setAutoExclusive(false);
-            ui->qCam2_radioButton->setChecked(false);
-            ui->qCam2_radioButton->setAutoExclusive(true);
-
-            ui->qVideo_label->setText("No connection with CAM_TOP possible!");
-            ui->qVideo_label->setStyleSheet(("QLabel {color : red; }"));
+            cli_stream.disconnectFromHost();
         }
-    }
-}
 
-
-void MainWindow::on_qVideoWindow_pushButton_clicked()
-{
-    if(ui->qCam1_RadioButton->isChecked()==true)
-    {
-        cam1.exec();
-
-    }
-    else if(ui->qCam2_radioButton->isChecked()==true)
-    {
-        cam2.exec();
-    }
-}
-
-
-void MainWindow::on_qCam1Up_pushButton_clicked()
-{
-    if(cam1Angle<10)
-    {
-        cam1Angle=cam1Angle+1;
-        ui->qCam1Pos_lineEdit->setText(QString("%1").arg(cam1Angle));
-    }
-}
-
-
-void MainWindow::on_qCam1Down_pushButton_clicked()
-{
-    if(cam1Angle>-10)
-    {
-        cam1Angle=cam1Angle-1;
-        ui->qCam1Pos_lineEdit->setText(QString("%1").arg(cam1Angle));
+        TryConnectionWithESPServer(ESPtopAddress.toLocal8Bit().data());
     }
 }
 
@@ -366,14 +333,6 @@ void MainWindow::on_qPuls_pushButton_released()
 }
 
 
-void MainWindow::on_qConnect_pushButton_clicked()
-{
-    socketBBB.Test(BBBaddress,BBBport);
-    //TryConnectionWithESPServer(SERVER_ADDRESS_ESP_FRONT);
-
-}
-
-
 void MainWindow::on_qESP1_pushButton_clicked()
 {
     ui->qESP1_label->setText("CONNECTED");
@@ -410,12 +369,6 @@ void MainWindow::on_qLog_pushButton_clicked()
 void MainWindow::on_qStatus_action_triggered()
 {
     //open widget of Juan with Rover status (battery level, ...)
-}
-
-
-void MainWindow::on_qTraj_action_triggered()
-{
-    //open widget of Juan with visualizin the trajectory
 }
 
 
@@ -511,35 +464,19 @@ void MainWindow::TryConnectionWithESPServer(char* SERVER_ADDRESS)
 {
     char txt_snd[1024];
 
-    cli_html.connectToHost(QHostAddress(SERVER_ADDRESS),SERVER_PORT_HTML);
-    if (cli_html.waitForConnected())
-    {
-        sprintf(txt_snd,"GET %s HTTP/1.1\r\n","/");
-        sprintf(txt_snd+strlen(txt_snd),"Host: %s:%d\r\n",SERVER_ADDRESS,SERVER_PORT_HTML);
-        strcat(txt_snd,"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\n");
-        strcat(txt_snd,"Cache-Control: max-age=0\r\n");
-        strcat(txt_snd,"Connection: keep-alive\r\n");
-        strcat(txt_snd,"Upgrade-Insecure-Requests: 1\r\n");
-        int n=cli_html.write(txt_snd,strlen(txt_snd));
-#ifdef LOG_COMM_EVENTS
-        qDebug("Connection port 80 success, sent %d bytes\n",n); fflush(stdout);
-#endif
-
-        SetESPCameraResolution(CAM_RESOLUTION_QVGA_320x240, SERVER_ADDRESS);
-    }
-
     cli_stream.connectToHost(QHostAddress(SERVER_ADDRESS),SERVER_PORT_STREAM);
-    if (cli_stream.waitForConnected())
+    if (cli_stream.waitForConnected(2000))
     {
-//        if (SERVER_ADDRESS == SERVER_ADDRESS_ESP_FRONT)
-//        {
-//            bool ESPfrontConnectedBool = true;
-//        }
-//        else if(SERVER_ADDRESS == SERVER_ADDRESS_ESP_TOP)
-//        {
-//            bool ESPtopConnectedBool = true;
-//        }
-//        ui->qVideo_label->setStyleSheet(("QLabel {color : black; }"));
+        if (SERVER_ADDRESS == ESPfrontAddress)
+        {
+            ESPfrontConnectedBool = 1;
+        }
+        else if(SERVER_ADDRESS == ESPtopAddress)
+        {
+            ESPtopConnectedBool = 1;
+        }
+        ui->qVideo_label->setStyleSheet(("QLabel {color : black; }"));
+        ui->qDisconnect_pushButton->setVisible(1);
 
         connect(&cli_stream,SIGNAL(readyRead()),this,SLOT(OnESPDataReceived()));
         connect(&cli_stream,SIGNAL(disconnected()),this,SLOT(OnESPDisconnected()));
@@ -556,27 +493,29 @@ void MainWindow::TryConnectionWithESPServer(char* SERVER_ADDRESS)
     }
     else
     {
+        if(SERVER_ADDRESS==ESPtopAddress)
+        {
+            ui->qCam2_radioButton->setAutoExclusive(false);
+            ui->qCam2_radioButton->setChecked(false);
+            ui->qCam2_radioButton->setAutoExclusive(true);
+            ui->qVideo_label->setText("No connection with CAM_TOP possible!");
+            ui->qVideo_label->setStyleSheet(("QLabel {color : red; }"));
+        }
+        else if(SERVER_ADDRESS==ESPfrontAddress)
+        {
+            ui->qCam1_RadioButton->setAutoExclusive(false);
+            ui->qCam1_RadioButton->setChecked(false);
+            ui->qCam1_RadioButton->setAutoExclusive(true);
+            ui->qVideo_label->setText("No connection with CAM_FRONT possible!");
+            ui->qVideo_label->setStyleSheet(("QLabel {color : red; }"));
+        }
+
 #ifdef LOG_COMM_EVENTS
         qDebug("Connection failed\n"); fflush(stdout);
 #endif
     }
-
 }
 
-void MainWindow::SetESPCameraResolution(int res, char* SERVER_ADDRESS)
-{
-    char txt_snd[1024];
-    sprintf(txt_snd,"GET /control?var=framesize&val=%d HTTP/1.1\r\n",res);
-    sprintf(txt_snd+strlen(txt_snd),"Host: %s:%d\r\n",SERVER_ADDRESS,SERVER_PORT_HTML);
-    strcat(txt_snd,"Accept: */*\r\n");
-    strcat(txt_snd,"Cache-Control: max-age=0\r\n");
-    strcat(txt_snd,"Connection: keep-alive\r\n");
-    strcat(txt_snd,"\r\n");
-    int n=cli_html.write(txt_snd,strlen(txt_snd));
-#ifdef LOG_COMM_EVENTS
-    qDebug("Camera resolution success, sent %d bytes\n",n); fflush(stdout);
-#endif
-}
 
 void MainWindow::OnESPDataReceived()
 {
@@ -640,11 +579,20 @@ void MainWindow::OnESPDataReceived()
 
 void MainWindow::OnESPDisconnected()
 {
-        bool ESPfrontConnectedBool = false;
-        ui->qCam1_RadioButton->setChecked(0);
+        ESPfrontConnectedBool = false;
+        ESPtopConnectedBool = false;
 
-        bool ESPtopConnectedBool = false;
-        ui->qCam2_radioButton->setChecked(0);
+        ui->qCam2_radioButton->setAutoExclusive(false);
+        ui->qCam2_radioButton->setChecked(false);
+        ui->qCam2_radioButton->setAutoExclusive(true);
+        ui->qCam1_RadioButton->setAutoExclusive(false);
+        ui->qCam1_RadioButton->setChecked(false);
+        ui->qCam1_RadioButton->setAutoExclusive(true);
+
+        ui->qDisconnect_pushButton->setVisible(0);
+
+        ui->qVideo_label->setText("ESP-CAM disconnected!");
+        ui->qVideo_label->setStyleSheet(("QLabel {color : red; }"));
 
 #ifdef LOG_COMM_EVENTS
             qDebug("Disconnected. Retry\n"); fflush(stdout);
@@ -670,18 +618,12 @@ void MainWindow::onBBBdisconnected()
     ui->qLED_pushButton->setEnabled(0);
     ui->qPuls_pushButton->setEnabled(0);
 
-    ui->qDisconnect_pushButton->setEnabled(0);
     ui->qConnect_pushButton_2->setEnabled(1);
-
     ui->qConnect_pushButton_2->setStyleSheet("QPushButton {color : red; }");
 }
 
 void MainWindow::onBBBconnected()
 {
-    ui->qConnect_pushButton->setVisible(false);
-    ui->qConnect_pushButton_2->setVisible(true);
-    ui->qConnect_pushButton_2->setStyleSheet("QLabel {color : green; }");
-
     ui->qAlarm_pushButton->setEnabled(1);
     ui->qCam1Down_pushButton->setEnabled(1);
     ui->qCam1Up_pushButton->setEnabled(1);
@@ -690,21 +632,23 @@ void MainWindow::onBBBconnected()
     ui->qLED_pushButton->setEnabled(1);
     ui->qPuls_pushButton->setEnabled(1);
 
-    ui->qDisconnect_pushButton->setEnabled(1);
     ui->qConnect_pushButton_2->setEnabled(0);
+    ui->qConnect_pushButton_2->setStyleSheet("QLabel {color : green; }");
 }
 
 
 void MainWindow::on_qConnections_action_triggered()
 {
-    Options opt;
     opt.setModal(true);
+
+    opt.writeIPs(BBBaddress, ESPfrontAddress, ESPtopAddress);
+    opt.writePorts(BBBport,ESPfrontPort,ESPtopPort);
 
     if(opt.exec() == QDialog::Accepted)
     {
-        BBBaddress = QHostAddress(opt.getBBBip());
-        ESPfrontAddress = QHostAddress(opt.getESPfrontIp());
-        ESPtopAddress = QHostAddress(opt.getESPtopIp());
+        BBBaddress = opt.getBBBip();
+        ESPfrontAddress = opt.getESPfrontIp();
+        ESPtopAddress = opt.getESPtopIp().toLocal8Bit().data();
 
         BBBport = quint16(opt.getBBBport());
         ESPfrontPort = quint16(opt.getESPfrontPort());
@@ -739,13 +683,17 @@ void MainWindow::on_qTimer_action_triggered()
 
 void MainWindow::on_qConnect_pushButton_2_clicked()
 {
-    socketBBB.Test(BBBaddress,BBBport);
+    if(socketBBB.Test(QHostAddress(BBBaddress),BBBport)==0)
+    {
+        timerConnErr.start(100);
+    }
 }
 
 
 void MainWindow::on_qDisconnect_pushButton_clicked()
 {
-    socketBBB.OnDisconnected();
+    //socketBBB.OnDisconnected();
+    cli_stream.disconnectFromHost();
 }
 
 
