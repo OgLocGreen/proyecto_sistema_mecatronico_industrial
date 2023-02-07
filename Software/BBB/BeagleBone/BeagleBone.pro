@@ -19,6 +19,7 @@ SOURCES += \
         Log.cpp \
         MotorDriver.cpp \
         PWM.cpp \
+        Proximity_Detectors.cpp \
         Trajectory.cpp \
         Utility.cpp \
         main.cpp
@@ -43,5 +44,6 @@ HEADERS += \
     Log.h \
     MotorDriver.h \
     PWM.h \
+    Proximity_Detectors.h \
     Trajectory.h \
     Utility.h
