@@ -20,13 +20,11 @@ class Socket : public QObject
  signals:
      void newLogFile(QString logText);
      void newData(QString data);
-     void BBBdisconnected();
-     void BBBconnected();
 
  public slots:
      void OnConnected();
-     void OnDisconnected();
-     void OnBytesWritten(qint64 bytes);
+     void disconnected();
+     void bytesWritten(qint64 bytes);
 
 
 private slots:

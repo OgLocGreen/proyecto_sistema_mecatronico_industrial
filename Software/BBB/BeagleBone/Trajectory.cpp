@@ -12,7 +12,7 @@ void Trajectory::OnDataReceived(QString x, QString y)
     valorX = x.toInt();
     valorY = y.toInt();
     module=sqrt(pow(valorX,2)+pow(valorY,2));
-    angle=atan((valorX/valorY));
+    //angle=atan((valorX/valorY));
     angle = qAtan2(valorX,valorY);
 
     if((angle>=(PI*70/180)&&angle<=(PI*90/180))||
@@ -74,9 +74,9 @@ void Trajectory::OnDataReceived(QString x, QString y)
 
     //Actualiza motor speed left
     myData.motor_driver_data.motor_speed_left = vel_I_;
-    //SendDataMotor("motor_speed_left",vel_I_);
+
 
     //Update motor speed right
     myData.motor_driver_data.motor_speed_right = vel_D_;
-    //SendDataMotor("motor_speed_right",vel_D_);
+    emit SendDataMotor(vel_D_,vel_I_);
 }

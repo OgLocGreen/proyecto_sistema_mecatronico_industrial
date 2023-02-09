@@ -8,13 +8,14 @@
 #include "camwindow.h"
 #include "ui_camwindow.h"
 #include "socket.h"
-#include "timerdialog.h"
 
 #include <QPixmap>
 #include <QImage>
 #include <QFileDialog>
 #include <QPainter>
 #include <QMouseEvent>
+//#include <QWebView>
+//#include <QtWebEngineWidgets/QtWebEngineWidgets>
 
 #include <QMainWindow>
 #include <QPixmap>
@@ -24,8 +25,6 @@
 #include <QHostAddress>
 #include <QMediaPlayer>
 #include <QUrl>
-#include <QVideoWidget>
-//#include <QWebView>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -34,15 +33,10 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-private:   
+private:
     QTimer timerPulse;
     QTimer timerBack;
     int pulseVal;
-    QTimer timerElev;
-    QTimer timerElevBack;
-    int elevVal;
-
-    QTimer timerJoystick;
 
     QString logText;
 
@@ -59,23 +53,13 @@ private:
     QHostAddress ESPtopAddress;
     quint16 ESPtopPort;
     Socket mTest;
-    Socket socketBBB;
+    Socket socket;
 
     QPointF joystickPos;
     QPointF trajectoryPos;
 
-    int controllerTime, sensorTime, broadcastTime, logfileTime;
+    bool checkConnection();
 
-    // for ESP32-CAM
-    QByteArray recv;
-    QTcpSocket cli_html,cli_stream;
-    bool ESPfrontConnectedBool = false;
-    bool ESPtopConnectedBool = false;
-    QMediaPlayer *player;
-    QVideoWidget *videoWidget;
-
-    void TryConnectionWithESPServer(char* SERVER_ADDRESS);
-    void SetESPCameraResolution(int res, char* SERVER_ADDRESS);  // Ver resoluciones disponibles en #defines de MainWindow.cpp
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -92,20 +76,12 @@ protected:
 private slots:
     void onTimerPulse();
     void onTimerBack();
-    void onTimerElev();
-    void onTimerElevBack();
-    void onTimerJoystick();
     void onNewLogFile(QString logText);
     void onUpdateJoystick(QPointF pos);
     void onSendTrajectoryPos();
 
-    void OnESPDataReceived();
-    void OnESPDisconnected();
-    void OnESPError(QTcpSocket::SocketError err);
 
-    void onBBBdisconnected();
-    void onBBBconnected();
-
+    void on_q_toolButton_Options_triggered(QAction *arg1);
 
     void on_q_toolButton_Options_clicked();
 
@@ -145,41 +121,8 @@ private slots:
 
     void on_qTraj_action_triggered();
 
-    void on_qVel_spinBox_valueChanged(int arg1);
-
-    void on_qElevUp_pushButton_2_pressed();
-
-    void on_qElevUp_pushButton_2_released();
-
-    void on_qElevDown_pushButton_2_pressed();
-
-    void on_qElevDown_pushButton_2_released();
-
-    void on_qCam1Up_pushButton_pressed();
-
-    void on_qCam1Down_pushButton_pressed();
-
-    void on_qCam1Down_pushButton_released();
-
-    void on_qCam1Up_pushButton_released();
-
-    void on_qLED_pushButton_clicked();
-
-    void on_qAlarm_pushButton_clicked();
-
-    void on_qConnections_action_triggered();
-
-    void on_qTimer_action_triggered();
-
-    void on_qConnect_pushButton_2_clicked();
-
-    void on_qDisconnect_pushButton_clicked();
-
-    void on_qRoom_checkBox_stateChanged(int arg1);
-
 private:
     Ui::MainWindow *ui;
 
 };
-
 #endif // MAINWINDOW_H
