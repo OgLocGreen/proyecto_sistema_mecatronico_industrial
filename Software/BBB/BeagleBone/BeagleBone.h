@@ -1,6 +1,6 @@
 #ifndef BEAGLEBONE_H
 #define BEAGLEBONE_H
-
+// test
 #include <QObject>
 
 #include <Data.h>
