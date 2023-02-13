@@ -6,6 +6,7 @@
 #define ALMAR_GPIO_HANDLE_REQUEST_INPUT_PULLUP 0x21
 #define ALMAR_GPIO_HANDLE_REQUEST_INPUT_PULLDOWN 0x22
 
+/*
 
 Proximity_Detectors::Proximity_Detectors(int i_chipTrigger, int i_pinOffsetTrigger, int i_chipEcho, int i_pinOffsetEcho)
 {
@@ -124,3 +125,4 @@ int Proximity_Detectors::GetEchoTime_us(int maxTime_us)
 
         return dife_us;
 }
+*/

@@ -1,7 +1,7 @@
 #ifndef PROXIMITY_DETECTORS_H
 #define PROXIMITY_DETECTORS_H
 
-#include <rc/gpio.h>
+//#include <rc/gpio.h>
 
 class Proximity_Detectors
 {

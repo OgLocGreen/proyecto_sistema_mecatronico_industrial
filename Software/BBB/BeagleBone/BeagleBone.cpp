@@ -1,5 +1,6 @@
 #include "BeagleBone.h"
 
+/*
 BeagleBone::BeagleBone(Data &myDataadrs)  : myData(myDataadrs)
 {
 
@@ -38,3 +39,4 @@ float BeagleBone::Position(Proximity_Detectors ultrasound)
     float pos=ultrasound.GetEchoTime_us(50000)*343/2/10000;
     return pos;
 }
+*/

@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
     MotorDriver myMotordriver;
 
     //BBB
-    BeagleBone BBB(myData);
+    //BeagleBone BBB(myData);
 
 
     // Start all Timer with the right intervall  // issue #16
