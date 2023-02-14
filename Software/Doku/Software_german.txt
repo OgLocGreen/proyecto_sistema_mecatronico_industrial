@@ -82,8 +82,9 @@ Die Nachricht soll kurz beschreiben was passiert.
 Folgende Nachrichten werden geloggt:
 - Client hat sich mit dem Server verbunden
 - Client hat sich vom Server getrennt
-- Room_light turned on with the room_name
-- Room_light turned off with the room_name
+- Room_light turned on/off with the room_name
+- Alarm turned on/off
+- pusher activated
 
 4.2 Struktureller Aufbau der Software Esp32_top
 4.3 Struktureller Aufbau der Software Esp32_front
