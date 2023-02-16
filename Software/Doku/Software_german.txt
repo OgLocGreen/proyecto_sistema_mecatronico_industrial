@@ -21,6 +21,7 @@ Dies ist vor allem dafür wichtig, dass es während des Arbeitens keine Probleme
 2. Struktureller Aufbau der Kommunikation
 Für die Kommunikation wurden zwei verschiedene Optionen gewählt, welche parallel zueinander Ablaufen.
 
+2.1. Kommunikation für Daten
 Für die Kommunikation von Daten, welche zwischen den Baugruppen ausgetauscht werden müssen, wurde ein TCP-Server verwendet.
 Diese Verbindung wird mit einem Websocket gemanagt.
 Somit müssen keine speziellen Nachrichten gesendet werden, da alle dauerhaft verbunden sind und alle die gleichen Nachrichten erhaltne (Broadcast).
@@ -28,6 +29,7 @@ Der Server läuft auf dem BeagleBoneBlack und ist für die Kommunikation mit den
 Der Computer, Esp32_top, Esp32_front und Mando sind alle Clients, welche sich mit dem Server verbinden.
 Sobald daten an einer Stelle geändert werden, werden diese an den Server gesendet und dieser wird dann diese Daten an die anderen Clients weiterleitet.
 
+2.2 Kommunikation für Video
 Die Kommunikation der Videodaten wird nur einseitig ablaufen. 
 Heißt die jeweiligen Esps machen einen eigenen Webservers auf. 
 Über diesen Webserver Streamen sie dann ihre Videos auf eine spezielle IP-Adresse.
@@ -42,9 +44,9 @@ Dieser schematische Aufbau der Komponenten und Variablen hat das Arbeiten im Tea
 
 4. Struktureller Aufbau der Software der einzelnen Baugruppen
 4.1 Struktureller Aufbau der Software BBB
-Da wir den BeagleBone als Server ausgewählt haben wir hier die meiste Arbeit verrichttet.
+Da wir den BeagleBone als Server ausgewählt haben, wird hier die meiste Arbeit verrichtet.
 Heißt der BeagleBone übernimmt die Komunication und die Verarbeitung der Daten.
-Desweitern haben wir uns für ein Eventbasierten Ablauf geschieden da die verschiednen Baugruppen un Komunication vereinfacht.
+Desweitern haben wir uns für ein Eventbasierten Ablauf entschieden, da die verschiednen Baugruppen und Komunication vereinfacht.
 Heißt für jede Action wird ein Event ausgelöst in welchem dann die Action bearbeitet wird. 
 Dies ist in Abbildung 5 - Event Ablauf BBB zu sehen.
 Somit haben wir Beispielsweise ein Zeit gesteuertes Event für die Verarbeitung der Sensor Signalen und Actoren, 
@@ -76,6 +78,7 @@ Dann wird der Client aus unserer Liste von Socket verbindungen entfernt.
 
 4 Event Loggen
 Die grund Funktion ist recht einfach.
+Die gesamte Logg Nachricht wird in einer Zeile geschrieben.
 Es wird immer zu erst die Uhrzeit und dann das Datum geschrieben.
 Anschließend wird die Nachricht geschrieben.
 Die Nachricht soll kurz beschreiben was passiert.
@@ -92,5 +95,11 @@ Folgende Nachrichten werden geloggt:
 4.5 Struktureller Aufbau der Software GUI
 
 5. Erklärung der einzelnen Klassen
-5.1 Klasse BBB
-5.3 Klasse XXX
+5.1 Klasse BeagleBoneBlack
+5.2 Klasse Utility
+5.3 Klasse Connection
+5.4 Klasse ControllAndMeasure
+5.5 Klasse Data
+5.6 Klasse MotorDriver
+5.7 Klasse Trajectory
+5.8 Klasse FPGA
