@@ -3,7 +3,6 @@
 #include "Log.h"
 #include "Utility.h"
 #include "Connection.h"
-#include "ControlAndMeasure.h"
 #include "Data.h"
 #include "MotorDriver.h"
 #include "BeagleBone.h"
@@ -18,7 +17,6 @@ int main(int argc, char *argv[])
     Utility util;
 
 
-    ControlAndMeasure controller;
     QTimer timerController, timerSensor;
     QTimer timerBroadcastXml, timerBroadcastLog;
     // This also could be written to in the init of the Class as Agument for Constructor;
@@ -54,19 +52,17 @@ int main(int argc, char *argv[])
     MotorDriver myMotordriver;
 
     //BBB
-    //BeagleBone BBB(myData);
-
+    BeagleBone BBB(myData);
+    // Connect Timer and Controll and Sensor Events
+    QObject::connect(&timerController, SIGNAL(timeout()),&BBB, SLOT(onTimerControll()));
+    QObject::connect(&timerSensor, SIGNAL(timeout()),&BBB, SLOT(onTimerSensor()));
+    QObject::connect(&BBB, SIGNAL(AddToLog(QString)),&logger, SLOT(OnAddToLog(QString)));
 
     // Start all Timer with the right intervall  // issue #16
     timerBroadcastXml.start(myData.beaglebone_data.broadcast_time.toInt());
     timerBroadcastLog.start(myData.beaglebone_data.log_time.toInt());
     timerController.start(myData.beaglebone_data.controller_time.toInt());
     timerSensor.start(myData.beaglebone_data.sensor_time.toInt());
-
-    // Connect Timer and Controll and Sensor Events
-    QObject::connect(&timerController, SIGNAL(timeout()),&controller, SLOT(onTimerControll()));
-    QObject::connect(&timerSensor, SIGNAL(timeout()),&controller, SLOT(onTimerSensor()));
-    QObject::connect(&controller, SIGNAL(AddToLog(QString)),&logger, SLOT(OnAddToLog(QString)));
 
     // Data
     QObject::connect(&timerBroadcastXml, SIGNAL(timeout()),&myData, SLOT(OnTimer()));

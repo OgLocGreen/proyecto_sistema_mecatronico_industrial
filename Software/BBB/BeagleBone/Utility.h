@@ -18,9 +18,6 @@ public:
     Utility();
 
     // Get_XML
-    int GetXmlInt(const QString& textXml,const QString& tag);
-    float GetXmlFloat(const QString& textXml,const QString& tag);
-    QVector<float> GetXmlVector(const QString& xml,const QString& tag);
     QString GetXmlTag(const QString& text);
     QString GetXmlStr(const QString& text, const QString& tag);
     QString GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2);

@@ -2,7 +2,7 @@
 #define BEAGLEBONE_H
 // test
 #include <QObject>
-
+#include <QDebug>
 #include <Data.h>
 
 #include <QCoreApplication>
@@ -44,5 +44,14 @@ public:
     double Temperature();
     float Position(Proximity_Detectors ultrasound);
 */
+
+private slots:
+    void onTimerControll();
+    void onTimerSensor();
+
+signals:
+    void AddToLog(QString text);
+
+
 };
 #endif // BEAGLEBONE_H

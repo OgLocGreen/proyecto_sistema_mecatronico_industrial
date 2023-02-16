@@ -59,35 +59,6 @@ QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml1, const
     return ret;
 }
 
-
-float Utility::GetXmlFloat(const QString& textXml,const QString& tag)
-{
-    return textXml.mid(GetStart(textXml, tag), GetLen(textXml, tag)).toFloat();
-}
-
-int Utility::GetXmlInt(const QString& textXml,const QString& tag)
-{
-    return textXml.mid(GetStart(textXml, tag), GetLen(textXml, tag)).toInt();
-}
-
-QVector<float> Utility::GetXmlVector(const QString& xml,const QString& tag)
-{
-    QVector<float> ret;
-    QString constens = GetXmlStr(xml, tag).trimmed();
-
-    if (constens.startsWith("[") && constens.endsWith("]"))
-    {
-            constens = constens.mid(1,constens.length()-2);
-            QStringList values = constens.split(",");
-            ret.resize(values.length());
-            for(int i= 0; i<values.length(); i++)
-            {
-                ret[i]=values[i].toFloat();
-            }
-    }
-    return ret;
-}
-
 QString Utility::GetXmlTag(const QString &text)
 {
     int end_tag = text.indexOf(">");

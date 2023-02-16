@@ -1,11 +1,10 @@
 #include "BeagleBone.h"
 
-/*
 BeagleBone::BeagleBone(Data &myDataadrs)  : myData(myDataadrs)
 {
 
 }
-
+/*
 void BeagleBone::Leds_on()
 {
     rc_gpio_set_value(67/32,67%32,1);
@@ -40,3 +39,27 @@ float BeagleBone::Position(Proximity_Detectors ultrasound)
     return pos;
 }
 */
+void BeagleBone::onTimerControll()
+{
+    int i = 0;
+    while( i < 100)
+        i++;
+
+    qDebug() << "hello this is the Timer here Controll" << Qt::endl;
+
+    emit AddToLog("una ronda de controll");
+
+}
+
+void BeagleBone::onTimerSensor()
+{
+    int i = 0;
+    while( i < 100)
+        i++;
+
+    qDebug() << "hello this is the Timer here Controll" << Qt::endl;
+
+}
+
+
+
