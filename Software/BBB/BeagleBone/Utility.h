@@ -17,8 +17,6 @@ private:
 public:
     Utility();
 
-    void SetXmlPath(QString path);
-
     // Get_XML
     int GetXmlInt(const QString& textXml,const QString& tag);
     float GetXmlFloat(const QString& textXml,const QString& tag);
@@ -31,24 +29,6 @@ public:
     int GetLen(const QString &textXml, const QString &tagXml);
     int GetStart(const QString &textXml, const QString &tagXml);
     QString XmlCreateTag(const QString& text, bool is_start_tag);
-
-
-
-    // XML_File
-    QString ReadXmlFile();
-    QString ReadXmlFile(QString xml_path);
-    int WriteXmlFile(QString xml_msg);
-    int WriteXmlFile(QString xml_msg, QString xml_path); // return 1 wenn all good
-    int AppenedToXmlFile(QString xml_msg);
-    int AppenedToXmlFile(QString xml_msg,QString xml_path);
-
-
-    QString RemoveXmlData(QString xml_data, QString xml_tag);
-
-    // Log_File // reserve
-    void LogTextString(QString text1, QString path);
-    void LogTextStream(QTextStream text1, QString path);
-
 };
 
 #endif // UTILITY_H
