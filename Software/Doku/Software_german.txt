@@ -75,8 +75,7 @@ In unserem Fall wird über dieses Event die Log_datei und die Config_datei an al
 3.4 Event OnDisconnected()
 Wenn ein Client sich vom Server trennt, wird dieses Event ausgelöst.
 Dann wird der Client aus unserer Liste von Socket verbindungen entfernt.
-
-4 Event Loggen
+4. Event Loggen
 Die grund Funktion ist recht einfach.
 Die gesamte Logg Nachricht wird in einer Zeile geschrieben.
 Es wird immer zu erst die Uhrzeit und dann das Datum geschrieben.
@@ -96,7 +95,26 @@ Folgende Nachrichten werden geloggt:
 
 5. Erklärung der einzelnen Klassen
 5.1 Klasse BeagleBoneBlack
+In dieser Klasse werden alle Aufgaben welche der BeagleBone übernimmt umgesetzt. 
+Als auch die Deklarierung der einzelnen GPIO Pins und die Methoden für die Leds, Fans, Temeratur, Abstrandsensor (Ultraschallsensor) übernommen. 
+void BeagleBone::Leds_on(); - einschalten der Leds mit der rc lib um 3,3V auf den Ausgangspin zu legen. 
+void BealgeBone::Leds_off(); - ausschalten der Leds mit der rc lib um 0V auf den Ausgangspin zu legen. 
+void BealgeBone::Fans_on(int frecuencia, float duty); - die Lüfter werden über eine PWM angestuert. Dafür werden Frquenzy und duty_cycle übergeben.
+void BeagleBone::Fans_off(); - die Lüfter werden ausgeschalten.
+double BeagleBone::Temerature(); - es wird der Temeratur Sensor ausgelesen mit der rc lib dem Analog Read.
+float BeagleBone::Position(Proximity_Detectors ultrasound); - es wird der Abstrand von der nächsten wand bestimmt der Ultrasound Bibliothek.
+
 5.2 Klasse Utility
+Diese Klass ist da um die Verarbeitung von xml Nachrichten zu erleichtern. Dazu gibt es einige Methode:
+int Utility::GetXmlInt(const QString& textXml,const QString& tag);
+float Utility::GetXmlFloat(const QString& textXml,const QString& tag);
+QVector<float> Utility::GetXmlVector(const QString& xml,const QString& tag);
+QString Utility::GetXmlTag(const QString& text);
+QString Utility::GetXmlStr(const QString& text, const QString& tag);
+QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2);
+
+
+
 5.3 Klasse Connection
 5.4 Klasse ControllAndMeasure
 5.5 Klasse Data
