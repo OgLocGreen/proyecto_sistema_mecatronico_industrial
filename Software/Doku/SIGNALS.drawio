@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="2">
     <diagram id="nwH1zk-VSpNsyaRbcgjk" name="Página-1">
-        <mxGraphModel dx="1289" dy="1171" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1227" dy="1173" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -171,7 +171,7 @@
                         <mxPoint x="315" y="65" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="13" value="? int sound ?&lt;br&gt;?digital?" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="12" vertex="1" connectable="0">
+                <mxCell id="13" value="int sound&lt;br&gt;digital" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="12" vertex="1" connectable="0">
                     <mxGeometry x="-0.4036" y="-1" relative="1" as="geometry">
                         <mxPoint x="-1" y="-15" as="offset"/>
                     </mxGeometry>
@@ -185,7 +185,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="15" value="Move Rover&lt;br&gt;int motor_right&lt;br&gt;int motor_left&lt;br&gt;?RS232?" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="14" vertex="1" connectable="0">
+                <mxCell id="15" value="Move Rover&lt;br&gt;int motor_right&lt;br&gt;int motor_left&lt;br&gt;RS232" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="14" vertex="1" connectable="0">
                     <mxGeometry x="-0.4036" y="-1" relative="1" as="geometry">
                         <mxPoint x="-1" y="-81" as="offset"/>
                     </mxGeometry>
@@ -199,7 +199,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="17" value="Move Plaform/ Camera&lt;br&gt;int camera_x&lt;br&gt;int motor_platform&lt;br&gt;?RS445?" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="16" vertex="1" connectable="0">
+                <mxCell id="17" value="Move Plaform/ Camera&lt;br&gt;int camera_x&lt;br&gt;int motor_platform&lt;br&gt;RS445" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="16" vertex="1" connectable="0">
                     <mxGeometry x="-0.4036" y="-1" relative="1" as="geometry">
                         <mxPoint x="28" y="-81" as="offset"/>
                     </mxGeometry>

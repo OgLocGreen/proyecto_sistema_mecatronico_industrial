@@ -1,5 +1,7 @@
 In diesem Kapitel wird auf die Software für den Rover eingegangen. 
 Auf die verschiedenen Funktionen und Eigenschaften der Software. 
+Ein groben überblick über diese Aufgabe kann im Schaubild 1. - BlackBox Rover verschaft werden.
+Hier zu sehen sind alle Grobe Baugruppe und die Comunication ob wired or wireless.
 Es wird auch auf die Kommunikation der verschiedenen Komponenten und Baugruppen eingegangen.
 Zu dem werden die verschiednen Schnittstellen und Variablen erklärt,
  welche für das Projekt nötig waren.
@@ -89,35 +91,111 @@ Folgende Nachrichten werden geloggt:
 - pusher activated
 
 4.2 Struktureller Aufbau der Software Esp32_top
-4.3 Struktureller Aufbau der Software Esp32_front
+4.3 Struktureller Aufbau der Software Esp32_cam
 4.4 Struktureller Aufbau der Software Mando
 4.5 Struktureller Aufbau der Software GUI
 
 5. Erklärung der einzelnen Klassen
-5.1 Klasse BeagleBoneBlack
+5.1 Klasse BeagleBone
 In dieser Klasse werden alle Aufgaben welche der BeagleBone übernimmt umgesetzt. 
 Als auch die Deklarierung der einzelnen GPIO Pins und die Methoden für die Leds, Fans, Temeratur, Abstrandsensor (Ultraschallsensor) übernommen. 
+Folgende Methoden sind in dieser Klasse enthalten:
 void BeagleBone::Leds_on(); - einschalten der Leds mit der rc lib um 3,3V auf den Ausgangspin zu legen. 
 void BealgeBone::Leds_off(); - ausschalten der Leds mit der rc lib um 0V auf den Ausgangspin zu legen. 
 void BealgeBone::Fans_on(int frecuencia, float duty); - die Lüfter werden über eine PWM angestuert. Dafür werden Frquenzy und duty_cycle übergeben.
 void BeagleBone::Fans_off(); - die Lüfter werden ausgeschalten.
 double BeagleBone::Temerature(); - es wird der Temeratur Sensor ausgelesen mit der rc lib dem Analog Read.
 float BeagleBone::Position(Proximity_Detectors ultrasound); - es wird der Abstrand von der nächsten wand bestimmt der Ultrasound Bibliothek.
+Follgende Solots sind in dieser Klasse enthalten:
+void BeagleBone::onTimerControll(); - wird aufgerufen wenn das TimerEvent Controll ausgelöst wird. übernimmt alle GPIO pin outputs.
+void BeagleBone::onTimerSensor(); - wird aufgerufen wenn das TimerEvent Sensor ausgelöst wird. übernimmt alle GPIO pin inputs. 
 
 5.2 Klasse Utility
 Diese Klass ist da um die Verarbeitung von xml Nachrichten zu erleichtern. Dazu gibt es einige Methode:
-int Utility::GetXmlInt(const QString& textXml,const QString& tag);
-float Utility::GetXmlFloat(const QString& textXml,const QString& tag);
-QVector<float> Utility::GetXmlVector(const QString& xml,const QString& tag);
-QString Utility::GetXmlTag(const QString& text);
-QString Utility::GetXmlStr(const QString& text, const QString& tag);
-QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2);
-
-
+int Utility::GetXmlInt(const QString& textXml,const QString& tag); - returns a int of the value of the tag
+float Utility::GetXmlFloat(const QString& textXml,const QString& tag); return a float of the value of the tag
+QVector<float> Utility::GetXmlVector(const QString& xml,const QString& tag); - returns a vector of the value of the tag
+QString Utility::GetXmlTag(const QString& text); - returns the tag of the xml
+QString Utility::GetXmlStr(const QString& text, const QString& tag); - returns a string of the value of the tag
+QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2); - returns a string of the value of the tag of the tag so a xml with depth 2
 
 5.3 Klasse Connection
-5.4 Klasse ControllAndMeasure
+Diese Klasse ist da um die Verbindung zwischen den einzelnen Clients und dem Server zu realisieren.
+Dazu gibt es Folgende Methoden diese methoden sind alles Slots und werden von events getriggert:
+void Connection::OnConnectionRequest(); when a client tries to connect to the server this slot is used.
+ we check if we have the client in our client vector if not we add him. if we have him we overwrite the last connection.
+void Connection::OnDataReceived(); - when a client sends data to the server this slot is used. we read the data and also process the message. 1. Write the new data in the Data Calss
+2. send it to the other modules like fpga or trajectory or triggger an event.
+void Connection::OnDisconnected() - when a client disconnects from the server this slot is used. we remove the client from our client vector.
+void Connection::OnSendData(QString txt) - this slot is used to send data to all clients. we send the data to all clients in our client vector.
+The Argument QString txt is the data we send.
+
 5.5 Klasse Data
+Diese Klasse ist eine reine Datenklasse und besteht aus einzelnen Structs für die einzelnen Module. Sie enthält alle Daten die zwischen den einzelnen Modulen übergeben werden.
+Aus dieser Daten Klasse werden dann immer die nachriten welche an die Clients gesendet werden erstellt. Die Module sind in allen Master und Clients gleich aufgebaut.
+Folgende Daten sind in dieser Klasse enthalten:
+struct motor_driver_struct{
+        QString motor_speed_left;
+        QString motor_speed_right;
+    };
+    struct esp32_top_struct {
+        QString ip;
+        QString port;
+        QString video;
+        QString video_quality;
+        QString pulsar;
+    };
+    struct esp32_front_struct {
+        QString ip;
+        QString port;
+        QString video;
+        QString video_quality;
+    };
+    struct fpga_struct {
+        QString direction_elev;
+        QString frecuency_switch;
+        QString enable_elev;
+        QString enable_cam;
+        QString direction_cam;
+    };
+    struct beaglebone_struct {
+        QString broadcast_time;
+        QString controller_time;
+        QString sensor_time;
+        QString log_time;
+        QString temperatur;
+        QString battery;
+        QString led_light;
+        QString ventilator;
+        QString speaker;
+        QString zero_pos_low;
+        QString x_pos_momento;
+        QString y_pos_momento;
+        QString ultrasound_right;
+        QString ultrasound_left;
+        QString room_light;
+        QString room_name;
+    };
+    struct gui_struct{
+        QString ip;
+    };
+    struct mando_struct
+    {
+        QString ip;
+    };
+    struct trajectory_struct{
+        QString joy_x;
+        QString joy_y;
+        QString vel_max;
+    };
+Folgende methoden sind in dieser Klasse enthalten:
+bool Data::readInitAll(const QString& xml_data); - reads the xml data and writes it in the data class
+Folgende Slots sind in dieser Klasse enthalten:
+void Data::OnTimer(); - here we make the xml from the data class and then emit the Signal sendToPC with the xml data as message.
+Folgende Singale sind in dieser Klasse enthalten:
+void Data::sendToPC(QString msg); - emit the Signal to Send the xml data to the clients.
+
+
 5.6 Klasse MotorDriver
 5.7 Klasse Trajectory
 5.8 Klasse FPGA
