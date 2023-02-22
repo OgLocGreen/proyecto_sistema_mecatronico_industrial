@@ -3,6 +3,8 @@
 
 #include <rc/gpio.h>
 
+// Proximy detectors functions for a 4-pin Echo-Trigger sensor
+
 class Proximity_Detectors
 {
 private:
