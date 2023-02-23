@@ -6,6 +6,7 @@ Utility::Utility()
 
 }
 
+// methode makes first and last xml tag
 QString Utility::XmlCreateTag(const QString &text, bool is_start_tag)
 {
     QString ret;
@@ -21,6 +22,7 @@ QString Utility::XmlCreateTag(const QString &text, bool is_start_tag)
     return ret;
 }
 
+// method returnsthe data from a xml text
 QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml)
 {
     QString ret;
@@ -37,6 +39,7 @@ QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml)
     return ret;
 }
 
+// method returnsthe data from a xml text but depth 2
 QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2)
 {
     QString ret;
@@ -59,12 +62,14 @@ QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml1, const
     return ret;
 }
 
+// methode returns the xml tag
 QString Utility::GetXmlTag(const QString &text)
 {
     int end_tag = text.indexOf(">");
     return text.mid(2,end_tag);
 }
 
+// methode returns the start position
 int Utility::GetStart(const QString &textXml, const QString &tagXml)
 {
     int istart;
@@ -74,6 +79,7 @@ int Utility::GetStart(const QString &textXml, const QString &tagXml)
     return istart;
 }
 
+// methode returns the len of a xml text
 int Utility::GetLen(const QString &textXml, const QString &tagXml)
 {
     int istart, iend;

@@ -13,34 +13,38 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
+    // Init Classes
     Log logger;
     Utility util;
+    Data myData;
+    Connection connector(myData);
 
-
+    // Init Timer
     QTimer timerController, timerSensor;
     QTimer timerBroadcastXml, timerBroadcastLog;
-    // This also could be written to in the init of the Class as Agument for Constructor;
 
+    // Set Paths
     QString log_path = "./"+QDate::currentDate().toString("dd.MM.yyyy")+ "_log_file.txt";
-
     logger.setLogPath(log_path);
     logger.setXmlPath("./xml_file.txt");
     logger.setConfigPath(":/rsc/config.txt");
 
+    // read in Data
     QString xml_data;
     xml_data = logger.readConfigFile();
-
-    Data myData;
-    Connection connector(myData);
 
     if (! myData.readInitAll(xml_data))
     {
         qDebug() <<"Error Reading the Data";
     }
 
+    // broadcast xml data
     QString broadcast = myData.makeXml();
     logger.saveXmlFile(broadcast);
+
+
     // Here then also the Borad cast to all Devices or we make this after the classes
+    // issue #67
 
     //FPGA
     Fpga myFpga;

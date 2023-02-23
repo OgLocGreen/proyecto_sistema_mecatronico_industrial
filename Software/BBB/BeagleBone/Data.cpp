@@ -5,6 +5,7 @@ Data::Data()
 
 }
 
+// methode for reading all data in
 bool Data::readInitAll(const QString &xml_data)
 {
     readInitDataMotorDriver(xml_data);
@@ -18,6 +19,7 @@ bool Data::readInitAll(const QString &xml_data)
     return 1;
 }
 
+// methode for reading specific struct data
 bool Data::readInitDataMotorDriver(const QString& xml_data)
 {
     motor_driver_data.motor_speed_left = util.GetXmlStr(xml_data,"motor_driver","motor_speed_left");
@@ -25,6 +27,7 @@ bool Data::readInitDataMotorDriver(const QString& xml_data)
     return 1;
 }
 
+// methode for reading specific struct data
 bool Data::readInitEsp32_top(const QString& xml_data)
 {
     esp32_top_data.ip = util.GetXmlStr(xml_data,"esp32_top","ip");
@@ -33,6 +36,7 @@ bool Data::readInitEsp32_top(const QString& xml_data)
     return 1;
 }
 
+// methode for reading specific struct data
 bool Data::readInitEsp32_front(const QString& xml_data)
 {
     esp32_front_data.ip = util.GetXmlStr(xml_data,"esp32_front","ip");
@@ -40,6 +44,7 @@ bool Data::readInitEsp32_front(const QString& xml_data)
     return 1;
 }
 
+// methode for reading specific struct data
 bool Data::readInitFpga(const QString& xml_data)
 {
     fpga_data.direction_elev = util.GetXmlStr(xml_data,"fpga","direction_elev");
@@ -50,6 +55,7 @@ bool Data::readInitFpga(const QString& xml_data)
     return 1;
 }
 
+// methode for reading specific struct data
 bool Data::readInitBeaglebone(const QString& xml_data)
 {
     beaglebone_data.broadcast_time = util.GetXmlStr(xml_data,"beaglebonorade","broadcast_time");
@@ -69,18 +75,21 @@ bool Data::readInitBeaglebone(const QString& xml_data)
     return 1;
 }
 
+// methode for reading specific struct data
 bool Data::readInitGui(const QString& xml_data)
 {
     gui_data.ip = util.GetXmlStr(xml_data,"gui","ip");
     return 1;
 }
 
+// methode for reading specific struct data
 bool Data::readInitMando(const QString& xml_data)
 {
     mando_data.ip = util.GetXmlStr(xml_data,"mando","ip");
     return 1;
 }
 
+// methode for reading specific struct data
 bool Data::readInitTrajectory(const QString &xml_data)
 {
     trajectory_data.joy_x = util.GetXmlStr(xml_data,"trajectory","joy_x");
@@ -89,6 +98,7 @@ bool Data::readInitTrajectory(const QString &xml_data)
     return 1;
 }
 
+// methode for making a QString from the data with tags
 QString Data::XmlPutString(const QString& tag,const QString& value)
 {
       QString ret;
@@ -97,6 +107,7 @@ QString Data::XmlPutString(const QString& tag,const QString& value)
       return ret;
 }
 
+// methode for making a QString from the data with tags
 QString Data::XmlPutStringSpace(const QString& tag,const QString& value)
 {
       QString ret;
@@ -105,12 +116,15 @@ QString Data::XmlPutStringSpace(const QString& tag,const QString& value)
       return ret;
 }
 
+// methode makes a full xml QString from all Data
+// and then sends it to the PC
 void Data::OnTimer()
 {
     QString msg = makeXml();
     emit sendToPC(msg);
 }
 
+// makes a full xml QString from all Data
 QString Data::makeXml()
 {
     QString out;
