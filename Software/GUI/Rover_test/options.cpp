@@ -43,14 +43,42 @@ quint16 Options::getESPfrontPort()
     return ui->qESPfront_spinBox->value();
 }
 
+void Options::setIPs(QString IPbeagle, QString IPespFront, QString IPespTop)
+{
+    BBBip = IPbeagle;
+    ESPfrontIp = IPespFront;
+    ESPtopIp = IPespTop;
+}
+
+void Options::setPorts(quint16 portBeagle, quint16 portESPfront, quint16 portESPtop)
+{
+    BBBport = portBeagle;
+    ESPfrontPort = portESPfront;
+    ESPtopPort = portESPtop;
+}
+
+void Options::writeIPs(QString IPbeagle, QString IPespFront, QString IPespTop)
+{
+    ui->qBBBip_lineEdit->setText(IPbeagle);
+    ui->qESPfrontIP_lineEdit->setText(IPespFront);
+    ui->qESPtopIp_lineEdit->setText(IPespTop);
+}
+
+void Options::writePorts(quint16 portBeagle, quint16 portESPfront, quint16 portESPtop)
+{
+    ui->qBBB_spinBox->setValue(portBeagle);
+    ui->qESPfront_spinBox->setValue(portESPfront);
+    ui->qESPtop_spinBox->setValue(portESPtop);
+}
+
 void Options::on_qReset_pushButton_clicked()
 {
-    ui->qBBBip_lineEdit->setText("192.168.100.102");
-    ui->qBBB_spinBox->setValue(5000);
-    ui->qESPfrontIP_lineEdit->setText("192.168.100.103");
-    ui->qESPfront_spinBox->setValue(5000);
-    ui->qESPtopIp_lineEdit->setText("192.168.100.104");
-    ui->qESPtop_spinBox->setValue(5000);
+    ui->qBBBip_lineEdit->setText(BBBip);
+    ui->qBBB_spinBox->setValue(BBBport);
+    ui->qESPfrontIP_lineEdit->setText(ESPfrontIp);
+    ui->qESPfront_spinBox->setValue(ESPfrontPort);
+    ui->qESPtopIp_lineEdit->setText(ESPtopIp);
+    ui->qESPtop_spinBox->setValue(ESPtopPort);
 
 }
 

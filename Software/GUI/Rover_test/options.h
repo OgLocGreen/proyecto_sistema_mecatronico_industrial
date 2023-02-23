@@ -11,8 +11,9 @@ class Options : public QDialog
 {
     Q_OBJECT
 
-    QString BBBip;
-    QString ESPtopIp;
+    QString BBBip, ESPtopIp, ESPfrontIp;
+    quint16 BBBport, ESPtopPort, ESPfrontPort;
+
 
 public:
     explicit Options(QWidget *parent = nullptr);
@@ -26,12 +27,10 @@ public:
     QString getESPfrontIp();
     quint16 getESPfrontPort();
 
-    void setBBBip(QString BBBip);
-    void setBBBport(quint16 BBBport);
-    void setESPtopIp(QString ESPtopIp);
-    void setESPtopPort(quint16 ESPtopPort);
-    void setESPfrontIp(QString ESPfrontIp);
-    void setESPfrontPort(quint16 ESPfrontPort);
+    void setIPs(QString IPbeagle, QString IPespFront, QString IPespTop);
+    void setPorts(quint16 portBeagle, quint16 portESPfront, quint16 portESPtop);
+    void writeIPs(QString IPbeagle, QString IPespFront, QString IPespTop);
+    void writePorts(quint16 portBeagle, quint16 portESPfront, quint16 portESPtop);
 
 
 private slots:

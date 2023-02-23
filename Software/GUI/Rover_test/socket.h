@@ -13,18 +13,20 @@ class Socket : public QObject
     Q_OBJECT
  public:
      explicit Socket(QObject *parent = 0);
-     void Test(QHostAddress address, quint16 port);
+     bool Test(QHostAddress address, quint16 port);
 
      void  sendmsg(QString text);
 
  signals:
      void newLogFile(QString logText);
      void newData(QString data);
+     void BBBdisconnected();
+     void BBBconnected();
 
  public slots:
      void OnConnected();
-     void disconnected();
-     void bytesWritten(qint64 bytes);
+     void OnDisconnected();
+     void OnBytesWritten(qint64 bytes);
 
 
 private slots:

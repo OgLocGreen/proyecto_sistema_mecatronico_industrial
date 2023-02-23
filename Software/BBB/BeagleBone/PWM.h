@@ -5,6 +5,8 @@
 
 #undef USE_LIBROBOTCONTROL  // Da un error de unexport, no parece que esté bien compilada para la versión del sistema
 
+// Standart library for PWM used by the BBB
+
 #ifdef USE_LIBROBOTCONTROL
 
 class PWM : public QObject
@@ -34,7 +36,7 @@ public:
     typedef struct PwmPinInfo
     {
         PwmPinEnum pin;
-        unsigned int add; // http://www.ti.com/lit/ug/spruh73p/spruh73p.pdf (pag 184), https://stackoverflow.com/questions/50204329/pwm-chip-to-pin-mapping-on-beaglebone-black-v4-14
+        unsigned int add;
         char chann;
         int pwmChip;
         char pwmChipPath[64];
