@@ -29,26 +29,31 @@ private:
     QVector<QString> cliName;
     int counter;
     QThread thread;
-
     Utility util;
 
 public:
-    //explicit Connection(QObject *parent = nullptr);  // Constructor
+    // Constructor
     Connection(Data& myDataadrs);
 signals:
+    // read new data
     void NewData(QString data);
-    void AddToLogAlarm(const QString& NewDataLogIn, int LogState);
+    // Send data to Trajectory Class
     void SendDataTrajectory(QString x, QString y);
-    void SendDataMotor(QString dataName,QString value);     // issue #18
+    // send data to the Motor Class
+    void SendDataMotor(QString dataName,QString value);
+    // send data to the Fpga Class
     void SendDataFpga(QString direction_elev,QString enable_elev, QString enable_cam,QString direction_cam,QString enable_fast);     // issue #19
-    void SendDataEspTop(QString dataName,QString value);        // issue #20
-    void SendDataEspFront(QString dataName,QString value);      // issue #21
+    // add msg to the Log
     void AddToLog(QString txt);
 
 public slots:
+    // slot if a client wants to connect to the master
     void OnConnectionRequest();
+    // slot when data is Recieved
     void OnDataReceived();
+    // slot when a client disconnected
     void OnDisconnected();
+    // slot for sending data to all clients
     void OnSendData(QString txt);
 
 

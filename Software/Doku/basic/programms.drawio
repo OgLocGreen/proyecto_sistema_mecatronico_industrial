@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="vDkpHy24H6BLEEyWHWST" name="Page-1">
-        <mxGraphModel dx="881" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="2045" dy="1288" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -62,62 +62,62 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="35" value="Managment Tool" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="760" width="120" height="80" as="geometry"/>
+                    <mxGeometry x="400" y="40" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="36" value="wrike" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
-                    <mxGeometry x="240" y="760" width="120" height="80" as="geometry"/>
+                    <mxGeometry x="600" y="40" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="38" target="39">
+                <mxCell id="37" value="" style="edgeStyle=none;html=1;" parent="1" source="38" target="39" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="180" y="920"/>
+                            <mxPoint x="540" y="200"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="38" value="Esp32-cam" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="880" width="120" height="80" as="geometry"/>
+                <mxCell id="38" value="Esp32-cam" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="160" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" value="c++ / PlafromIO" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-                    <mxGeometry x="240" y="880" width="120" height="80" as="geometry"/>
+                <mxCell id="39" value="c++ / PlafromIO" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="160" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="41" target="42">
+                <mxCell id="40" value="" style="edgeStyle=none;html=1;" parent="1" source="41" target="42" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="180" y="1040"/>
+                            <mxPoint x="540" y="320"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="41" value="FEA" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="1000" width="120" height="80" as="geometry"/>
+                <mxCell id="41" value="FEA" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="280" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" value="Ansys 2022R2" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-                    <mxGeometry x="240" y="1000" width="120" height="80" as="geometry"/>
+                <mxCell id="42" value="Ansys 2022R2" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="280" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="45" target="46">
+                <mxCell id="44" value="" style="edgeStyle=none;html=1;" parent="1" source="45" target="46" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="180" y="1160"/>
+                            <mxPoint x="540" y="440"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="45" value="Data Managment" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="1120" width="120" height="80" as="geometry"/>
+                <mxCell id="45" value="Data Managment" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="400" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" value="Ondrive" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-                    <mxGeometry x="240" y="1120" width="120" height="80" as="geometry"/>
+                <mxCell id="46" value="Ondrive" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="400" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="47" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="48" target="49">
+                <mxCell id="47" value="" style="edgeStyle=none;html=1;" parent="1" source="48" target="49" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="180" y="1280"/>
+                            <mxPoint x="540" y="560"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="48" value="Code Managment" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="1240" width="120" height="80" as="geometry"/>
+                <mxCell id="48" value="Code Managment" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="520" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="49" value="Github" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-                    <mxGeometry x="240" y="1240" width="120" height="80" as="geometry"/>
+                <mxCell id="49" value="Github" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="520" width="120" height="80" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
