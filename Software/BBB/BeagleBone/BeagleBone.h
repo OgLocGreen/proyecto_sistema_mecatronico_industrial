@@ -1,6 +1,8 @@
 #ifndef BEAGLEBONE_H
 #define BEAGLEBONE_H
-// test
+
+// BBB main functions
+
 #include <QObject>
 #include <QDebug>
 #include <Data.h>
