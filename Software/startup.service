@@ -1,0 +1,15 @@
+[Unit]
+
+Description=init script
+
+After=syslog.target network.target
+
+[Service]
+
+Type=simple
+
+ExecStart=/home/debian/proyecto_sistema_mecatronico_industrial/Software/startup.sh
+
+[Install]
+
+WantedBy=multi-user.target
