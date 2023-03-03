@@ -1,0 +1,46 @@
+<motor_driver>
+<motor_speed_left>0</motor_speed_left>
+<motor_speed_left>0</motor_speed_left>
+</motor_driver>
+<esp32_top>
+<ip>x.x.x.x.x</ip>
+<video>1</video>
+<pulsar>1</pulsar>
+</esp32_top>
+<esp32_front>
+<ip>x.x.x.x.x</ip>
+<video>1</video>
+</esp32_front>
+<fpga>
+<ip>1</ip>
+<port>lev>1</direction_elev>
+    <enable_elev>1</enable_elev>
+    <enable_cam>1</enable_cam>
+    <direction_cam>1</direction_cam>
+    <enable_fast>1</enable_fast>
+</port>
+<port>1</port>
+<port>1</port>
+<port>1</port>
+</fpga>
+<beaglebone>
+<boradcast_time>10000</boradcast_time>
+<controller_time>10000</controller_time>
+<sensor_time>10000</sensor_time>
+<temperatur>50</temperatur>
+<battery>0</battery>
+<led_light>10</led_light>
+<ventilator>0</ventilator>
+<speaker>0</speaker>
+<zero_pos_low>1</zero_pos_low>
+<x_pos_momento>0</x_pos_momento>
+<y_pos_momento>0</y_pos_momento>
+<ultrasound_right>10</ultrasound_right>
+<ultrasound_left>1</ultrasound_left>
+<room_light>0</room_light>
+</beaglebone>
+<fpga>
+<ip>20</ip>
+<port>10</port>
+<port>1</port>
+</fpga>
