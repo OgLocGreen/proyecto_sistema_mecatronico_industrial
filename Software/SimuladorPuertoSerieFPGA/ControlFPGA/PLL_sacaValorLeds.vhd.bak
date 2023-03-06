@@ -1,0 +1,55 @@
+-- Quartus II VHDL Template
+-- Binary Counter
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity binary_counter is
+
+	generic
+	(
+		MIN_COUNT : natural := 0;
+		MAX_COUNT : natural := 1840000;
+		q		  : integer range MIN_COUNT to MAX_COUNT
+	);
+
+	port
+	(
+		clk		  : in std_logic;
+		reset	  : in std_logic;
+		enable	  : in std_logic;
+		
+		dataIn : in std_logic_vector(7 downto 0);
+		dataOut : in std_logic_vector(7 downto 0);
+	);
+
+end entity;
+
+architecture rtl of binary_counter is
+begin
+
+	process (clk)
+		variable   cnt		   : integer range MIN_COUNT to MAX_COUNT;
+	begin
+		if (rising_edge(clk)) then
+
+			if reset = '1' then
+				-- Reset the counter to 0
+				cnt := 0;
+
+			elsif enable = '1' then
+				-- Increment the counter if counting is enabled			   
+				cnt := cnt + 1;
+
+			end if;
+		end if;
+
+		-- Output the current count
+		if q = cnt then
+			dataOut <= dataIn
+		end if;
+		
+	end process;
+
+end rtl;

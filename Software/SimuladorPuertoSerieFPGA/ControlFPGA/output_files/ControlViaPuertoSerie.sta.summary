@@ -1,0 +1,125 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -2.514
+TNS   : -37.819
+
+Type  : Slow 1200mV 85C Model Setup 'uart_tx:inst7|current_state.idle'
+Slack : -0.187
+TNS   : -0.334
+
+Type  : Slow 1200mV 85C Model Setup 'PLL_sacaValorLeds:inst6|cnt[0]'
+Slack : 0.622
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PLL_sacaValorLeds:inst6|cnt[0]'
+Slack : -3.767
+TNS   : -20.562
+
+Type  : Slow 1200mV 85C Model Hold 'uart_tx:inst7|current_state.idle'
+Slack : -0.343
+TNS   : -0.673
+
+Type  : Slow 1200mV 85C Model Hold 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -0.182
+TNS   : -0.182
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PLL_sacaValorLeds:inst6|cnt[0]'
+Slack : 0.411
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'uart_tx:inst7|current_state.idle'
+Slack : 0.425
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'reloj'
+Slack : 9.825
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 271.022
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -2.046
+TNS   : -27.197
+
+Type  : Slow 1200mV 0C Model Setup 'uart_tx:inst7|current_state.idle'
+Slack : -0.223
+TNS   : -0.380
+
+Type  : Slow 1200mV 0C Model Setup 'PLL_sacaValorLeds:inst6|cnt[0]'
+Slack : 0.475
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PLL_sacaValorLeds:inst6|cnt[0]'
+Slack : -3.243
+TNS   : -17.155
+
+Type  : Slow 1200mV 0C Model Hold 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -0.287
+TNS   : -0.380
+
+Type  : Slow 1200mV 0C Model Hold 'uart_tx:inst7|current_state.idle'
+Slack : -0.156
+TNS   : -0.300
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PLL_sacaValorLeds:inst6|cnt[0]'
+Slack : 0.424
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'uart_tx:inst7|current_state.idle'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'reloj'
+Slack : 9.785
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 271.015
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -1.057
+TNS   : -11.334
+
+Type  : Fast 1200mV 0C Model Setup 'uart_tx:inst7|current_state.idle'
+Slack : 0.303
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'PLL_sacaValorLeds:inst6|cnt[0]'
+Slack : 0.698
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PLL_sacaValorLeds:inst6|cnt[0]'
+Slack : -2.312
+TNS   : -13.084
+
+Type  : Fast 1200mV 0C Model Hold 'uart_tx:inst7|current_state.idle'
+Slack : -0.344
+TNS   : -0.642
+
+Type  : Fast 1200mV 0C Model Hold 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -0.134
+TNS   : -0.147
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PLL_sacaValorLeds:inst6|cnt[0]'
+Slack : 0.376
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'uart_tx:inst7|current_state.idle'
+Slack : 0.430
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'reloj'
+Slack : 9.585
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 271.051
+TNS   : 0.000
+
+------------------------------------------------------------
