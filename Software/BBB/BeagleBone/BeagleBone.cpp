@@ -45,3 +45,28 @@ float BeagleBone::Position(Proximity_Detectors ultrasound)
     float pos=ultrasound.GetEchoTime_us(50000)*343/2/10000;
     return pos;
 }
+*/
+void BeagleBone::onTimerControll()
+{
+    int i = 0;
+    while( i < 100)
+        i++;
+
+    qDebug() << "hello this is the Timer here Controll" << Qt::endl;
+
+    emit AddToLog("una ronda de controll");
+
+}
+
+void BeagleBone::onTimerSensor()
+{
+    int i = 0;
+    while( i < 100)
+        i++;
+
+    qDebug() << "hello this is the Timer here Controll" << Qt::endl;
+
+}
+
+
+

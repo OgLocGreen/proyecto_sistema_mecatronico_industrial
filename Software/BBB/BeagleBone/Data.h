@@ -11,6 +11,7 @@ class Data : public QObject
     Utility util;
 public:
     Data();
+    // one struct for each "data sub class"
     struct motor_driver_struct{
         QString motor_speed_left;
         QString motor_speed_right;
@@ -66,7 +67,7 @@ public:
         QString vel_max;
     };
 
-    int test;
+    // declare the data structs
     motor_driver_struct motor_driver_data;
     esp32_top_struct esp32_top_data;
     esp32_front_struct esp32_front_data;
@@ -76,12 +77,14 @@ public:
     mando_struct mando_data;
     trajectory_struct trajectory_data;
 
+    //read all data
     bool readInitAll(const QString& xml_data);
     QString makeXml();
 
 
 
 private:
+    // read the data for specific data struct
     bool readInitDataMotorDriver(const QString& xml_data);
     bool readInitEsp32_top(const QString& xml_data);
     bool readInitEsp32_front(const QString& xml_data);
@@ -91,13 +94,16 @@ private:
     bool readInitMando(const QString& xml_data);
     bool readInitTrajectory(const QString& xml_data);
 
+    // make out of a struct a QString
     QString XmlPutString(const QString& tag,const QString& value);
     QString XmlPutStringSpace(const QString& tag,const QString& value);
 
 public slots:
+    // make a QString form all data structs and sends it to the clients
     void OnTimer();
 
 signals:
+    // signal to emit for sending data to the clients
     void sendToPC(QString msg);
 
 

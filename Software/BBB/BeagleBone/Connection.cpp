@@ -1,12 +1,6 @@
 #include "Connection.h"
 
-/*
-Connection::Connection(QObject *parent) : QObject(parent)
-{
-
-}
-*/
-
+// constructor for the conection class with the right adress
 Connection::Connection(Data &myDataadrs) : myData(myDataadrs)
 {
     socket=NULL;
@@ -19,14 +13,19 @@ Connection::Connection(Data &myDataadrs) : myData(myDataadrs)
        qDebug() << "Listen fail";
 }
 
+// methode when a client wants to connect
 void Connection::OnConnectionRequest()
 {
+    // mange the client request and get the adress
     ClientInfo cli;
     cli.socket = server.nextPendingConnection();
     cli.ip=cli.socket->peerAddress();
     int iClient=cliVector.size();
+    // add the requesting client to the list
     for (iClient=0;iClient<cliVector.size();iClient++)
     {
+        // check if the client is already in the list
+        // if yes overwrite the old conection
         if (cliVector[iClient].ip==cli.ip)
         {
             cliVector[iClient].socket = cli.socket;
@@ -35,7 +34,8 @@ void Connection::OnConnectionRequest()
             break;
         }
     }
-    if (iClient >= cliVector.size() ) // Not found in the previous loop: append
+    // Not found in the previous loop: append  ##issue 66
+    if (iClient >= cliVector.size() )
     {
         cliVector.append(cli);
         connect(cliVector[iClient].socket,SIGNAL(readyRead()),this,SLOT(OnDataReceived()));
@@ -43,6 +43,7 @@ void Connection::OnConnectionRequest()
 
         qDebug() << "New Connection \n";
     }
+    // add to the log msg
     QString msg = "New Connection from Client: "+ cli.ip.toString();
     emit AddToLog(msg);
 
@@ -52,9 +53,10 @@ void Connection::OnConnectionRequest()
 
 }
 
-
+// methode for reciving data
 void Connection::OnDataReceived()
 {
+    // check who send the data
     QTcpSocket* from=(QTcpSocket*) sender();
     int iClient;
     for (iClient=0;iClient<cliVector.size();iClient++)
@@ -65,11 +67,14 @@ void Connection::OnDataReceived()
     }
     if (iClient>=cliVector.size())
         return;
+    // get the send msg
     QByteArray recv=cliVector[iClient].socket->readAll();
     QString recvmsg=recv;
     qDebug() << "Data: " << recvmsg;
 
-
+    // read the data out of the message and write it in the write data class (data struct)
+    // also if needed a log msg will be written
+    // also if needed the received data will be send to other class
     if(recvmsg.contains("motor_driver", Qt::CaseInsensitive))
     {
         QString moterDriver = util.GetXmlStr(recvmsg, "motor_driver");
@@ -334,6 +339,8 @@ void Connection::OnDataReceived()
    }
 }
 
+
+// methode will delete the client that disconnected from the list
 void Connection::OnDisconnected()
 {
     qDebug() << "onDisconnected()"<< Qt::endl;
@@ -350,7 +357,7 @@ void Connection::OnDisconnected()
     from->deleteLater();  // remove the pointer assigned by nextPendingConnection()
 }
 
-
+// methode for sending data to all Clients
 void Connection::OnSendData(QString txt)
 {
     int iClient;
