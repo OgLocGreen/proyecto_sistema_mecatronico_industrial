@@ -7,6 +7,22 @@ const uint16_t port = 5000;
 const char * host = "192.168.100.102";
 WiFiClient client;
 
+void GetXmlStr(const QString &textXml, const QString &tagXml)
+{
+    QString ret;
+    int istart, iend;
+    int indexStart, lengStr;
+
+
+    istart = textXml.indexOf("<"+tagXml+">");
+    iend = textXml.indexOf("</"+tagXml+">");
+    indexStart = istart+tagXml.length()+2;
+    lengStr = iend - indexStart;
+    ret = textXml.mid(indexStart, lengStr);
+
+    return ret;
+}
+
 void setup()
 {
 
@@ -33,7 +49,7 @@ void loop()
 
 	if(client.connected()) {
 	Serial.println("Send MSG to BBB");
-	client.print("<motor_driver><motor_speed_left>10</motor_speed_left><motor_speed_right>20</motor_speed_right></motor_driver>");
+	client.print("hello from the Esp32");
 	}
 
 	char c;
@@ -50,6 +66,19 @@ void loop()
 		if (c=='\n')
 			break;
 	}
+
+	String pulsar  = GetXmlStr(msg, "pulsar");
+	String video = GetXmlStr(msg, "video");
+
+	if video == "1" {
+		//Llamar a la funcion de video
+	}
+
+	if pulsar == "1" {
+		//Llamar a la funcion de pulsar
+	}
+
+
 
 	Serial.println(msg);
 	
