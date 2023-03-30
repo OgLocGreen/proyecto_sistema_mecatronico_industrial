@@ -5,6 +5,7 @@ BeagleBone::BeagleBone(Data &myDataadrs)  : myData(myDataadrs)
 
 }
 
+/*
 // Once the leds pin is declare, this function turn them on
 void BeagleBone::Leds_on()
 {
