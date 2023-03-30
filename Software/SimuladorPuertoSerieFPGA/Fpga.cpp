@@ -4,20 +4,20 @@
 #include <QDebug>
 #include <QVariant>
 
-#define BAUDRATE 115200
-#define COMPORT "COM5"
+#define BAUDRATE 9600
+#define COMPORT "COM3"
 
 void Fpga::SendDataRS232()
 {
-    if(!serial.open(QSerialPort::ReadWrite)){
-        qDebug() << QString("Connection failed");
-        return;
-    }
+    serial.write(snd);
+//    if(!serial.open(QSerialPort::ReadWrite)){
+//        qDebug() << QString("Connection failed");
+//        return;
+//    }
 
-    else{
-        serial.write(snd);
-    }
-
+//    else{
+//        serial.write(snd);
+//    }
 }
 
 Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
@@ -26,9 +26,11 @@ Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
     /* Setting baudrate speed and active COM */
     serial.setBaudRate(BAUDRATE);
     serial.setPortName(COMPORT);
+    serial.setDataBits(QSerialPort::Data8);
+    serial.setFlowControl(QSerialPort::NoFlowControl);
 
     /* Connecting data reading slot, on serial data recieving, do sthg */
-    QObject::connect(&serial,&QIODevice::readyRead,this,&Fpga::OnFPGAReadyRead);
+    //QObject::connect(&serial,&QIODevice::readyRead,this,&Fpga::OnFPGAReadyRead);
 
     if(!serial.open(QSerialPort::ReadWrite)){
         qDebug() << QString("No conectado al puerto serie de FPGA");
@@ -36,12 +38,18 @@ Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
     }
 
     else{
-        qDebug() << QString("Conectado correctamente al puerto serie RS232 - ") + QString(COMPORT) + QString(BAUDRATE);
+        qDebug() << QString("Conectado correctamente al puerto serie RS232 - ") + QString(COMPORT) + " - " + QString::number(BAUDRATE);
     }
 
-    snd.resize(1);
-    qDebug() << snd.size();
+    QString str_prueba('a');
 
+    while(1){
+        serial.open(QSerialPort::WriteOnly);
+        snd = str_prueba.toLatin1();
+        qDebug() << snd.size();
+        SendDataRS232();
+        serial.close();
+    }
     serial.close();
 }
 
