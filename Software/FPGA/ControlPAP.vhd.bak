@@ -1,0 +1,59 @@
+-- Quartus II VHDL Template
+-- Binary Counter
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity ControlPAP is
+
+	generic
+	(
+		MAX_COUNT : natural := 255
+	);
+
+	port
+	(
+		clk	: in std_logic;
+		reset	  : in std_logic;
+		enable : in std_logic;
+		step		  : out std_logic;
+		dir : out std_logic;
+	);
+
+end entity;
+
+architecture comportamiento of ControlPAP is
+
+signal slow_clk : std_logic;
+
+begin
+	
+	-- Divisor de frecuencia (en principio, siempre la misma)
+	prescaler: process(clk)
+	variable cnt : integer range 0 to MAX_COUNT;
+	begin
+	
+		if reset = '1' then
+			slow_clk
+		end if;
+		
+	end process;
+	
+	-- Generación STEP
+	stepsignalprocess: process (slow_clk)
+	begin
+
+		
+	
+	end process;
+	
+	-- Generacion DIR
+	dirsignalprocess:	process (dir)
+	begin
+		
+		
+		
+	end process;
+
+end comportamiento;
