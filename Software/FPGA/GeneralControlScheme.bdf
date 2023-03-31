@@ -23,7 +23,7 @@ applicable agreement for further details.
 	(input)
 	(rect 352 256 520 272)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "reloj" (rect 5 0 26 12)(font "Arial" ))
+	(text "reloj" (rect 5 0 25 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -40,7 +40,7 @@ applicable agreement for further details.
 	(input)
 	(rect 352 272 520 288)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "paro" (rect 5 0 27 12)(font "Arial" ))
+	(text "paro" (rect 5 0 26 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -57,7 +57,7 @@ applicable agreement for further details.
 	(input)
 	(rect 352 288 520 304)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "dir_motor" (rect 5 0 52 12)(font "Arial" ))
+	(text "dir_motor" (rect 5 0 51 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -167,25 +167,25 @@ applicable agreement for further details.
 		(pt 152 32)
 		(output)
 		(text "step" (rect 0 0 21 12)(font "Arial" ))
-		(text "step" (rect 114 27 131 39)(font "Arial" ))
+		(text "step" (rect 114 27 135 39)(font "Arial" ))
 		(line (pt 152 32)(pt 136 32))
 	)
 	(port
 		(pt 152 48)
 		(output)
 		(text "dir" (rect 0 0 11 12)(font "Arial" ))
-		(text "dir" (rect 122 43 131 55)(font "Arial" ))
+		(text "dir" (rect 122 43 133 55)(font "Arial" ))
 		(line (pt 152 48)(pt 136 48))
 	)
 	(parameter
 		"MAX_COUNT"
-		"50000000"
+		"50000"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 136 96))
 	)
-	(annotation_block (parameter)(rect 704 200 913 228))
+	(annotation_block (parameter)(rect 704 200 896 228))
 )
 (connector
 	(pt 520 264)

@@ -29,7 +29,7 @@ begin
 	
 	-- Generacion de STEP + Divisor de frecuencia (en principio, siempre la misma)
 	prescaler: process(clk,reset)
-	variable cnt : integer;
+	variable cnt : integer := 0; -- IMPORTANTE QUE PARTA DE 0
 	variable bffer_clk : std_logic := '1';
 	begin
 	

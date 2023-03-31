@@ -1,5 +1,5 @@
 Fitter report for FPGARoverProgram
-Thu Mar 30 18:53:04 2023
+Fri Mar 31 19:16:59 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -66,15 +66,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Fitter Summary                                                                  ;
 +------------------------------------+--------------------------------------------+
-; Fitter Status                      ; Successful - Thu Mar 30 18:53:04 2023      ;
+; Fitter Status                      ; Successful - Fri Mar 31 19:16:59 2023      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; FPGARoverProgram                           ;
 ; Top-level Entity Name              ; GeneralControlScheme                       ;
 ; Family                             ; Cyclone III                                ;
 ; Device                             ; EP3C16F484C6                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 85 / 15,408 ( < 1 % )                      ;
-;     Total combinational functions  ; 85 / 15,408 ( < 1 % )                      ;
+; Total logic elements               ; 81 / 15,408 ( < 1 % )                      ;
+;     Total combinational functions  ; 81 / 15,408 ( < 1 % )                      ;
 ;     Dedicated logic registers      ; 34 / 15,408 ( < 1 % )                      ;
 ; Total registers                    ; 34                                         ;
 ; Total pins                         ; 7 / 347 ( 2 % )                            ;
@@ -182,8 +182,8 @@ applicable agreement for further details.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 145 ) ; 0.00 % ( 0 / 145 )         ; 0.00 % ( 0 / 145 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 145 ) ; 0.00 % ( 0 / 145 )         ; 0.00 % ( 0 / 145 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 141 ) ; 0.00 % ( 0 / 141 )         ; 0.00 % ( 0 / 141 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 141 ) ; 0.00 % ( 0 / 141 )         ; 0.00 % ( 0 / 141 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -206,7 +206,7 @@ applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 135 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 131 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 10 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -222,19 +222,19 @@ The pin-out file can be found in C:/MIM/2022_2023/proyecto_sistema_mecatronico_i
 +---------------------------------------------+-----------------------+
 ; Resource                                    ; Usage                 ;
 +---------------------------------------------+-----------------------+
-; Total logic elements                        ; 85 / 15,408 ( < 1 % ) ;
-;     -- Combinational with no register       ; 51                    ;
+; Total logic elements                        ; 81 / 15,408 ( < 1 % ) ;
+;     -- Combinational with no register       ; 47                    ;
 ;     -- Register only                        ; 0                     ;
 ;     -- Combinational with a register        ; 34                    ;
 ;                                             ;                       ;
 ; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 14                    ;
-;     -- 3 input functions                    ; 6                     ;
-;     -- <=2 input functions                  ; 65                    ;
+;     -- 4 input functions                    ; 15                    ;
+;     -- 3 input functions                    ; 2                     ;
+;     -- <=2 input functions                  ; 64                    ;
 ;     -- Register only                        ; 0                     ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 54                    ;
+;     -- normal mode                          ; 50                    ;
 ;     -- arithmetic mode                      ; 31                    ;
 ;                                             ;                       ;
 ; Total registers*                            ; 34 / 17,068 ( < 1 % ) ;
@@ -262,7 +262,7 @@ The pin-out file can be found in C:/MIM/2022_2023/proyecto_sistema_mecatronico_i
 ; Peak interconnect usage (total/H/V)         ; 0% / 0% / 0%          ;
 ; Maximum fan-out                             ; 34                    ;
 ; Highest non-global fan-out                  ; 34                    ;
-; Total fan-out                               ; 321                   ;
+; Total fan-out                               ; 312                   ;
 ; Average fan-out                             ; 2.23                  ;
 +---------------------------------------------+-----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
@@ -276,19 +276,19 @@ The pin-out file can be found in C:/MIM/2022_2023/proyecto_sistema_mecatronico_i
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 85 / 15408 ( < 1 % ) ; 0 / 15408 ( 0 % )              ;
-;     -- Combinational with no register       ; 51                   ; 0                              ;
+; Total logic elements                        ; 81 / 15408 ( < 1 % ) ; 0 / 15408 ( 0 % )              ;
+;     -- Combinational with no register       ; 47                   ; 0                              ;
 ;     -- Register only                        ; 0                    ; 0                              ;
 ;     -- Combinational with a register        ; 34                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 14                   ; 0                              ;
-;     -- 3 input functions                    ; 6                    ; 0                              ;
-;     -- <=2 input functions                  ; 65                   ; 0                              ;
+;     -- 4 input functions                    ; 15                   ; 0                              ;
+;     -- 3 input functions                    ; 2                    ; 0                              ;
+;     -- <=2 input functions                  ; 64                   ; 0                              ;
 ;     -- Register only                        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 54                   ; 0                              ;
+;     -- normal mode                          ; 50                   ; 0                              ;
 ;     -- arithmetic mode                      ; 31                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Total registers                             ; 34                   ; 0                              ;
@@ -311,8 +311,8 @@ The pin-out file can be found in C:/MIM/2022_2023/proyecto_sistema_mecatronico_i
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 316                  ; 5                              ;
-;     -- Registered Connections               ; 35                   ; 0                              ;
+;     -- Total Connections                    ; 307                  ; 5                              ;
+;     -- Registered Connections               ; 36                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 0                              ;
@@ -897,8 +897,8 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                   ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------+--------------+
-; |GeneralControlScheme      ; 85 (0)      ; 34 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 7    ; 0            ; 51 (0)       ; 0 (0)             ; 34 (0)           ; |GeneralControlScheme                 ; work         ;
-;    |ControlPAP:inst|       ; 85 (85)     ; 34 (34)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 51 (51)      ; 0 (0)             ; 34 (34)          ; |GeneralControlScheme|ControlPAP:inst ; work         ;
+; |GeneralControlScheme      ; 81 (0)      ; 34 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 7    ; 0            ; 47 (0)       ; 0 (0)             ; 34 (0)           ; |GeneralControlScheme                 ; work         ;
+;    |ControlPAP:inst|       ; 81 (81)     ; 34 (34)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 47 (47)      ; 0 (0)             ; 34 (34)          ; |GeneralControlScheme|ControlPAP:inst ; work         ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -914,7 +914,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ledstep   ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; dir_motor ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
 ; reloj     ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
-; paro      ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; paro      ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 +-----------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -928,40 +928,40 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - leddir~output                        ; 1                 ; 6       ;
 ; reloj                                       ;                   ;         ;
 ; paro                                        ;                   ;         ;
-;      - ControlPAP:inst|\prescaler:cnt[31]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[30]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[29]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[28]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[27]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[26]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[25]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[24]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[23]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[22]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[21]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[20]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[19]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[18]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[17]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[16]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[15]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[14]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[13]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[12]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[11]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[10]   ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[9]    ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[8]    ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[7]    ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[6]    ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[5]    ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[4]    ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[3]    ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[2]    ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[1]    ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:cnt[0]    ; 1                 ; 6       ;
-;      - ControlPAP:inst|\prescaler:bffer_clk ; 1                 ; 6       ;
-;      - ControlPAP:inst|step                 ; 1                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[31]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[30]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[29]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[28]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[27]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[26]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[25]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[24]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[23]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[22]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[21]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[20]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[19]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[18]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[17]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[16]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[15]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[14]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[13]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[12]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[11]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[10]   ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[9]    ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[8]    ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[7]    ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[6]    ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[5]    ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[4]    ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[3]    ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[2]    ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[1]    ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:cnt[0]    ; 0                 ; 6       ;
+;      - ControlPAP:inst|\prescaler:bffer_clk ; 0                 ; 6       ;
+;      - ControlPAP:inst|step                 ; 0                 ; 6       ;
 +---------------------------------------------+-------------------+---------+
 
 
@@ -980,7 +980,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name  ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; reloj ; PIN_G21  ; 34      ; 17                                   ; Global Clock         ; GCLK9            ; --                        ;
+; reloj ; PIN_G21  ; 34      ; 5                                    ; Global Clock         ; GCLK9            ; --                        ;
 +-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -990,49 +990,46 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                 ; Fan-Out ;
 +--------------------------------------+---------+
 ; paro~input                           ; 34      ;
-; ControlPAP:inst|\prescaler:cnt[16]~1 ; 27      ;
-; ControlPAP:inst|Add0~62              ; 8       ;
-; ControlPAP:inst|Add0~50              ; 5       ;
-; ControlPAP:inst|Add0~38              ; 4       ;
-; ControlPAP:inst|Add0~34              ; 4       ;
+; ControlPAP:inst|\prescaler:cnt[16]~0 ; 17      ;
+; ControlPAP:inst|Add0~62              ; 17      ;
+; ControlPAP:inst|Add0~12              ; 4       ;
+; ControlPAP:inst|LessThan2~3          ; 3       ;
 ; ControlPAP:inst|Add0~60              ; 3       ;
-; ControlPAP:inst|Add0~58              ; 3       ;
-; ControlPAP:inst|Add0~56              ; 3       ;
-; ControlPAP:inst|Add0~54              ; 3       ;
-; ControlPAP:inst|Add0~52              ; 3       ;
-; ControlPAP:inst|Add0~48              ; 3       ;
-; ControlPAP:inst|Add0~36              ; 3       ;
 ; ControlPAP:inst|Add0~32              ; 3       ;
+; ControlPAP:inst|Add0~30              ; 3       ;
+; ControlPAP:inst|Add0~28              ; 3       ;
+; ControlPAP:inst|Add0~26              ; 3       ;
 ; ControlPAP:inst|Add0~24              ; 3       ;
+; ControlPAP:inst|Add0~22              ; 3       ;
+; ControlPAP:inst|Add0~20              ; 3       ;
+; ControlPAP:inst|Add0~18              ; 3       ;
+; ControlPAP:inst|Add0~16              ; 3       ;
+; ControlPAP:inst|Add0~14              ; 3       ;
+; ControlPAP:inst|Add0~10              ; 3       ;
 ; dir_motor~input                      ; 2       ;
-; ControlPAP:inst|bffer_clk~2          ; 2       ;
-; ControlPAP:inst|LessThan2~4          ; 2       ;
-; ControlPAP:inst|LessThan2~2          ; 2       ;
-; ControlPAP:inst|\prescaler:cnt[16]~0 ; 2       ;
-; ControlPAP:inst|LessThan1~7          ; 2       ;
-; ControlPAP:inst|LessThan2~0          ; 2       ;
-; ControlPAP:inst|LessThan1~2          ; 2       ;
+; ControlPAP:inst|bffer_clk~1          ; 2       ;
+; ControlPAP:inst|LessThan2~7          ; 2       ;
+; ControlPAP:inst|\prescaler:bffer_clk ; 2       ;
 ; ControlPAP:inst|step                 ; 2       ;
+; ControlPAP:inst|Add0~58              ; 2       ;
+; ControlPAP:inst|Add0~56              ; 2       ;
+; ControlPAP:inst|Add0~54              ; 2       ;
+; ControlPAP:inst|Add0~52              ; 2       ;
+; ControlPAP:inst|Add0~50              ; 2       ;
+; ControlPAP:inst|Add0~48              ; 2       ;
 ; ControlPAP:inst|Add0~46              ; 2       ;
 ; ControlPAP:inst|Add0~44              ; 2       ;
 ; ControlPAP:inst|Add0~42              ; 2       ;
 ; ControlPAP:inst|Add0~40              ; 2       ;
-; ControlPAP:inst|Add0~30              ; 2       ;
-; ControlPAP:inst|Add0~28              ; 2       ;
-; ControlPAP:inst|Add0~26              ; 2       ;
-; ControlPAP:inst|Add0~22              ; 2       ;
-; ControlPAP:inst|Add0~20              ; 2       ;
-; ControlPAP:inst|Add0~18              ; 2       ;
-; ControlPAP:inst|Add0~16              ; 2       ;
-; ControlPAP:inst|Add0~14              ; 2       ;
-; ControlPAP:inst|Add0~12              ; 2       ;
-; ControlPAP:inst|Add0~10              ; 2       ;
+; ControlPAP:inst|Add0~38              ; 2       ;
+; ControlPAP:inst|Add0~36              ; 2       ;
+; ControlPAP:inst|Add0~34              ; 2       ;
 ; ControlPAP:inst|Add0~8               ; 2       ;
 ; ControlPAP:inst|Add0~6               ; 2       ;
 ; ControlPAP:inst|Add0~4               ; 2       ;
 ; ControlPAP:inst|Add0~2               ; 2       ;
 ; ControlPAP:inst|Add0~0               ; 2       ;
-; ControlPAP:inst|\prescaler:cnt[31]~0 ; 1       ;
+; ControlPAP:inst|bffer_clk~0          ; 1       ;
 ; ControlPAP:inst|cnt~30               ; 1       ;
 ; ControlPAP:inst|cnt~29               ; 1       ;
 ; ControlPAP:inst|cnt~28               ; 1       ;
@@ -1064,24 +1061,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ControlPAP:inst|cnt~2                ; 1       ;
 ; ControlPAP:inst|cnt~1                ; 1       ;
 ; ControlPAP:inst|cnt~0                ; 1       ;
-; ControlPAP:inst|bffer_clk~1          ; 1       ;
-; ControlPAP:inst|LessThan2~3          ; 1       ;
-; ControlPAP:inst|LessThan2~1          ; 1       ;
-; ControlPAP:inst|bffer_clk~0          ; 1       ;
-; ControlPAP:inst|\prescaler:bffer_clk ; 1       ;
+; ControlPAP:inst|LessThan2~6          ; 1       ;
+; ControlPAP:inst|LessThan2~5          ; 1       ;
+; ControlPAP:inst|LessThan2~4          ; 1       ;
 ; ControlPAP:inst|\prescaler:cnt[30]   ; 1       ;
 ; ControlPAP:inst|\prescaler:cnt[31]   ; 1       ;
-; ControlPAP:inst|LessThan1~10         ; 1       ;
-; ControlPAP:inst|LessThan1~9          ; 1       ;
-; ControlPAP:inst|LessThan1~8          ; 1       ;
 ; ControlPAP:inst|LessThan1~6          ; 1       ;
+; ControlPAP:inst|LessThan2~2          ; 1       ;
+; ControlPAP:inst|LessThan2~1          ; 1       ;
+; ControlPAP:inst|LessThan2~0          ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[17]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[18]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[19]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[20]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[21]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[22]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[23]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[24]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[25]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[26]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[27]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[28]   ; 1       ;
+; ControlPAP:inst|\prescaler:cnt[29]   ; 1       ;
 ; ControlPAP:inst|LessThan1~5          ; 1       ;
 ; ControlPAP:inst|LessThan1~4          ; 1       ;
 ; ControlPAP:inst|LessThan1~3          ; 1       ;
+; ControlPAP:inst|LessThan1~2          ; 1       ;
 ; ControlPAP:inst|LessThan1~1          ; 1       ;
 ; ControlPAP:inst|LessThan1~0          ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[29]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[28]   ; 1       ;
 ; ControlPAP:inst|\prescaler:cnt[0]    ; 1       ;
 ; ControlPAP:inst|\prescaler:cnt[1]    ; 1       ;
 ; ControlPAP:inst|\prescaler:cnt[2]    ; 1       ;
@@ -1099,17 +1106,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ControlPAP:inst|\prescaler:cnt[14]   ; 1       ;
 ; ControlPAP:inst|\prescaler:cnt[15]   ; 1       ;
 ; ControlPAP:inst|\prescaler:cnt[16]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[17]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[18]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[19]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[20]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[21]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[22]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[23]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[24]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[25]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[26]   ; 1       ;
-; ControlPAP:inst|\prescaler:cnt[27]   ; 1       ;
 ; ControlPAP:inst|Add0~61              ; 1       ;
 ; ControlPAP:inst|Add0~59              ; 1       ;
 ; ControlPAP:inst|Add0~57              ; 1       ;
@@ -1149,24 +1145,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+------------------------+
 ; Routing Resource Type ; Usage                  ;
 +-----------------------+------------------------+
-; Block interconnects   ; 117 / 47,787 ( < 1 % ) ;
-; C16 interconnects     ; 6 / 1,804 ( < 1 % )    ;
+; Block interconnects   ; 110 / 47,787 ( < 1 % ) ;
+; C16 interconnects     ; 4 / 1,804 ( < 1 % )    ;
 ; C4 interconnects      ; 21 / 31,272 ( < 1 % )  ;
-; Direct links          ; 51 / 47,787 ( < 1 % )  ;
+; Direct links          ; 65 / 47,787 ( < 1 % )  ;
 ; Global clocks         ; 1 / 20 ( 5 % )         ;
-; Local interconnects   ; 18 / 15,408 ( < 1 % )  ;
-; R24 interconnects     ; 7 / 1,775 ( < 1 % )    ;
-; R4 interconnects      ; 41 / 41,310 ( < 1 % )  ;
+; Local interconnects   ; 20 / 15,408 ( < 1 % )  ;
+; R24 interconnects     ; 4 / 1,775 ( < 1 % )    ;
+; R4 interconnects      ; 29 / 41,310 ( < 1 % )  ;
 +-----------------------+------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Logic Elements                                                        ;
 +---------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 14.17) ; Number of LABs  (Total = 6) ;
+; Number of Logic Elements  (Average = 13.50) ; Number of LABs  (Total = 6) ;
 +---------------------------------------------+-----------------------------+
 ; 1                                           ; 0                           ;
-; 2                                           ; 0                           ;
+; 2                                           ; 1                           ;
 ; 3                                           ; 0                           ;
 ; 4                                           ; 0                           ;
 ; 5                                           ; 0                           ;
@@ -1174,36 +1170,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 7                                           ; 0                           ;
 ; 8                                           ; 0                           ;
 ; 9                                           ; 0                           ;
-; 10                                          ; 1                           ;
+; 10                                          ; 0                           ;
 ; 11                                          ; 0                           ;
 ; 12                                          ; 0                           ;
-; 13                                          ; 1                           ;
-; 14                                          ; 1                           ;
-; 15                                          ; 0                           ;
-; 16                                          ; 3                           ;
+; 13                                          ; 0                           ;
+; 14                                          ; 0                           ;
+; 15                                          ; 1                           ;
+; 16                                          ; 4                           ;
 +---------------------------------------------+-----------------------------+
 
 
 +------------------------------------------------------------------+
 ; LAB-wide Signals                                                 ;
 +------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 1.33) ; Number of LABs  (Total = 6) ;
+; LAB-wide Signals  (Average = 1.67) ; Number of LABs  (Total = 6) ;
 +------------------------------------+-----------------------------+
-; 1 Clock                            ; 4                           ;
-; 1 Clock enable                     ; 4                           ;
+; 1 Clock                            ; 5                           ;
+; 1 Clock enable                     ; 5                           ;
 +------------------------------------+-----------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                        ;
 +----------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 19.83) ; Number of LABs  (Total = 6) ;
+; Number of Signals Sourced  (Average = 19.17) ; Number of LABs  (Total = 6) ;
 +----------------------------------------------+-----------------------------+
 ; 0                                            ; 0                           ;
 ; 1                                            ; 0                           ;
 ; 2                                            ; 0                           ;
 ; 3                                            ; 0                           ;
-; 4                                            ; 0                           ;
+; 4                                            ; 1                           ;
 ; 5                                            ; 0                           ;
 ; 6                                            ; 0                           ;
 ; 7                                            ; 0                           ;
@@ -1215,8 +1211,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 13                                           ; 0                           ;
 ; 14                                           ; 0                           ;
 ; 15                                           ; 0                           ;
-; 16                                           ; 2                           ;
-; 17                                           ; 1                           ;
+; 16                                           ; 1                           ;
+; 17                                           ; 0                           ;
 ; 18                                           ; 0                           ;
 ; 19                                           ; 0                           ;
 ; 20                                           ; 1                           ;
@@ -1224,7 +1220,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 22                                           ; 0                           ;
 ; 23                                           ; 1                           ;
 ; 24                                           ; 0                           ;
-; 25                                           ; 0                           ;
+; 25                                           ; 1                           ;
 ; 26                                           ; 0                           ;
 ; 27                                           ; 1                           ;
 +----------------------------------------------+-----------------------------+
@@ -1233,22 +1229,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +--------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 12.17) ; Number of LABs  (Total = 6) ;
+; Number of Signals Sourced Out  (Average = 11.17) ; Number of LABs  (Total = 6) ;
 +--------------------------------------------------+-----------------------------+
 ; 0                                                ; 0                           ;
 ; 1                                                ; 0                           ;
-; 2                                                ; 0                           ;
-; 3                                                ; 1                           ;
+; 2                                                ; 1                           ;
+; 3                                                ; 0                           ;
 ; 4                                                ; 0                           ;
 ; 5                                                ; 0                           ;
 ; 6                                                ; 0                           ;
 ; 7                                                ; 0                           ;
 ; 8                                                ; 0                           ;
-; 9                                                ; 0                           ;
-; 10                                               ; 1                           ;
+; 9                                                ; 2                           ;
+; 10                                               ; 0                           ;
 ; 11                                               ; 0                           ;
 ; 12                                               ; 0                           ;
-; 13                                               ; 1                           ;
+; 13                                               ; 0                           ;
 ; 14                                               ; 0                           ;
 ; 15                                               ; 1                           ;
 ; 16                                               ; 2                           ;
@@ -1258,14 +1254,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                        ;
 +----------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 18.00) ; Number of LABs  (Total = 6) ;
+; Number of Distinct Inputs  (Average = 17.50) ; Number of LABs  (Total = 6) ;
 +----------------------------------------------+-----------------------------+
 ; 0                                            ; 0                           ;
 ; 1                                            ; 0                           ;
 ; 2                                            ; 0                           ;
 ; 3                                            ; 0                           ;
 ; 4                                            ; 0                           ;
-; 5                                            ; 0                           ;
+; 5                                            ; 1                           ;
 ; 6                                            ; 0                           ;
 ; 7                                            ; 0                           ;
 ; 8                                            ; 0                           ;
@@ -1273,13 +1269,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 10                                           ; 0                           ;
 ; 11                                           ; 0                           ;
 ; 12                                           ; 0                           ;
-; 13                                           ; 1                           ;
+; 13                                           ; 0                           ;
 ; 14                                           ; 0                           ;
-; 15                                           ; 1                           ;
+; 15                                           ; 0                           ;
 ; 16                                           ; 1                           ;
-; 17                                           ; 1                           ;
-; 18                                           ; 0                           ;
-; 19                                           ; 0                           ;
+; 17                                           ; 0                           ;
+; 18                                           ; 1                           ;
+; 19                                           ; 1                           ;
 ; 20                                           ; 1                           ;
 ; 21                                           ; 0                           ;
 ; 22                                           ; 0                           ;
@@ -1442,7 +1438,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.27 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.55 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1451,9 +1447,9 @@ Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA/output_files/FPGARoverProgram.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 5514 megabytes
-    Info: Processing ended: Thu Mar 30 18:53:04 2023
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Processing ended: Fri Mar 31 19:16:59 2023
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:10
 
 
 +----------------------------+
