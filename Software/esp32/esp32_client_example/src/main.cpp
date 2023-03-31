@@ -67,8 +67,9 @@ void loop()
 			break;
 	}
 
-	String pulsar  = GetXmlStr(msg, "pulsar");
-	String video = GetXmlStr(msg, "video");
+	String esp32 = GetXmlStr(msg, "esp32_top");
+	String pulsar  = GetXmlStr(esp32, "pulsar");
+	String video = GetXmlStr(esp32, "video");
 
 	if video == "1" {
 		//Llamar a la funcion de video
