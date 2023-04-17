@@ -1,0 +1,53 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "step",
+					"strict" : false
+				},
+				{
+					"name" : "dir",
+					"strict" : false
+				},
+				{
+					"name" : "leddir",
+					"strict" : false
+				},
+				{
+					"name" : "ledstep",
+					"strict" : false
+				},
+				{
+					"name" : "enable",
+					"strict" : false
+				},
+				{
+					"name" : "ledenable",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_servo",
+					"strict" : false
+				},
+				{
+					"name" : "dir_motor",
+					"strict" : false
+				},
+				{
+					"name" : "paro",
+					"strict" : false
+				},
+				{
+					"name" : "reloj",
+					"strict" : false
+				},
+				{
+					"name" : "selec_ang",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

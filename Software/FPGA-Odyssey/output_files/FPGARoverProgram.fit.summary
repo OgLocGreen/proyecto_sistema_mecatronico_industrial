@@ -1,16 +1,18 @@
-Fitter Status : Successful - Mon Apr 10 18:30:08 2023
-Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Fitter Status : Successful - Mon Apr 17 19:17:16 2023
+Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : FPGARoverProgram
 Top-level Entity Name : GeneralControlScheme
-Family : Cyclone III
-Device : EP3C16F484C6
-Timing Models : Final
-Total logic elements : 81 / 15,408 ( < 1 % )
-    Total combinational functions : 81 / 15,408 ( < 1 % )
-    Dedicated logic registers : 34 / 15,408 ( < 1 % )
-Total registers : 34
-Total pins : 7 / 347 ( 2 % )
+Family : MAX 10
+Device : 10M08SAU169C8GES
+Timing Models : Preliminary
+Total logic elements : 76 / 8,064 ( < 1 % )
+    Total combinational functions : 76 / 8,064 ( < 1 % )
+    Dedicated logic registers : 49 / 8,064 ( < 1 % )
+Total registers : 49
+Total pins : 11 / 130 ( 8 % )
 Total virtual pins : 0
-Total memory bits : 0 / 516,096 ( 0 % )
-Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )
-Total PLLs : 0 / 4 ( 0 % )
+Total memory bits : 0 / 387,072 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 48 ( 0 % )
+Total PLLs : 1 / 1 ( 100 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )
