@@ -1,5 +1,5 @@
 PowerPlay Power Analyzer report for FPGARoverProgram
-Mon Apr 17 19:17:21 2023
+Thu Apr 20 19:21:50 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -53,55 +53,57 @@ agreement for further details.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.08        ;
+; Average used               ; 1.09        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   1.5%      ;
+;     Processors 2-6         ;   1.8%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; PowerPlay Power Analyzer Summary                                                          ;
 +----------------------------------------+--------------------------------------------------+
-; PowerPlay Power Analyzer Status        ; Successful - Mon Apr 17 19:17:21 2023            ;
+; PowerPlay Power Analyzer Status        ; Successful - Thu Apr 20 19:21:50 2023            ;
 ; Quartus Prime Version                  ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition      ;
 ; Revision Name                          ; FPGARoverProgram                                 ;
 ; Top-level Entity Name                  ; GeneralControlScheme                             ;
 ; Family                                 ; MAX 10                                           ;
 ; Device                                 ; 10M08SAU169C8GES                                 ;
 ; Power Models                           ; Final                                            ;
-; Total Thermal Power Dissipation        ; 144.75 mW                                        ;
+; Total Thermal Power Dissipation        ; 125.47 mW                                        ;
 ; Core Dynamic Thermal Power Dissipation ; 0.00 mW                                          ;
-; Core Static Thermal Power Dissipation  ; 121.06 mW                                        ;
-; I/O Thermal Power Dissipation          ; 23.69 mW                                         ;
+; Core Static Thermal Power Dissipation  ; 121.00 mW                                        ;
+; I/O Thermal Power Dissipation          ; 4.47 mW                                          ;
 ; Power Estimation Confidence            ; Low: user provided insufficient toggle rate data ;
 +----------------------------------------+--------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------+
-; PowerPlay Power Analyzer Settings                                                                    ;
-+----------------------------------------------------------------------------+---------+---------------+
-; Option                                                                     ; Setting ; Default Value ;
-+----------------------------------------------------------------------------+---------+---------------+
-; Use smart compilation                                                      ; Off     ; Off           ;
-; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On      ; On            ;
-; Enable compact report table                                                ; Off     ; Off           ;
-; Default Power Toggle Rate                                                  ; 12.5%   ; 12.5%         ;
-; Default Power Input I/O Toggle Rate                                        ; 12.5%   ; 12.5%         ;
-; Use vectorless estimation                                                  ; On      ; On            ;
-; Use Input Files                                                            ; Off     ; Off           ;
-; Filter Glitches in VCD File Reader                                         ; On      ; On            ;
-; Power Analyzer Report Signal Activity                                      ; Off     ; Off           ;
-; Power Analyzer Report Power Dissipation                                    ; Off     ; Off           ;
-; Device Power Characteristics                                               ; TYPICAL ; TYPICAL       ;
-; Automatically Compute Junction Temperature                                 ; On      ; On            ;
-; Specified Junction Temperature                                             ; 25      ; 25            ;
-; Ambient Temperature                                                        ; 25      ; 25            ;
-; Use Custom Cooling Solution                                                ; Off     ; Off           ;
-; Board Temperature                                                          ; 25      ; 25            ;
-+----------------------------------------------------------------------------+---------+---------------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; PowerPlay Power Analyzer Settings                                                                                                  ;
++----------------------------------------------------------------------------+---------------------------------------+---------------+
+; Option                                                                     ; Setting                               ; Default Value ;
++----------------------------------------------------------------------------+---------------------------------------+---------------+
+; Use smart compilation                                                      ; Off                                   ; Off           ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                                    ; On            ;
+; Enable compact report table                                                ; Off                                   ; Off           ;
+; Default Power Input I/O Toggle Rate                                        ; 12.5%                                 ; 12.5%         ;
+; Preset Cooling Solution                                                    ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ;               ;
+; Board thermal model                                                        ; None (CONSERVATIVE)                   ;               ;
+; Default Power Toggle Rate                                                  ; 12.5%                                 ; 12.5%         ;
+; Use vectorless estimation                                                  ; On                                    ; On            ;
+; Use Input Files                                                            ; Off                                   ; Off           ;
+; Filter Glitches in VCD File Reader                                         ; On                                    ; On            ;
+; Power Analyzer Report Signal Activity                                      ; Off                                   ; Off           ;
+; Power Analyzer Report Power Dissipation                                    ; Off                                   ; Off           ;
+; Device Power Characteristics                                               ; TYPICAL                               ; TYPICAL       ;
+; Automatically Compute Junction Temperature                                 ; On                                    ; On            ;
+; Specified Junction Temperature                                             ; 25                                    ; 25            ;
+; Ambient Temperature                                                        ; 25                                    ; 25            ;
+; Use Custom Cooling Solution                                                ; Off                                   ; Off           ;
+; Board Temperature                                                          ; 25                                    ; 25            ;
++----------------------------------------------------------------------------+---------------------------------------+---------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------+
@@ -110,10 +112,8 @@ agreement for further details.
 ; Node                                                                                             ; Reason                      ;
 +--------------------------------------------------------------------------------------------------+-----------------------------+
 ; PLL_servo:inst1|altpll:altpll_component|PLL_servo_altpll:auto_generated|wire_pll1_clk[0]         ; No valid clock domain found ;
-; dir_motor                                                                                        ; No valid clock domain found ;
-; paro                                                                                             ; No valid clock domain found ;
 ; reloj                                                                                            ; No valid clock domain found ;
-; selec_ang                                                                                        ; No valid clock domain found ;
+; pin_serial                                                                                       ; No valid clock domain found ;
 ; PLL_servo:inst1|altpll:altpll_component|PLL_servo_altpll:auto_generated|wire_pll1_clk[0]~clkctrl ; No valid clock domain found ;
 ; reloj~inputclkctrl                                                                               ; No valid clock domain found ;
 +--------------------------------------------------------------------------------------------------+-----------------------------+
@@ -129,13 +129,10 @@ agreement for further details.
 ; Voltages                                    ;                            ;
 ;     VCCA                                    ; 3.00 V                     ;
 ;     VCC_ONE                                 ; 3.00 V                     ;
-;     3.3-V LVTTL I/O Standard                ; 3.3 V                      ;
-;     3.3-V LVCMOS I/O Standard               ; 3.3 V                      ;
 ;     2.5 V I/O Standard                      ; 2.5 V                      ;
-;     3.3 V Schmitt Trigger I/O Standard      ; 3.3 V                      ;
 ;     2.5 V Schmitt Trigger I/O Standard      ; 2.5 V                      ;
 ;                                             ;                            ;
-; Auto computed junction temperature          ; 27.8 degrees Celsius       ;
+; Auto computed junction temperature          ; 27.4 degrees Celsius       ;
 ;     Ambient temperature                     ; 25.0 degrees Celsius       ;
 ;     Junction-to-Case thermal resistance     ; 11.20 degrees Celsius/Watt ;
 ;     Case-to-Heat Sink thermal resistance    ; 0.10 degrees Celsius/Watt  ;
@@ -160,7 +157,7 @@ agreement for further details.
 +--------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
 ; Combinational cell ; 0.00 mW                           ; 0.00 mW                     ; --                             ; 0.00 mW                       ;    0.000                                                  ;
 ; Register cell      ; 0.00 mW                           ; 0.00 mW                     ; --                             ; 0.00 mW                       ;    0.000                                                  ;
-; I/O                ; 0.69 mW                           ; 0.00 mW                     ; 0.69 mW                        ; 0.00 mW                       ;    0.000                                                  ;
+; I/O                ; 0.09 mW                           ; 0.00 mW                     ; 0.09 mW                        ; 0.00 mW                       ;    0.000                                                  ;
 ; Voltage Regulator  ; 0.76 mW                           ; 0.00 mW                     ; 0.76 mW                        ; --                            ; --                                                        ;
 +--------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
 (1) The "Block Thermal Static Power" for all block types except Pins and the Voltage Regulator, if one exists, is part of the "Core Static Thermal Power Dissipation" value found on the PowerPlay Power Analyzer-->Summary report panel. The "Core Static Thermal Power Dissipation" also contains the thermal static power dissipated by the routing.
@@ -171,13 +168,15 @@ agreement for further details.
 +----------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-----------------------------------------------------------------------------------------------+
 ; Compilation Hierarchy Node                   ; Total Thermal Power by Hierarchy (1) ; Block Thermal Dynamic Power (1) ; Block Thermal Static Power (1)(2) ; Routing Thermal Dynamic Power (1) ; Full Hierarchy Name                                                                           ;
 +----------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-----------------------------------------------------------------------------------------------+
-; |GeneralControlScheme                        ; 1.45 mW (1.45 mW)                    ; 0.00 mW (0.00 mW)               ; 1.45 mW (1.45 mW)                 ; 0.00 mW (0.00 mW)                 ; |GeneralControlScheme                                                                         ;
+; |GeneralControlScheme                        ; 0.85 mW (0.85 mW)                    ; 0.00 mW (0.00 mW)               ; 0.85 mW (0.85 mW)                 ; 0.00 mW (0.00 mW)                 ; |GeneralControlScheme                                                                         ;
 ;     |hard_block:auto_generated_inst          ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |GeneralControlScheme|hard_block:auto_generated_inst                                          ;
 ;     |ControlPAP:inst                         ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |GeneralControlScheme|ControlPAP:inst                                                         ;
 ;     |PLL_servo:inst1                         ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |GeneralControlScheme|PLL_servo:inst1                                                         ;
 ;         |altpll:altpll_component             ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |GeneralControlScheme|PLL_servo:inst1|altpll:altpll_component                                 ;
 ;             |PLL_servo_altpll:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |GeneralControlScheme|PLL_servo:inst1|altpll:altpll_component|PLL_servo_altpll:auto_generated ;
 ;     |PWM:inst2                               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |GeneralControlScheme|PWM:inst2                                                               ;
+;     |UART_RX:inst4                           ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |GeneralControlScheme|UART_RX:inst4                                                           ;
+;     |SerialReciever:inst6                    ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |GeneralControlScheme|SerialReciever:inst6                                                    ;
 +----------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-----------------------------------------------------------------------------------------------+
 (1) Value in parentheses is the power consumed at that level of hierarchy. Value not in parentheses is the power consumed at that level of hierarchy plus the power consumed by all levels of hierarchy below it.
 
@@ -198,9 +197,9 @@ agreement for further details.
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; Voltage Supply ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; VCCIO          ; 7.41 mA                 ; 0.00 mA                   ; 7.41 mA                  ; 7.41 mA                          ;
+; VCCIO          ; 1.81 mA                 ; 0.00 mA                   ; 1.81 mA                  ; 1.81 mA                          ;
 ; VCCA           ; 3.02 mA                 ; 0.00 mA                   ; 3.02 mA                  ; 3.02 mA                          ;
-; VCC_ONE        ; 37.33 mA                ; 0.00 mA                   ; 37.33 mA                 ; 37.33 mA                         ;
+; VCC_ONE        ; 37.31 mA                ; 0.00 mA                   ; 37.31 mA                 ; 37.31 mA                         ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 (1) Currents reported in columns "Total Current Drawn", "Dynamic Current Drawn", and "Static Current Drawn" are sufficient for user operation of the device.  
 (2) Currents reported in column "Minimum Power Supply Current" are sufficient for power-up, configuration, and user operation of the device.
@@ -214,12 +213,12 @@ agreement for further details.
 ; 1A       ; 2.5V          ; 0.25 mA             ; 0.00 mA               ; 0.25 mA              ;
 ; 1B       ; 2.5V          ; 0.26 mA             ; 0.00 mA               ; 0.26 mA              ;
 ; 2        ; 2.5V          ; 0.25 mA             ; 0.00 mA               ; 0.25 mA              ;
-; 3        ; 3.3V          ; 1.67 mA             ; 0.00 mA               ; 1.67 mA              ;
+; 3        ; 2.5V          ; 0.26 mA             ; 0.00 mA               ; 0.26 mA              ;
 ; 4        ; --            ; --                  ; --                    ; --                   ;
-; 5        ; 3.3V          ; 1.67 mA             ; 0.00 mA               ; 1.67 mA              ;
-; 6        ; 3.3V          ; 1.62 mA             ; 0.00 mA               ; 1.62 mA              ;
+; 5        ; 2.5V          ; 0.27 mA             ; 0.00 mA               ; 0.27 mA              ;
+; 6        ; 2.5V          ; 0.25 mA             ; 0.00 mA               ; 0.25 mA              ;
 ; 7        ; --            ; --                  ; --                    ; --                   ;
-; 8        ; 3.3V          ; 1.70 mA             ; 0.00 mA               ; 1.70 mA              ;
+; 8        ; 2.5V          ; 0.26 mA             ; 0.00 mA               ; 0.26 mA              ;
 +----------+---------------+---------------------+-----------------------+----------------------+
 
 
@@ -228,8 +227,7 @@ agreement for further details.
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; VCCIO Voltage ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; 2.5V          ; 0.76 mA                 ; 0.00 mA                   ; 0.76 mA                  ; 0.76 mA                          ;
-; 3.3V          ; 6.65 mA                 ; 0.00 mA                   ; 6.65 mA                  ; 6.65 mA                          ;
+; 2.5V          ; 1.81 mA                 ; 0.00 mA                   ; 1.81 mA                  ; 1.81 mA                          ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 (1) Currents reported in columns "Total Current Drawn", "Dynamic Current Drawn", and "Static Current Drawn" are sufficient for user operation of the device.  
 (2) Currents reported in column "Minimum Power Supply Current" are sufficient for power-up, configuration, and user operation of the device.
@@ -246,19 +244,19 @@ agreement for further details.
 ;                                                                                        ;             ;            ;             ;               ;
 ; Node, entity or clock assignment                                                       ;             ;            ;             ;               ;
 ;     -- Number of signals with Toggle Rate from Node, entity or clock assignment        ; 0 (0.0%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 2 (1.0%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 2 (1.5%)      ;
+;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 2 (0.6%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 2 (0.9%)      ;
 ;                                                                                        ;             ;            ;             ;               ;
 ; Vectorless estimation                                                                  ;             ;            ;             ;               ;
-;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 193 (94.6%) ; 9 (47.4%)  ; 49 (100.0%) ; 135 (99.3%)   ;
-;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 13 (6.4%)   ; 3 (15.8%)  ; 0 (0.0%)    ; 10 (7.4%)     ;
-;     -- Number of signals with Static Probability from Vectorless estimation            ; 191 (93.6%) ; 9 (47.4%)  ; 49 (100.0%) ; 133 (97.8%)   ;
+;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 309 (96.9%) ; 13 (59.1%) ; 78 (100.0%) ; 218 (99.5%)   ;
+;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 8 (2.5%)    ; 1 (4.5%)   ; 0 (0.0%)    ; 7 (3.2%)      ;
+;     -- Number of signals with Static Probability from Vectorless estimation            ; 307 (96.2%) ; 13 (59.1%) ; 78 (100.0%) ; 216 (98.6%)   ;
 ;                                                                                        ;             ;            ;             ;               ;
 ; Default assignment                                                                     ;             ;            ;             ;               ;
 ;     -- Number of signals with Toggle Rate from Default assignment                      ; 0 (0.0%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Default assignment               ; 11 (5.4%)   ; 10 (52.6%) ; 0 (0.0%)    ; 1 (0.7%)      ;
+;     -- Number of signals with Static Probability from Default assignment               ; 10 (3.1%)   ; 9 (40.9%)  ; 0 (0.0%)    ; 1 (0.5%)      ;
 ;                                                                                        ;             ;            ;             ;               ;
 ; Assumed 0                                                                              ;             ;            ;             ;               ;
-;     -- Number of signals with Toggle Rate assumed 0                                    ; 11 (5.4%)   ; 10 (52.6%) ; 0 (0.0%)    ; 1 (0.7%)      ;
+;     -- Number of signals with Toggle Rate assumed 0                                    ; 10 (3.1%)   ; 9 (40.9%)  ; 0 (0.0%)    ; 1 (0.5%)      ;
 +----------------------------------------------------------------------------------------+-------------+------------+-------------+---------------+
 
 
@@ -276,14 +274,17 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime PowerPlay Power Analyzer
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Apr 17 19:17:19 2023
+    Info: Processing started: Thu Apr 20 19:21:49 2023
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off FPGARoverProgram -c FPGARoverProgram
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
+Warning (335093): TimeQuest Timing Analyzer is analyzing 1 combinational loops as latches. For more details, run the Check Timing command in the TimeQuest Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'FPGARoverProgram.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Warning (332060): Node: reloj was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register ControlPAP:inst|cnt[15] is being clocked by reloj
+    Info (13166): Register UART_RX:inst4|r_Clk_Count[12] is being clocked by reloj
+Warning (332060): Node: UART_RX:inst4|r_RX_Byte[0] was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Latch SerialReciever:inst6|selector_ang is being clocked by UART_RX:inst4|r_RX_Byte[0]
 Warning (332068): No clocks defined in design.
 Warning (332056): PLL cross checking found inconsistent PLL clock settings:
     Warning (332056): Node: inst1|altpll_component|auto_generated|pll1|clk[0] was found missing 1 generated clock that corresponds to a base clock with a period of: 20.000
@@ -291,16 +292,15 @@ Info (223000): Starting Vectorless Power Activity Estimation
 Warning (222013): Relative toggle rates could not be calculated because no clock domain could be identified for some nodes
 Info (223001): Completed Vectorless Power Activity Estimation
 Info (218000): Using Advanced I/O Power to simulate I/O buffers with the specified board trace model
-Warning (215044): No board thermal model was selected.  Analyzing without board thermal modeling.
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M08SAU169C8GES are preliminary
 Info (334004): Delay annotation completed successfully
 Info (215049): Average toggle rate for this design is 0.000 millions of transitions / sec
-Info (215031): Total thermal power estimate for the design is 144.75 mW
-Info: Quartus Prime PowerPlay Power Analyzer was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4836 megabytes
-    Info: Processing ended: Mon Apr 17 19:17:21 2023
-    Info: Elapsed time: 00:00:02
+Info (215031): Total thermal power estimate for the design is 125.47 mW
+Info: Quartus Prime PowerPlay Power Analyzer was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4838 megabytes
+    Info: Processing ended: Thu Apr 20 19:21:50 2023
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:02
 
 

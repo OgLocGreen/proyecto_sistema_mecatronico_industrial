@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M08SAU169ES) Path("C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/output_files/") File("FPGARoverProgram.sof") MfrSpec(OpMask(1));
+		Device PartName(10M08SAU169ES) Path("C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/output_files/") File("FPGARoverProgram.pof") MfrSpec(OpMask(1) Child_OpMask(2 1 1));
 
 ChainEnd;
 

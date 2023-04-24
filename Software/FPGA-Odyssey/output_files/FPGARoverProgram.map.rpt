@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGARoverProgram
-Mon Apr 17 19:17:12 2023
+Thu Apr 20 19:21:40 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -13,14 +13,18 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Inverted Register Statistics
- 10. Parameter Settings for User Entity Instance: ControlPAP:inst
- 11. Parameter Settings for User Entity Instance: PLL_servo:inst1|altpll:altpll_component
- 12. altpll Parameter Settings by Entity Instance
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. State Machine - |GeneralControlScheme|UART_RX:inst4|r_SM_Main
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: ControlPAP:inst
+ 14. Parameter Settings for User Entity Instance: UART_RX:inst4
+ 15. Parameter Settings for User Entity Instance: PLL_servo:inst1|altpll:altpll_component
+ 16. altpll Parameter Settings by Entity Instance
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -47,16 +51,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr 17 19:17:12 2023       ;
+; Analysis & Synthesis Status        ; Successful - Thu Apr 20 19:21:40 2023       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; FPGARoverProgram                            ;
 ; Top-level Entity Name              ; GeneralControlScheme                        ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 75                                          ;
-;     Total combinational functions  ; 75                                          ;
-;     Dedicated logic registers      ; 49                                          ;
-; Total registers                    ; 49                                          ;
-; Total pins                         ; 11                                          ;
+; Total logic elements               ; 141                                         ;
+;     Total combinational functions  ; 141                                         ;
+;     Dedicated logic registers      ; 78                                          ;
+; Total registers                    ; 78                                          ;
+; Total pins                         ; 14                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -176,6 +180,8 @@ agreement for further details.
 +----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------------+---------+
 ; ControlPAP.vhd                   ; yes             ; User VHDL File                     ; C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/ControlPAP.vhd           ;         ;
 ; GeneralControlScheme.bdf         ; yes             ; User Block Diagram/Schematic File  ; C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/GeneralControlScheme.bdf ;         ;
+; UART_RX.vhd                      ; yes             ; User VHDL File                     ; C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/UART_RX.vhd              ;         ;
+; SerialReciever.vhd               ; yes             ; User VHDL File                     ; C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/SerialReciever.vhd       ;         ;
 ; pwm.vhd                          ; yes             ; Auto-Found VHDL File               ; C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/pwm.vhd                  ;         ;
 ; pll_servo.vhd                    ; yes             ; Auto-Found Wizard-Generated File   ; C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/pll_servo.vhd            ;         ;
 ; altpll.tdf                       ; yes             ; Megafunction                       ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altpll.tdf                                       ;         ;
@@ -193,23 +199,23 @@ agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 75          ;
+; Estimated Total logic elements              ; 141         ;
 ;                                             ;             ;
-; Total combinational functions               ; 75          ;
+; Total combinational functions               ; 141         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 19          ;
-;     -- 3 input functions                    ; 1           ;
-;     -- <=2 input functions                  ; 55          ;
+;     -- 4 input functions                    ; 51          ;
+;     -- 3 input functions                    ; 20          ;
+;     -- <=2 input functions                  ; 70          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 31          ;
-;     -- arithmetic mode                      ; 44          ;
+;     -- normal mode                          ; 85          ;
+;     -- arithmetic mode                      ; 56          ;
 ;                                             ;             ;
-; Total registers                             ; 49          ;
-;     -- Dedicated logic registers            ; 49          ;
+; Total registers                             ; 78          ;
+;     -- Dedicated logic registers            ; 78          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 11          ;
+; I/O pins                                    ; 14          ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
@@ -217,9 +223,9 @@ agreement for further details.
 ;     -- PLLs                                 ; 1           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; reloj~input ;
-; Maximum fan-out                             ; 34          ;
-; Total fan-out                               ; 351         ;
-; Average fan-out                             ; 2.39        ;
+; Maximum fan-out                             ; 63          ;
+; Total fan-out                               ; 641         ;
+; Average fan-out                             ; 2.58        ;
 +---------------------------------------------+-------------+
 
 
@@ -228,14 +234,41 @@ agreement for further details.
 +--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                           ; Entity Name          ; Library Name ;
 +--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------+----------------------+--------------+
-; |GeneralControlScheme                      ; 75 (0)              ; 49 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 11   ; 0            ; 0          ; |GeneralControlScheme                                                                         ; GeneralControlScheme ; work         ;
+; |GeneralControlScheme                      ; 141 (0)             ; 78 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 14   ; 0            ; 0          ; |GeneralControlScheme                                                                         ; GeneralControlScheme ; work         ;
 ;    |ControlPAP:inst|                       ; 42 (42)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |GeneralControlScheme|ControlPAP:inst                                                         ; ControlPAP           ; work         ;
 ;    |PLL_servo:inst1|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |GeneralControlScheme|PLL_servo:inst1                                                         ; PLL_servo            ; work         ;
 ;       |altpll:altpll_component|            ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |GeneralControlScheme|PLL_servo:inst1|altpll:altpll_component                                 ; altpll               ; work         ;
 ;          |PLL_servo_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |GeneralControlScheme|PLL_servo:inst1|altpll:altpll_component|PLL_servo_altpll:auto_generated ; PLL_servo_altpll     ; work         ;
-;    |PWM:inst2|                             ; 33 (33)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |GeneralControlScheme|PWM:inst2                                                               ; PWM                  ; work         ;
+;    |PWM:inst2|                             ; 36 (36)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |GeneralControlScheme|PWM:inst2                                                               ; PWM                  ; work         ;
+;    |SerialReciever:inst6|                  ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |GeneralControlScheme|SerialReciever:inst6                                                    ; SerialReciever       ; work         ;
+;    |UART_RX:inst4|                         ; 56 (56)             ; 29 (29)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |GeneralControlScheme|UART_RX:inst4                                                           ; UART_RX              ; work         ;
 +--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |GeneralControlScheme|UART_RX:inst4|r_SM_Main                                                                                     ;
++--------------------------+---------------------+-------------------------+--------------------------+--------------------------+------------------+
+; Name                     ; r_SM_Main.s_Cleanup ; r_SM_Main.s_RX_Stop_Bit ; r_SM_Main.s_RX_Data_Bits ; r_SM_Main.s_RX_Start_Bit ; r_SM_Main.s_Idle ;
++--------------------------+---------------------+-------------------------+--------------------------+--------------------------+------------------+
+; r_SM_Main.s_Idle         ; 0                   ; 0                       ; 0                        ; 0                        ; 0                ;
+; r_SM_Main.s_RX_Start_Bit ; 0                   ; 0                       ; 0                        ; 1                        ; 1                ;
+; r_SM_Main.s_RX_Data_Bits ; 0                   ; 0                       ; 1                        ; 0                        ; 1                ;
+; r_SM_Main.s_RX_Stop_Bit  ; 0                   ; 1                       ; 0                        ; 0                        ; 1                ;
+; r_SM_Main.s_Cleanup      ; 1                   ; 0                       ; 0                        ; 0                        ; 1                ;
++--------------------------+---------------------+-------------------------+--------------------------+--------------------------+------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                     ;
++----------------------------------------------------+---------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal       ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------------+------------------------+
+; SerialReciever:inst6|selector_ang                  ; SerialReciever:inst6|Mux1 ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                           ;                        ;
++----------------------------------------------------+---------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -243,12 +276,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 49    ;
-; Number of registers using Synchronous Clear  ; 31    ;
+; Total registers                              ; 78    ;
+; Number of registers using Synchronous Clear  ; 44    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 16    ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 13    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -258,9 +291,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; ControlPAP:inst|step                   ; 2       ;
+; ControlPAP:inst|step                   ; 1       ;
 ; Total number of inverted registers = 1 ;         ;
 +----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 7:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |GeneralControlScheme|UART_RX:inst4|r_Clk_Count[7] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |GeneralControlScheme|UART_RX:inst4|r_Bit_Index    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
 +--------------------------------------------------------------+
@@ -270,6 +313,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+-------+-------------------------------------+
 ; max_count      ; 25000 ; Unsigned Integer                    ;
 +----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_RX:inst4 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; g_clks_per_bit ; 5208  ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -669,23 +722,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 11                          ;
-; cycloneiii_ff         ; 49                          ;
-;     CLR               ; 16                          ;
+; boundary_port         ; 14                          ;
+; cycloneiii_ff         ; 78                          ;
+;     ENA SCLR          ; 13                          ;
 ;     SCLR              ; 31                          ;
-;     plain             ; 2                           ;
-; cycloneiii_lcell_comb ; 76                          ;
-;     arith             ; 44                          ;
-;         2 data inputs ; 44                          ;
-;     normal            ; 32                          ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 19                          ;
+;     plain             ; 34                          ;
+; cycloneiii_lcell_comb ; 142                         ;
+;     arith             ; 56                          ;
+;         2 data inputs ; 56                          ;
+;     normal            ; 86                          ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 20                          ;
+;         4 data inputs ; 51                          ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.23                        ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 3.37                        ;
 +-----------------------+-----------------------------+
 
 
@@ -704,7 +757,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Apr 17 19:16:58 2023
+    Info: Processing started: Thu Apr 20 19:21:27 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGARoverProgram -c FPGARoverProgram
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -713,8 +766,23 @@ Info (12021): Found 2 design units, including 1 entities, in source file control
     Info (12023): Found entity 1: ControlPAP File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/ControlPAP.vhd Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file generalcontrolscheme.bdf
     Info (12023): Found entity 1: GeneralControlScheme
+Info (12021): Found 1 design units, including 1 entities, in source file pruebapuertoserie.bdf
+    Info (12023): Found entity 1: PruebaPuertoSerie
+Info (12021): Found 2 design units, including 1 entities, in source file pll_serial.vhd
+    Info (12022): Found design unit 1: pll_serial-SYN File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/PLL_Serial.vhd Line: 54
+    Info (12023): Found entity 1: PLL_Serial File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/PLL_Serial.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file uart_rx.vhd
+    Info (12022): Found design unit 1: UART_RX-RTL File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/UART_RX.vhd Line: 31
+    Info (12023): Found entity 1: UART_RX File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/UART_RX.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file serialreciever.vhd
+    Info (12022): Found design unit 1: SerialReciever-comportamiento File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/SerialReciever.vhd Line: 24
+    Info (12023): Found entity 1: SerialReciever File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/SerialReciever.vhd Line: 12
 Info (12127): Elaborating entity "GeneralControlScheme" for the top level hierarchy
 Info (12128): Elaborating entity "ControlPAP" for hierarchy "ControlPAP:inst"
+Info (12128): Elaborating entity "SerialReciever" for hierarchy "SerialReciever:inst6"
+Warning (10631): VHDL Process Statement warning at SerialReciever.vhd(28): inferring latch(es) for signal or variable "selector_ang", which holds its previous value in one or more paths through the process File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/SerialReciever.vhd Line: 28
+Info (10041): Inferred latch for "selector_ang" at SerialReciever.vhd(28) File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/SerialReciever.vhd Line: 28
+Info (12128): Elaborating entity "UART_RX" for hierarchy "UART_RX:inst4"
 Warning (12125): Using design file pwm.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: PWM-arq File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/pwm.vhd Line: 16
     Info (12023): Found entity 1: PWM File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/pwm.vhd Line: 8
@@ -788,18 +856,20 @@ Warning (12125): Using design file selector_angulo.vhd, which is not specified a
     Info (12022): Found design unit 1: selector_angulo-arq File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/selector_angulo.vhd Line: 12
     Info (12023): Found entity 1: selector_angulo File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/selector_angulo.vhd Line: 6
 Info (12128): Elaborating entity "selector_angulo" for hierarchy "selector_angulo:inst3"
+Warning (13012): Latch SerialReciever:inst6|selector_ang has unsafe behavior File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/SerialReciever.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal UART_RX:inst4|r_RX_Byte[2] File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/UART_RX.vhd Line: 47
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 87 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 7 output pins
-    Info (21061): Implemented 75 logic cells
+Info (21057): Implemented 156 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 141 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4811 megabytes
-    Info: Processing ended: Mon Apr 17 19:17:12 2023
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:30
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 4804 megabytes
+    Info: Processing ended: Thu Apr 20 19:21:40 2023
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:28
 
 

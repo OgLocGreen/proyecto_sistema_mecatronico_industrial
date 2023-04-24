@@ -1,5 +1,5 @@
 EDA Netlist Writer report for FPGARoverProgram
-Mon Apr 17 19:17:25 2023
+Thu Apr 20 19:21:55 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Mon Apr 17 19:17:25 2023 ;
+; EDA Netlist Writer Status ; Successful - Thu Apr 20 19:21:55 2023 ;
 ; Revision Name             ; FPGARoverProgram                      ;
 ; Top-level Entity Name     ; GeneralControlScheme                  ;
 ; Family                    ; MAX 10                                ;
@@ -82,15 +82,15 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Apr 17 19:17:25 2023
+    Info: Processing started: Thu Apr 20 19:21:54 2023
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off FPGARoverProgram -c FPGARoverProgram
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Warning (10905): Generated the EDA functional simulation netlist because it is the only supported netlist type for this device.
 Info (204019): Generated file FPGARoverProgram.vho in folder "C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4637 megabytes
-    Info: Processing ended: Mon Apr 17 19:17:25 2023
-    Info: Elapsed time: 00:00:00
+    Info: Peak virtual memory: 4638 megabytes
+    Info: Processing ended: Thu Apr 20 19:21:55 2023
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

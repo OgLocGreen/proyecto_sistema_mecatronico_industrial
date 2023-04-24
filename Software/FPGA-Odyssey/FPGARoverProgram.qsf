@@ -48,41 +48,32 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 2
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_K8 -to pin_serial
+set_location_assignment PIN_L13 -to leds[0]
+set_location_assignment PIN_J13 -to leds[1]
+set_location_assignment PIN_H10 -to leds[3]
+set_location_assignment PIN_K12 -to leds[2]
+set_location_assignment PIN_H9 -to leds[4]
+set_location_assignment PIN_G12 -to leds[5]
+set_location_assignment PIN_G13 -to leds[6]
+set_location_assignment PIN_H13 -to leds[7]
 set_global_assignment -name VHDL_FILE ControlPAP.vhd
 set_global_assignment -name BDF_FILE GeneralControlScheme.bdf
-set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name BDF_FILE PruebaPuertoSerie.bdf
+set_global_assignment -name QIP_FILE PLL_Serial.qip
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
+set_global_assignment -name VHDL_FILE UART_RX.vhd
+set_global_assignment -name VHDL_FILE SerialReciever.vhd
 set_location_assignment PIN_F13 -to reloj
-set_location_assignment PIN_A11 -to paro
-set_location_assignment PIN_A10 -to dir_motor
-set_location_assignment PIN_M11 -to dir
+set_location_assignment PIN_M13 -to pwm_servo
 set_location_assignment PIN_L11 -to step
-set_location_assignment PIN_L13 -to leddir
-set_location_assignment PIN_K12 -to ledstep
+set_location_assignment PIN_M11 -to dir
 set_location_assignment PIN_M12 -to enable
-set_location_assignment PIN_J13 -to ledenable
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to step
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to paro
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to dir
-set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to dir
-set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to enable
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to dir_motor
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to reloj
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ledstep
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to enable
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to leddir
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ledenable
-set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to dir_motor
-set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to leddir
-set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to ledenable
-set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to ledstep
-set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to paro
-set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to reloj
-set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to step
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_location_assignment PIN_K13 -to selec_ang
-set_location_assignment PIN_M13 -to pwm_servo
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to pwm_servo
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to selec_ang
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

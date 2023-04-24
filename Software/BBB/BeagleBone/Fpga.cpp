@@ -1,38 +1,22 @@
 #include "Fpga.h"
 #include <QObject>
+#include <QByteArray>
+#include <QDebug>
+#include <QVariant>
 
-Fpga::Fpga()
+#define BAUDRATE 9600
+#define COMPORT "COM4"
+
+void Fpga::SendDataRS232()
 {
-
-    if(!serial.open(QSerialPort::ReadWrite)){
-        qDebug() << QString("No conectado al puerto serie de FPGA");
+    if(!serial.open(QSerialPort::WriteOnly)){
+        qDebug() << QString("Connection failed");
         return;
     }
 
     else{
-        snd.append("\r");
-
-        for(int i=0 ; i<=3 ; i++){ /* try to send command for three times */
-            serial.write(snd.toLatin1());
-            serial.waitForReadyRead(100);
-            qDebug() << snd+"---"+answ;
-            if(snd==('#'+answ)) break; /* if echo sounds good, go ahead */
-            if(i == 3) qDebug() << "Error: look at the answer - " + answ;
-        }
-
-        }
-
-    serial.close();
-}
-
-void Fpga::OnDataReceived(QString arg1, QString arg2)
-{
-    fpga_data = arg1.toInt()+ arg2.toInt();
-}
-
-void Fpga::OnFPGAReadyRead()
-{
-    answ = QString(serial.readAll());
+        serial.write(snd);
+    }
 }
 
 Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
@@ -40,30 +24,62 @@ Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
 {
     /* Setting baudrate speed and active COM */
     serial.setBaudRate(BAUDRATE);
-    serial.setPortName("COM14");
+    serial.setPortName(COMPORT);
+    serial.setDataBits(QSerialPort::Data8);
+    serial.setFlowControl(QSerialPort::NoFlowControl);
 
     /* Connecting data reading slot, on serial data recieving, do sthg */
-    QObject::connect(&serial,&QIODevice::readyRead,this,&Fpga::OnFPGAReadyRead);
+    //QObject::connect(&serial,&QIODevice::readyRead,this,&Fpga::OnFPGAReadyRead);
 
-    snd.clear(); answ.clear();
-    snd.append("1111");
-    SendCmd2FPGA(snd); /* preset all motors for speed control */
+    if(!serial.open(QSerialPort::ReadWrite)){
+        qDebug() << QString("No conectado al puerto serie de FPGA");
+        return;
+    }
 
+    else{
+        qDebug() << QString("Conectado correctamente al puerto serie RS232 - ") + QString(COMPORT) + " - " + QString::number(BAUDRATE);
+    }
+
+//    QString str_prueba('a');
+
+//    while(1){
+//        serial.open(QSerialPort::WriteOnly);
+//        snd = str_prueba.toLatin1();
+//        qDebug() << snd.size();
+//        SendDataRS232();
+//        serial.close();
+//    }
+    serial.close();
+}
+
+/* PRIVATE SLOTS */
+void Fpga::OnFPGAReadyRead()
+{
+    QByteArray datas = serial.readAll();
+    qDebug() << datas;
 }
 
 /* PUBLIC SLOTS */
-void Fpga::OnDataRecieved(QString direction_elev,QString enable_elev, QString enable_cam,QString direction_cam,QString enable_fast) /* recieves data from BBB */ /* recieves data from BBB */
+void Fpga::OnDataRecievedFromBBB(QString cmd) /* recieves data from BBB */
 {
-    QString cmd;
 
-    cmd.append(direction_elev.toInt());
-    cmd.append(enable_elev.toInt());
-    cmd.append(enable_cam.toInt());
-    cmd.append(direction_cam.toInt());
-    cmd.append(enable_fast.toInt());
-    SendCmd2FPGA(cmd);
+    if(cmd == "a"){
+        QByteArray instr("a");
+        snd.clear();
+        snd = instr;
+    }
+    else if(cmd == "s"){
+        QByteArray instr("s");
+        snd.clear();
+        snd = instr;
+    }
+    else{
+        qDebug() << "The command does not exist or you just want to stop. The machine will stop.";
+        QByteArray instr("l");
+        snd.clear();
+        snd = instr;
+    }
+
+    SendDataRS232();
 }
-
-
-//}
 

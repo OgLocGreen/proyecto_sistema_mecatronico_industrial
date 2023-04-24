@@ -5,19 +5,18 @@
 #include <QVariant>
 
 #define BAUDRATE 9600
-#define COMPORT "COM3"
+#define COMPORT "COM4"
 
 void Fpga::SendDataRS232()
 {
-    serial.write(snd);
-//    if(!serial.open(QSerialPort::ReadWrite)){
-//        qDebug() << QString("Connection failed");
-//        return;
-//    }
+    if(!serial.open(QSerialPort::WriteOnly)){
+        qDebug() << QString("Connection failed");
+        return;
+    }
 
-//    else{
-//        serial.write(snd);
-//    }
+    else{
+        serial.write(snd);
+    }
 }
 
 Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
@@ -41,15 +40,15 @@ Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
         qDebug() << QString("Conectado correctamente al puerto serie RS232 - ") + QString(COMPORT) + " - " + QString::number(BAUDRATE);
     }
 
-    QString str_prueba('a');
+//    QString str_prueba('a');
 
-    while(1){
-        serial.open(QSerialPort::WriteOnly);
-        snd = str_prueba.toLatin1();
-        qDebug() << snd.size();
-        SendDataRS232();
-        serial.close();
-    }
+//    while(1){
+//        serial.open(QSerialPort::WriteOnly);
+//        snd = str_prueba.toLatin1();
+//        qDebug() << snd.size();
+//        SendDataRS232();
+//        serial.close();
+//    }
     serial.close();
 }
 
@@ -62,15 +61,23 @@ void Fpga::OnFPGAReadyRead()
 
 /* PUBLIC SLOTS */
 void Fpga::OnDataRecievedFromBBB(QString cmd) /* recieves data from BBB */
-{    
-    if(cmd == "leds on"){
-        snd[0] = 0x00;
+{
+
+    if(cmd == "a"){
+        QByteArray instr("a");
+        snd.clear();
+        snd = instr;
     }
-    else if(cmd == "leds off"){
-        snd[0] = 0xFF;
+    else if(cmd == "s"){
+        QByteArray instr("s");
+        snd.clear();
+        snd = instr;
     }
     else{
-        qDebug() << "The command does not exist";
+        qDebug() << "The command does not exist or you just want to stop. The machine will stop.";
+        QByteArray instr("l");
+        snd.clear();
+        snd = instr;
     }
 
     SendDataRS232();

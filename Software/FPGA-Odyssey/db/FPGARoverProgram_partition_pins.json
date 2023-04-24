@@ -12,19 +12,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "leddir",
-					"strict" : false
-				},
-				{
-					"name" : "ledstep",
-					"strict" : false
-				},
-				{
 					"name" : "enable",
-					"strict" : false
-				},
-				{
-					"name" : "ledenable",
 					"strict" : false
 				},
 				{
@@ -32,11 +20,35 @@
 					"strict" : false
 				},
 				{
-					"name" : "dir_motor",
+					"name" : "leds[7]",
 					"strict" : false
 				},
 				{
-					"name" : "paro",
+					"name" : "leds[6]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[5]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[4]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[3]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[2]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[1]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[0]",
 					"strict" : false
 				},
 				{
@@ -44,7 +56,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "selec_ang",
+					"name" : "pin_serial",
 					"strict" : false
 				}
 			]

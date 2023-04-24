@@ -1,12 +1,12 @@
-PowerPlay Power Analyzer Status : Successful - Mon Apr 17 19:17:21 2023
+PowerPlay Power Analyzer Status : Successful - Thu Apr 20 19:21:50 2023
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : FPGARoverProgram
 Top-level Entity Name : GeneralControlScheme
 Family : MAX 10
 Device : 10M08SAU169C8GES
 Power Models : Final
-Total Thermal Power Dissipation : 144.75 mW
+Total Thermal Power Dissipation : 125.47 mW
 Core Dynamic Thermal Power Dissipation : 0.00 mW
-Core Static Thermal Power Dissipation : 121.06 mW
-I/O Thermal Power Dissipation : 23.69 mW
+Core Static Thermal Power Dissipation : 121.00 mW
+I/O Thermal Power Dissipation : 4.47 mW
 Power Estimation Confidence : Low: user provided insufficient toggle rate data

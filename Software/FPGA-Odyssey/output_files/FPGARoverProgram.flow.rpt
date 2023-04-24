@@ -1,5 +1,5 @@
 Flow report for FPGARoverProgram
-Mon Apr 17 19:17:25 2023
+Thu Apr 20 19:21:55 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Apr 17 19:17:25 2023       ;
+; Flow Status                        ; Successful - Thu Apr 20 19:21:55 2023       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; FPGARoverProgram                            ;
 ; Top-level Entity Name              ; GeneralControlScheme                        ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M08SAU169C8GES                            ;
 ; Timing Models                      ; Preliminary                                 ;
-; Total logic elements               ; 76 / 8,064 ( < 1 % )                        ;
-;     Total combinational functions  ; 76 / 8,064 ( < 1 % )                        ;
-;     Dedicated logic registers      ; 49 / 8,064 ( < 1 % )                        ;
-; Total registers                    ; 49                                          ;
-; Total pins                         ; 11 / 130 ( 8 % )                            ;
+; Total logic elements               ; 144 / 8,064 ( 2 % )                         ;
+;     Total combinational functions  ; 142 / 8,064 ( 2 % )                         ;
+;     Dedicated logic registers      ; 78 / 8,064 ( < 1 % )                        ;
+; Total registers                    ; 78                                          ;
+; Total pins                         ; 14 / 130 ( 11 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 387,072 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 48 ( 0 % )                              ;
@@ -67,7 +67,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/17/2023 19:16:59 ;
+; Start date & time ; 04/20/2023 19:21:28 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FPGARoverProgram    ;
 +-------------------+---------------------+
@@ -78,14 +78,22 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+------------------+----------------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value    ; Entity Name          ; Section Id     ;
 +-------------------------------------+----------------------------------------+------------------+----------------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 255543642443186.168175181911896        ; --               ; --                   ; --             ;
+; COMPILER_SIGNATURE_ID               ; 255543642443186.168201128802644        ; --               ; --                   ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --               ; --                   ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>           ; --                   ; --             ;
+; FLOW_ENABLE_POWER_ANALYZER          ; On                                     ; Off              ; --                   ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --               ; --                   ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --               ; --                   ; --             ;
+; MISC_FILE                           ; PLL_Serial.bsf                         ; --               ; --                   ; --             ;
+; MISC_FILE                           ; PLL_Serial_inst.vhd                    ; --               ; --                   ; --             ;
+; MISC_FILE                           ; PLL_Serial.cmp                         ; --               ; --                   ; --             ;
+; MISC_FILE                           ; PLL_Serial.ppf                         ; --               ; --                   ; --             ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --               ; GeneralControlScheme ; Top            ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --               ; GeneralControlScheme ; Top            ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --               ; GeneralControlScheme ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --               ; --                   ; --             ;
+; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE  ; 12.5 %                                 ; 12.5%            ; --                   ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --               ; --                   ; --             ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --               ; --                   ; --             ;
 ; TOP_LEVEL_ENTITY                    ; GeneralControlScheme                   ; FPGARoverProgram ; --                   ; --             ;
 +-------------------------------------+----------------------------------------+------------------+----------------------+----------------+
@@ -96,13 +104,13 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 4811 MB             ; 00:00:30                           ;
-; Fitter                    ; 00:00:04     ; 1.0                     ; 5675 MB             ; 00:00:05                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 4670 MB             ; 00:00:01                           ;
-; PowerPlay Power Analyzer  ; 00:00:02     ; 1.1                     ; 4836 MB             ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 4796 MB             ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:00     ; 1.0                     ; 4637 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:22     ; --                      ; --                  ; 00:00:41                           ;
+; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 4804 MB             ; 00:00:28                           ;
+; Fitter                    ; 00:00:05     ; 1.1                     ; 5678 MB             ; 00:00:06                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 4673 MB             ; 00:00:01                           ;
+; PowerPlay Power Analyzer  ; 00:00:01     ; 1.1                     ; 4838 MB             ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.1                     ; 4798 MB             ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4638 MB             ; 00:00:01                           ;
+; Total                     ; 00:00:23     ; --                      ; --                  ; 00:00:40                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

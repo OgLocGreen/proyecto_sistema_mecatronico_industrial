@@ -1,15 +1,15 @@
-Fitter Status : Successful - Mon Apr 17 19:17:16 2023
+Fitter Status : Successful - Thu Apr 20 19:21:46 2023
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : FPGARoverProgram
 Top-level Entity Name : GeneralControlScheme
 Family : MAX 10
 Device : 10M08SAU169C8GES
 Timing Models : Preliminary
-Total logic elements : 76 / 8,064 ( < 1 % )
-    Total combinational functions : 76 / 8,064 ( < 1 % )
-    Dedicated logic registers : 49 / 8,064 ( < 1 % )
-Total registers : 49
-Total pins : 11 / 130 ( 8 % )
+Total logic elements : 144 / 8,064 ( 2 % )
+    Total combinational functions : 142 / 8,064 ( 2 % )
+    Dedicated logic registers : 78 / 8,064 ( < 1 % )
+Total registers : 78
+Total pins : 14 / 130 ( 11 % )
 Total virtual pins : 0
 Total memory bits : 0 / 387,072 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 48 ( 0 % )

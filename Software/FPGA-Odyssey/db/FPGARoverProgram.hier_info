@@ -1,17 +1,20 @@
 |GeneralControlScheme
 step <= ControlPAP:inst.step
 reloj => ControlPAP:inst.clk
+reloj => UART_RX:inst4.i_Clk
 reloj => PLL_servo:inst1.inclk0
-dir_motor => ControlPAP:inst.direccion
-paro => ControlPAP:inst.enable
-paro => PWM:inst2.reset
+pin_serial => UART_RX:inst4.i_RX_Serial
 dir <= ControlPAP:inst.dir
-leddir <= ControlPAP:inst.dir
-ledstep <= ControlPAP:inst.step
 enable <= ControlPAP:inst.en
-ledenable <= ControlPAP:inst.en
 pwm_servo <= PWM:inst2.pwm
-selec_ang => selector_angulo:inst3.pin_ang
+leds[0] <= UART_RX:inst4.o_RX_Byte[0]
+leds[1] <= UART_RX:inst4.o_RX_Byte[1]
+leds[2] <= UART_RX:inst4.o_RX_Byte[2]
+leds[3] <= UART_RX:inst4.o_RX_Byte[3]
+leds[4] <= UART_RX:inst4.o_RX_Byte[4]
+leds[5] <= UART_RX:inst4.o_RX_Byte[5]
+leds[6] <= UART_RX:inst4.o_RX_Byte[6]
+leds[7] <= UART_RX:inst4.o_RX_Byte[7]
 
 
 |GeneralControlScheme|ControlPAP:inst
@@ -53,6 +56,107 @@ enable => en.DATAIN
 step <= step~reg0.DB_MAX_OUTPUT_PORT_TYPE
 dir <= direccion.DB_MAX_OUTPUT_PORT_TYPE
 en <= enable.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|GeneralControlScheme|SerialReciever:inst6
+dato[0] => Mux0.IN263
+dato[0] => Mux1.IN263
+dato[0] => Mux2.IN263
+dato[0] => Mux3.IN263
+dato[1] => Mux0.IN262
+dato[1] => Mux1.IN262
+dato[1] => Mux2.IN262
+dato[1] => Mux3.IN262
+dato[2] => Mux0.IN261
+dato[2] => Mux1.IN261
+dato[2] => Mux2.IN261
+dato[2] => Mux3.IN261
+dato[3] => Mux0.IN260
+dato[3] => Mux1.IN260
+dato[3] => Mux2.IN260
+dato[3] => Mux3.IN260
+dato[4] => Mux0.IN259
+dato[4] => Mux1.IN259
+dato[4] => Mux2.IN259
+dato[4] => Mux3.IN259
+dato[5] => Mux0.IN258
+dato[5] => Mux1.IN258
+dato[5] => Mux2.IN258
+dato[5] => Mux3.IN258
+dato[6] => Mux0.IN257
+dato[6] => Mux1.IN257
+dato[6] => Mux2.IN257
+dato[6] => Mux3.IN257
+dato[7] => Mux0.IN256
+dato[7] => Mux1.IN256
+dato[7] => Mux2.IN256
+dato[7] => Mux3.IN256
+dir <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+paro <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+selector_ang <= selector_ang$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|GeneralControlScheme|UART_RX:inst4
+i_Clk => r_RX_Byte[0].CLK
+i_Clk => r_RX_Byte[1].CLK
+i_Clk => r_RX_Byte[2].CLK
+i_Clk => r_RX_Byte[3].CLK
+i_Clk => r_RX_Byte[4].CLK
+i_Clk => r_RX_Byte[5].CLK
+i_Clk => r_RX_Byte[6].CLK
+i_Clk => r_RX_Byte[7].CLK
+i_Clk => r_Bit_Index[0].CLK
+i_Clk => r_Bit_Index[1].CLK
+i_Clk => r_Bit_Index[2].CLK
+i_Clk => r_Clk_Count[0].CLK
+i_Clk => r_Clk_Count[1].CLK
+i_Clk => r_Clk_Count[2].CLK
+i_Clk => r_Clk_Count[3].CLK
+i_Clk => r_Clk_Count[4].CLK
+i_Clk => r_Clk_Count[5].CLK
+i_Clk => r_Clk_Count[6].CLK
+i_Clk => r_Clk_Count[7].CLK
+i_Clk => r_Clk_Count[8].CLK
+i_Clk => r_Clk_Count[9].CLK
+i_Clk => r_Clk_Count[10].CLK
+i_Clk => r_Clk_Count[11].CLK
+i_Clk => r_Clk_Count[12].CLK
+i_Clk => r_RX_DV.CLK
+i_Clk => r_SM_Main~1.DATAIN
+i_RX_Serial => r_SM_Main.DATAB
+i_RX_Serial => r_RX_Byte.DATAB
+i_RX_Serial => r_RX_Byte.DATAB
+i_RX_Serial => r_RX_Byte.DATAB
+i_RX_Serial => r_RX_Byte.DATAB
+i_RX_Serial => r_RX_Byte.DATAB
+i_RX_Serial => r_RX_Byte.DATAB
+i_RX_Serial => r_RX_Byte.DATAB
+i_RX_Serial => r_RX_Byte.DATAB
+i_RX_Serial => Selector17.IN4
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_Clk_Count.OUTPUTSELECT
+i_RX_Serial => r_SM_Main.DATAB
+i_RX_Serial => Selector18.IN1
+o_RX_DV <= r_RX_DV.DB_MAX_OUTPUT_PORT_TYPE
+o_RX_Byte[0] <= r_RX_Byte[0].DB_MAX_OUTPUT_PORT_TYPE
+o_RX_Byte[1] <= r_RX_Byte[1].DB_MAX_OUTPUT_PORT_TYPE
+o_RX_Byte[2] <= r_RX_Byte[2].DB_MAX_OUTPUT_PORT_TYPE
+o_RX_Byte[3] <= r_RX_Byte[3].DB_MAX_OUTPUT_PORT_TYPE
+o_RX_Byte[4] <= r_RX_Byte[4].DB_MAX_OUTPUT_PORT_TYPE
+o_RX_Byte[5] <= r_RX_Byte[5].DB_MAX_OUTPUT_PORT_TYPE
+o_RX_Byte[6] <= r_RX_Byte[6].DB_MAX_OUTPUT_PORT_TYPE
+o_RX_Byte[7] <= r_RX_Byte[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |GeneralControlScheme|PWM:inst2
