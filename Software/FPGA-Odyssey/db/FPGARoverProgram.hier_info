@@ -1,4 +1,4 @@
-|GeneralControlScheme
+|GeneralControlScheme_v2
 step <= ControlPAP:inst.step
 reloj => ControlPAP:inst.clk
 reloj => UART_RX:inst4.i_Clk
@@ -17,7 +17,7 @@ leds[6] <= UART_RX:inst4.o_RX_Byte[6]
 leds[7] <= UART_RX:inst4.o_RX_Byte[7]
 
 
-|GeneralControlScheme|ControlPAP:inst
+|GeneralControlScheme_v2|ControlPAP:inst
 clk => step~reg0.CLK
 clk => bffer_clk.CLK
 clk => cnt[0].CLK
@@ -58,45 +58,28 @@ dir <= direccion.DB_MAX_OUTPUT_PORT_TYPE
 en <= enable.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|GeneralControlScheme|SerialReciever:inst6
-dato[0] => Mux0.IN263
-dato[0] => Mux1.IN263
-dato[0] => Mux2.IN263
-dato[0] => Mux3.IN263
-dato[1] => Mux0.IN262
-dato[1] => Mux1.IN262
-dato[1] => Mux2.IN262
-dato[1] => Mux3.IN262
-dato[2] => Mux0.IN261
-dato[2] => Mux1.IN261
-dato[2] => Mux2.IN261
-dato[2] => Mux3.IN261
-dato[3] => Mux0.IN260
-dato[3] => Mux1.IN260
-dato[3] => Mux2.IN260
-dato[3] => Mux3.IN260
-dato[4] => Mux0.IN259
-dato[4] => Mux1.IN259
-dato[4] => Mux2.IN259
-dato[4] => Mux3.IN259
-dato[5] => Mux0.IN258
-dato[5] => Mux1.IN258
-dato[5] => Mux2.IN258
-dato[5] => Mux3.IN258
-dato[6] => Mux0.IN257
-dato[6] => Mux1.IN257
-dato[6] => Mux2.IN257
-dato[6] => Mux3.IN257
-dato[7] => Mux0.IN256
-dato[7] => Mux1.IN256
-dato[7] => Mux2.IN256
-dato[7] => Mux3.IN256
-dir <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
-paro <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
-selector_ang <= selector_ang$latch.DB_MAX_OUTPUT_PORT_TYPE
+|GeneralControlScheme_v2|SerialReciever_v2:inst9
+dato[0] => selector_ang[0].DATAIN
+dato[1] => selector_ang[1].DATAIN
+dato[2] => selector_ang[2].DATAIN
+dato[3] => selector_ang[3].DATAIN
+dato[4] => selector_ang[4].DATAIN
+dato[5] => ~NO_FANOUT~
+dato[6] => Mux0.IN5
+dato[6] => Mux1.IN5
+dato[6] => paro.DATAIN
+dato[7] => Mux0.IN4
+dato[7] => Mux1.IN4
+dir <= dir$latch.DB_MAX_OUTPUT_PORT_TYPE
+paro <= dato[6].DB_MAX_OUTPUT_PORT_TYPE
+selector_ang[0] <= dato[0].DB_MAX_OUTPUT_PORT_TYPE
+selector_ang[1] <= dato[1].DB_MAX_OUTPUT_PORT_TYPE
+selector_ang[2] <= dato[2].DB_MAX_OUTPUT_PORT_TYPE
+selector_ang[3] <= dato[3].DB_MAX_OUTPUT_PORT_TYPE
+selector_ang[4] <= dato[4].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|GeneralControlScheme|UART_RX:inst4
+|GeneralControlScheme_v2|UART_RX:inst4
 i_Clk => r_RX_Byte[0].CLK
 i_Clk => r_RX_Byte[1].CLK
 i_Clk => r_RX_Byte[2].CLK
@@ -159,7 +142,7 @@ o_RX_Byte[6] <= r_RX_Byte[6].DB_MAX_OUTPUT_PORT_TYPE
 o_RX_Byte[7] <= r_RX_Byte[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|GeneralControlScheme|PWM:inst2
+|GeneralControlScheme_v2|PWM:inst2
 clk => pwm~reg0.CLK
 clk => count[0].CLK
 clk => count[1].CLK
@@ -216,12 +199,12 @@ angle[6] => Mult0.IN5
 angle[7] => Mult0.IN4
 
 
-|GeneralControlScheme|PLL_servo:inst1
+|GeneralControlScheme_v2|PLL_servo:inst1
 inclk0 => altpll:altpll_component.inclk[0]
 c0 <= altpll:altpll_component.clk[0]
 
 
-|GeneralControlScheme|PLL_servo:inst1|altpll:altpll_component
+|GeneralControlScheme_v2|PLL_servo:inst1|altpll:altpll_component
 inclk[0] => PLL_servo_altpll:auto_generated.inclk[0]
 inclk[1] => PLL_servo_altpll:auto_generated.inclk[1]
 fbin => ~NO_FANOUT~
@@ -281,7 +264,7 @@ fref <= <GND>
 icdrclk <= <GND>
 
 
-|GeneralControlScheme|PLL_servo:inst1|altpll:altpll_component|PLL_servo_altpll:auto_generated
+|GeneralControlScheme_v2|PLL_servo:inst1|altpll:altpll_component|PLL_servo_altpll:auto_generated
 clk[0] <= pll1.CLK
 clk[1] <= pll1.CLK1
 clk[2] <= pll1.CLK2
@@ -291,17 +274,19 @@ inclk[0] => pll1.CLK
 inclk[1] => pll1.CLK1
 
 
-|GeneralControlScheme|selector_angulo:inst3
-pin_ang => angle_out[7].DATAIN
-pin_ang => angle_out[3].DATAIN
-pin_ang => angle_out[2].DATAIN
+|GeneralControlScheme_v2|selector_angulo_v2:inst8
+selector[0] => angle_out[2].DATAIN
+selector[1] => angle_out[3].DATAIN
+selector[2] => angle_out[4].DATAIN
+selector[3] => angle_out[5].DATAIN
+selector[4] => angle_out[6].DATAIN
 angle_out[0] <= <GND>
 angle_out[1] <= <GND>
-angle_out[2] <= pin_ang.DB_MAX_OUTPUT_PORT_TYPE
-angle_out[3] <= pin_ang.DB_MAX_OUTPUT_PORT_TYPE
-angle_out[4] <= <GND>
-angle_out[5] <= <GND>
-angle_out[6] <= <GND>
-angle_out[7] <= pin_ang.DB_MAX_OUTPUT_PORT_TYPE
+angle_out[2] <= selector[0].DB_MAX_OUTPUT_PORT_TYPE
+angle_out[3] <= selector[1].DB_MAX_OUTPUT_PORT_TYPE
+angle_out[4] <= selector[2].DB_MAX_OUTPUT_PORT_TYPE
+angle_out[5] <= selector[3].DB_MAX_OUTPUT_PORT_TYPE
+angle_out[6] <= selector[4].DB_MAX_OUTPUT_PORT_TYPE
+angle_out[7] <= <GND>
 
 

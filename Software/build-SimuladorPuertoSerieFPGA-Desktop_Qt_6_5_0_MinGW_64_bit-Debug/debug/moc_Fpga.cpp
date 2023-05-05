@@ -41,17 +41,25 @@ static constexpr auto qt_meta_stringdata_CLASSFpgaENDCLASS = QtMocHelpers::strin
     "Fpga",
     "OnDataRecievedFromBBB",
     "",
-    "cmd",
-    "OnFPGAReadyRead"
+    "enable_scissor",
+    "enable_servo",
+    "dir_scissor",
+    "dir_servo",
+    "OnFPGAReadyRead",
+    "OnTimerServo"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSFpgaENDCLASS_t {
-    uint offsetsAndSizes[10];
+    uint offsetsAndSizes[18];
     char stringdata0[5];
     char stringdata1[22];
     char stringdata2[1];
-    char stringdata3[4];
-    char stringdata4[16];
+    char stringdata3[15];
+    char stringdata4[13];
+    char stringdata5[12];
+    char stringdata6[10];
+    char stringdata7[16];
+    char stringdata8[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSFpgaENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -60,14 +68,22 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSFpgaENDCLASS_t qt_meta_stringda
         QT_MOC_LITERAL(0, 4),  // "Fpga"
         QT_MOC_LITERAL(5, 21),  // "OnDataRecievedFromBBB"
         QT_MOC_LITERAL(27, 0),  // ""
-        QT_MOC_LITERAL(28, 3),  // "cmd"
-        QT_MOC_LITERAL(32, 15)   // "OnFPGAReadyRead"
+        QT_MOC_LITERAL(28, 14),  // "enable_scissor"
+        QT_MOC_LITERAL(43, 12),  // "enable_servo"
+        QT_MOC_LITERAL(56, 11),  // "dir_scissor"
+        QT_MOC_LITERAL(68, 9),  // "dir_servo"
+        QT_MOC_LITERAL(78, 15),  // "OnFPGAReadyRead"
+        QT_MOC_LITERAL(94, 12)   // "OnTimerServo"
     },
     "Fpga",
     "OnDataRecievedFromBBB",
     "",
-    "cmd",
-    "OnFPGAReadyRead"
+    "enable_scissor",
+    "enable_servo",
+    "dir_scissor",
+    "dir_servo",
+    "OnFPGAReadyRead",
+    "OnTimerServo"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -79,7 +95,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSFpgaENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -87,11 +103,13 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSFpgaENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   26,    2, 0x0a,    1 /* Public */,
-       4,    0,   29,    2, 0x08,    3 /* Private */,
+       1,    4,   32,    2, 0x0a,    1 /* Public */,
+       7,    0,   41,    2, 0x08,    6 /* Private */,
+       8,    0,   42,    2, 0x08,    7 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    3,    4,    5,    6,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -109,7 +127,12 @@ Q_CONSTINIT const QMetaObject Fpga::staticMetaObject = { {
         // method 'OnDataRecievedFromBBB'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'OnFPGAReadyRead'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'OnTimerServo'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -121,8 +144,9 @@ void Fpga::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         auto *_t = static_cast<Fpga *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->OnDataRecievedFromBBB((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 0: _t->OnDataRecievedFromBBB((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4]))); break;
         case 1: _t->OnFPGAReadyRead(); break;
+        case 2: _t->OnTimerServo(); break;
         default: ;
         }
     }
@@ -147,13 +171,13 @@ int Fpga::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

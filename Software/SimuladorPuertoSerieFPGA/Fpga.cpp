@@ -5,16 +5,19 @@
 #include <QVariant>
 
 #define BAUDRATE 9600
-#define COMPORT "COM4"
+#define COMPORT "COM3"
 
 void Fpga::SendDataRS232()
 {
-    if(!serial.open(QSerialPort::WriteOnly)){
+    if(!serial.isOpen()){
         qDebug() << QString("Connection failed");
+        qDebug() << QString(serial.errorString());
         return;
     }
 
     else{
+        qDebug() << QString(snd);
+        serial.clear();
         serial.write(snd);
     }
 }
@@ -31,7 +34,10 @@ Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
     /* Connecting data reading slot, on serial data recieving, do sthg */
     //QObject::connect(&serial,&QIODevice::readyRead,this,&Fpga::OnFPGAReadyRead);
 
-    if(!serial.open(QSerialPort::ReadWrite)){
+    /* Connecting timer slot, for servo angle changing */
+    QObject::connect(&timerServo,&QTimer::timeout,this,&Fpga::OnTimerServo);
+
+    if(!serial.open(QSerialPort::WriteOnly)){
         qDebug() << QString("No conectado al puerto serie de FPGA");
         return;
     }
@@ -39,17 +45,6 @@ Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
     else{
         qDebug() << QString("Conectado correctamente al puerto serie RS232 - ") + QString(COMPORT) + " - " + QString::number(BAUDRATE);
     }
-
-//    QString str_prueba('a');
-
-//    while(1){
-//        serial.open(QSerialPort::WriteOnly);
-//        snd = str_prueba.toLatin1();
-//        qDebug() << snd.size();
-//        SendDataRS232();
-//        serial.close();
-//    }
-    serial.close();
 }
 
 /* PRIVATE SLOTS */
@@ -60,26 +55,57 @@ void Fpga::OnFPGAReadyRead()
 }
 
 /* PUBLIC SLOTS */
-void Fpga::OnDataRecievedFromBBB(QString cmd) /* recieves data from BBB */
+void Fpga::OnDataRecievedFromBBB(QString enable_scissor, QString enable_servo, QString dir_scissor, QString dir_servo) /* recieves data from BBB */
 {
 
-    if(cmd == "a"){
-        QByteArray instr("a");
+    QString msg;
+    msg = dir_scissor+enable_scissor;
+
+    directionServo = dir_servo;
+
+    if(msg == "00"){
         snd.clear();
-        snd = instr;
+        snd.append((char)0b00000000);
     }
-    else if(cmd == "s"){
-        QByteArray instr("s");
+    else if (msg == "01"){
         snd.clear();
-        snd = instr;
+        snd.append((char)0b01000000);
     }
-    else{
-        qDebug() << "The command does not exist or you just want to stop. The machine will stop.";
-        QByteArray instr("l");
+    else if (msg == "10"){
         snd.clear();
-        snd = instr;
+        snd.append((char)0b10000000);
     }
+    else if (msg == "11"){
+        snd.clear();
+        snd.append((char)0b11000000);
+    }
+    else {
+        snd.clear();
+        snd.append((char)0b11000000);
+    }
+
+    if((enable_servo == "1")&&(!timerServo.isActive())){ /* if timer is not active and recieves enable_servo = 1, activate timerServo */
+        timerServo.start(1000);
+    }
+    else if((enable_servo == "0")&&(timerServo.isActive())){
+        timerServo.stop();
+    }
+
+    snd[0] = snd[0]|angle_servo;
 
     SendDataRS232();
 }
 
+void Fpga::OnTimerServo(){
+    if(directionServo == "1") {
+        angle_servo = angle_servo+1;
+        if(angle_servo>=31) angle_servo = 31;
+    }
+    else if(directionServo == "0") {
+        angle_servo = angle_servo-1;
+        if(angle_servo<=0) angle_servo = 0;
+    }
+    else {
+        angle_servo = angle_servo;
+    }
+}

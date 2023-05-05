@@ -2,104 +2,104 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'UART_RX:inst4|r_RX_Byte[0]'
-Slack : -3.845
-TNS   : -3.845
-
-Type  : Slow 1200mV 85C Model Setup 'inst1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -2.689
-TNS   : -2.689
+Type  : Slow 1200mV 85C Model Setup 'UART_RX:inst4|r_RX_Byte[6]'
+Slack : -3.011
+TNS   : -3.011
 
 Type  : Slow 1200mV 85C Model Setup 'reloj'
-Slack : -1.291
-TNS   : -1.291
+Slack : -1.250
+TNS   : -1.250
 
-Type  : Slow 1200mV 85C Model Hold 'UART_RX:inst4|r_RX_Byte[0]'
-Slack : -0.116
-TNS   : -0.116
+Type  : Slow 1200mV 85C Model Setup 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 12.128
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'reloj'
 Slack : 0.362
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'inst1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.734
+Slack : 0.727
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'UART_RX:inst4|r_RX_Byte[0]'
-Slack : 0.406
+Type  : Slow 1200mV 85C Model Hold 'UART_RX:inst4|r_RX_Byte[6]'
+Slack : 2.621
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'UART_RX:inst4|r_RX_Byte[6]'
+Slack : 0.421
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'reloj'
-Slack : 9.631
+Slack : 9.774
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'inst1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 499.733
+Slack : 499.730
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'UART_RX:inst4|r_RX_Byte[0]'
-Slack : -3.581
-TNS   : -3.581
-
-Type  : Slow 1200mV 0C Model Setup 'inst1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -2.693
-TNS   : -2.693
+Type  : Slow 1200mV 0C Model Setup 'UART_RX:inst4|r_RX_Byte[6]'
+Slack : -2.694
+TNS   : -2.694
 
 Type  : Slow 1200mV 0C Model Setup 'reloj'
-Slack : -1.219
-TNS   : -1.219
+Slack : -1.109
+TNS   : -1.109
 
-Type  : Slow 1200mV 0C Model Hold 'UART_RX:inst4|r_RX_Byte[0]'
-Slack : -0.155
-TNS   : -0.155
+Type  : Slow 1200mV 0C Model Setup 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 12.681
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'reloj'
 Slack : 0.324
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'inst1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.695
+Slack : 0.686
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'UART_RX:inst4|r_RX_Byte[0]'
-Slack : 0.442
+Type  : Slow 1200mV 0C Model Hold 'UART_RX:inst4|r_RX_Byte[6]'
+Slack : 2.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'UART_RX:inst4|r_RX_Byte[6]'
+Slack : 0.438
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'reloj'
-Slack : 9.584
+Slack : 9.773
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'inst1|altpll_component|auto_generated|pll1|clk[0]'
 Slack : 499.740
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'UART_RX:inst4|r_RX_Byte[0]'
-Slack : -1.242
-TNS   : -1.242
-
-Type  : Fast 1200mV 0C Model Setup 'inst1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -0.460
-TNS   : -0.460
+Type  : Fast 1200mV 0C Model Setup 'UART_RX:inst4|r_RX_Byte[6]'
+Slack : -0.671
+TNS   : -0.671
 
 Type  : Fast 1200mV 0C Model Setup 'reloj'
-Slack : -0.348
-TNS   : -0.348
+Slack : -0.390
+TNS   : -0.390
 
-Type  : Fast 1200mV 0C Model Hold 'UART_RX:inst4|r_RX_Byte[0]'
-Slack : 0.031
+Type  : Fast 1200mV 0C Model Setup 'inst1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 17.133
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'reloj'
-Slack : 0.151
+Slack : 0.152
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'inst1|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.251
+Slack : 0.153
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'UART_RX:inst4|r_RX_Byte[0]'
-Slack : 0.432
+Type  : Fast 1200mV 0C Model Hold 'UART_RX:inst4|r_RX_Byte[6]'
+Slack : 1.116
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'UART_RX:inst4|r_RX_Byte[6]'
+Slack : 0.461
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'reloj'
