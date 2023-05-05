@@ -41,25 +41,29 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "MainWindow",
     "SendDataToFPGA",
     "",
+    "dir_scissor",
     "enable_scissor",
     "enable_servo",
-    "dir_scissor",
     "dir_servo",
+    "cam_value",
+    "enable_fast",
     "on_qSendLine_pushButton_clicked",
     "OnTimerSend"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[18];
+    uint offsetsAndSizes[22];
     char stringdata0[11];
     char stringdata1[15];
     char stringdata2[1];
-    char stringdata3[15];
-    char stringdata4[13];
-    char stringdata5[12];
+    char stringdata3[12];
+    char stringdata4[15];
+    char stringdata5[13];
     char stringdata6[10];
-    char stringdata7[32];
+    char stringdata7[10];
     char stringdata8[12];
+    char stringdata9[32];
+    char stringdata10[12];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -68,20 +72,24 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(0, 10),  // "MainWindow"
         QT_MOC_LITERAL(11, 14),  // "SendDataToFPGA"
         QT_MOC_LITERAL(26, 0),  // ""
-        QT_MOC_LITERAL(27, 14),  // "enable_scissor"
-        QT_MOC_LITERAL(42, 12),  // "enable_servo"
-        QT_MOC_LITERAL(55, 11),  // "dir_scissor"
+        QT_MOC_LITERAL(27, 11),  // "dir_scissor"
+        QT_MOC_LITERAL(39, 14),  // "enable_scissor"
+        QT_MOC_LITERAL(54, 12),  // "enable_servo"
         QT_MOC_LITERAL(67, 9),  // "dir_servo"
-        QT_MOC_LITERAL(77, 31),  // "on_qSendLine_pushButton_clicked"
-        QT_MOC_LITERAL(109, 11)   // "OnTimerSend"
+        QT_MOC_LITERAL(77, 9),  // "cam_value"
+        QT_MOC_LITERAL(87, 11),  // "enable_fast"
+        QT_MOC_LITERAL(99, 31),  // "on_qSendLine_pushButton_clicked"
+        QT_MOC_LITERAL(131, 11)   // "OnTimerSend"
     },
     "MainWindow",
     "SendDataToFPGA",
     "",
+    "dir_scissor",
     "enable_scissor",
     "enable_servo",
-    "dir_scissor",
     "dir_servo",
+    "cam_value",
+    "enable_fast",
     "on_qSendLine_pushButton_clicked",
     "OnTimerSend"
 };
@@ -103,14 +111,14 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    4,   32,    2, 0x06,    1 /* Public */,
+       1,    6,   32,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       7,    0,   41,    2, 0x08,    6 /* Private */,
-       8,    0,   42,    2, 0x08,    7 /* Private */,
+       9,    0,   45,    2, 0x08,    8 /* Private */,
+      10,    0,   46,    2, 0x08,    9 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    3,    4,    5,    6,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    3,    4,    5,    6,    7,    8,
 
  // slots: parameters
     QMetaType::Void,
@@ -134,6 +142,8 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'on_qSendLine_pushButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'OnTimerSend'
@@ -148,7 +158,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<MainWindow *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->SendDataToFPGA((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4]))); break;
+        case 0: _t->SendDataToFPGA((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[5])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[6]))); break;
         case 1: _t->on_qSendLine_pushButton_clicked(); break;
         case 2: _t->OnTimerSend(); break;
         default: ;
@@ -156,7 +166,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (MainWindow::*)(QString , QString , QString , QString );
+            using _t = void (MainWindow::*)(QString , QString , QString , QString , QString , QString );
             if (_t _q_method = &MainWindow::SendDataToFPGA; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
@@ -196,9 +206,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void MainWindow::SendDataToFPGA(QString _t1, QString _t2, QString _t3, QString _t4)
+void MainWindow::SendDataToFPGA(QString _t1, QString _t2, QString _t3, QString _t4, QString _t5, QString _t6)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t5))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t6))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

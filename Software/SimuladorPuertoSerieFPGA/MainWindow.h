@@ -18,8 +18,7 @@ public:
     ~MainWindow();
 
 signals:
-    void SendDataToFPGA(QString enable_scissor, QString enable_servo, QString dir_scissor, QString dir_servo);
-
+    void SendDataToFPGA(QString dir_scissor,QString enable_scissor,QString enable_servo,QString dir_servo,QString cam_value,QString enable_fast);
 private slots:
     void on_qSendLine_pushButton_clicked();
     void OnTimerSend();

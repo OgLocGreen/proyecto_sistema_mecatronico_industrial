@@ -16,7 +16,7 @@ void Fpga::SendDataRS232()
     }
 
     else{
-        qDebug() << QString(snd);
+        qDebug() << "Sending:" << snd;
         serial.clear();
         serial.write(snd);
     }
@@ -55,13 +55,23 @@ void Fpga::OnFPGAReadyRead()
 }
 
 /* PUBLIC SLOTS */
-void Fpga::OnDataRecievedFromBBB(QString enable_scissor, QString enable_servo, QString dir_scissor, QString dir_servo) /* recieves data from BBB */
+void Fpga::OnDataRecievedFromBBB(QString direction_elev, QString enable_elev, QString enable_cam, QString direction_cam, QString cam_value, QString enable_fast) /* recieves data from BBB */
 {
 
-    QString msg;
-    msg = dir_scissor+enable_scissor;
+    /* XML Structure recieved */
+    /* <fpga>
+        <direction_elev>1</direction_elev>
+        <enable_elev>1</enable_elev>
+        <enable_cam>1</enable_cam>
+        <direction_cam>1</direction_cam>
+        <cam_value>1</cam_value>
+        <enable_fast>1</enable_fast>
+    </fpga> */
 
-    directionServo = dir_servo;
+    QString msg;
+    msg = direction_elev+enable_elev;
+
+    directionServo = direction_cam;
 
     if(msg == "00"){
         snd.clear();
@@ -84,11 +94,11 @@ void Fpga::OnDataRecievedFromBBB(QString enable_scissor, QString enable_servo, Q
         snd.append((char)0b11000000);
     }
 
-    if((enable_servo == "1")&&(!timerServo.isActive())){ /* if timer is not active and recieves enable_servo = 1, activate timerServo */
-        timerServo.start(1000);
+    if((enable_cam == "1")&&(!timerServo.isActive())){ /* if timer is not active and recieves enable_servo = 1, activate timerServo */
+        timerServo.start(1000); /* Sends new angle on timer */
     }
-    else if((enable_servo == "0")&&(timerServo.isActive())){
-        timerServo.stop();
+    else if((enable_cam == "0")&&(timerServo.isActive())){
+        timerServo.stop(); /* Stops new angle sending */
     }
 
     snd[0] = snd[0]|angle_servo;

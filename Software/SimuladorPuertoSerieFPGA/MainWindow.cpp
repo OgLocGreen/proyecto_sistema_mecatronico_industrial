@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QObject::connect(this,SIGNAL(SendDataToFPGA(QString,QString,QString,QString)),&myFpga,SLOT(OnDataRecievedFromBBB(QString,QString,QString,QString)));
+    QObject::connect(this,SIGNAL(SendDataToFPGA(QString,QString,QString,QString,QString,QString)),&myFpga,SLOT(OnDataRecievedFromBBB(QString,QString,QString,QString,QString,QString)));
     QObject::connect(&timerSend,SIGNAL(timeout()),this,SLOT(OnTimerSend()));
 }
 
@@ -31,7 +31,9 @@ void MainWindow::OnTimerSend(){
     QString enable_servo = ui->qenableServoSpinBox->text();
     QString dir_scissor = ui->qdirScissorSpinBox->text();
     QString dir_servo = ui->qdirServoSpinBox->text();
+    QString cam_value = "xxx";
+    QString enable_fast = "videos";
 
-    emit SendDataToFPGA(enable_scissor,enable_servo,dir_scissor,dir_servo);
+    emit SendDataToFPGA(dir_scissor,enable_scissor,enable_servo,dir_servo,cam_value,enable_fast);
 }
 
