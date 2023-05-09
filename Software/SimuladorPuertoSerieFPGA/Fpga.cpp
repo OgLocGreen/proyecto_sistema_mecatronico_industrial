@@ -44,6 +44,12 @@ Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
 
     else{
         qDebug() << QString("Conectado correctamente al puerto serie RS232 - ") + QString(COMPORT) + " - " + QString::number(BAUDRATE);
+        snd.clear();
+        snd.append((char)0b11000000);
+        angle_servo = 20;
+        snd[0] = snd[0]|angle_servo;
+
+        SendDataRS232();
     }
 }
 

@@ -11,12 +11,14 @@ CONFIG += c++17
 
 SOURCES += \
     Fpga.cpp \
+    MotorDriver.cpp \
     main.cpp \
     MainWindow.cpp
 
 HEADERS += \
     Fpga.h \
-    MainWindow.h
+    MainWindow.h \
+    MotorDriver.h
 
 FORMS += \
     MainWindow.ui

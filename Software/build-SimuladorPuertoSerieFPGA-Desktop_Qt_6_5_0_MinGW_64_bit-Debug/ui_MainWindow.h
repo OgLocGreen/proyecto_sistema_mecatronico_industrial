@@ -12,12 +12,15 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,15 +30,21 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QSpinBox *qenableScissorSpinBox;
-    QSpinBox *qenableServoSpinBox;
-    QSpinBox *qdirServoSpinBox;
-    QPushButton *qSendLine_pushButton;
-    QSpinBox *qdirScissorSpinBox;
+    QVBoxLayout *verticalLayout_2;
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
+    QVBoxLayout *verticalLayout;
+    QSpinBox *qenableScissorSpinBox;
+    QSpinBox *qenableServoSpinBox;
+    QSpinBox *qdirScissorSpinBox;
+    QSpinBox *qdirServoSpinBox;
+    QPushButton *qSendLine_pushButton;
+    QHBoxLayout *horizontalLayout;
+    QSlider *qLeftMotor;
+    QSlider *qRighthmotor;
+    QPushButton *qStartSendMD_pushButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,64 +52,101 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(663, 227);
+        MainWindow->resize(667, 312);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName("gridLayout");
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+
+        verticalLayout_2->addWidget(label);
+
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
+
+        verticalLayout_2->addWidget(label_2);
+
+        label_3 = new QLabel(centralwidget);
+        label_3->setObjectName("label_3");
+
+        verticalLayout_2->addWidget(label_3);
+
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName("label_4");
+
+        verticalLayout_2->addWidget(label_4);
+
+
+        gridLayout->addLayout(verticalLayout_2, 0, 1, 1, 1);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName("verticalLayout");
         qenableScissorSpinBox = new QSpinBox(centralwidget);
         qenableScissorSpinBox->setObjectName("qenableScissorSpinBox");
         qenableScissorSpinBox->setMaximum(1);
+        qenableScissorSpinBox->setValue(1);
 
-        gridLayout->addWidget(qenableScissorSpinBox, 0, 1, 1, 1);
+        verticalLayout->addWidget(qenableScissorSpinBox);
 
         qenableServoSpinBox = new QSpinBox(centralwidget);
         qenableServoSpinBox->setObjectName("qenableServoSpinBox");
         qenableServoSpinBox->setMaximum(1);
 
-        gridLayout->addWidget(qenableServoSpinBox, 1, 1, 1, 1);
-
-        qdirServoSpinBox = new QSpinBox(centralwidget);
-        qdirServoSpinBox->setObjectName("qdirServoSpinBox");
-        qdirServoSpinBox->setMaximum(1);
-
-        gridLayout->addWidget(qdirServoSpinBox, 4, 1, 1, 1);
-
-        qSendLine_pushButton = new QPushButton(centralwidget);
-        qSendLine_pushButton->setObjectName("qSendLine_pushButton");
-
-        gridLayout->addWidget(qSendLine_pushButton, 5, 1, 1, 1);
+        verticalLayout->addWidget(qenableServoSpinBox);
 
         qdirScissorSpinBox = new QSpinBox(centralwidget);
         qdirScissorSpinBox->setObjectName("qdirScissorSpinBox");
         qdirScissorSpinBox->setMaximum(1);
 
-        gridLayout->addWidget(qdirScissorSpinBox, 2, 1, 1, 1);
+        verticalLayout->addWidget(qdirScissorSpinBox);
 
-        label = new QLabel(centralwidget);
-        label->setObjectName("label");
+        qdirServoSpinBox = new QSpinBox(centralwidget);
+        qdirServoSpinBox->setObjectName("qdirServoSpinBox");
+        qdirServoSpinBox->setMaximum(1);
 
-        gridLayout->addWidget(label, 0, 0, 1, 1);
+        verticalLayout->addWidget(qdirServoSpinBox);
 
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName("label_2");
 
-        gridLayout->addWidget(label_2, 1, 0, 1, 1);
+        gridLayout->addLayout(verticalLayout, 0, 2, 1, 2);
 
-        label_3 = new QLabel(centralwidget);
-        label_3->setObjectName("label_3");
+        qSendLine_pushButton = new QPushButton(centralwidget);
+        qSendLine_pushButton->setObjectName("qSendLine_pushButton");
 
-        gridLayout->addWidget(label_3, 2, 0, 1, 1);
+        gridLayout->addWidget(qSendLine_pushButton, 6, 1, 1, 2);
 
-        label_4 = new QLabel(centralwidget);
-        label_4->setObjectName("label_4");
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        qLeftMotor = new QSlider(centralwidget);
+        qLeftMotor->setObjectName("qLeftMotor");
+        qLeftMotor->setMinimum(-100);
+        qLeftMotor->setMaximum(100);
+        qLeftMotor->setOrientation(Qt::Vertical);
 
-        gridLayout->addWidget(label_4, 4, 0, 1, 1);
+        horizontalLayout->addWidget(qLeftMotor);
+
+        qRighthmotor = new QSlider(centralwidget);
+        qRighthmotor->setObjectName("qRighthmotor");
+        qRighthmotor->setMinimum(-100);
+        qRighthmotor->setMaximum(100);
+        qRighthmotor->setOrientation(Qt::Vertical);
+
+        horizontalLayout->addWidget(qRighthmotor);
+
+
+        gridLayout->addLayout(horizontalLayout, 0, 4, 1, 1);
+
+        qStartSendMD_pushButton = new QPushButton(centralwidget);
+        qStartSendMD_pushButton->setObjectName("qStartSendMD_pushButton");
+
+        gridLayout->addWidget(qStartSendMD_pushButton, 6, 4, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 663, 22));
+        menubar->setGeometry(QRect(0, 0, 667, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -114,11 +160,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        qSendLine_pushButton->setText(QCoreApplication::translate("MainWindow", "Enviar", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "EN SCISSOR", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "EN SCISSOR (1 = STOP)", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "EN SERVO", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "DIR SCISSOR", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "DIR SERVO", nullptr));
+        qSendLine_pushButton->setText(QCoreApplication::translate("MainWindow", "START BROADCASTING WITH FPGA", nullptr));
+        qStartSendMD_pushButton->setText(QCoreApplication::translate("MainWindow", "START BROADCASTING MOTORDRIVERS", nullptr));
     } // retranslateUi
 
 };

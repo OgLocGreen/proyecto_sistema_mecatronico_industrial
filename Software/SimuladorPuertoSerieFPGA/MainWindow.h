@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "Fpga.h"
+#include "MotorDriver.h"
 #include <QTimer>
 
 QT_BEGIN_NAMESPACE
@@ -19,14 +20,20 @@ public:
 
 signals:
     void SendDataToFPGA(QString dir_scissor,QString enable_scissor,QString enable_servo,QString dir_servo,QString cam_value,QString enable_fast);
+    void SendDataToMotorDriver(QString right_motor_speed_prcnt, QString left_motor_speed_prcnt);
 private slots:
     void on_qSendLine_pushButton_clicked();
     void OnTimerSend();
+    void OnTimerMDSend();
+
+    void on_qStartSendMD_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     Fpga myFpga;
+    MotorDriver myMotorDrivers;
 
     QTimer timerSend;
+    QTimer timerSendMD;
 };
 #endif // MAINWINDOW_H

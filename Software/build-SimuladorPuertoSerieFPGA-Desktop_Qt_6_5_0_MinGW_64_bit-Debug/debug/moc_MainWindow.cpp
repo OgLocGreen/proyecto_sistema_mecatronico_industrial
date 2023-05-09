@@ -47,12 +47,17 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "dir_servo",
     "cam_value",
     "enable_fast",
+    "SendDataToMotorDriver",
+    "right_motor_speed_prcnt",
+    "left_motor_speed_prcnt",
     "on_qSendLine_pushButton_clicked",
-    "OnTimerSend"
+    "OnTimerSend",
+    "OnTimerMDSend",
+    "on_qStartSendMD_pushButton_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[22];
+    uint offsetsAndSizes[32];
     char stringdata0[11];
     char stringdata1[15];
     char stringdata2[1];
@@ -62,8 +67,13 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata6[10];
     char stringdata7[10];
     char stringdata8[12];
-    char stringdata9[32];
-    char stringdata10[12];
+    char stringdata9[22];
+    char stringdata10[24];
+    char stringdata11[23];
+    char stringdata12[32];
+    char stringdata13[12];
+    char stringdata14[14];
+    char stringdata15[35];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -78,8 +88,13 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(67, 9),  // "dir_servo"
         QT_MOC_LITERAL(77, 9),  // "cam_value"
         QT_MOC_LITERAL(87, 11),  // "enable_fast"
-        QT_MOC_LITERAL(99, 31),  // "on_qSendLine_pushButton_clicked"
-        QT_MOC_LITERAL(131, 11)   // "OnTimerSend"
+        QT_MOC_LITERAL(99, 21),  // "SendDataToMotorDriver"
+        QT_MOC_LITERAL(121, 23),  // "right_motor_speed_prcnt"
+        QT_MOC_LITERAL(145, 22),  // "left_motor_speed_prcnt"
+        QT_MOC_LITERAL(168, 31),  // "on_qSendLine_pushButton_clicked"
+        QT_MOC_LITERAL(200, 11),  // "OnTimerSend"
+        QT_MOC_LITERAL(212, 13),  // "OnTimerMDSend"
+        QT_MOC_LITERAL(226, 34)   // "on_qStartSendMD_pushButton_cl..."
     },
     "MainWindow",
     "SendDataToFPGA",
@@ -90,8 +105,13 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "dir_servo",
     "cam_value",
     "enable_fast",
+    "SendDataToMotorDriver",
+    "right_motor_speed_prcnt",
+    "left_motor_speed_prcnt",
     "on_qSendLine_pushButton_clicked",
-    "OnTimerSend"
+    "OnTimerSend",
+    "OnTimerMDSend",
+    "on_qStartSendMD_pushButton_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -103,24 +123,30 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    6,   32,    2, 0x06,    1 /* Public */,
+       1,    6,   50,    2, 0x06,    1 /* Public */,
+       9,    2,   63,    2, 0x06,    8 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       9,    0,   45,    2, 0x08,    8 /* Private */,
-      10,    0,   46,    2, 0x08,    9 /* Private */,
+      12,    0,   68,    2, 0x08,   11 /* Private */,
+      13,    0,   69,    2, 0x08,   12 /* Private */,
+      14,    0,   70,    2, 0x08,   13 /* Private */,
+      15,    0,   71,    2, 0x08,   14 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    3,    4,    5,    6,    7,    8,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   10,   11,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -144,9 +170,17 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'SendDataToMotorDriver'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'on_qSendLine_pushButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'OnTimerSend'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'OnTimerMDSend'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_qStartSendMD_pushButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -159,8 +193,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->SendDataToFPGA((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[5])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[6]))); break;
-        case 1: _t->on_qSendLine_pushButton_clicked(); break;
-        case 2: _t->OnTimerSend(); break;
+        case 1: _t->SendDataToMotorDriver((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 2: _t->on_qSendLine_pushButton_clicked(); break;
+        case 3: _t->OnTimerSend(); break;
+        case 4: _t->OnTimerMDSend(); break;
+        case 5: _t->on_qStartSendMD_pushButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -169,6 +206,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             using _t = void (MainWindow::*)(QString , QString , QString , QString , QString , QString );
             if (_t _q_method = &MainWindow::SendDataToFPGA; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (MainWindow::*)(QString , QString );
+            if (_t _q_method = &MainWindow::SendDataToMotorDriver; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
                 return;
             }
         }
@@ -194,13 +238,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 6;
     }
     return _id;
 }
@@ -210,5 +254,12 @@ void MainWindow::SendDataToFPGA(QString _t1, QString _t2, QString _t3, QString _
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t5))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t6))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void MainWindow::SendDataToMotorDriver(QString _t1, QString _t2)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
