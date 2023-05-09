@@ -1,5 +1,5 @@
 PowerPlay Power Analyzer report for FPGARoverProgram
-Thu May 04 19:48:40 2023
+Mon May 08 19:28:17 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -53,19 +53,19 @@ agreement for further details.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.11        ;
+; Average used               ; 1.09        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   2.2%      ;
+;     Processors 2-6         ;   1.8%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; PowerPlay Power Analyzer Summary                                                          ;
 +----------------------------------------+--------------------------------------------------+
-; PowerPlay Power Analyzer Status        ; Successful - Thu May 04 19:48:40 2023            ;
+; PowerPlay Power Analyzer Status        ; Successful - Mon May 08 19:28:17 2023            ;
 ; Quartus Prime Version                  ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition      ;
 ; Revision Name                          ; FPGARoverProgram                                 ;
 ; Top-level Entity Name                  ; GeneralControlScheme_v2                          ;
@@ -279,7 +279,7 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime PowerPlay Power Analyzer
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Thu May 04 19:48:38 2023
+    Info: Processing started: Mon May 08 19:28:15 2023
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off FPGARoverProgram -c FPGARoverProgram
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
@@ -303,8 +303,8 @@ Info (334004): Delay annotation completed successfully
 Info (215049): Average toggle rate for this design is 0.000 millions of transitions / sec
 Info (215031): Total thermal power estimate for the design is 125.47 mW
 Info: Quartus Prime PowerPlay Power Analyzer was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 4842 megabytes
-    Info: Processing ended: Thu May 04 19:48:40 2023
+    Info: Peak virtual memory: 4838 megabytes
+    Info: Processing ended: Mon May 08 19:28:17 2023
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
