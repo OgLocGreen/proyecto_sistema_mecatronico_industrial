@@ -28,6 +28,8 @@ private slots:
 
     void on_qStartSendMD_pushButton_clicked();
 
+    void on_qParaMD_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Fpga myFpga;

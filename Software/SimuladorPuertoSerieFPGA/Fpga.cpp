@@ -9,9 +9,11 @@
 
 void Fpga::SendDataRS232()
 {
-    if(!serial.isOpen()){
+//    if(!serial.isOpen()){
+    if(!serial.open(QSerialPort::WriteOnly)){
         qDebug() << QString("Connection failed");
         qDebug() << QString(serial.errorString());
+        serial.close();
         return;
     }
 
@@ -19,7 +21,10 @@ void Fpga::SendDataRS232()
         qDebug() << "Sending:" << snd;
         serial.clear();
         serial.write(snd);
+        serial.waitForBytesWritten(500);
     }
+
+    serial.close();
 }
 
 Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
@@ -39,6 +44,7 @@ Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
 
     if(!serial.open(QSerialPort::WriteOnly)){
         qDebug() << QString("No conectado al puerto serie de FPGA");
+        serial.close();
         return;
     }
 
