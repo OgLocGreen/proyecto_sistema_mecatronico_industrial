@@ -18,14 +18,9 @@ void MotorDriver::SendCmd2Driver(QString _snd_manual)
     else{
         snd.append("\r");
 
-        for(int i=0 ; i<=3 ; i++){ /* try to send command for three times */
-            serial.write(snd.toLatin1());
-            serial.waitForReadyRead(500);
-            qDebug() << snd+"---"+answ;
-            if(snd==('#'+answ)) break; /* if echo sounds good, go ahead */
-            if(i == 3) qDebug() << "Error: look at the answer - " + answ;
-        }
-
+        serial.write(snd.toLatin1());
+        serial.waitForReadyRead(500);
+        qDebug() << snd+"---"+answ;
         }
 
     serial.close();

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGARoverProgram
-Mon May 08 19:28:03 2023
+Wed May 17 16:05:37 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -53,7 +53,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon May 08 19:28:03 2023       ;
+; Analysis & Synthesis Status        ; Successful - Wed May 17 16:05:37 2023       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; FPGARoverProgram                            ;
 ; Top-level Entity Name              ; GeneralControlScheme_v2                     ;
@@ -226,8 +226,8 @@ agreement for further details.
 ;                                             ;             ;
 ; Total combinational functions               ; 169         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 42          ;
-;     -- 3 input functions                    ; 35          ;
+;     -- 4 input functions                    ; 41          ;
+;     -- 3 input functions                    ; 36          ;
 ;     -- <=2 input functions                  ; 92          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
@@ -247,8 +247,8 @@ agreement for further details.
 ;                                             ;             ;
 ; Maximum fan-out node                        ; reloj~input ;
 ; Maximum fan-out                             ; 63          ;
-; Total fan-out                               ; 692         ;
-; Average fan-out                             ; 2.51        ;
+; Total fan-out                               ; 691         ;
+; Average fan-out                             ; 2.50        ;
 +---------------------------------------------+-------------+
 
 
@@ -339,7 +339,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+-------+-------------------------------------+
 ; Parameter Name ; Value ; Type                                ;
 +----------------+-------+-------------------------------------+
-; max_count      ; 25000 ; Unsigned Integer                    ;
+; max_count      ; 30000 ; Unsigned Integer                    ;
 +----------------+-------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -818,12 +818,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 5                           ;
 ;         2 data inputs ; 20                          ;
-;         3 data inputs ; 21                          ;
-;         4 data inputs ; 42                          ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 41                          ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.74                        ;
+; Average LUT depth     ; 3.72                        ;
 +-----------------------+-----------------------------+
 
 
@@ -832,7 +832,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -842,7 +842,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Mon May 08 19:27:47 2023
+    Info: Processing started: Wed May 17 16:05:23 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGARoverProgram -c FPGARoverProgram
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -974,9 +974,9 @@ Info (21057): Implemented 184 device resources after synthesis - the final resou
     Info (21061): Implemented 169 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4816 megabytes
-    Info: Processing ended: Mon May 08 19:28:03 2023
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:33
+    Info: Peak virtual memory: 4818 megabytes
+    Info: Processing ended: Wed May 17 16:05:37 2023
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:32
 
 

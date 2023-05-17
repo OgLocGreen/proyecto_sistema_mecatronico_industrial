@@ -38,19 +38,19 @@ agreement for further details.
 )
 (pin
 	(input)
-	(rect 16 392 184 408)
-	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "pin_serial" (rect 5 0 51 17)(font "Intel Clear" ))
-	(pt 168 8)
+	(rect 0 392 176 408)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "pin_serial" (rect 9 0 55 12)(font "Arial" ))
+	(pt 176 8)
 	(drawing
-		(line (pt 84 12)(pt 109 12))
-		(line (pt 84 4)(pt 109 4))
-		(line (pt 113 8)(pt 168 8))
-		(line (pt 84 12)(pt 84 4))
-		(line (pt 109 4)(pt 113 8))
-		(line (pt 109 12)(pt 113 8))
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 176 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
 	)
-	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
 )
 (pin
 	(output)
@@ -135,7 +135,7 @@ agreement for further details.
 (symbol
 	(rect 1064 472 1304 624)
 	(text "PLL_servo" (rect 90 0 160 16)(font "Arial" (font_size 10)))
-	(text "inst1" (rect 8 136 30 153)(font "Intel Clear" ))
+	(text "inst1" (rect 8 136 31 148)(font "Arial" ))
 	(port
 		(pt 0 64)
 		(input)
@@ -183,7 +183,7 @@ agreement for further details.
 (symbol
 	(rect 1464 504 1624 616)
 	(text "PWM" (rect 5 0 30 12)(font "Arial" ))
-	(text "inst2" (rect 8 96 30 113)(font "Intel Clear" ))
+	(text "inst2" (rect 8 96 31 108)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -209,11 +209,126 @@ agreement for further details.
 		(pt 160 32)
 		(output)
 		(text "pwm" (rect 0 0 22 12)(font "Arial" ))
-		(text "pwm" (rect 121 27 143 39)(font "Arial" ))
+		(text "pwm" (rect 121 27 139 39)(font "Arial" ))
 		(line (pt 160 32)(pt 144 32))
 	)
 	(drawing
 		(rectangle (rect 16 16 144 96))
+	)
+)
+(symbol
+	(rect 216 352 432 432)
+	(text "UART_RX" (rect 5 0 54 12)(font "Arial" ))
+	(text "inst4" (rect 8 64 31 76)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "i_Clk" (rect 0 0 24 12)(font "Arial" ))
+		(text "i_Clk" (rect 21 27 45 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "i_RX_Serial" (rect 0 0 55 12)(font "Arial" ))
+		(text "i_RX_Serial" (rect 21 43 76 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "o_RX_DV" (rect 0 0 48 12)(font "Arial" ))
+		(text "o_RX_DV" (rect 155 27 195 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32))
+	)
+	(port
+		(pt 216 48)
+		(output)
+		(text "o_RX_Byte[7..0]" (rect 0 0 81 12)(font "Arial" ))
+		(text "o_RX_Byte[7..0]" (rect 127 43 195 55)(font "Arial" ))
+		(line (pt 216 48)(pt 200 48)(line_width 3))
+	)
+	(parameter
+		"g_CLKS_PER_BIT"
+		"5208"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 200 64))
+	)
+	(annotation_block (parameter)(rect 320 288 525 326))
+)
+(symbol
+	(rect 1376 504 1408 520)
+	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
+	(text "inst5" (rect 3 5 26 17)(font "Arial" )(invisible))
+	(port
+		(pt 16 16)
+		(output)
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(line (pt 16 16)(pt 16 8))
+	)
+	(drawing
+		(line (pt 8 8)(pt 24 8))
+	)
+)
+(symbol
+	(rect 888 640 1096 720)
+	(text "selector_angulo_v2" (rect 5 0 100 12)(font "Arial" ))
+	(text "inst8" (rect 8 64 31 76)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "selector[4..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "selector[4..0]" (rect 21 27 85 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 208 32)
+		(output)
+		(text "angle_out[7..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "angle_out[7..0]" (rect 126 27 187 39)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 192 64))
+	)
+)
+(symbol
+	(rect 608 544 816 656)
+	(text "SerialReciever_v2" (rect 5 0 95 12)(font "Arial" ))
+	(text "inst9" (rect 8 96 31 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "dato[7..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "dato[7..0]" (rect 21 27 68 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 208 32)
+		(output)
+		(text "dir" (rect 0 0 11 12)(font "Arial" ))
+		(text "dir" (rect 178 27 187 39)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32))
+	)
+	(port
+		(pt 208 48)
+		(output)
+		(text "paro" (rect 0 0 21 12)(font "Arial" ))
+		(text "paro" (rect 170 43 187 55)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48))
+	)
+	(port
+		(pt 208 64)
+		(output)
+		(text "selector_ang[4..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "selector_ang[4..0]" (rect 113 59 187 71)(font "Arial" ))
+		(line (pt 208 64)(pt 192 64)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 192 96))
 	)
 )
 (symbol
@@ -245,151 +360,32 @@ agreement for further details.
 		(pt 152 32)
 		(output)
 		(text "step" (rect 0 0 21 12)(font "Arial" ))
-		(text "step" (rect 114 27 135 39)(font "Arial" ))
+		(text "step" (rect 114 27 131 39)(font "Arial" ))
 		(line (pt 152 32)(pt 136 32))
 	)
 	(port
 		(pt 152 48)
 		(output)
 		(text "dir" (rect 0 0 11 12)(font "Arial" ))
-		(text "dir" (rect 122 43 133 55)(font "Arial" ))
+		(text "dir" (rect 122 43 131 55)(font "Arial" ))
 		(line (pt 152 48)(pt 136 48))
 	)
 	(port
 		(pt 152 64)
 		(output)
 		(text "en" (rect 0 0 11 12)(font "Arial" ))
-		(text "en" (rect 122 59 133 71)(font "Arial" ))
+		(text "en" (rect 122 59 131 71)(font "Arial" ))
 		(line (pt 152 64)(pt 136 64))
 	)
 	(parameter
 		"MAX_COUNT"
-		"25000"
+		"30000"
 		""
 		(type "PARAMETER_UNSIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 136 96))
 	)
 	(annotation_block (parameter)(rect 1224 192 1426 230))
-)
-(symbol
-	(rect 216 352 432 432)
-	(text "UART_RX" (rect 5 0 54 12)(font "Arial" ))
-	(text "inst4" (rect 8 64 30 81)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "i_Clk" (rect 0 0 24 12)(font "Arial" ))
-		(text "i_Clk" (rect 21 27 45 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "i_RX_Serial" (rect 0 0 55 12)(font "Arial" ))
-		(text "i_RX_Serial" (rect 21 43 76 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 216 32)
-		(output)
-		(text "o_RX_DV" (rect 0 0 48 12)(font "Arial" ))
-		(text "o_RX_DV" (rect 155 27 203 39)(font "Arial" ))
-		(line (pt 216 32)(pt 200 32))
-	)
-	(port
-		(pt 216 48)
-		(output)
-		(text "o_RX_Byte[7..0]" (rect 0 0 81 12)(font "Arial" ))
-		(text "o_RX_Byte[7..0]" (rect 127 43 208 55)(font "Arial" ))
-		(line (pt 216 48)(pt 200 48)(line_width 3))
-	)
-	(parameter
-		"g_CLKS_PER_BIT"
-		"5208"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 200 64))
-	)
-	(annotation_block (parameter)(rect 320 288 525 326))
-)
-(symbol
-	(rect 1376 504 1408 520)
-	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
-	(text "inst5" (rect 3 5 25 22)(font "Intel Clear" )(invisible))
-	(port
-		(pt 16 16)
-		(output)
-		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
-		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
-		(line (pt 16 16)(pt 16 8))
-	)
-	(drawing
-		(line (pt 8 8)(pt 24 8))
-	)
-)
-(symbol
-	(rect 888 640 1096 720)
-	(text "selector_angulo_v2" (rect 5 0 100 12)(font "Arial" ))
-	(text "inst8" (rect 8 64 30 81)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "selector[4..0]" (rect 0 0 64 12)(font "Arial" ))
-		(text "selector[4..0]" (rect 21 27 85 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 208 32)
-		(output)
-		(text "angle_out[7..0]" (rect 0 0 73 12)(font "Arial" ))
-		(text "angle_out[7..0]" (rect 126 27 199 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 192 64))
-	)
-)
-(symbol
-	(rect 608 544 816 656)
-	(text "SerialReciever_v2" (rect 5 0 95 12)(font "Arial" ))
-	(text "inst9" (rect 8 96 30 113)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "dato[7..0]" (rect 0 0 47 12)(font "Arial" ))
-		(text "dato[7..0]" (rect 21 27 68 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 208 32)
-		(output)
-		(text "dir" (rect 0 0 11 12)(font "Arial" ))
-		(text "dir" (rect 178 27 189 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32))
-	)
-	(port
-		(pt 208 48)
-		(output)
-		(text "paro" (rect 0 0 21 12)(font "Arial" ))
-		(text "paro" (rect 170 43 191 55)(font "Arial" ))
-		(line (pt 208 48)(pt 192 48))
-	)
-	(port
-		(pt 208 64)
-		(output)
-		(text "selector_ang[4..0]" (rect 0 0 88 12)(font "Arial" ))
-		(text "selector_ang[4..0]" (rect 113 59 201 71)(font "Arial" ))
-		(line (pt 208 64)(pt 192 64)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 192 96))
-	)
-)
-(connector
-	(pt 216 400)
-	(pt 184 400)
 )
 (connector
 	(pt 216 384)
@@ -545,6 +541,10 @@ agreement for further details.
 	(pt 864 672)
 	(pt 888 672)
 	(bus)
+)
+(connector
+	(pt 176 400)
+	(pt 216 400)
 )
 (junction (pt 184 256))
 (junction (pt 1040 264))

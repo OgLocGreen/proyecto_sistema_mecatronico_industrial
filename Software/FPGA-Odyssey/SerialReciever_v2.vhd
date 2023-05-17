@@ -24,7 +24,7 @@ end entity;
 
 architecture comportamiento of SerialReciever_v2 is
 
-signal scissor_instr : std_logic_vector(1 downto 0) := "10";
+signal scissor_instr : std_logic_vector(1 downto 0) := "11";
 signal servo_instr : std_logic_vector(4 downto 0) := "00111";
 
 begin

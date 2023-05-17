@@ -19,7 +19,7 @@ entity ControlPAP is
 		enable : in std_logic;
 		step		  : out std_logic := '1';
 		dir : out std_logic := '1';
-		en : out std_logic := '0'
+		en : out std_logic := '1'
 	);
 
 end entity;

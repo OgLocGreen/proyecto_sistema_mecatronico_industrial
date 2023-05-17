@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for FPGARoverProgram
-Mon May 08 19:28:20 2023
+Wed May 17 16:05:50 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -92,12 +92,12 @@ agreement for further details.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.07        ;
+; Average used               ; 1.10        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   1.5%      ;
+;     Processors 2-6         ;   2.0%      ;
 +----------------------------+-------------+
 
 
@@ -117,8 +117,8 @@ agreement for further details.
 +------------+-----------------+---------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                        ; Note ;
 +------------+-----------------+---------------------------------------------------+------+
-; 124.25 MHz ; 124.25 MHz      ; reloj                                             ;      ;
-; 181.88 MHz ; 181.88 MHz      ; inst1|altpll_component|auto_generated|pll1|clk[0] ;      ;
+; 118.58 MHz ; 118.58 MHz      ; reloj                                             ;      ;
+; 192.09 MHz ; 192.09 MHz      ; inst1|altpll_component|auto_generated|pll1|clk[0] ;      ;
 +------------+-----------------+---------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -128,9 +128,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; UART_RX:inst4|r_RX_Byte[6]                        ; -3.011 ; -3.011        ;
-; reloj                                             ; -1.250 ; -1.250        ;
-; inst1|altpll_component|auto_generated|pll1|clk[0] ; 12.128 ; 0.000         ;
+; UART_RX:inst4|r_RX_Byte[6]                        ; -3.009 ; -3.009        ;
+; reloj                                             ; -1.301 ; -1.301        ;
+; inst1|altpll_component|auto_generated|pll1|clk[0] ; 11.800 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
 
@@ -141,7 +141,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+-------+---------------+
 ; reloj                                             ; 0.362 ; 0.000         ;
 ; inst1|altpll_component|auto_generated|pll1|clk[0] ; 0.727 ; 0.000         ;
-; UART_RX:inst4|r_RX_Byte[6]                        ; 2.621 ; 0.000         ;
+; UART_RX:inst4|r_RX_Byte[6]                        ; 2.615 ; 0.000         ;
 +---------------------------------------------------+-------+---------------+
 
 
@@ -162,9 +162,9 @@ No paths to report.
 +---------------------------------------------------+---------+---------------+
 ; Clock                                             ; Slack   ; End Point TNS ;
 +---------------------------------------------------+---------+---------------+
-; UART_RX:inst4|r_RX_Byte[6]                        ; 0.421   ; 0.000         ;
+; UART_RX:inst4|r_RX_Byte[6]                        ; 0.422   ; 0.000         ;
 ; reloj                                             ; 9.774   ; 0.000         ;
-; inst1|altpll_component|auto_generated|pll1|clk[0] ; 499.730 ; 0.000         ;
+; inst1|altpll_component|auto_generated|pll1|clk[0] ; 499.731 ; 0.000         ;
 +---------------------------------------------------+---------+---------------+
 
 
@@ -179,8 +179,8 @@ No synchronizer chains to report.
 +------------+-----------------+---------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                        ; Note ;
 +------------+-----------------+---------------------------------------------------+------+
-; 130.94 MHz ; 130.94 MHz      ; reloj                                             ;      ;
-; 194.51 MHz ; 194.51 MHz      ; inst1|altpll_component|auto_generated|pll1|clk[0] ;      ;
+; 126.25 MHz ; 126.25 MHz      ; reloj                                             ;      ;
+; 206.23 MHz ; 206.23 MHz      ; inst1|altpll_component|auto_generated|pll1|clk[0] ;      ;
 +------------+-----------------+---------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -190,9 +190,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; UART_RX:inst4|r_RX_Byte[6]                        ; -2.694 ; -2.694        ;
-; reloj                                             ; -1.109 ; -1.109        ;
-; inst1|altpll_component|auto_generated|pll1|clk[0] ; 12.681 ; 0.000         ;
+; UART_RX:inst4|r_RX_Byte[6]                        ; -2.691 ; -2.691        ;
+; reloj                                             ; -1.190 ; -1.190        ;
+; inst1|altpll_component|auto_generated|pll1|clk[0] ; 12.370 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
 
@@ -203,7 +203,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+-------+---------------+
 ; reloj                                             ; 0.324 ; 0.000         ;
 ; inst1|altpll_component|auto_generated|pll1|clk[0] ; 0.686 ; 0.000         ;
-; UART_RX:inst4|r_RX_Byte[6]                        ; 2.402 ; 0.000         ;
+; UART_RX:inst4|r_RX_Byte[6]                        ; 2.397 ; 0.000         ;
 +---------------------------------------------------+-------+---------------+
 
 
@@ -224,7 +224,7 @@ No paths to report.
 +---------------------------------------------------+---------+---------------+
 ; Clock                                             ; Slack   ; End Point TNS ;
 +---------------------------------------------------+---------+---------------+
-; UART_RX:inst4|r_RX_Byte[6]                        ; 0.438   ; 0.000         ;
+; UART_RX:inst4|r_RX_Byte[6]                        ; 0.435   ; 0.000         ;
 ; reloj                                             ; 9.773   ; 0.000         ;
 ; inst1|altpll_component|auto_generated|pll1|clk[0] ; 499.740 ; 0.000         ;
 +---------------------------------------------------+---------+---------------+
@@ -241,9 +241,9 @@ No synchronizer chains to report.
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; UART_RX:inst4|r_RX_Byte[6]                        ; -0.671 ; -0.671        ;
-; reloj                                             ; -0.390 ; -0.390        ;
-; inst1|altpll_component|auto_generated|pll1|clk[0] ; 17.133 ; 0.000         ;
+; UART_RX:inst4|r_RX_Byte[6]                        ; -0.669 ; -0.669        ;
+; reloj                                             ; -0.351 ; -0.351        ;
+; inst1|altpll_component|auto_generated|pll1|clk[0] ; 17.132 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
 
@@ -253,8 +253,8 @@ No synchronizer chains to report.
 ; Clock                                             ; Slack ; End Point TNS ;
 +---------------------------------------------------+-------+---------------+
 ; reloj                                             ; 0.152 ; 0.000         ;
-; inst1|altpll_component|auto_generated|pll1|clk[0] ; 0.153 ; 0.000         ;
-; UART_RX:inst4|r_RX_Byte[6]                        ; 1.116 ; 0.000         ;
+; inst1|altpll_component|auto_generated|pll1|clk[0] ; 0.195 ; 0.000         ;
+; UART_RX:inst4|r_RX_Byte[6]                        ; 1.108 ; 0.000         ;
 +---------------------------------------------------+-------+---------------+
 
 
@@ -275,8 +275,8 @@ No paths to report.
 +---------------------------------------------------+---------+---------------+
 ; Clock                                             ; Slack   ; End Point TNS ;
 +---------------------------------------------------+---------+---------------+
-; UART_RX:inst4|r_RX_Byte[6]                        ; 0.461   ; 0.000         ;
-; reloj                                             ; 9.467   ; 0.000         ;
+; UART_RX:inst4|r_RX_Byte[6]                        ; 0.462   ; 0.000         ;
+; reloj                                             ; 9.466   ; 0.000         ;
 ; inst1|altpll_component|auto_generated|pll1|clk[0] ; 499.782 ; 0.000         ;
 +---------------------------------------------------+---------+---------------+
 
@@ -292,14 +292,14 @@ No synchronizer chains to report.
 +----------------------------------------------------+--------+-------+----------+---------+---------------------+
 ; Clock                                              ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +----------------------------------------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack                                   ; -3.011 ; 0.152 ; N/A      ; N/A     ; 0.421               ;
-;  UART_RX:inst4|r_RX_Byte[6]                        ; -3.011 ; 1.116 ; N/A      ; N/A     ; 0.421               ;
-;  inst1|altpll_component|auto_generated|pll1|clk[0] ; 12.128 ; 0.153 ; N/A      ; N/A     ; 499.730             ;
-;  reloj                                             ; -1.250 ; 0.152 ; N/A      ; N/A     ; 9.467               ;
-; Design-wide TNS                                    ; -4.261 ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
-;  UART_RX:inst4|r_RX_Byte[6]                        ; -3.011 ; 0.000 ; N/A      ; N/A     ; 0.000               ;
+; Worst-case Slack                                   ; -3.009 ; 0.152 ; N/A      ; N/A     ; 0.422               ;
+;  UART_RX:inst4|r_RX_Byte[6]                        ; -3.009 ; 1.108 ; N/A      ; N/A     ; 0.422               ;
+;  inst1|altpll_component|auto_generated|pll1|clk[0] ; 11.800 ; 0.195 ; N/A      ; N/A     ; 499.731             ;
+;  reloj                                             ; -1.301 ; 0.152 ; N/A      ; N/A     ; 9.466               ;
+; Design-wide TNS                                    ; -4.31  ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
+;  UART_RX:inst4|r_RX_Byte[6]                        ; -3.009 ; 0.000 ; N/A      ; N/A     ; 0.000               ;
 ;  inst1|altpll_component|auto_generated|pll1|clk[0] ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
-;  reloj                                             ; -1.250 ; 0.000 ; N/A      ; N/A     ; 0.000               ;
+;  reloj                                             ; -1.301 ; 0.000 ; N/A      ; N/A     ; 0.000               ;
 +----------------------------------------------------+--------+-------+----------+---------+---------------------+
 
 
@@ -411,7 +411,7 @@ No synchronizer chains to report.
 +---------------------------------------------------+---------------------------------------------------+----------+----------+----------+----------+
 ; inst1|altpll_component|auto_generated|pll1|clk[0] ; inst1|altpll_component|auto_generated|pll1|clk[0] ; 225      ; 0        ; 0        ; 0        ;
 ; reloj                                             ; inst1|altpll_component|auto_generated|pll1|clk[0] ; 490      ; 0        ; 0        ; 0        ;
-; reloj                                             ; reloj                                             ; 2419     ; 0        ; 0        ; 0        ;
+; reloj                                             ; reloj                                             ; 2387     ; 0        ; 0        ; 0        ;
 ; UART_RX:inst4|r_RX_Byte[6]                        ; reloj                                             ; 1        ; 1        ; 0        ; 0        ;
 ; reloj                                             ; UART_RX:inst4|r_RX_Byte[6]                        ; 1        ; 0        ; 0        ; 0        ;
 +---------------------------------------------------+---------------------------------------------------+----------+----------+----------+----------+
@@ -425,7 +425,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +---------------------------------------------------+---------------------------------------------------+----------+----------+----------+----------+
 ; inst1|altpll_component|auto_generated|pll1|clk[0] ; inst1|altpll_component|auto_generated|pll1|clk[0] ; 225      ; 0        ; 0        ; 0        ;
 ; reloj                                             ; inst1|altpll_component|auto_generated|pll1|clk[0] ; 490      ; 0        ; 0        ; 0        ;
-; reloj                                             ; reloj                                             ; 2419     ; 0        ; 0        ; 0        ;
+; reloj                                             ; reloj                                             ; 2387     ; 0        ; 0        ; 0        ;
 ; UART_RX:inst4|r_RX_Byte[6]                        ; reloj                                             ; 1        ; 1        ; 0        ; 0        ;
 ; reloj                                             ; UART_RX:inst4|r_RX_Byte[6]                        ; 1        ; 0        ; 0        ; 0        ;
 +---------------------------------------------------+---------------------------------------------------+----------+----------+----------+----------+
@@ -533,7 +533,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Mon May 08 19:28:18 2023
+    Info: Processing started: Wed May 17 16:05:48 2023
 Info: Command: quartus_sta FPGARoverProgram -c FPGARoverProgram
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -555,80 +555,80 @@ Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.011
+Info (332146): Worst-case setup slack is -3.009
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.011              -3.011 UART_RX:inst4|r_RX_Byte[6] 
-    Info (332119):    -1.250              -1.250 reloj 
-    Info (332119):    12.128               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):    -3.009              -3.009 UART_RX:inst4|r_RX_Byte[6] 
+    Info (332119):    -1.301              -1.301 reloj 
+    Info (332119):    11.800               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
 Info (332146): Worst-case hold slack is 0.362
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.362               0.000 reloj 
     Info (332119):     0.727               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
-    Info (332119):     2.621               0.000 UART_RX:inst4|r_RX_Byte[6] 
+    Info (332119):     2.615               0.000 UART_RX:inst4|r_RX_Byte[6] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 0.421
+Info (332146): Worst-case minimum pulse width slack is 0.422
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.421               0.000 UART_RX:inst4|r_RX_Byte[6] 
+    Info (332119):     0.422               0.000 UART_RX:inst4|r_RX_Byte[6] 
     Info (332119):     9.774               0.000 reloj 
-    Info (332119):   499.730               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):   499.731               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M08SAU169C8GES are preliminary
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -2.694
+Info (332146): Worst-case setup slack is -2.691
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.694              -2.694 UART_RX:inst4|r_RX_Byte[6] 
-    Info (332119):    -1.109              -1.109 reloj 
-    Info (332119):    12.681               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):    -2.691              -2.691 UART_RX:inst4|r_RX_Byte[6] 
+    Info (332119):    -1.190              -1.190 reloj 
+    Info (332119):    12.370               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
 Info (332146): Worst-case hold slack is 0.324
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.324               0.000 reloj 
     Info (332119):     0.686               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
-    Info (332119):     2.402               0.000 UART_RX:inst4|r_RX_Byte[6] 
+    Info (332119):     2.397               0.000 UART_RX:inst4|r_RX_Byte[6] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 0.438
+Info (332146): Worst-case minimum pulse width slack is 0.435
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.438               0.000 UART_RX:inst4|r_RX_Byte[6] 
+    Info (332119):     0.435               0.000 UART_RX:inst4|r_RX_Byte[6] 
     Info (332119):     9.773               0.000 reloj 
     Info (332119):   499.740               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.671
+Info (332146): Worst-case setup slack is -0.669
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.671              -0.671 UART_RX:inst4|r_RX_Byte[6] 
-    Info (332119):    -0.390              -0.390 reloj 
-    Info (332119):    17.133               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):    -0.669              -0.669 UART_RX:inst4|r_RX_Byte[6] 
+    Info (332119):    -0.351              -0.351 reloj 
+    Info (332119):    17.132               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
 Info (332146): Worst-case hold slack is 0.152
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.152               0.000 reloj 
-    Info (332119):     0.153               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
-    Info (332119):     1.116               0.000 UART_RX:inst4|r_RX_Byte[6] 
+    Info (332119):     0.195               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):     1.108               0.000 UART_RX:inst4|r_RX_Byte[6] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 0.461
+Info (332146): Worst-case minimum pulse width slack is 0.462
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.461               0.000 UART_RX:inst4|r_RX_Byte[6] 
-    Info (332119):     9.467               0.000 reloj 
+    Info (332119):     0.462               0.000 UART_RX:inst4|r_RX_Byte[6] 
+    Info (332119):     9.466               0.000 reloj 
     Info (332119):   499.782               0.000 inst1|altpll_component|auto_generated|pll1|clk[0] 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4797 megabytes
-    Info: Processing ended: Mon May 08 19:28:20 2023
+    Info: Peak virtual memory: 4800 megabytes
+    Info: Processing ended: Wed May 17 16:05:50 2023
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
