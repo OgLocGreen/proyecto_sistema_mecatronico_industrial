@@ -75,7 +75,7 @@ void Socket::onDataReceived()
 {
     QByteArray recv = socket->readAll();
     QString recvmsg = recv;
-    //qDebug() << "Data: " << recvmsg;
+    qDebug() << "Data: " << recvmsg;
 
     if(recvmsg.contains("log", Qt::CaseInsensitive))
     {

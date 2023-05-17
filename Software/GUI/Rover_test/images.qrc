@@ -16,6 +16,9 @@
         <file>Battery_full.svg</file>
         <file>light_off.svg</file>
         <file>light_on.svg</file>
+        <file>headlight.png</file>
+        <file>speaker.svg</file>
+        <file>headlight2.png</file>
     </qresource>
     <qresource prefix="/StyleSheet"/>
 </RCC>

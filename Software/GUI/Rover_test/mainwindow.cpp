@@ -12,10 +12,10 @@
 //#include <QMouseEvent>
 
 #define LOG_COMM_EVENTS     1
-//#define SERVER_ADDRESS_ESP_FRONT        "192.168.100.201"
-//#define SERVER_ADDRESS_ESP_TOP          "192.168.100.202"
-//#define SERVER_PORT_HTML    80
-#define SERVER_PORT_STREAM  81
+//#define SERVER_ADDRESS_ESP_FRONT        "192.168.100.106"
+//#define SERVER_ADDRESS_ESP_TOP          "192.168.100.104"
+#define SERVER_PORT_HTML    80
+#define SERVER_PORT_STREAM  80
 
 //#define CAM_RESOLUTION_QVGA_320x240     5
 //#define CAM_RESOLUTION_VGA_640x480     8
@@ -31,10 +31,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     BBBaddress = "192.168.100.23";
     BBBport = 5000;
-    ESPfrontAddress = "192.168.100.201";
-    ESPfrontPort = 81;
-    ESPtopAddress= "192.168.100.202";
-    ESPtopPort = 81;
+    ESPfrontAddress = "192.168.100.106";
+    ESPfrontPort = 80;
+    ESPtopAddress= "192.168.100.104";
+    ESPtopPort = 80;
 
     controllerTime = 10;
     sensorTime = 10;
@@ -271,10 +271,10 @@ void MainWindow::on_qCam1_RadioButton_toggled(bool checked)
     if (checked==true)
     {
 
-        if (ESPtopConnectedBool==true)
-        {
-            cli_stream.disconnectFromHost();
-        }
+//        if (ESPtopConnectedBool==true)
+//        {
+//            cli_stream.disconnectFromHost();
+//        }
 
         //TryConnectionWithESPServer(SERVER_ADDRESS_ESP_FRONT);
         TryConnectionWithESPServer(ESPfrontAddress.toLocal8Bit().data());
@@ -287,10 +287,10 @@ void MainWindow::on_qCam2_radioButton_toggled(bool checked)
     if (checked==true)
     {
 
-        if (ESPfrontConnectedBool==true)
-        {
-            cli_stream.disconnectFromHost();
-        }
+//        if (ESPfrontConnectedBool==true)
+//        {
+//            cli_stream.disconnectFromHost();
+//        }
 
         TryConnectionWithESPServer(ESPtopAddress.toLocal8Bit().data());
     }
@@ -464,8 +464,25 @@ void MainWindow::TryConnectionWithESPServer(char* SERVER_ADDRESS)
 {
     char txt_snd[1024];
 
+    cli_html.connectToHost(QHostAddress(SERVER_ADDRESS),SERVER_PORT_HTML);
+    if (cli_html.waitForConnected())
+    {
+        sprintf(txt_snd,"GET %s HTTP/1.1\r\n","/");
+        sprintf(txt_snd+strlen(txt_snd),"Host: %s:%d\r\n",SERVER_ADDRESS,SERVER_PORT_HTML);
+        strcat(txt_snd,"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\n");
+        strcat(txt_snd,"Cache-Control: max-age=0\r\n");
+        strcat(txt_snd,"Connection: keep-alive\r\n");
+        strcat(txt_snd,"Upgrade-Insecure-Requests: 1\r\n");
+        int n=cli_html.write(txt_snd,strlen(txt_snd));
+#ifdef LOG_COMM_EVENTS
+        printf("Connection port 80 success, sent %d bytes\n",n); fflush(stdout);
+#endif
+
+        //SetCameraResolution(CAM_RESOLUTION_QVGA_320x240);
+    }
+
     cli_stream.connectToHost(QHostAddress(SERVER_ADDRESS),SERVER_PORT_STREAM);
-    if (cli_stream.waitForConnected(2000))
+    if (cli_stream.waitForConnected(5000))
     {
         if (SERVER_ADDRESS == ESPfrontAddress)
         {
@@ -595,7 +612,7 @@ void MainWindow::OnESPDisconnected()
         ui->qVideo_label->setStyleSheet(("QLabel {color : red; }"));
 
 #ifdef LOG_COMM_EVENTS
-            qDebug("Disconnected. Retry\n"); fflush(stdout);
+            qDebug("Disconnected. Retry\n"); //fflush(stdout);
 #endif
     //TryConnectionWithESPServer(SERVER_ADDRESS);
 }
@@ -693,6 +710,7 @@ void MainWindow::on_qConnect_pushButton_2_clicked()
 void MainWindow::on_qDisconnect_pushButton_clicked()
 {
     //socketBBB.OnDisconnected();
+
     cli_stream.disconnectFromHost();
 }
 
