@@ -12,7 +12,6 @@ CONFIG -= app_bundle
 SOURCES += \
         BeagleBone.cpp \
         Connection.cpp \
-        ControlAndMeasure.cpp \
         Data.cpp \
         Fpga.cpp \
         Log.cpp \
@@ -40,7 +39,6 @@ DISTFILES += \
 HEADERS += \
     BeagleBone.h \
     Connection.h \
-    ControlAndMeasure.h \
     Data.h \
     Fpga.h \
     Log.h \

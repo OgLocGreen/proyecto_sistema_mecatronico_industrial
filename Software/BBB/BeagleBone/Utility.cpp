@@ -6,6 +6,7 @@ Utility::Utility()
 
 }
 
+// methode makes first and last xml tag
 QString Utility::XmlCreateTag(const QString &text, bool is_start_tag)
 {
     QString ret;
@@ -21,6 +22,7 @@ QString Utility::XmlCreateTag(const QString &text, bool is_start_tag)
     return ret;
 }
 
+// method returnsthe data from a xml text
 QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml)
 {
     QString ret;
@@ -37,6 +39,7 @@ QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml)
     return ret;
 }
 
+// method returnsthe data from a xml text but depth 2
 QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml1, const QString &tagXml2)
 {
     QString ret;
@@ -59,41 +62,14 @@ QString Utility::GetXmlStr(const QString &textXml, const QString &tagXml1, const
     return ret;
 }
 
-
-float Utility::GetXmlFloat(const QString& textXml,const QString& tag)
-{
-    return textXml.mid(GetStart(textXml, tag), GetLen(textXml, tag)).toFloat();
-}
-
-int Utility::GetXmlInt(const QString& textXml,const QString& tag)
-{
-    return textXml.mid(GetStart(textXml, tag), GetLen(textXml, tag)).toInt();
-}
-
-QVector<float> Utility::GetXmlVector(const QString& xml,const QString& tag)
-{
-    QVector<float> ret;
-    QString constens = GetXmlStr(xml, tag).trimmed();
-
-    if (constens.startsWith("[") && constens.endsWith("]"))
-    {
-            constens = constens.mid(1,constens.length()-2);
-            QStringList values = constens.split(",");
-            ret.resize(values.length());
-            for(int i= 0; i<values.length(); i++)
-            {
-                ret[i]=values[i].toFloat();
-            }
-    }
-    return ret;
-}
-
+// methode returns the xml tag
 QString Utility::GetXmlTag(const QString &text)
 {
     int end_tag = text.indexOf(">");
     return text.mid(2,end_tag);
 }
 
+// methode returns the start position
 int Utility::GetStart(const QString &textXml, const QString &tagXml)
 {
     int istart;
@@ -103,6 +79,7 @@ int Utility::GetStart(const QString &textXml, const QString &tagXml)
     return istart;
 }
 
+// methode returns the len of a xml text
 int Utility::GetLen(const QString &textXml, const QString &tagXml)
 {
     int istart, iend;
