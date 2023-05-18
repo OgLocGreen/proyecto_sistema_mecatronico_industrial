@@ -23,7 +23,7 @@ entity UART_RX is
     i_Clk       : in  std_logic;
     i_RX_Serial : in  std_logic;
     o_RX_DV     : out std_logic;
-    o_RX_Byte   : out std_logic_vector(7 downto 0)
+    o_RX_Byte   : out std_logic_vector(7 downto 0) := "11100111"
     );
 end UART_RX;
 

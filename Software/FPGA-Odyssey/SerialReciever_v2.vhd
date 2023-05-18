@@ -14,8 +14,8 @@ entity SerialReciever_v2 is
 
 	port
 	(
-		dato : in	std_logic_vector(7 downto 0);
-		dir	 : out	std_logic := '0';
+		dato : in	std_logic_vector(7 downto 0) := "11100111";
+		dir	 : out	std_logic := '1';
 		paro : out std_logic := '1';
 		selector_ang : out natural range 0 to 31
 	);

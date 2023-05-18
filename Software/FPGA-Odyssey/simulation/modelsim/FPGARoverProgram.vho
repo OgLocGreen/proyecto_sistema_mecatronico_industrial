@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition"
 
--- DATE "05/17/2023 16:05:52"
+-- DATE "05/18/2023 16:28:45"
 
 -- 
 -- Device: Altera 10M08SAU169C8GES Package UFBGA169

@@ -1,5 +1,5 @@
 Fitter report for FPGARoverProgram
-Wed May 17 16:05:43 2023
+Thu May 18 16:28:36 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -70,7 +70,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Wed May 17 16:05:42 2023       ;
+; Fitter Status                      ; Successful - Thu May 18 16:28:36 2023       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; FPGARoverProgram                            ;
 ; Top-level Entity Name              ; GeneralControlScheme_v2                     ;
@@ -162,8 +162,8 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.5%      ;
-;     Processors 3-6         ;   1.5%      ;
+;     Processor 2            ;   1.7%      ;
+;     Processors 3-6         ;   1.7%      ;
 +----------------------------+-------------+
 
 
@@ -1105,7 +1105,7 @@ Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
 Warning (15055): PLL "PLL_servo:inst1|altpll:altpll_component|PLL_servo_altpll:auto_generated|pll1" input clock inclk[0] is not fully compensated and may have reduced jitter performance because it is fed by a non-dedicated input File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/db/pll_servo_altpll.v Line: 44
     Info (15024): Input port INCLK[0] of node "PLL_servo:inst1|altpll:altpll_component|PLL_servo_altpll:auto_generated|pll1" is driven by reloj~inputclkctrl which is OUTCLK output port of Clock control block type node reloj~inputclkctrl File: C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/db/pll_servo_altpll.v Line: 44
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1118,7 +1118,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.25 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.24 seconds.
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M08SAU169C8GES are preliminary
 Info (334004): Delay annotation completed successfully
@@ -1128,8 +1128,8 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file C:/MIM/2022_2023/proyecto_sistema_mecatronico_industrial/Software/FPGA-Odyssey/output_files/FPGARoverProgram.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 5678 megabytes
-    Info: Processing ended: Wed May 17 16:05:43 2023
+    Info: Peak virtual memory: 5680 megabytes
+    Info: Processing ended: Thu May 18 16:28:36 2023
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:07
 

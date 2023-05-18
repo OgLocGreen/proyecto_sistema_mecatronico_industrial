@@ -1,0 +1,17 @@
+release/Utility.o
+release/cam.o
+release/camwindow.o
+release/main.o
+release/mainwindow.o
+release/options.o
+release/socket.o
+release/timerdialog.o
+release/trajwidget.o
+release/qrc_StyleSheet.o
+release/qrc_images.o
+release/moc_camwindow.o
+release/moc_mainwindow.o
+release/moc_options.o
+release/moc_socket.o
+release/moc_timerdialog.o
+release/moc_trajwidget.o

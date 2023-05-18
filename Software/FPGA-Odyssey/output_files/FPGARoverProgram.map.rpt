@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGARoverProgram
-Wed May 17 16:05:37 2023
+Thu May 18 16:28:30 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -53,7 +53,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May 17 16:05:37 2023       ;
+; Analysis & Synthesis Status        ; Successful - Thu May 18 16:28:30 2023       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; FPGARoverProgram                            ;
 ; Top-level Entity Name              ; GeneralControlScheme_v2                     ;
@@ -842,7 +842,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Wed May 17 16:05:23 2023
+    Info: Processing started: Thu May 18 16:28:19 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGARoverProgram -c FPGARoverProgram
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -974,9 +974,9 @@ Info (21057): Implemented 184 device resources after synthesis - the final resou
     Info (21061): Implemented 169 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4818 megabytes
-    Info: Processing ended: Wed May 17 16:05:37 2023
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:32
+    Info: Peak virtual memory: 4815 megabytes
+    Info: Processing ended: Thu May 18 16:28:30 2023
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:22
 
 
