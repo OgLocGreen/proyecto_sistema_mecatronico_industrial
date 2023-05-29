@@ -1,5 +1,5 @@
 PowerPlay Power Analyzer report for FPGARoverProgram
-Thu May 18 16:28:40 2023
+Mon May 22 17:20:09 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -53,19 +53,19 @@ agreement for further details.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.14        ;
+; Average used               ; 1.10        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   2.7%      ;
+;     Processors 2-6         ;   2.1%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; PowerPlay Power Analyzer Summary                                                          ;
 +----------------------------------------+--------------------------------------------------+
-; PowerPlay Power Analyzer Status        ; Successful - Thu May 18 16:28:40 2023            ;
+; PowerPlay Power Analyzer Status        ; Successful - Mon May 22 17:20:09 2023            ;
 ; Quartus Prime Version                  ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition      ;
 ; Revision Name                          ; FPGARoverProgram                                 ;
 ; Top-level Entity Name                  ; GeneralControlScheme_v2                          ;
@@ -112,6 +112,7 @@ agreement for further details.
 ; Node                                                                                             ; Reason                      ;
 +--------------------------------------------------------------------------------------------------+-----------------------------+
 ; PLL_servo:inst1|altpll:altpll_component|PLL_servo_altpll:auto_generated|wire_pll1_clk[0]         ; No valid clock domain found ;
+; reseteo                                                                                          ; No valid clock domain found ;
 ; reloj                                                                                            ; No valid clock domain found ;
 ; pin_serial                                                                                       ; No valid clock domain found ;
 ; PLL_servo:inst1|altpll:altpll_component|PLL_servo_altpll:auto_generated|wire_pll1_clk[0]~clkctrl ; No valid clock domain found ;
@@ -252,16 +253,16 @@ agreement for further details.
 ;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 2 (0.6%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 2 (0.8%)      ;
 ;                                                                                        ;             ;            ;             ;               ;
 ; Vectorless estimation                                                                  ;             ;            ;             ;               ;
-;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 348 (97.2%) ; 13 (59.1%) ; 78 (100.0%) ; 257 (99.6%)   ;
-;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 8 (2.2%)    ; 1 (4.5%)   ; 0 (0.0%)    ; 7 (2.7%)      ;
-;     -- Number of signals with Static Probability from Vectorless estimation            ; 346 (96.6%) ; 13 (59.1%) ; 78 (100.0%) ; 255 (98.8%)   ;
+;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 352 (97.0%) ; 13 (56.5%) ; 78 (100.0%) ; 261 (99.6%)   ;
+;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 9 (2.5%)    ; 1 (4.3%)   ; 0 (0.0%)    ; 8 (3.1%)      ;
+;     -- Number of signals with Static Probability from Vectorless estimation            ; 350 (96.4%) ; 13 (56.5%) ; 78 (100.0%) ; 259 (98.9%)   ;
 ;                                                                                        ;             ;            ;             ;               ;
 ; Default assignment                                                                     ;             ;            ;             ;               ;
 ;     -- Number of signals with Toggle Rate from Default assignment                      ; 0 (0.0%)    ; 0 (0.0%)   ; 0 (0.0%)    ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Default assignment               ; 10 (2.8%)   ; 9 (40.9%)  ; 0 (0.0%)    ; 1 (0.4%)      ;
+;     -- Number of signals with Static Probability from Default assignment               ; 11 (3.0%)   ; 10 (43.5%) ; 0 (0.0%)    ; 1 (0.4%)      ;
 ;                                                                                        ;             ;            ;             ;               ;
 ; Assumed 0                                                                              ;             ;            ;             ;               ;
-;     -- Number of signals with Toggle Rate assumed 0                                    ; 10 (2.8%)   ; 9 (40.9%)  ; 0 (0.0%)    ; 1 (0.4%)      ;
+;     -- Number of signals with Toggle Rate assumed 0                                    ; 11 (3.0%)   ; 10 (43.5%) ; 0 (0.0%)    ; 1 (0.4%)      ;
 +----------------------------------------------------------------------------------------+-------------+------------+-------------+---------------+
 
 
@@ -279,7 +280,7 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime PowerPlay Power Analyzer
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Thu May 18 16:28:39 2023
+    Info: Processing started: Mon May 22 17:20:08 2023
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off FPGARoverProgram -c FPGARoverProgram
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
@@ -303,9 +304,9 @@ Info (334004): Delay annotation completed successfully
 Info (215049): Average toggle rate for this design is 0.000 millions of transitions / sec
 Info (215031): Total thermal power estimate for the design is 125.47 mW
 Info: Quartus Prime PowerPlay Power Analyzer was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 4838 megabytes
-    Info: Processing ended: Thu May 18 16:28:40 2023
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4839 megabytes
+    Info: Processing ended: Mon May 22 17:20:10 2023
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 

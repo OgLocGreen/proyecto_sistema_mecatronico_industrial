@@ -52,6 +52,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "reseteo",
+					"strict" : false
+				},
+				{
 					"name" : "reloj",
 					"strict" : false
 				},

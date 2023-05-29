@@ -4,12 +4,12 @@
 #define MAX_SPEED 600
 #define BAUDRATE 115200
 
-/* sending cmd manually constructed */
-void MotorDriver::SendCmd2Driver(QString _snd_manual)
+void MotorDriver::SendCmd2Driver(QString _snd_manual) /* sending cmd manually constructed */
 {
     snd.clear(); answ.clear();
     snd = _snd_manual;
 
+    /* If serial port is open, sends the command, else emits an error */
     if(!serial.open(QSerialPort::ReadWrite)){
         qDebug() << QString("No conectado al puerto serie");
         return;

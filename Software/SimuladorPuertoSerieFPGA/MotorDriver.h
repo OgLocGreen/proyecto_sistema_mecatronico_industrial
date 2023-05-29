@@ -21,7 +21,8 @@ private:
     void OnDriverReadyRead(); /* reads driver response and checks if we get adecuate response */
 
     /* Unit Conversion */
-    QString PercentToHzSpeed(QString _speed_prcnt);
+    QString PercentToHzSpeed(QString _speed_prcnt); /* Takes a percentage from the max. value of the speed
+                                                        and transforms it to a value in Hz */
 
     /* Movement methods */
     void StopMotor(QString _motorselect); /* stop selected motor */

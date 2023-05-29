@@ -4,6 +4,7 @@ reloj => ControlPAP:inst.clk
 reloj => UART_RX:inst4.i_Clk
 reloj => PLL_servo:inst1.inclk0
 pin_serial => UART_RX:inst4.i_RX_Serial
+reseteo => ControlPAP:inst.reset
 dir <= ControlPAP:inst.dir
 enable <= ControlPAP:inst.en
 pwm_servo <= PWM:inst2.pwm
@@ -51,11 +52,13 @@ clk => cnt[27].CLK
 clk => cnt[28].CLK
 clk => cnt[29].CLK
 clk => cnt[30].CLK
-direccion => dir.DATAIN
-enable => en.DATAIN
+direccion => dir.DATAA
+enable => en.DATAA
+reset => en.OUTPUTSELECT
+reset => dir.OUTPUTSELECT
 step <= step~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dir <= direccion.DB_MAX_OUTPUT_PORT_TYPE
-en <= enable.DB_MAX_OUTPUT_PORT_TYPE
+dir <= dir.DB_MAX_OUTPUT_PORT_TYPE
+en <= en.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |GeneralControlScheme_v2|SerialReciever_v2:inst9

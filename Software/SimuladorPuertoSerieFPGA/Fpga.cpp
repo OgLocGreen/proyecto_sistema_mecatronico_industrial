@@ -5,7 +5,7 @@
 #include <QVariant>
 
 #define BAUDRATE 9600
-#define COMPORT "COM3"
+#define COMPORT "COM3" // /dev/ttyUSB1
 
 void Fpga::SendDataRS232()
 {

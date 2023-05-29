@@ -36,7 +36,7 @@ architecture RTL of UART_RX is
 
   signal r_Clk_Count : integer range 0 to g_CLKS_PER_BIT-1 := 0;
   signal r_Bit_Index : integer range 0 to 7 := 0;  -- 8 Bits Total
-  signal r_RX_Byte   : std_logic_vector(7 downto 0) := (others => '0');
+  signal r_RX_Byte   : std_logic_vector(7 downto 0) := "11100111";
   signal r_RX_DV     : std_logic := '0';
   
 begin

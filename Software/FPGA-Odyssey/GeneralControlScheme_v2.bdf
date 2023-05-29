@@ -53,6 +53,22 @@ agreement for further details.
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
 )
 (pin
+	(input)
+	(rect 792 208 960 224)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "reseteo" (rect 5 0 42 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
 	(output)
 	(rect 1296 256 1472 272)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
@@ -357,6 +373,13 @@ agreement for further details.
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
+		(pt 0 80)
+		(input)
+		(text "reset" (rect 0 0 24 12)(font "Arial" ))
+		(text "reset" (rect 21 75 45 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
 		(pt 152 32)
 		(output)
 		(text "step" (rect 0 0 21 12)(font "Arial" ))
@@ -394,22 +417,6 @@ agreement for further details.
 (connector
 	(pt 184 256)
 	(pt 184 384)
-)
-(connector
-	(pt 1224 280)
-	(pt 1288 280)
-)
-(connector
-	(pt 1224 296)
-	(pt 1248 296)
-)
-(connector
-	(pt 1248 312)
-	(pt 1296 312)
-)
-(connector
-	(pt 1288 288)
-	(pt 1296 288)
 )
 (connector
 	(pt 1040 536)
@@ -450,14 +457,6 @@ agreement for further details.
 (connector
 	(pt 1464 552)
 	(pt 1392 552)
-)
-(connector
-	(pt 1248 296)
-	(pt 1248 312)
-)
-(connector
-	(pt 1288 280)
-	(pt 1288 288)
 )
 (connector
 	(pt 1224 264)
@@ -545,6 +544,42 @@ agreement for further details.
 (connector
 	(pt 176 400)
 	(pt 216 400)
+)
+(connector
+	(pt 1224 296)
+	(pt 1240 296)
+)
+(connector
+	(pt 1296 312)
+	(pt 1240 312)
+)
+(connector
+	(pt 1240 296)
+	(pt 1240 312)
+)
+(connector
+	(pt 1224 280)
+	(pt 1248 280)
+)
+(connector
+	(pt 1296 288)
+	(pt 1248 288)
+)
+(connector
+	(pt 1248 280)
+	(pt 1248 288)
+)
+(connector
+	(pt 1072 312)
+	(pt 984 312)
+)
+(connector
+	(pt 984 312)
+	(pt 984 216)
+)
+(connector
+	(pt 984 216)
+	(pt 960 216)
 )
 (junction (pt 184 256))
 (junction (pt 1040 264))

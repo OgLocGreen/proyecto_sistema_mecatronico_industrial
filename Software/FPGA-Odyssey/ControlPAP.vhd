@@ -17,6 +17,8 @@ entity ControlPAP is
 		clk	: in std_logic;
 		direccion : in std_logic;
 		enable : in std_logic;
+		reset : in std_logic;
+		
 		step		  : out std_logic := '1';
 		dir : out std_logic := '1';
 		en : out std_logic := '1'
@@ -43,10 +45,20 @@ begin
 			step <= bffer_clk; -- SALIDA STEP
 		end if;
 	end process;
-
-	-- SALIDA ENABLE
-	en <= enable;
-	-- SALIDA DIR
-	dir <= direccion;
+	
+	reseteo: process(reset)
+	begin
+		if reset = '0' then
+			-- SALIDA ENABLE
+			en <= '1';
+			-- SALIDA DIR
+			dir <= '1';
+		else
+			-- SALIDA ENABLE
+			en <= enable;
+			-- SALIDA DIR
+			dir <= direccion;
+		end if;
+	end process;
 
 end comportamiento;
