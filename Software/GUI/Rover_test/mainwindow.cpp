@@ -382,7 +382,7 @@ void MainWindow::on_qElevUp_pushButton_2_pressed()
 {
     timerElev.start(100);
 
-    socketBBB.sendmsg("<fpga><direction_elev>1</direction_elev><enable_elev>1</enable_elev></fpga>");
+    socketBBB.sendmsg("<fpga><direction_elev>1</direction_elev><enable_elev>0</enable_elev></fpga>");
 }
 
 
@@ -390,7 +390,7 @@ void MainWindow::on_qElevUp_pushButton_2_released()
 {
     timerElev.stop();
 
-    socketBBB.sendmsg("<fpga><enable_elev>0</enable_elev></fpga>");
+    socketBBB.sendmsg("<fpga><enable_elev>1</enable_elev></fpga>");
 }
 
 
@@ -398,7 +398,7 @@ void MainWindow::on_qElevDown_pushButton_2_pressed()
 {
     timerElevBack.start(100);
 
-    socketBBB.sendmsg("<fpga><direction_elev>0</direction_elev><enable_elev>1</enable_elev></fpga>");
+    socketBBB.sendmsg("<fpga><direction_elev>0</direction_elev><enable_elev>0</enable_elev></fpga>");
 }
 
 
@@ -406,7 +406,7 @@ void MainWindow::on_qElevDown_pushButton_2_released()
 {
     timerElevBack.stop();
 
-    socketBBB.sendmsg("<fpga><enable_elev>0</enable_elev></fpga>");
+    socketBBB.sendmsg("<fpga><enable_elev>1</enable_elev></fpga>");
 }
 
 
