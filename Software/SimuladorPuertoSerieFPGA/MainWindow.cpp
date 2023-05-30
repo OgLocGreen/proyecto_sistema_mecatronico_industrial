@@ -20,8 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     emit SendDataToFPGA(dir_scissor,enable_scissor,enable_servo,dir_servo,cam_value,enable_fast);
 
-    QString right_percent_speed = QString::number(ui->qRighthmotor->value());
-    QString left_percent_speed = QString::number(ui->qLeftMotor->value());
+    QString right_percent_speed = QString::number(0);
+    QString left_percent_speed = QString::number(0);
 
     emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
 }
@@ -64,9 +64,9 @@ void MainWindow::OnTimerSend(){
 
 void MainWindow::OnTimerMDSend()
 {
-    QString right_percent_speed = QString::number(ui->qRighthmotor->value());
-    QString left_percent_speed = QString::number(ui->qLeftMotor->value());
-    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+//    QString right_percent_speed = QString::number(ui->qRighthmotor->value());
+//    QString left_percent_speed = QString::number(ui->qLeftMotor->value());
+//    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
 }
 
 
@@ -81,9 +81,9 @@ void MainWindow::on_qStartSendMD_pushButton_clicked()
 //    else{
 //        timerSendMD.start(1000);
 //    }
-    QString right_percent_speed = QString::number(ui->qRighthmotor->value());
-    QString left_percent_speed = QString::number(ui->qLeftMotor->value());
-    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+//    QString right_percent_speed = QString::number(ui->qRighthmotor->value());
+//    QString left_percent_speed = QString::number(ui->qLeftMotor->value());
+//    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
 }
 
 
@@ -92,5 +92,75 @@ void MainWindow::on_qParaMD_pushButton_clicked()
     QString right_percent_speed = QString::number(0);
     QString left_percent_speed = QString::number(0);
     emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+}
+
+
+void MainWindow::on_qIzda_pushButton_pressed()
+{
+    QString right_percent_speed = (ui->qPercSpeed_spinBox->text());
+    QString left_percent_speed ="-"+(ui->qPercSpeed_spinBox->text());
+    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+}
+
+
+void MainWindow::on_qDcha_pushButton_2_pressed()
+{
+    QString right_percent_speed ="-"+(ui->qPercSpeed_spinBox->text());
+    QString left_percent_speed =(ui->qPercSpeed_spinBox->text());
+    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+}
+
+
+void MainWindow::on_qAvantiVConst_pushButton_3_pressed()
+{
+    QString right_percent_speed =(ui->qPercSpeed_spinBox->text());
+    QString left_percent_speed =(ui->qPercSpeed_spinBox->text());
+    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+}
+
+
+void MainWindow::on_qAtras_pushButton_4_pressed()
+{
+    QString right_percent_speed ="-"+(ui->qPercSpeed_spinBox->text());
+    QString left_percent_speed ="-"+(ui->qPercSpeed_spinBox->text());
+    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+}
+
+
+void MainWindow::on_qIzda_pushButton_released()
+{
+    QString right_percent_speed = QString::number(0);
+    QString left_percent_speed = QString::number(0);
+    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+}
+
+
+void MainWindow::on_qDcha_pushButton_2_released()
+{
+    QString right_percent_speed = QString::number(0);
+    QString left_percent_speed = QString::number(0);
+    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+}
+
+
+void MainWindow::on_qAvantiVConst_pushButton_3_released()
+{
+    QString right_percent_speed = QString::number(0);
+    QString left_percent_speed = QString::number(0);
+    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+}
+
+
+void MainWindow::on_qAtras_pushButton_4_released()
+{
+    QString right_percent_speed = QString::number(0);
+    QString left_percent_speed = QString::number(0);
+    emit SendDataToMotorDriver(right_percent_speed,left_percent_speed);
+}
+
+
+void MainWindow::on_qIzda_pushButton_clicked(bool checked)
+{
+    //Do nothing
 }
 

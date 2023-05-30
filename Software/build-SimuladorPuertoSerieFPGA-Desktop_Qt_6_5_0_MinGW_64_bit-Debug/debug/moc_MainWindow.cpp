@@ -54,11 +54,21 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "OnTimerSend",
     "OnTimerMDSend",
     "on_qStartSendMD_pushButton_clicked",
-    "on_qParaMD_pushButton_clicked"
+    "on_qParaMD_pushButton_clicked",
+    "on_qIzda_pushButton_clicked",
+    "checked",
+    "on_qIzda_pushButton_pressed",
+    "on_qDcha_pushButton_2_pressed",
+    "on_qAvantiVConst_pushButton_3_pressed",
+    "on_qAtras_pushButton_4_pressed",
+    "on_qIzda_pushButton_released",
+    "on_qDcha_pushButton_2_released",
+    "on_qAvantiVConst_pushButton_3_released",
+    "on_qAtras_pushButton_4_released"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[34];
+    uint offsetsAndSizes[54];
     char stringdata0[11];
     char stringdata1[15];
     char stringdata2[1];
@@ -76,6 +86,16 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata14[14];
     char stringdata15[35];
     char stringdata16[30];
+    char stringdata17[28];
+    char stringdata18[8];
+    char stringdata19[28];
+    char stringdata20[30];
+    char stringdata21[38];
+    char stringdata22[31];
+    char stringdata23[29];
+    char stringdata24[31];
+    char stringdata25[39];
+    char stringdata26[32];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -97,7 +117,17 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(200, 11),  // "OnTimerSend"
         QT_MOC_LITERAL(212, 13),  // "OnTimerMDSend"
         QT_MOC_LITERAL(226, 34),  // "on_qStartSendMD_pushButton_cl..."
-        QT_MOC_LITERAL(261, 29)   // "on_qParaMD_pushButton_clicked"
+        QT_MOC_LITERAL(261, 29),  // "on_qParaMD_pushButton_clicked"
+        QT_MOC_LITERAL(291, 27),  // "on_qIzda_pushButton_clicked"
+        QT_MOC_LITERAL(319, 7),  // "checked"
+        QT_MOC_LITERAL(327, 27),  // "on_qIzda_pushButton_pressed"
+        QT_MOC_LITERAL(355, 29),  // "on_qDcha_pushButton_2_pressed"
+        QT_MOC_LITERAL(385, 37),  // "on_qAvantiVConst_pushButton_3..."
+        QT_MOC_LITERAL(423, 30),  // "on_qAtras_pushButton_4_pressed"
+        QT_MOC_LITERAL(454, 28),  // "on_qIzda_pushButton_released"
+        QT_MOC_LITERAL(483, 30),  // "on_qDcha_pushButton_2_released"
+        QT_MOC_LITERAL(514, 38),  // "on_qAvantiVConst_pushButton_3..."
+        QT_MOC_LITERAL(553, 31)   // "on_qAtras_pushButton_4_released"
     },
     "MainWindow",
     "SendDataToFPGA",
@@ -115,7 +145,17 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "OnTimerSend",
     "OnTimerMDSend",
     "on_qStartSendMD_pushButton_clicked",
-    "on_qParaMD_pushButton_clicked"
+    "on_qParaMD_pushButton_clicked",
+    "on_qIzda_pushButton_clicked",
+    "checked",
+    "on_qIzda_pushButton_pressed",
+    "on_qDcha_pushButton_2_pressed",
+    "on_qAvantiVConst_pushButton_3_pressed",
+    "on_qAtras_pushButton_4_pressed",
+    "on_qIzda_pushButton_released",
+    "on_qDcha_pushButton_2_released",
+    "on_qAvantiVConst_pushButton_3_released",
+    "on_qAtras_pushButton_4_released"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -127,7 +167,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -135,21 +175,39 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    6,   56,    2, 0x06,    1 /* Public */,
-       9,    2,   69,    2, 0x06,    8 /* Public */,
+       1,    6,  110,    2, 0x06,    1 /* Public */,
+       9,    2,  123,    2, 0x06,    8 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      12,    0,   74,    2, 0x08,   11 /* Private */,
-      13,    0,   75,    2, 0x08,   12 /* Private */,
-      14,    0,   76,    2, 0x08,   13 /* Private */,
-      15,    0,   77,    2, 0x08,   14 /* Private */,
-      16,    0,   78,    2, 0x08,   15 /* Private */,
+      12,    0,  128,    2, 0x08,   11 /* Private */,
+      13,    0,  129,    2, 0x08,   12 /* Private */,
+      14,    0,  130,    2, 0x08,   13 /* Private */,
+      15,    0,  131,    2, 0x08,   14 /* Private */,
+      16,    0,  132,    2, 0x08,   15 /* Private */,
+      17,    1,  133,    2, 0x08,   16 /* Private */,
+      19,    0,  136,    2, 0x08,   18 /* Private */,
+      20,    0,  137,    2, 0x08,   19 /* Private */,
+      21,    0,  138,    2, 0x08,   20 /* Private */,
+      22,    0,  139,    2, 0x08,   21 /* Private */,
+      23,    0,  140,    2, 0x08,   22 /* Private */,
+      24,    0,  141,    2, 0x08,   23 /* Private */,
+      25,    0,  142,    2, 0x08,   24 /* Private */,
+      26,    0,  143,    2, 0x08,   25 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    3,    4,    5,    6,    7,    8,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,   10,   11,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,   18,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -189,6 +247,25 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_qStartSendMD_pushButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_qParaMD_pushButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_qIzda_pushButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'on_qIzda_pushButton_pressed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_qDcha_pushButton_2_pressed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_qAvantiVConst_pushButton_3_pressed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_qAtras_pushButton_4_pressed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_qIzda_pushButton_released'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_qDcha_pushButton_2_released'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_qAvantiVConst_pushButton_3_released'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_qAtras_pushButton_4_released'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -207,6 +284,15 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: _t->OnTimerMDSend(); break;
         case 5: _t->on_qStartSendMD_pushButton_clicked(); break;
         case 6: _t->on_qParaMD_pushButton_clicked(); break;
+        case 7: _t->on_qIzda_pushButton_clicked((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 8: _t->on_qIzda_pushButton_pressed(); break;
+        case 9: _t->on_qDcha_pushButton_2_pressed(); break;
+        case 10: _t->on_qAvantiVConst_pushButton_3_pressed(); break;
+        case 11: _t->on_qAtras_pushButton_4_pressed(); break;
+        case 12: _t->on_qIzda_pushButton_released(); break;
+        case 13: _t->on_qDcha_pushButton_2_released(); break;
+        case 14: _t->on_qAvantiVConst_pushButton_3_released(); break;
+        case 15: _t->on_qAtras_pushButton_4_released(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -247,13 +333,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 16)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 16;
     }
     return _id;
 }

@@ -12,6 +12,10 @@ private:
 
     QString snd,answ; /* driver ask and answer buffer */
 
+    /*MOTORDRIVER 3 = RIGHT, MOTORDRIVER 2 = LEFT*/
+    QString idMotorLeft = "2";
+    QString idMotorRight = "3";
+
     QSerialPort serial; /* serial port */
 
     QString right_motor_speed_Hz, left_motor_speed_Hz; /* buffer for motor speed in Hz */

@@ -30,6 +30,24 @@ private slots:
 
     void on_qParaMD_pushButton_clicked();
 
+    void on_qIzda_pushButton_clicked(bool checked);
+
+    void on_qIzda_pushButton_pressed();
+
+    void on_qDcha_pushButton_2_pressed();
+
+    void on_qAvantiVConst_pushButton_3_pressed();
+
+    void on_qAtras_pushButton_4_pressed();
+
+    void on_qIzda_pushButton_released();
+
+    void on_qDcha_pushButton_2_released();
+
+    void on_qAvantiVConst_pushButton_3_released();
+
+    void on_qAtras_pushButton_4_released();
+
 private:
     Ui::MainWindow *ui;
     Fpga myFpga;
