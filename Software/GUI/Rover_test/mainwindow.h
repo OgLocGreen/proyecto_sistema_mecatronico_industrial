@@ -169,6 +169,24 @@ private slots:
 
     void on_qRoom_checkBox_stateChanged(int arg1);
 
+    void on_pushButton_pressed();
+
+    void on_ATRASpushButton_3_pressed();
+
+    void on_ALANTEpushButton_pressed();
+
+    void on_DCHApushButton_4_pressed();
+
+    void on_IZQpushButton_2_pressed();
+
+    void on_ALANTEpushButton_released();
+
+    void on_ATRASpushButton_3_released();
+
+    void on_DCHApushButton_4_released();
+
+    void on_IZQpushButton_2_released();
+
 private:
     Ui::MainWindow *ui;
 

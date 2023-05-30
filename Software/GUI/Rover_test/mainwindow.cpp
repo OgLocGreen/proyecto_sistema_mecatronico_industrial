@@ -723,3 +723,50 @@ void MainWindow::on_qRoom_checkBox_stateChanged(int arg1)
         socketBBB.sendmsg("<beaglebone><room_light>1</room_light><room_name>"+ui->qRoom_lineEdit->text()+"</room_name></beaglebone>");
 }
 
+
+void MainWindow::on_ALANTEpushButton_pressed()
+{
+    socketBBB.sendmsg("<trajectory><joy_x>"+QString::number(0)+"</joy_x><joy_y>"+QString::number(0.5)+"</joy_y></trajectory>");
+}
+
+void MainWindow::on_ATRASpushButton_3_pressed()
+{
+    socketBBB.sendmsg("<trajectory><joy_x>"+QString::number(0)+"</joy_x><joy_y>"+QString::number(-50)+"</joy_y></trajectory>");
+}
+
+
+void MainWindow::on_DCHApushButton_4_pressed()
+{
+    socketBBB.sendmsg("<trajectory><joy_x>"+QString::number(50)+"</joy_x><joy_y>"+QString::number(0)+"</joy_y></trajectory>");
+}
+
+
+void MainWindow::on_IZQpushButton_2_pressed()
+{
+    socketBBB.sendmsg("<trajectory><joy_x>"+QString::number(-50)+"</joy_x><joy_y>"+QString::number(0)+"</joy_y></trajectory>");
+}
+
+
+void MainWindow::on_ALANTEpushButton_released()
+{
+    socketBBB.sendmsg("<trajectory><joy_x>"+QString::number(0)+"</joy_x><joy_y>"+QString::number(0)+"</joy_y></trajectory>");
+}
+
+
+void MainWindow::on_ATRASpushButton_3_released()
+{
+    socketBBB.sendmsg("<trajectory><joy_x>"+QString::number(0)+"</joy_x><joy_y>"+QString::number(0)+"</joy_y></trajectory>");
+}
+
+
+void MainWindow::on_DCHApushButton_4_released()
+{
+    socketBBB.sendmsg("<trajectory><joy_x>"+QString::number(0)+"</joy_x><joy_y>"+QString::number(0)+"</joy_y></trajectory>");
+}
+
+
+void MainWindow::on_IZQpushButton_2_released()
+{
+    socketBBB.sendmsg("<trajectory><joy_x>"+QString::number(0)+"</joy_x><joy_y>"+QString::number(0)+"</joy_y></trajectory>");
+}
+
