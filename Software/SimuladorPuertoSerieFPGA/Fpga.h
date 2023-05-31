@@ -26,7 +26,6 @@ public slots:
     void OnDataRecievedFromBBB(QString direction_elev, QString enable_elev, QString enable_cam, QString direction_cam, QString cam_value, QString enable_fast); /* When new command recieved, creates the byte array to send to FPGA */
 private slots:
     void OnFPGAReadyRead(); /* Recieves answer from FPGA */
-    void OnTimerServo(); /* Sends new angle command to the FPGA */
 };
 
 #endif // FPGA_H

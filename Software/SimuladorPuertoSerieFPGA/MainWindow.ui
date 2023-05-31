@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>667</width>
-    <height>312</height>
+    <width>711</width>
+    <height>351</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,42 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="2" colspan="2">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QSpinBox" name="qenableScissorSpinBox">
-        <property name="maximum">
-         <number>1</number>
-        </property>
-        <property name="value">
-         <number>1</number>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="qenableServoSpinBox">
-        <property name="maximum">
-         <number>1</number>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="qdirScissorSpinBox">
-        <property name="maximum">
-         <number>1</number>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="qdirServoSpinBox">
-        <property name="maximum">
-         <number>1</number>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="0" column="1">
+    <item row="0" column="1" colspan="2">
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QLabel" name="label">
@@ -80,39 +45,72 @@
         </property>
        </widget>
       </item>
-     </layout>
-    </item>
-    <item row="1" column="3" colspan="2">
-     <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QPushButton" name="qParaMD_pushButton">
+       <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>PARAAAAA</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="qStartSendMD_pushButton">
-        <property name="text">
-         <string>START BROADCASTING MOTORDRIVERS</string>
+         <string>CAM VALUE</string>
         </property>
        </widget>
       </item>
      </layout>
     </item>
-    <item row="1" column="1" colspan="2">
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QPushButton" name="qSendLine_pushButton">
+    <item row="0" column="3" colspan="2">
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="qSUBESERVO_pushbutton">
         <property name="text">
-         <string>START BROADCASTING WITH FPGA</string>
+         <string>SUBE SERVO</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="qBAJASERVO_pushButton_4">
+        <property name="text">
+         <string>BAJA SERVO</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="qSUBETIJERA_pushButton">
+        <property name="text">
+         <string>SUBE</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="qBAJATIJERA_pushbutton">
+        <property name="text">
+         <string>BAJA</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QSpinBox" name="qValueSERVOANGLE_spinBox_2">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::NoButtons</enum>
+        </property>
+        <property name="maximum">
+         <number>31</number>
+        </property>
+        <property name="value">
+         <number>10</number>
         </property>
        </widget>
       </item>
      </layout>
     </item>
-    <item row="0" column="4">
+    <item row="0" column="5">
      <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="qIzda_pushButton">
+        <property name="text">
+         <string>IZQ</string>
+        </property>
+       </widget>
+      </item>
       <item row="1" column="2">
        <widget class="QPushButton" name="qDcha_pushButton_2">
         <property name="text">
@@ -133,8 +131,48 @@
         </property>
        </spacer>
       </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="qAvantiVConst_pushButton_3">
+        <property name="text">
+         <string>AVANTI</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="qPercSpeed_spinBox">
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="singleStep">
+         <number>10</number>
+        </property>
+        <property name="value">
+         <number>50</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="qAtras_pushButton_4">
+        <property name="text">
+         <string>PATRAS</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="2">
        <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="0">
+       <spacer name="horizontalSpacer_5">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -159,53 +197,6 @@
         </property>
        </spacer>
       </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="qAtras_pushButton_4">
-        <property name="text">
-         <string>PATRAS</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="qAvantiVConst_pushButton_3">
-        <property name="text">
-         <string>AVANTI</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="qIzda_pushButton">
-        <property name="text">
-         <string>IZQ</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QSpinBox" name="qPercSpeed_spinBox">
-        <property name="maximum">
-         <number>100</number>
-        </property>
-        <property name="singleStep">
-         <number>10</number>
-        </property>
-        <property name="value">
-         <number>50</number>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
    </layout>
@@ -215,7 +206,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>667</width>
+     <width>711</width>
      <height>22</height>
     </rect>
    </property>

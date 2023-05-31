@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -30,31 +29,28 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QVBoxLayout *verticalLayout;
-    QSpinBox *qenableScissorSpinBox;
-    QSpinBox *qenableServoSpinBox;
-    QSpinBox *qdirScissorSpinBox;
-    QSpinBox *qdirServoSpinBox;
     QVBoxLayout *verticalLayout_2;
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
-    QVBoxLayout *verticalLayout_3;
-    QPushButton *qParaMD_pushButton;
-    QPushButton *qStartSendMD_pushButton;
-    QHBoxLayout *horizontalLayout_2;
-    QPushButton *qSendLine_pushButton;
+    QLabel *label_5;
+    QGridLayout *gridLayout_3;
+    QPushButton *qSUBESERVO_pushbutton;
+    QPushButton *qBAJASERVO_pushButton_4;
+    QPushButton *qSUBETIJERA_pushButton;
+    QPushButton *qBAJATIJERA_pushbutton;
+    QSpinBox *qValueSERVOANGLE_spinBox_2;
     QGridLayout *gridLayout_2;
+    QPushButton *qIzda_pushButton;
     QPushButton *qDcha_pushButton_2;
     QSpacerItem *horizontalSpacer;
-    QSpacerItem *horizontalSpacer_3;
-    QSpacerItem *horizontalSpacer_4;
-    QPushButton *qAtras_pushButton_4;
-    QSpacerItem *horizontalSpacer_5;
     QPushButton *qAvantiVConst_pushButton_3;
-    QPushButton *qIzda_pushButton;
     QSpinBox *qPercSpeed_spinBox;
+    QPushButton *qAtras_pushButton_4;
+    QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *horizontalSpacer_5;
+    QSpacerItem *horizontalSpacer_4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -62,41 +58,11 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(667, 312);
+        MainWindow->resize(711, 351);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName("gridLayout");
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName("verticalLayout");
-        qenableScissorSpinBox = new QSpinBox(centralwidget);
-        qenableScissorSpinBox->setObjectName("qenableScissorSpinBox");
-        qenableScissorSpinBox->setMaximum(1);
-        qenableScissorSpinBox->setValue(1);
-
-        verticalLayout->addWidget(qenableScissorSpinBox);
-
-        qenableServoSpinBox = new QSpinBox(centralwidget);
-        qenableServoSpinBox->setObjectName("qenableServoSpinBox");
-        qenableServoSpinBox->setMaximum(1);
-
-        verticalLayout->addWidget(qenableServoSpinBox);
-
-        qdirScissorSpinBox = new QSpinBox(centralwidget);
-        qdirScissorSpinBox->setObjectName("qdirScissorSpinBox");
-        qdirScissorSpinBox->setMaximum(1);
-
-        verticalLayout->addWidget(qdirScissorSpinBox);
-
-        qdirServoSpinBox = new QSpinBox(centralwidget);
-        qdirServoSpinBox->setObjectName("qdirServoSpinBox");
-        qdirServoSpinBox->setMaximum(1);
-
-        verticalLayout->addWidget(qdirServoSpinBox);
-
-
-        gridLayout->addLayout(verticalLayout, 0, 2, 1, 2);
-
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName("verticalLayout_2");
         label = new QLabel(centralwidget);
@@ -119,36 +85,55 @@ public:
 
         verticalLayout_2->addWidget(label_4);
 
+        label_5 = new QLabel(centralwidget);
+        label_5->setObjectName("label_5");
 
-        gridLayout->addLayout(verticalLayout_2, 0, 1, 1, 1);
-
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setObjectName("verticalLayout_3");
-        qParaMD_pushButton = new QPushButton(centralwidget);
-        qParaMD_pushButton->setObjectName("qParaMD_pushButton");
-
-        verticalLayout_3->addWidget(qParaMD_pushButton);
-
-        qStartSendMD_pushButton = new QPushButton(centralwidget);
-        qStartSendMD_pushButton->setObjectName("qStartSendMD_pushButton");
-
-        verticalLayout_3->addWidget(qStartSendMD_pushButton);
+        verticalLayout_2->addWidget(label_5);
 
 
-        gridLayout->addLayout(verticalLayout_3, 1, 3, 1, 2);
+        gridLayout->addLayout(verticalLayout_2, 0, 1, 1, 2);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
-        qSendLine_pushButton = new QPushButton(centralwidget);
-        qSendLine_pushButton->setObjectName("qSendLine_pushButton");
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setObjectName("gridLayout_3");
+        qSUBESERVO_pushbutton = new QPushButton(centralwidget);
+        qSUBESERVO_pushbutton->setObjectName("qSUBESERVO_pushbutton");
 
-        horizontalLayout_2->addWidget(qSendLine_pushButton);
+        gridLayout_3->addWidget(qSUBESERVO_pushbutton, 0, 0, 1, 1);
+
+        qBAJASERVO_pushButton_4 = new QPushButton(centralwidget);
+        qBAJASERVO_pushButton_4->setObjectName("qBAJASERVO_pushButton_4");
+
+        gridLayout_3->addWidget(qBAJASERVO_pushButton_4, 2, 0, 1, 1);
+
+        qSUBETIJERA_pushButton = new QPushButton(centralwidget);
+        qSUBETIJERA_pushButton->setObjectName("qSUBETIJERA_pushButton");
+
+        gridLayout_3->addWidget(qSUBETIJERA_pushButton, 0, 1, 1, 1);
+
+        qBAJATIJERA_pushbutton = new QPushButton(centralwidget);
+        qBAJATIJERA_pushbutton->setObjectName("qBAJATIJERA_pushbutton");
+
+        gridLayout_3->addWidget(qBAJATIJERA_pushbutton, 2, 1, 1, 1);
+
+        qValueSERVOANGLE_spinBox_2 = new QSpinBox(centralwidget);
+        qValueSERVOANGLE_spinBox_2->setObjectName("qValueSERVOANGLE_spinBox_2");
+        qValueSERVOANGLE_spinBox_2->setReadOnly(true);
+        qValueSERVOANGLE_spinBox_2->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        qValueSERVOANGLE_spinBox_2->setMaximum(31);
+        qValueSERVOANGLE_spinBox_2->setValue(10);
+
+        gridLayout_3->addWidget(qValueSERVOANGLE_spinBox_2, 1, 0, 1, 1);
 
 
-        gridLayout->addLayout(horizontalLayout_2, 1, 1, 1, 2);
+        gridLayout->addLayout(gridLayout_3, 0, 3, 1, 2);
 
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName("gridLayout_2");
+        qIzda_pushButton = new QPushButton(centralwidget);
+        qIzda_pushButton->setObjectName("qIzda_pushButton");
+
+        gridLayout_2->addWidget(qIzda_pushButton, 1, 0, 1, 1);
+
         qDcha_pushButton_2 = new QPushButton(centralwidget);
         qDcha_pushButton_2->setObjectName("qDcha_pushButton_2");
 
@@ -158,32 +143,10 @@ public:
 
         gridLayout_2->addItem(horizontalSpacer, 0, 0, 1, 1);
 
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_3, 0, 2, 1, 1);
-
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_4, 3, 2, 1, 1);
-
-        qAtras_pushButton_4 = new QPushButton(centralwidget);
-        qAtras_pushButton_4->setObjectName("qAtras_pushButton_4");
-
-        gridLayout_2->addWidget(qAtras_pushButton_4, 3, 1, 1, 1);
-
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_5, 3, 0, 1, 1);
-
         qAvantiVConst_pushButton_3 = new QPushButton(centralwidget);
         qAvantiVConst_pushButton_3->setObjectName("qAvantiVConst_pushButton_3");
 
         gridLayout_2->addWidget(qAvantiVConst_pushButton_3, 0, 1, 1, 1);
-
-        qIzda_pushButton = new QPushButton(centralwidget);
-        qIzda_pushButton->setObjectName("qIzda_pushButton");
-
-        gridLayout_2->addWidget(qIzda_pushButton, 1, 0, 1, 1);
 
         qPercSpeed_spinBox = new QSpinBox(centralwidget);
         qPercSpeed_spinBox->setObjectName("qPercSpeed_spinBox");
@@ -193,13 +156,30 @@ public:
 
         gridLayout_2->addWidget(qPercSpeed_spinBox, 1, 1, 1, 1);
 
+        qAtras_pushButton_4 = new QPushButton(centralwidget);
+        qAtras_pushButton_4->setObjectName("qAtras_pushButton_4");
 
-        gridLayout->addLayout(gridLayout_2, 0, 4, 1, 1);
+        gridLayout_2->addWidget(qAtras_pushButton_4, 3, 1, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_3, 0, 2, 1, 1);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_5, 3, 0, 1, 1);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_4, 3, 2, 1, 1);
+
+
+        gridLayout->addLayout(gridLayout_2, 0, 5, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 667, 22));
+        menubar->setGeometry(QRect(0, 0, 711, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -217,13 +197,15 @@ public:
         label_2->setText(QCoreApplication::translate("MainWindow", "EN SERVO", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "DIR SCISSOR", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "DIR SERVO", nullptr));
-        qParaMD_pushButton->setText(QCoreApplication::translate("MainWindow", "PARAAAAA", nullptr));
-        qStartSendMD_pushButton->setText(QCoreApplication::translate("MainWindow", "START BROADCASTING MOTORDRIVERS", nullptr));
-        qSendLine_pushButton->setText(QCoreApplication::translate("MainWindow", "START BROADCASTING WITH FPGA", nullptr));
-        qDcha_pushButton_2->setText(QCoreApplication::translate("MainWindow", "DERECHA", nullptr));
-        qAtras_pushButton_4->setText(QCoreApplication::translate("MainWindow", "PATRAS", nullptr));
-        qAvantiVConst_pushButton_3->setText(QCoreApplication::translate("MainWindow", "AVANTI", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "CAM VALUE", nullptr));
+        qSUBESERVO_pushbutton->setText(QCoreApplication::translate("MainWindow", "SUBE SERVO", nullptr));
+        qBAJASERVO_pushButton_4->setText(QCoreApplication::translate("MainWindow", "BAJA SERVO", nullptr));
+        qSUBETIJERA_pushButton->setText(QCoreApplication::translate("MainWindow", "SUBE", nullptr));
+        qBAJATIJERA_pushbutton->setText(QCoreApplication::translate("MainWindow", "BAJA", nullptr));
         qIzda_pushButton->setText(QCoreApplication::translate("MainWindow", "IZQ", nullptr));
+        qDcha_pushButton_2->setText(QCoreApplication::translate("MainWindow", "DERECHA", nullptr));
+        qAvantiVConst_pushButton_3->setText(QCoreApplication::translate("MainWindow", "AVANTI", nullptr));
+        qAtras_pushButton_4->setText(QCoreApplication::translate("MainWindow", "PATRAS", nullptr));
     } // retranslateUi
 
 };

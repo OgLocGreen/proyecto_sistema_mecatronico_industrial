@@ -47,12 +47,11 @@ static constexpr auto qt_meta_stringdata_CLASSFpgaENDCLASS = QtMocHelpers::strin
     "direction_cam",
     "cam_value",
     "enable_fast",
-    "OnFPGAReadyRead",
-    "OnTimerServo"
+    "OnFPGAReadyRead"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSFpgaENDCLASS_t {
-    uint offsetsAndSizes[22];
+    uint offsetsAndSizes[20];
     char stringdata0[5];
     char stringdata1[22];
     char stringdata2[1];
@@ -63,7 +62,6 @@ struct qt_meta_stringdata_CLASSFpgaENDCLASS_t {
     char stringdata7[10];
     char stringdata8[12];
     char stringdata9[16];
-    char stringdata10[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSFpgaENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -78,8 +76,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSFpgaENDCLASS_t qt_meta_stringda
         QT_MOC_LITERAL(66, 13),  // "direction_cam"
         QT_MOC_LITERAL(80, 9),  // "cam_value"
         QT_MOC_LITERAL(90, 11),  // "enable_fast"
-        QT_MOC_LITERAL(102, 15),  // "OnFPGAReadyRead"
-        QT_MOC_LITERAL(118, 12)   // "OnTimerServo"
+        QT_MOC_LITERAL(102, 15)   // "OnFPGAReadyRead"
     },
     "Fpga",
     "OnDataRecievedFromBBB",
@@ -90,8 +87,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSFpgaENDCLASS_t qt_meta_stringda
     "direction_cam",
     "cam_value",
     "enable_fast",
-    "OnFPGAReadyRead",
-    "OnTimerServo"
+    "OnFPGAReadyRead"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -103,7 +99,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSFpgaENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -111,13 +107,11 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSFpgaENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    6,   32,    2, 0x0a,    1 /* Public */,
-       9,    0,   45,    2, 0x08,    8 /* Private */,
-      10,    0,   46,    2, 0x08,    9 /* Private */,
+       1,    6,   26,    2, 0x0a,    1 /* Public */,
+       9,    0,   39,    2, 0x08,    8 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    3,    4,    5,    6,    7,    8,
-    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -141,8 +135,6 @@ Q_CONSTINIT const QMetaObject Fpga::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         QtPrivate::TypeAndForceComplete<QString, std::false_type>,
         // method 'OnFPGAReadyRead'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'OnTimerServo'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -156,7 +148,6 @@ void Fpga::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         switch (_id) {
         case 0: _t->OnDataRecievedFromBBB((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[5])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[6]))); break;
         case 1: _t->OnFPGAReadyRead(); break;
-        case 2: _t->OnTimerServo(); break;
         default: ;
         }
     }
@@ -181,13 +172,13 @@ int Fpga::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 2)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 2;
     }
     return _id;
 }

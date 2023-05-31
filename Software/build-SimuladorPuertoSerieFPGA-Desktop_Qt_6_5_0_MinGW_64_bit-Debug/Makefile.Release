@@ -639,7 +639,9 @@ release/Fpga.o: ../SimuladorPuertoSerieFPGA/Fpga.cpp ../SimuladorPuertoSerieFPGA
 		C:/Qt/6.5.0/mingw_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/6.5.0/mingw_64/include/QtCore/q20memory.h \
 		C:/Qt/6.5.0/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.5.0/mingw_64/include/QtCore/qvariant.h
+		C:/Qt/6.5.0/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.5.0/mingw_64/include/QtCore/QLocale \
+		C:/Qt/6.5.0/mingw_64/include/QtCore/qlocale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Fpga.o ..\SimuladorPuertoSerieFPGA\Fpga.cpp
 
 release/MotorDriver.o: ../SimuladorPuertoSerieFPGA/MotorDriver.cpp ../SimuladorPuertoSerieFPGA/MotorDriver.h \

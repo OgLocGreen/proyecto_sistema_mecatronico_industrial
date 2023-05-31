@@ -13,6 +13,18 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+private:
+    QString enable_scissor = QString::number(1);
+    QString enable_servo = QString::number(0);
+    QString dir_scissor = QString::number(0);
+    QString dir_servo = QString::number(0);
+    int cam_value_int = 20;
+    QString cam_value = QString::number(cam_value_int);
+    QString enable_fast = "disabled";
+
+    Ui::MainWindow *ui;
+    Fpga myFpga;
+    MotorDriver myMotorDrivers;
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -22,12 +34,6 @@ signals:
     void SendDataToFPGA(QString dir_scissor,QString enable_scissor,QString enable_servo,QString dir_servo,QString cam_value,QString enable_fast);
     void SendDataToMotorDriver(QString right_motor_speed_prcnt, QString left_motor_speed_prcnt);
 private slots:
-    void on_qSendLine_pushButton_clicked();
-    void OnTimerSend();
-    void OnTimerMDSend();
-
-    void on_qStartSendMD_pushButton_clicked();
-
     void on_qParaMD_pushButton_clicked();
 
     void on_qIzda_pushButton_clicked(bool checked);
@@ -48,12 +54,17 @@ private slots:
 
     void on_qAtras_pushButton_4_released();
 
-private:
-    Ui::MainWindow *ui;
-    Fpga myFpga;
-    MotorDriver myMotorDrivers;
+    void on_qSUBETIJERA_pushButton_pressed();
 
-    QTimer timerSend;
-    QTimer timerSendMD;
+    void on_qSUBETIJERA_pushButton_released();
+
+    void on_qBAJATIJERA_pushbutton_pressed();
+
+    void on_qBAJATIJERA_pushbutton_released();
+
+    void on_qSUBESERVO_pushbutton_pressed();
+
+    void on_qBAJASERVO_pushButton_4_pressed();
+
 };
 #endif // MAINWINDOW_H

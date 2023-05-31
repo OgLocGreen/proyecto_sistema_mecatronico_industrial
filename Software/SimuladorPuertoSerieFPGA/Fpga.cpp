@@ -3,17 +3,16 @@
 #include <QByteArray>
 #include <QDebug>
 #include <QVariant>
+#include <QLocale>
 
 #define BAUDRATE 9600
 #define COMPORT "COM3" // /dev/ttyUSB1
 
 void Fpga::SendDataRS232()
 {
-//    if(!serial.isOpen()){
-    if(!serial.open(QSerialPort::WriteOnly)){
+    if(!serial.isOpen()){
         qDebug() << QString("Connection failed");
         qDebug() << QString(serial.errorString());
-        serial.close();
         return;
     }
 
@@ -23,8 +22,6 @@ void Fpga::SendDataRS232()
         serial.write(snd);
         serial.waitForBytesWritten(500);
     }
-
-    serial.close();
 }
 
 Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
@@ -40,18 +37,16 @@ Fpga::Fpga(QObject *parent) /*CONSTRUCTOR*/
     //QObject::connect(&serial,&QIODevice::readyRead,this,&Fpga::OnFPGAReadyRead);
 
     /* Connecting timer slot, for servo angle changing */
-    QObject::connect(&timerServo,&QTimer::timeout,this,&Fpga::OnTimerServo);
+    serial.open(QSerialPort::WriteOnly);
 
-    if(!serial.open(QSerialPort::WriteOnly)){
+    if(!serial.isOpen()){
         qDebug() << QString("No conectado al puerto serie de FPGA");
-        serial.close();
-        return;
     }
 
     else{
         qDebug() << QString("Conectado correctamente al puerto serie RS232 - ") + QString(COMPORT) + " - " + QString::number(BAUDRATE);
         snd.clear();
-        snd.append((char)0b11000000);
+        snd.append((char)0b11000000); // tijera abajo y desactivada (suupestamente)
         angle_servo = 20;
         snd[0] = snd[0]|angle_servo;
 
@@ -106,28 +101,10 @@ void Fpga::OnDataRecievedFromBBB(QString direction_elev, QString enable_elev, QS
         snd.append((char)0b11000000);
     }
 
-    if((enable_cam == "1")&&(!timerServo.isActive())){ /* if timer is not active and recieves enable_servo = 1, activate timerServo */
-        timerServo.start(1000); /* Sends new angle on timer */
-    }
-    else if((enable_cam == "0")&&(timerServo.isActive())){
-        timerServo.stop(); /* Stops new angle sending */
-    }
+    QLocale cLocale(QLocale::German);
+    angle_servo = cLocale.toInt(cam_value);
 
     snd[0] = snd[0]|angle_servo;
 
     SendDataRS232();
-}
-
-void Fpga::OnTimerServo(){
-    if(directionServo == "1") {
-        angle_servo = angle_servo+1;
-        if(angle_servo>=31) angle_servo = 31;
-    }
-    else if(directionServo == "0") {
-        angle_servo = angle_servo-1;
-        if(angle_servo<=0) angle_servo = 0;
-    }
-    else {
-        angle_servo = angle_servo;
-    }
 }
