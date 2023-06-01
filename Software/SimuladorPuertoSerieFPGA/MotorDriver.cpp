@@ -1,5 +1,6 @@
 #include "MotorDriver.h"
 #include <QDebug>
+#include <QLocale>
 
 #define MAX_SPEED 600
 #define BAUDRATE 115200
@@ -41,7 +42,8 @@ void MotorDriver::OnDriverReadyRead()
 QString MotorDriver::PercentToHzSpeed(QString _speed_prcnt)
 {
     if(_speed_prcnt!="0"){
-        float _speed_prcnt_float = _speed_prcnt.toFloat()/100.0; /* conversion to float */
+        QLocale cLocale(QLocale::German);
+        float _speed_prcnt_float = cLocale.toFloat(_speed_prcnt)/100.0; /* conversion to float */
         float _speed_Hz_float = _speed_prcnt_float*MAX_SPEED; /* conversion from percentage to absolute */
         QString _speed_Hz_str = QString::number(qRound(_speed_Hz_float)); /* conversion from integer to string to command building */
         return _speed_Hz_str;
@@ -69,7 +71,7 @@ MotorDriver::MotorDriver(QObject *parent) /*CONSTRUCTOR*/
     SendCmd2Driver("#"+idMotorRight+"p5"); /* preset all motors for speed control */
     SendCmd2Driver("#"+idMotorLeft+"p5"); /* preset all motors for speed control */
 
-    SendCmd2Driver("#"+idMotorRight+"b5000"); /* preset all motors with an specified acceleration ramp */
+    SendCmd2Driver("#"+idMotorRight+"b2364"); /* preset all motors with an specified acceleration ramp */
     SendCmd2Driver("#"+idMotorLeft+"b2364"); /* preset all motors with an specified acceleration ramp */
 
     SendCmd2Driver("#"+idMotorRight+":ramp_mode=2"); /* preset all motors with an specified acceleration ramp */
